@@ -1,0 +1,13 @@
+.sprites { background: url(../../static/sprites.png) no-repeat; }
+.QQ-16 { width: 16px; height: 16px; background-position: -66px 0; }
+.QQ-32 { width: 32px; height: 32px; background-position: 0 0; }
+.menu-16 { width: 16px; height: 16px; background-position: -66px -17px; }
+.menu-32 { width: 32px; height: 32px; background-position: -33px 0; }
+.phone-16 { width: 16px; height: 16px; background-position: -33px -33px; }
+.phone-32 { width: 32px; height: 32px; background-position: 0 -33px; }
+.pic-16 { width: 16px; height: 16px; background-position: -33px -50px; }
+.pic-32 { width: 32px; height: 32px; background-position: -50px -34px; }
+.search-16 { width: 16px; height: 16px; background-position: 0 -66px; }
+.search-32 { width: 32px; height: 32px; background-position: -17px -67px; }
+.shoping-16 { width: 16px; height: 16px; background-position: 0 -83px; }
+.shoping-32 { width: 32px; height: 32px; background-position: -50px -67px; }

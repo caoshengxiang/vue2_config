@@ -21,7 +21,6 @@
         <div>{{$t('name')}}</div>
 
         <input type="text" :placeholder="placeholder">
-
     </div>
 </template>
 <script>

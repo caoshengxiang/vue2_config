@@ -17,9 +17,7 @@
 </i18n>
 <template>
     <div>
-
         <set-lang></set-lang>
-
         <div>{{$t('name')}}</div>
 
         <input type="text" :placeholder="placeholder">
@@ -45,9 +43,6 @@
         },
         computed: {},
         methods: {
-            meth () {
-                this.$toast(this.$t('say'))
-            },
         },
         components: {
             setLang,

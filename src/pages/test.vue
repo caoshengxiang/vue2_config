@@ -23,6 +23,11 @@
         <input type="text" :placeholder="placeholder">
 
         <el-button>element ui button</el-button>
+
+
+        <div id="">
+
+        </div>
     </div>
 </template>
 <script>
@@ -51,7 +56,7 @@
         }
     }
 </script>
-<style lang="sass" rel="stylesheet/scss" scoped>
+<style lang="scss" rel="stylesheet/scss" scoped>
     div {
         ul {
             li {

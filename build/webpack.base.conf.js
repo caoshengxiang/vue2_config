@@ -147,7 +147,8 @@ module.exports = function (env) {
             new webpack.ProvidePlugin({
                 $: "jquery",
                 jQuery: "jquery",
-                $axios: 'axios'
+                $axios: 'axios',
+                SVG: 'svg'
             }),
             new webpack.LoaderOptionsPlugin({ //浏览器加前缀
                 options: {

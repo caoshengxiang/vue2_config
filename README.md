@@ -1,11 +1,5 @@
-# 商城移动端
 
-# 移动端设计稿
-https://pro.modao.cc/app/H30rdsByMVGtxCR5SfWNfJN3nKbICMb
-# pc端设计稿
-https://pro.modao.cc/app/C5qYdhLydegH4pYIer2z2N4IPb1Ywlw#screen=s02EF84392A1491890727271
-
-# 技术栈 webpack2+vue2+vuex2+vue-router2+sass+vue-i18n + 移动端适配(flexible.js) + UI框架(mint UI)
+# 技术栈 webpack2+vue2+vuex2+vue-router2+sass+vue-i18n
 
 
 # i18n国际化

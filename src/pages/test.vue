@@ -42,9 +42,6 @@
         },
         computed: {},
         methods: {
-            meth () {
-                this.$toast(this.$t('say'))
-            },
         },
         components: {
             setLang,

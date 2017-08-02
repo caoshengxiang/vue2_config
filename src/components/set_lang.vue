@@ -1,8 +1,8 @@
 <template>
   <div class="language">
-    <a @click="setLanguage('cn')" v-if="lang == 'en'">中文</a>
-    <a @click="setLanguage('en')" v-if="lang == 'cn'">En</a>
-    <a @click="setLanguage('ja')" v-if="lang == 'ja'">ja</a>
+    <button @click="setLanguage('cn')" v-if="lang == 'en'">中文</button>
+    <button @click="setLanguage('en')" v-if="lang == 'cn'">En</button>
+    <button @click="setLanguage('ja')" v-if="lang == 'ja'">ja</button>
   </div>
 </template>
 <script>
@@ -40,7 +40,6 @@
   /*}*/
 
   .language {
-    color: #fff;
     display: inline-block;
     a {
       text-decoration: none;

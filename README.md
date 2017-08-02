@@ -1,5 +1,5 @@
 
-# 技术栈 webpack2+vue2+vuex2+vue-router2+sass+vue-i18n
+# 技术栈 webpack2+vue2+vuex2+vue-router2+sass+vue-i18n+elementUI
 
 
 # i18n国际化

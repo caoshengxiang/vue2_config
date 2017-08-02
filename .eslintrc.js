@@ -17,14 +17,14 @@ module.exports = {
     ],
     // add your custom rules here
     'rules': { //这里写自定义规则
-        "no-alert": 1,//禁止使用alert confirm prompt
+        "no-alert": 0,//禁止使用alert confirm prompt
         "no-array-constructor": 2,//禁止使用数组构造器
         "no-bitwise": 0,//禁止使用按位运算符
         "no-caller": 1,//禁止使用arguments.caller或arguments.callee
         "no-catch-shadow": 2,//禁止catch子句参数与外部作用域变量同名
         "no-class-assign": 2,//禁止给类赋值
         "no-cond-assign": 2,//禁止在条件表达式中使用赋值语句
-        "no-console": 1,//禁止使用console
+        "no-console": 0,//禁止使用console
         "no-const-assign": 2,//禁止修改const声明的变量
         "no-constant-condition": 2,//禁止在条件中使用常量表达式 if(true) if(1)
         "no-continue": 0,//禁止使用continue
@@ -38,7 +38,6 @@ module.exports = {
         "no-else-return": 0,//如果if语句里面有return,后面不能跟else语句
         "no-empty": 2,//块语句中的内容不能为空
         "no-empty-character-class": 2,//正则表达式中的[]内容不能为空
-        "no-empty-label": 1,//禁止使用空label
         "no-eq-null": 2,//禁止对null使用==或!=运算符
         "no-eval": 1,//禁止使用eval
         "no-ex-assign": 2,//禁止给catch语句中的异常参数赋值
@@ -59,7 +58,7 @@ module.exports = {
         "no-irregular-whitespace": 2,//不能有不规则的空格
         "no-iterator": 2,//禁止使用__iterator__ 属性
         "no-label-var": 2,//label名不能与var声明的变量名相同
-        "no-labels": 2,//禁止标签声明
+        "no-labels": 0,//禁止标签声明
         "no-lone-blocks": 2,//禁止不必要的嵌套块
         "no-lonely-if": 2,//禁止else语句内只有if语句
         "no-loop-func": 1,//禁止在循环中使用函数（如果没有引用外部变量不形成闭包就可以）
@@ -72,7 +71,7 @@ module.exports = {
         "no-native-reassign": 2,//不能重写native对象
         "no-negated-in-lhs": 2,//in 操作符的左边不能有!
         "no-nested-ternary": 0,//禁止使用嵌套的三目运算
-        "no-new": 1,//禁止在使用new构造一个实例后不赋值
+        "no-new": 0,//禁止在使用new构造一个实例后不赋值
         "no-new-func": 1,//禁止使用new Function
         "no-new-object": 2,//禁止使用new Object()
         "no-new-require": 2,//禁止使用new require
@@ -167,7 +166,7 @@ module.exports = {
         "prefer-const": 0,//首选const
         "prefer-spread": 0,//首选展开运算
         "prefer-reflect": 0,//首选Reflect的方法
-        "quotes": [1, "single"],//引号类型 `` "" ''
+        "quotes": [0, "single"],//引号类型 `backtick`// ES6 only "double" 'single'
         "quote-props":[0, "always"],//对象字面量中的属性名是否强制双引号
         "radix": 2,//parseInt必须指定第二个参数
         "id-match": 0,//命名检测

@@ -27,9 +27,6 @@
             {{ $t('operate') }}
         </mt-button>
         <mt-badge size="small" color="green">30</mt-badge>
-
-        <a href="tel:15881182238">打电话</a>
-        <a href="sms:15881182238">发短信</a>
     </div>
 </template>
 <script>

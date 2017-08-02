@@ -5,7 +5,7 @@
 var webpackMerge = require('webpack-merge');　// 合并配置文件
 var webpack = require('webpack');
 var path = require('path');
-var baseConfig = require('./webpacak.base.conf');
+var baseConfig = require('./webpack.base.conf.js');
 
 // 压缩CSS模块;
 var OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');

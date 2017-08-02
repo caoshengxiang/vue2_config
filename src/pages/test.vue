@@ -17,19 +17,14 @@
 </i18n>
 <template>
     <div>
+
         <set-lang></set-lang>
+
         <div>{{$t('name')}}</div>
 
         <input type="text" :placeholder="placeholder">
-        <mt-button
-                type="primary"
-                @click="meth">
-            {{ $t('operate') }}
-        </mt-button>
-        <mt-badge size="small" color="green">30</mt-badge>
 
-        <a href="tel:15881182238">打电话</a>
-        <a href="sms:15881182238">发短信</a>
+        <el-button>element ui button</el-button>
     </div>
 </template>
 <script>

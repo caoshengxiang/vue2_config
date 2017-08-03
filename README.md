@@ -78,3 +78,4 @@
     npm config set sass-binary-site http://npm.taobao.org/mirrors/node-sass
     　　yarn：
     yarn config set sass-binary-site http://npm.taobao.org/mirrors/node-sass
+    (网上方法都是扯淡,包括用第二步也是不行,第二步安装玩后node-sass编译会报错,删除node_modules下的node-sass,再使用cnpm install安装)

@@ -5,7 +5,6 @@
 var webpackMerge = require('webpack-merge');
 var webpack = require('webpack');
 var path = require('path');
-var baseConfig = require('./webpack.base.conf.js');
 // 生成html
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')

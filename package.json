@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack-dev-server --env=dev --progress --hot --colors",
-    "build": "webpack --env=prod --progress --colors"
+    "build": "webpack --env=prod --progress --colors",
+    "release": "rm -rf dist/* && npm run build && ./bash/compress.sh"
   },
   "author": "",
   "license": "ISC",

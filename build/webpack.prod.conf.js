@@ -35,7 +35,7 @@ module.exports = function (env) {
             // 使用Webpack的DefinePlugin来指示生产环境,生产模式将由process.env.NODE_ENVVue的源代码确定，默认情况下将处于开发模式。
             new webpack.DefinePlugin({
                 'process.env': {
-                    'NODE_ENV': JSON.stringify('prod')
+                    'NODE_ENV': JSON.stringify('production')
                 }
             }),
 
@@ -56,7 +56,7 @@ module.exports = function (env) {
 
             /*编译生成html代码并在html中插入<script>标签*/
             new HtmlWebpackPlugin({
-                // favicon: path.join(__dirname, '../src/favicon.ico'),
+                favicon: path.join(__dirname, '../src/favicon.ico'),
                 filename: path.resolve(__dirname + '/../dist/index.html'),   // 目标文件
                 template: path.resolve(__dirname + '/../src/index.html'), //模板文件
                 inject: 'body', // 要把script插入到标签里

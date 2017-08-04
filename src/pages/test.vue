@@ -58,7 +58,7 @@
         }
     }
 </script>
-<style lang="sass" rel="stylesheet/scss" scoped>
+<style lang="scss" rel="stylesheet/scss" scoped>
     div {
         ul {
             li {

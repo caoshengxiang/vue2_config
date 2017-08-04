@@ -1,11 +1,5 @@
-# 商城移动端
 
-# 移动端设计稿
-https://pro.modao.cc/app/H30rdsByMVGtxCR5SfWNfJN3nKbICMb
-# pc端设计稿
-https://pro.modao.cc/app/C5qYdhLydegH4pYIer2z2N4IPb1Ywlw#screen=s02EF84392A1491890727271
-
-# 技术栈 webpack2+vue2+vuex2+vue-router2+sass+vue-i18n + 移动端适配(flexible.js) + UI框架(mint UI)
+# 技术栈 webpack2+vue2+vuex2+vue-router2+sass+vue-i18n
 
 
 # i18n国际化
@@ -45,3 +39,43 @@ https://pro.modao.cc/app/C5qYdhLydegH4pYIer2z2N4IPb1Ywlw#screen=s02EF84392A14918
 ```
 启动命令 weinre --httpPort 8081 --boundHost -all-
 ```
+
+# 使用yarn作包管理
+
+## yarn vs npm
+>   1. 快
+    2. 安全
+    3. 处理npm一些遗留问题(比如:模块A依赖模块B,C. BC模块是没用在package.json中指定版本.默认安装都是最新版,多人开发或是过段时间再次安装可能出现版本不兼容,等bug.yarn使用yarn.lock机制)
+
+## yarn 安装
+> apt-get install yarn
+    (通过官网的安装方式出现了很多未知错误直接用npm install -g yarn 全局安装)
+
+## 命令
+
+>   1. yarn和 yarn install ，这两个命令的效果是一样的，等同于npm install，使用这个命令会在该目录生成一个yarn.lock的文件。
+    2. yarn add koa，安装koa模块并更新package.json和yarn.lock文件，等同于npm install koa --save。也可以使用yarn global add koa，等同于npm install koa -g，将模块直接安装到全局环境变量里，方便使用。
+    3. yarn list，根据当前项目的package.json查看模块的依赖及版本。
+    4. yarn info koa，查看koa模块的详细信息，类似于npm view koa。
+    5. yarn init，初始化项目package.json文件，等同于npm init。
+    6. yarn run，运行package.json中的script。
+    yarn还有很多有用的命令，很简单，大家可以通过yarn help获取帮助信息，或者查看yarn官网的文档，上面说的都很详细。
+
+>    Yarn官网：https://yarnpkg.com/
+    Yarn Github地址：https://github.com/yarnpkg/yarn
+
+## 装node-sass始终是坑
+>   1. 使用cnpm
+    2. 设置淘宝源
+    此方案将把下载源指定为cnpm仓库：
+    全部的下载源指向cnpm的指令:
+    　　npm :
+    npm config set registry http://registry.npm.taobao.org
+    　　yarn :
+    yarn config set registry http://registry.npm.taobao.org
+    　只指定node-sass的下载源：
+    　　npm：
+    npm config set sass-binary-site http://npm.taobao.org/mirrors/node-sass
+    　　yarn：
+    yarn config set sass-binary-site http://npm.taobao.org/mirrors/node-sass
+    (网上方法都是扯淡,包括用第二步也是不行,第二步安装玩后node-sass编译会报错,删除node_modules下的node-sass,再使用cnpm install安装)

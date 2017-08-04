@@ -79,3 +79,18 @@
     　　yarn：
     yarn config set sass-binary-site http://npm.taobao.org/mirrors/node-sass
     (网上方法都是扯淡,包括用第二步也是不行,第二步安装玩后node-sass编译会报错,删除node_modules下的node-sass,再使用cnpm install安装)
+
+## 移动端适配(flexible.js)
+> 1. html中引入meta
+
+```
+    <meta name="viewport" content="user-scalable=yes, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+```
+> 2. html引入flexible (在页面加载前引入)
+```
+    <script src="../static/vendor/flexible_css.js"></script>
+    <script src="../static/vendor/flexible.js"></script>
+```
+> 3. 使用rem
+    var.scss定义html标签的font-size
+    fun.scss 定义px2rem(10px)方法(依据上面定义font-size计算). 使用: 直接在vue文件style中引入fun.scss需要转换的单位调用方法:　width: px2rem(10px) 将10px转为rem

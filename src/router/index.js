@@ -9,31 +9,31 @@ Vue.use(Router)
 
 const test = resolve => require.ensure([], () => resolve(require('../pages/test.vue')), 'test')
 
-const home_pc = resolve => require.ensure([], () => resolve(require('../pages/home/home_pc.vue')), 'home')
-const home_m = resolve => require.ensure([], () => resolve(require('../pages/home/home_m.vue')), 'home')
-const home_a = resolve => require.ensure([], () => resolve(require('../pages/home/home_a.vue')), 'home')
+const homePc = resolve => require.ensure([], () => resolve(require('../pages/home/home_pc.vue')), 'home')
+const homeM = resolve => require.ensure([], () => resolve(require('../pages/home/home_m.vue')), 'home')
+const homeA = resolve => require.ensure([], () => resolve(require('../pages/home/home_ipad.vue')), 'home')
 
 export default new Router({
     // mode: 'history', // 这个模式路由没有#
     routes: [
         {
             path: '',
-            component: home_pc,
+            component: homePc,
         },
         {
             path: '/pc',
             name: 'homePC',
-            component: home_pc,
+            component: homePc,
         },
         {
             path: '/m',
             name: 'homeMobile',
-            component: home_m
+            component: homeM
         },
         {
-            path: '/apid',
-            name: 'homeApid',
-            component: home_a
+            path: '/iPad',
+            name: 'homeIpad',
+            component: homeA
         },
         {
             path: '/test',

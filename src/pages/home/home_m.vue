@@ -1,10 +1,10 @@
 <template>
     <div>
-
+        mobile
     </div>
 </template>
 <script>
-
+    import platform from '../../utils/utils'
     export default {
         name: '',
         props: {},
@@ -12,11 +12,22 @@
             return {}
         },
         computed: {},
-        methods: {},
+        methods: {
+            jumpPlatform() {
+                if (platform() === 'Android' || platform() === 'iPhone') {
+                    this.$router.push({name: 'homeMobile'})
+                } else if (platform() === 'iPad') {
+                    this.$router.push({name: 'homeIpad'})
+                } else {
+                    this.$router.push({name: 'homePC'})
+                }
+            }
+        },
         components: {},
         beforeCreate() {
         },
         created() {
+            this.jumpPlatform()
         },
         beforeMount() {
         },

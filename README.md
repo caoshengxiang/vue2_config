@@ -94,3 +94,27 @@
 > 3. 使用rem
     var.scss定义html标签的font-size
     fun.scss 定义px2rem(10px)方法(依据上面定义font-size计算). 使用: 直接在vue文件style中引入fun.scss需要转换的单位调用方法:　width: px2rem(10px) 将10px转为rem
+    
+## 加载完成前显示加载动画
+```js
+    let that = this 
+    document.onreadystatechange = function () {
+                if (document.readyState === "complete") { // 加载完成
+                    that.show = true // 记录显示boolean
+                    // Indicator.close(); // 关闭加载完成前的样式
+                } else {
+                    that.show = false
+                }
+    };
+
+    // html中绑定dom显示显示隐藏
+```
+
+> readyState 有五种取值：1. uninitialized  － 默认状态
+  　　　　　　　　　　　　 2. loading － 下载开始
+  　　　　　　　　　　　　 3. loaded － 下载完成
+  　　　　　　　　　　　　 4. interactive － 下载完成但尚不可用
+  　　　　　　　　　　　　 5. complete － 所有数据已经准备好
+
+## 下载和打开指定APP
+    http://blog.csdn.net/xyxjn/article/details/41805365/

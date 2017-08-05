@@ -21,17 +21,17 @@ export default new Router({
             component: homePc,
         },
         {
-            path: '/pc',
+            path: '/pc/home',
             name: 'homePC',
             component: homePc,
         },
         {
-            path: '/m',
+            path: '/m/home',
             name: 'homeMobile',
             component: homeM
         },
         {
-            path: '/iPad',
+            path: '/iPad/home',
             name: 'homeIpad',
             component: homeA
         },

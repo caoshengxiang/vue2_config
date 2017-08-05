@@ -54,6 +54,7 @@
             this.jumpPlatform()
 
             document.onreadystatechange = function () {
+                console.log(document.readyState)
                 if (document.readyState === "complete") {
                     that.show = true
                     Indicator.close();

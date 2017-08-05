@@ -13,6 +13,8 @@ const homePc = resolve => require.ensure([], () => resolve(require('../pages/hom
 const homeM = resolve => require.ensure([], () => resolve(require('../pages/home/home_m.vue')), 'home')
 const homeA = resolve => require.ensure([], () => resolve(require('../pages/home/home_ipad.vue')), 'home')
 
+const live = resolve => require.ensure([], () => resolve(require('../pages/live/live.vue')), 'live')
+
 export default new Router({
     // mode: 'history', // 这个模式路由没有#
     routes: [
@@ -36,8 +38,13 @@ export default new Router({
             component: homeA
         },
         {
+            path: '/live/:id',
+            name: 'live',
+            component: live
+        },
+        {
             path: '/test',
             component: test,
-        }
+        },
     ]
 })

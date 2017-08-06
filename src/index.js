@@ -9,6 +9,7 @@ import './styles/basic.scss'
 import i18n from './i18n'
 import Mint from 'mint-ui'
 import 'mint-ui/lib/style.css'
+import './vue_video_play'
 
 Vue.use(Mint);
 new Vue({

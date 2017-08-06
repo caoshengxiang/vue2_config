@@ -1,11 +1,21 @@
 <template>
     <div class="live">
-        <video width="100%" height="100%" id="living" class="living" autoplay preload="auto">
+        <video width="100%"  id="living" class="living" controls autoplay preload="auto">
             <source :src="vi" type="video/mp4">
 
             您的浏览器不支持 video 标签。
         </video>
-        <div class="text">
+
+
+        <!--<video-player  ref="videoPlayer"
+                       :options="playerOptions"
+                       @play="onPlayerPlay($event)"
+                       @ended="onPlayerEnded($event)"
+                       @ready="playerReadied($event)"
+        >不支持
+        </video-player>-->
+
+        <!--<div class="text">
             <div class="user">
                 <div class="anchor">
                     <div class="row-1">
@@ -28,7 +38,7 @@
                     <img  class="head-img" src="../../assets/test-head.jpeg" alt="">
                 </div>
             </div>
-            
+
             <div class="bottom">
                 <div class="msg">
                     <span class="list"><span class="name">小智</span> <span class="con">送给主播康乃馨x100</span></span><br>
@@ -42,32 +52,33 @@
                     <a href="/"><img width="20" height="20" src="" alt=""> 下载铸魂直播APP</a>
                 </div>
             </div>
+        </div>-->
 
-            <toast
-                    :show="dialogShow"
-                    title=""
-                    :lineStyle="{lineH: '0'}"
-                    :toastShowStyle="{width: '85%', borderRadius: '10px'}"
-                    @closeToast="closeToast">
-                <img slot="icon" @click="closeToast" src="../../assets/icon/close.png">
-                <div class="con">
-                    <h1>直播结束</h1>
-                    <p>如需继续观看更多精彩，请下载app~</p>
-                    <div class="download">
-                        <div class="p-1"></div>
-                        <div class="p-2">
-                            立即下载
-                        </div>
+        <toast
+                :show="dialogShow"
+                title=""
+                :lineStyle="{lineH: '0'}"
+                :toastShowStyle="{width: '85%', borderRadius: '10px'}"
+                @closeToast="closeToast">
+            <img slot="icon" @click="closeToast" src="../../assets/icon/close.png">
+            <div class="con">
+                <h1>直播结束</h1>
+                <p>如需继续观看更多精彩，请下载app~</p>
+                <div class="toast-download">
+                    <div class="p-1"></div>
+                    <div class="p-2">
+                        立即下载
                     </div>
                 </div>
-            </toast>
-        </div>
+            </div>
+        </toast>
     </div>
 </template>
 <script>
 //    import VideoJs from 'video.js'
     import video from '../../assets/VID_20170805_141933.mp4'
     import toast from '../../components/toast/dialog.vue'
+    import poster from '../../assets/home/anchor.png'
     export default {
         name: 'live',
         props: {},
@@ -76,12 +87,43 @@
                 dialogShow: false,
                 vi: video,
                 player: '',
+                playerOptions: {
+
+                    // component options
+                    start: 0,
+                    playsinline: false,
+
+                    // videojs options
+//                    muted: true,
+                    language: 'zh-CN',
+                    playbackRates: [0.7, 1.0, 1.5, 2.0],
+                    sources: [{
+                        type: "video/mp4",
+                        src: video,
+                    }],
+                    autoplay: true,
+                    poster: poster,
+                    height: screen.height,
+//                    width: screen
+                    controls: false,
+                    live: true,
+                }
             }
         },
         computed: {},
         methods: {
             closeToast() {
                 this.dialogShow = false
+            },
+            onPlayerPlay() {
+                console.log('start')
+            },
+            onPlayerEnded() { // 结束
+                this.dialogShow = true
+            },
+            playerReadied(e) { // ready
+                e.play()
+                console.log(screen.availHeight, screen.height)
             }
         },
         components: {
@@ -90,17 +132,19 @@
         beforeCreate() {
         },
         created() {
-            this.dialogShow = true
+//            this.dialogShow = true
+
+
         },
         beforeMount() {
+
+        },
+        mounted() {
 //            let play = VideoJs('living');
 
             /*this.player.on('ready', function() {
                 console.log(1)
             });*/
-        },
-        mounted() {
-
         },
         beforeUpdate() {
         },
@@ -116,8 +160,10 @@
     @import "../../styles/fun";
     .live {
         width: 100%;
-        position: relative;
+        position: absolute;
         top: 0;
+        bottom: 0;
+        overflow: hidden;
     }
     .living {
     }
@@ -244,7 +290,7 @@
             margin: px2rem(20px);
             font-size: px2rem(14px);
         }
-        .download {
+        .toast-download {
             color: #fff;
             font-size: 0;
             .p-1 {
@@ -252,6 +298,8 @@
                 border-top-left-radius: 100%;
                 border-top-right-radius: 100%;
                 height: px2rem(30px);
+                position: relative;
+                top: 1px;
             }
             .p-2 {
                 background-color: #e64646;

@@ -60,6 +60,9 @@
   "dependencies": {
     "axios": "^0.16.2",
     "jquery": "^3.2.1",
+    "leancloud-realtime": "^3.5.5",
+    "leancloud-realtime-plugin-typed-messages": "^2.0.0",
+    "leancloud-storage": "^3.0.4",
     "mint-ui": "^2.2.9",
     "video.js": "^6.2.4",
     "vue": "^2.3.1",

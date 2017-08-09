@@ -59,6 +59,7 @@
   },
   "dependencies": {
     "axios": "^0.16.2",
+    "inherit": "^2.2.6",
     "jquery": "^3.2.1",
     "leancloud-realtime": "^3.5.5",
     "leancloud-realtime-plugin-typed-messages": "^2.0.0",

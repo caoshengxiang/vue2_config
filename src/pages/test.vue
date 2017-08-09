@@ -35,7 +35,7 @@
 <script>
     import setLang from '../components/set_lang.vue'
 
-    import '../leanclound'
+//    import '../leanclound'
     export default {
         name: 'Test',
         props: {},

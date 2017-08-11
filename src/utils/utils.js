@@ -7,7 +7,7 @@
 *
 * */
 
-export default function platform() {
+export function platform() {
     let userAgentInfo = navigator.userAgent;
     let Agents = ["Android", "iPhone",
         "SymbianOS", "Windows Phone",

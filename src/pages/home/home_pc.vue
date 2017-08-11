@@ -23,7 +23,7 @@
     </div>
 </template>
 <script>
-    import platform from '../../utils/utils'
+    import {platform} from '../../utils/utils'
     export default {
         name: 'home',
         props: {},

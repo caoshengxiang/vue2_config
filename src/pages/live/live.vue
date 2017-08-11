@@ -3,8 +3,8 @@
         <div class="item-1">
             <img src="../../assets/home/logo.png" alt="">
             <div class="download">
-                <a href="/">已下载铸魂直播APP 》</a>
-                <a href="/"><img width="20" height="20" src="" alt=""> 下载铸魂直播APP</a>
+                <a @click="openNativeApp">已下载铸魂直播APP 》</a>
+                <a @click="downloadApp"><img width="20" height="20" src="" alt=""> 下载铸魂直播APP</a>
             </div>
         </div>
 
@@ -80,7 +80,7 @@
                 <p>如需继续观看更多精彩，请下载app~</p>
                 <div class="toast-download">
                     <div class="p-1"></div>
-                    <div class="p-2">
+                    <div class="p-2" @click="downloadApp">
                         立即下载
                     </div>
                 </div>
@@ -93,6 +93,7 @@
     import video from '../../assets/VID_20170805_141933.mp4'
     import toast from '../../components/toast/dialog.vue'
     import poster from '../../assets/test-poster.jpg'
+    import {platform} from '../../utils/utils'
     export default {
         name: 'live',
         props: {},
@@ -115,6 +116,7 @@
                     sources: [{
                         type: "video/mp4",
                         src: video,
+//                        src: '',
                     }],
                     autoplay: true,
                     poster: poster,
@@ -146,7 +148,25 @@
             },
             playerReadied() { // ready
 //                console.log(screen.availHeight, screen.height)
-            }
+            },
+            openNativeApp() {
+                alert('open')
+
+                // 通过iframe的方式试图打开APP，如果能正常打开，会直接切换到APP，并自动阻止a标签的默认行为
+                // 否则打开a标签的href链接
+                let ifr = document.createElement('iframe');
+
+                ifr.src = 'com.baidu.tieba://';
+                ifr.style.display = 'none';
+                document.body.appendChild(ifr);
+                window.setTimeout(function(){
+                    document.body.removeChild(ifr);
+                },3000)
+            },
+            downloadApp() {
+                alert(platform())
+//                window.location.href =
+            },
         },
         components: {
             toast,
@@ -257,7 +277,7 @@
                 /*background-color: rgba(0, 0, 0, .5);*/
                 padding-right: px2rem(10px);
                 border-radius: px2rem(20px);
-                min-width: px2rem(120px);
+                min-width: px2rem(200px);
                 h3 {
                     font-size: px2rem(14px);
                     font-weight: bold;

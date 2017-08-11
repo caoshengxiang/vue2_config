@@ -18,7 +18,7 @@
     </div>
 </template>
 <script>
-    import platform from '../../utils/utils'
+    import {platform} from '../../utils/utils'
     import {Indicator} from 'mint-ui';
 
     export default {

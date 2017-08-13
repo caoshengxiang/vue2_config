@@ -93,7 +93,7 @@
     import video from '../../assets/VID_20170805_141933.mp4'
     import toast from '../../components/toast/dialog.vue'
     import poster from '../../assets/test-poster.jpg'
-    import {platform} from '../../utils/utils'
+    import {platform, iOSOrAndroid, getQueryObj} from '../../utils/utils'
     export default {
         name: 'live',
         props: {},
@@ -135,11 +135,11 @@
             },
             onPlayerPlay() { // 点击播放事件
                 this.messageShow = true
-                console.log('start')
+//                console.log('start')
             },
             onPlayerPlaying() {
                 this.messageShow = true
-                console.log('playing')
+//                console.log('playing')
             },
             onPlayerEnded() { // 结束
                 this.dialogShow = true
@@ -150,13 +150,13 @@
 //                console.log(screen.availHeight, screen.height)
             },
             openNativeApp() {
-                alert('open')
+//                alert('open')
 
                 // 通过iframe的方式试图打开APP，如果能正常打开，会直接切换到APP，并自动阻止a标签的默认行为
                 // 否则打开a标签的href链接
                 let ifr = document.createElement('iframe');
 
-                ifr.src = 'com.baidu.tieba://';
+                ifr.src = 'weixin://';
                 ifr.style.display = 'none';
                 document.body.appendChild(ifr);
                 window.setTimeout(function(){
@@ -164,7 +164,11 @@
                 },3000)
             },
             downloadApp() {
-                alert(platform())
+                if (platform() === 'Android') {
+                    window.location.href = 'https://downpack.baidu.com/baidutieba_AndroidPhone_v8.7.8.2(8.7.8.2)_1019960r.apk?src=webtbGF'
+                } else {
+                    window.location.href ='https://itunes.apple.com/cn/app/id477927812'
+                }
 //                window.location.href =
             },
         },
@@ -172,6 +176,8 @@
             toast,
         },
         beforeCreate() {
+//            console.info(window.location)
+            console.log(getQueryObj().userid) // 参数解析
         },
         created() {
 //            this.dialogShow = true
@@ -188,9 +194,9 @@
                 console.log(1)
             });*/
 
-            console.log($('#playBox').outerHeight())
-            this.playerOptions.height = $('#playBox').outerHeight()
-            this.playerOptions.width = $('#playBox').outerWidth()
+//            console.log($('#playBox').outerHeight())
+            this.playerOptions.height = $('#playBox').outerHeight() // eslint-disable-line
+            this.playerOptions.width = $('#playBox').outerWidth() // eslint-disable-line
         },
         beforeUpdate() {
         },

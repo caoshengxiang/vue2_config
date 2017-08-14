@@ -1,0 +1,172 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <meta charset="UTF-8">
+    <title>HTML5</title>
+
+</head>
+<body>
+<form id="frmH5" runat="server">
+    <div>
+        <table style="text-align:center">
+            <tr>
+                <td style="height:50px; width:100px; background-color:#dddddd; cursor:pointer" onclick="onShape('line');">直线</td>
+                <td style="width:100px; background-color:#dddddd; cursor:pointer" onclick="onShape('polyline');">折线</td>
+                <td style="width:100px; background-color:#dddddd; cursor:pointer" onclick="onShape('circle');">圆</td>
+                <td style="width:100px; background-color:#dddddd; cursor:pointer" onclick="onShape('rect');">长方形</td>
+                <td style="width:100px; background-color:#dddddd; cursor:pointer" onclick="onShape('ellipse');">椭圆</td>
+            </tr>
+        </table>
+    </div>
+    <div style="">
+        <svg id="canvas" width="1000" height="700" style="border:2px solid #aaaaaa;cursor:url(pen.cur),auto;"
+             onmousedown="onClick(this)"
+             onmousemove="onMouseMove(this)"
+             onmouseup="onMouseUp(this)">
+        </svg>
+    </div>
+</form>
+</body>
+</html>
+
+[javascript] view plain copy print?
+<script type="text/javascript">
+    var xmlns = "http://www.w3.org/2000/svg";
+    var shape = null;
+    var type = "";
+
+    function evt() {
+        if (window.event) { return window.event; }
+        func = evt.caller;
+        while (func != null) {
+            var arg0 = func.arguments[0];
+            if (arg0) {
+                if ((arg0.constructor == Event || arg0.constructor == MouseEvent
+                        || arg0.constructor == KeyboardEvent)
+                    || (typeof (arg0) == "object" && arg0.preventDefault
+                        && arg0.stopPropagation)) {
+                    return arg0;
+                }
+            }
+            func = func.caller;
+        }
+        return null;
+    }
+
+    function pos(o) {
+        var ev = evt();
+        return { x: ev.offsetX, y: ev.offsetY };
+    }
+    var x1;
+    var y1;
+    function onClick(o) {
+        var p = pos(o);
+        switch (type) {
+            case "line":
+            case "polyline":
+                shape = document.createElementNS(xmlns, "line");
+                shape.setAttribute("x1", p.x);
+                shape.setAttribute("y1", p.y);
+                shape.setAttribute("x2", p.x);
+                shape.setAttribute("y2", p.y);
+                shape.setAttribute("style", "stroke:rgb(0,0,0);stroke-width:1");
+                break;
+            case "circle":
+                shape = document.createElementNS(xmlns, "circle");
+                shape.setAttribute("cx", p.x);
+                shape.setAttribute("cy", p.y);
+                x1 = p.x;
+                y1 = p.y;
+                shape.setAttribute("style", "stroke:rgb(0,0,0);stroke-width:1;fill:none;");
+                break;
+            case "rect":
+                shape = document.createElementNS(xmlns, "rect");
+                shape.setAttribute("x", p.x);
+                shape.setAttribute("y", p.y);
+                x1 = p.x;
+                y1 = p.y;
+                shape.setAttribute("style", "stroke:rgb(0,0,0);stroke-width:1;fill:none;");
+                break;
+            case "ellipse":
+                shape = document.createElementNS(xmlns, "ellipse");
+                x1 = p.x;
+                y1 = p.y;
+                shape.setAttribute("style", "stroke:rgb(0,0,0);stroke-width:1;fill:none;");
+                break;
+        }
+        if (type != "") o.appendChild(shape);
+    }
+
+    function onMouseMove(o) {
+        if (shape == null) return;
+        var p = pos(o);
+        switch (type) {
+            case "line":
+            case "polyline":
+                shape.setAttribute("x2", p.x);
+                shape.setAttribute("y2", p.y);
+                break;
+            case "circle":
+                x2 = p.x;
+                y2 = p.y;
+                shape.setAttribute("r", Math.sqrt(Math.pow((x1 - x2), 2) + Math.pow((y1 - y2), 2)));
+                break;
+            case "rect":
+                rx = p.x;
+                ry = p.y;
+                shape.setAttribute("width", rx - x1);
+                shape.setAttribute("height", ry - y1);
+                break;
+            case "ellipse":
+                x2 = p.x;
+                y2 = p.y;
+                shape.setAttribute("cx", ((x1 + x2) / 2));
+                shape.setAttribute("cy", ((y1 + y2) / 2));
+                shape.setAttribute("rx", Math.abs((x1 - x2) / 2));
+                shape.setAttribute("ry", Math.abs((y1 - y2) / 2));
+                break;
+        }
+    }
+
+    function onMouseUp(o) {
+        if (shape == null) return;
+        var p = pos(o);
+        switch (type) {
+            case "line":
+                shape.setAttribute("x2", p.x);
+                shape.setAttribute("y2", p.y);
+                shape = null;
+                break;
+            case "circle":
+                x2 = p.x;
+                y2 = p.y;
+                shape.setAttribute("r", Math.sqrt(Math.pow((x1 - x2), 2) + Math.pow((y1 - y2), 2)));
+                shape = null;
+                break;
+            case "rect":
+                rx = p.x;
+                ry = p.y;
+                shape.setAttribute("width", rx - x1);
+                shape.setAttribute("height", ry - y1);
+                shape = null;
+                break;
+            case "ellipse":
+                x2 = p.x;
+                y2 = p.y;
+                shape.setAttribute("cx", ((x1 + x2) / 2));
+                shape.setAttribute("cy", ((y1 + y2) / 2));
+                shape.setAttribute("rx", Math.abs((x1 - x2) / 2));
+                shape.setAttribute("ry", Math.abs((y1 - y2) / 2));
+                shape = null;
+                break;
+        }
+
+    }
+
+    function onShape(t) {
+        type = t;
+    }
+
+</script>  

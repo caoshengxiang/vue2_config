@@ -39,3 +39,34 @@
 ```
 启动命令 weinre --httpPort 8081 --boundHost -all-
 ```
+
+# 更新依赖
+> npm update更新命令，只能按照package.js中标注的版本号，进行更新，所以每次都要改下package.js中的版本号为最新才能够更新，高效升级插件npm-check-updates
+```
+    npm install -g npm-check-updates
+```
+`npm-check-updates` 或(缩写命令) `ncu`列出要更新的
+`ncu -a` 升级全部
+`ncu -u` 更新package.json
+
+## 更新webpack@3后postcss报错解决
+```
+No PostCSS Config found in
+```
+>
+1. 创建postcss.config.js文件，添加如下代码：（引入autoprefixer插件）
+```
+module.exports = {
+  plugins: {
+    'autoprefixer': {browsers: 'last 5 version'}
+  }
+}
+```
+2. 大概 webpack@2.6 后在webpack中配置不起作用
+```
+new webpack.LoaderOptionsPlugin({ //浏览器加前缀
+                options: {
+                    postcss: [require('autoprefixer')({browsers:['last 5 versions']})]
+                }
+            }),
+```

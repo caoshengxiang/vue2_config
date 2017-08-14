@@ -8,6 +8,7 @@ import Router from 'vue-router'
 Vue.use(Router)
 
 const test = resolve => require.ensure([], () => resolve(require('../pages/test.vue')), 'test')
+const demo1 = resolve => require.ensure([], () => resolve(require('../pages/demo/demo1.vue')), 'test')
 
 const home = resolve => require.ensure([], () => resolve(require('../pages/home/home.vue')), 'home')
 
@@ -27,6 +28,11 @@ export default new Router({
         {
             path: '/test',
             component: test,
+        },
+        {
+            path: '/demo1',
+            name: 'demo1',
+            component: demo1,
         }
     ]
 })

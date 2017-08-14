@@ -1,0 +1,116 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <meta charset="UTF-8">
+    <title>HTML5</title>
+
+</head>
+<body>
+<form id="frmH5" runat="server">
+    <div>
+        <table style="text-align:center">
+            <tr>
+                <td style="height:50px; width:100px; background-color:#dddddd; cursor:pointer" onclick="onShape('line');">直线</td>
+                <td style="width:100px; background-color:#dddddd; cursor:pointer" onclick="onShape('polyline');">折线</td>
+                <td style="width:100px; background-color:#dddddd; cursor:pointer" onclick="onShape('circle');">圆</td>
+                <td style="width:100px; background-color:#dddddd; cursor:pointer" onclick="onShape('rect');">长方形</td>
+                <td style="width:100px; background-color:#dddddd; cursor:pointer" onclick="onShape('ellipse');">椭圆</td>
+            </tr>
+        </table>
+    </div>
+    <div style="">
+        <svg id="canvas" width="1000" height="700" style="border:2px solid #aaaaaa;cursor:url(pen.cur),auto;"
+             onmousedown="onClick(this)"
+             onmousemove="onMouseMove(this)"
+             onmouseup="onMouseUp(this)">
+        </svg>
+    </div>
+</form>
+</body>
+</html>
+
+[javascript] view plain copy print?
+<script type="text/javascript">
+    var xmlns = "http://www.w3.org/2000/svg";
+    var shape = null;
+    var type = "";
+
+    function evt() {
+        if (window.event) { return window.event; }
+        func = evt.caller;
+        while (func != null) {
+            var arg0 = func.arguments[0];
+            if (arg0) {
+                if ((arg0.constructor == Event || arg0.constructor == MouseEvent
+                        || arg0.constructor == KeyboardEvent)
+                    || (typeof (arg0) == "object" && arg0.preventDefault
+                        && arg0.stopPropagation)) {
+                    return arg0;
+                }
+            }
+            func = func.caller;
+        }
+        return null;
+    }
+
+    function pos(o) {
+        var ev = evt();
+        return { x: ev.offsetX, y: ev.offsetY };
+    }
+    var x1;
+    var y1;
+    function onClick(o) {
+        var p = pos(o);
+        console.log(type)
+        switch (type) {
+            case "line":
+            case "polyline":
+                shape = document.createElementNS(xmlns, "line");
+                shape.setAttribute("x1", p.x);
+                shape.setAttribute("y1", p.y);
+                shape.setAttribute("x2", p.x);
+                shape.setAttribute("y2", p.y);
+                shape.setAttribute("style", "stroke:rgb(0,0,0);stroke-width:1");
+                break;
+
+        }
+        if (type != "") o.appendChild(shape);
+    }
+
+    function onMouseMove(o) {
+        if (shape == null) return;
+        var p = pos(o);
+        switch (type) {
+            case "line":
+            case "polyline":
+                console.log(1)
+                shape.setAttribute("x2", p.x);
+                shape.setAttribute("y2", p.y);
+                break;
+
+
+
+        }
+    }
+
+    function onMouseUp(o) {
+        if (shape == null) return;
+        var p = pos(o);
+        switch (type) {
+            case "line":
+                shape.setAttribute("x2", p.x);
+                shape.setAttribute("y2", p.y);
+                shape = null;
+                break;
+
+        }
+
+    }
+
+    function onShape(t) {
+        type = t;
+    }
+
+</script>  

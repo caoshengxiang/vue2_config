@@ -9,6 +9,7 @@ Vue.use(Router)
 
 const test = resolve => require.ensure([], () => resolve(require('../pages/test.vue')), 'test')
 const demo1 = resolve => require.ensure([], () => resolve(require('../pages/demo/demo1.vue')), 'test')
+const demo2 = resolve => require.ensure([], () => resolve(require('../pages/demo/demo2.vue')), 'test')
 
 const home = resolve => require.ensure([], () => resolve(require('../pages/home/home.vue')), 'home')
 
@@ -33,6 +34,10 @@ export default new Router({
             path: '/demo1',
             name: 'demo1',
             component: demo1,
-        }
+        },{
+            path: '/demo2',
+            name: 'demo2',
+            component: demo2,
+        },
     ]
 })

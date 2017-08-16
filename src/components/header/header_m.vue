@@ -2,7 +2,9 @@
     <div class="header-m" :style="styles">
         <div class="left">
             <slot name="left">
-
+                <router-link :to="to" slot="left" style="color: #fff;display: flex;align-items: center;justify-content: flex-start">
+                    <icon name="chevron-left" scale="1" style="color: #fff"></icon>&nbsp;<span>返回</span>
+                </router-link>
             </slot>
         </div>
         <div class="title">
@@ -33,6 +35,10 @@
                         background: '#000'
                     }
                 }
+            },
+            to: {
+                type: String,
+                default: '/'
             }
         },
         data() {
@@ -87,6 +93,9 @@
         .right {
             text-align: right;
             flex: 0.5;
+        }
+        a {
+            text-decoration: none;
         }
     }
 </style>

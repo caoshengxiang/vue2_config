@@ -14,6 +14,7 @@ const recharge = resolve => require.ensure([], () => resolve(require('../pages/h
 const rechargeDetail = resolve => require.ensure([], () => resolve(require('../pages/home/recharge_detail.vue')), 'recharge')
 const rechargeSuccess = resolve => require.ensure([], () => resolve(require('../pages/home/recharge_success.vue')), 'recharge')
 const withdraw = resolve => require.ensure([], () => resolve(require('../pages/home/withdraw.vue')), 'withdraw')
+const withdrawD = resolve => require.ensure([], () => resolve(require('../pages/home/withdraw_detail.vue')), 'withdraw')
 
 export default new Router({
     // mode: 'history', // 这个模式路由没有#
@@ -41,6 +42,10 @@ export default new Router({
             path: '/withdraw',
             name: 'withdraw',
             component: withdraw
+        },{
+            path: '/withdraw_d',
+            name: 'withdrawD',
+            component: withdrawD
         },
         {
             path: '/test',

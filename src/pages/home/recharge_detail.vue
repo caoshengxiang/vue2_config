@@ -1,19 +1,35 @@
 <template>
     <div>
-detail
+        <header-m title="充值记录" to="/signin">
+
+        </header-m>
+        <div class="con">
+            <div class="item">
+                <div class="l">
+                    <icon name="circle" style="color: #686868"></icon>
+                </div>
+                <div class="r">
+                    <p class="time">2017-07-21</p>
+                    <div class="msg">您充值魂币15000已到账成功.</div>
+                </div>
+            </div>
+
+        </div>
     </div>
 </template>
 <script>
-
+    import HeaderM from '../../components/header/header_m.vue'
     export default {
-        name: '',
+        name: 'detail',
         props: {},
         data() {
             return {}
         },
         computed: {},
         methods: {},
-        components: {},
+        components: {
+            HeaderM,
+        },
         beforeCreate() {
         },
         created() {
@@ -33,4 +49,36 @@ detail
     }
 </script>
 <style lang="scss" rel="stylesheet/scss" scoped>
+    @import "../../styles/fun";
+    .con {
+        padding: px2rem(20px);
+        background: #eee;
+        position: absolute;
+        top: 50px;
+        bottom: 0;
+        width: 100%;
+        overflow: scroll;
+    }
+    .item {
+        display: flex;
+        margin-bottom: 30px;
+        .l {
+            margin-right: px2rem(10px);
+        }
+        .r {
+            color: #686868;
+            .time {
+                margin-left: px2rem(10px);
+                margin-bottom: px2rem(10px);
+            }
+            .msg {
+                width: px2rem(260px);
+                background: #fff;
+                box-sizing: border-box;
+                padding: px2rem(10px);
+                height: px2rem(60px);
+                display: inline-block;
+            }
+        }
+    }
 </style>

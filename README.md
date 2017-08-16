@@ -94,3 +94,8 @@
 > 3. 使用rem
     var.scss定义html标签的font-size
     fun.scss 定义px2rem(10px)方法(依据上面定义font-size计算). 使用: 直接在vue文件style中引入fun.scss需要转换的单位调用方法:　width: px2rem(10px) 将10px转为rem
+
+## 图标使用vue-awesome
+> 全局注册Icon组件,使用组件用`<icon name="beer"> </icon >`
+[具体参照文档](https://www.npmjs.com/package/vue-awesome)
+[图标名](http://fontawesome.dashgame.com)

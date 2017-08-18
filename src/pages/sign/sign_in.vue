@@ -17,9 +17,9 @@
         <div class="login">
             <div>三方登陆</div>
             <div class="connect-btn">
-                <span id="qqLoginBtn"></span>
-                <span id="wb_connect_btn">微博登录按钮</span>
-                <span id="wx_connect_btn" class="weixin-login"></span>
+                <span id="qqLoginBtn" class="btn"></span>
+                <span id="wb_connect_btn"  class="btn">微博登录按钮</span>
+                <span id="wx_connect_btn" class="btn weixin-login"><icon name="weixin" style="color: #578034;margin: auto 2px;"></icon><span>微信登陆</span></span>
             </div>
 
         </div>
@@ -68,12 +68,12 @@
                     //指定接口访问失败的接收函数，f为失败返回Response对象
                     .error(function (f) {
                         //失败回调
-                        alert("获取用户信息失败！");
+                        alert("获取用户信息失败！",f);
                     })
                     //指定接口完成请求后的接收函数，c为完成请求返回Response对象
                     .complete(function (c) {
                         //完成请求回调
-                        alert("获取用户信息完成！");
+                        alert("获取用户信息完成！",c);
                     });
             },
             weiboLogin() {
@@ -85,12 +85,11 @@
                             login: function (o) { //登录后的回调函数
                                 console.log(o);
                                 thirdparty(null,null,o.avatar_hd, o.name ,3, o.id);//个人方法
-                                try{
+                                try {
                                     document.getElementsByClassName('loginout')[0].click();
                                     //页面需求，当前页面登录完成之后，不进行跳转，所以模拟点击事件，让微博账号在当前域中退出。不影响下次登录。（元素为微博动态添加）
                                     //微博没有提供退出方法。下面的logout为另一种开发模式调用。
-
-                                }catch(e){
+                                } catch (e) {
                                     console.log(e);
                                 }
                             },
@@ -101,16 +100,19 @@
                 });
             },
             weixinLogin() {
-                let obj = new WxLogin({
+                /*let obj = new WxLogin({
                     id:"wx_connect_btn",
                     appid: "wx5361584af99506d9",
-                    scope: "snsapi_userinfo",
+                    scope: "snsapi_login",
                     redirect_uri: "http://192.168.1.127:8800/#/",
                     state: "",
                     style: "",
                     href: ""
-                });
+                });*/
 
+                $('#wx_connect_btn').click(()=>{
+                    window.location.href = 'https://open.weixin.qq.com/connect/qrconnect?appid=wx5361584af99506d9&redirect_uri=' +encodeURIComponent(window.location.href)+ '&response_type=code&scope=SCOPE&state=STATE#wechat_redirect'
+                })
             },
         },
         components: {
@@ -174,8 +176,19 @@
             display: flex;
             align-items: center;
             margin-top: px2rem(10px);
-            span {
+            .btn {
                 margin-right: px2rem(10px);
+            }
+        }
+        .weixin-login {
+            border: 1px solid #578034;
+            display: flex;
+            align-items: center;
+            color: #fff;
+            border-radius: 3px;
+            span {
+                background-color: #578034;
+                padding: 2px 5px;
             }
         }
     }

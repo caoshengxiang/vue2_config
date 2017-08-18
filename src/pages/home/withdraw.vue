@@ -7,12 +7,14 @@
             </router-link>
         </header-m>
         <div class="row total">
-            <span class="text">总魂豆数</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="num">1000</span>
+            <span class="text">总魂豆数</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="num">{{totalBeans?totalBeans:0}}</span>
         </div>
         <div class="row own-hb">
-            <p class="num">888</p>
+            <p class="num">
+                <input type="number" :placeholder="0" v-model="withdraw.soulBean">
+            </p>
             <p class="line"></p>
-            <p class="text">(11.00元)</p>
+            <p class="text">({{moneyCpt}}元)</p>
         </div>
         <div class="row row-2">
             <img src="../../assets/diamond.png" width="20px" height="20px">
@@ -40,20 +42,59 @@
 </template>
 <script>
     import HeaderM from '../../components/header/header_m.vue'
+    import { Base64 } from 'js-base64'
+    import {mapState, mapActions} from 'vuex'
     export default {
         name: 'withdraw',
         props: {},
         data() {
-            return {}
+            return {
+                withdraw: {
+                    soulBean: 0,
+                    account: '',
+                    accountType: '',
+                }
+            }
         },
-        computed: {},
-        methods: {},
+        computed: {
+            ...mapState([
+                'totalBeans',
+            ]),
+            user() {
+                return JSON.parse(Base64.decode(sessionStorage.u))
+            },
+            totalBeansNum() {
+                return parseInt(this.totalBeans?this.totalBeans:0, 10)
+            },
+            moneyCpt() {
+                let TB = parseInt(this.totalBeans?this.totalBeans:0, 10)
+
+                // 1:100
+                if (parseInt(this.withdraw.soulBean, 10) > TB) {
+                    this.withdraw.soulBean = TB
+                }
+                return this.withdraw.soulBean/100
+            }
+        },
+        methods: {
+            ...mapActions([
+                'ac_consume_total',
+                'ac_apply_withdraw',
+            ])
+        },
         components: {
             HeaderM
         },
         beforeCreate() {
         },
         created() {
+            if (!sessionStorage.u) {
+                this.$router.push({name: 'signIn', params: {p: 1}})
+            }
+            this.ac_consume_total({
+                userId: this.user.userId,
+                authToken: this.user.authToken
+            })
         },
         beforeMount() {
         },
@@ -90,7 +131,7 @@
             color: #eee;
         }
         .num {
-            color: #ffcc00
+            color: #ffcc00;
         }
     }
     .own-hb {
@@ -99,6 +140,11 @@
             color: #ffcc00;
             font-size: 34px;
             font-weight: bold;
+            input {
+                width: 100px;height: 24px;background-color: rgba(0,0,0,0);border: 0;
+                color: #ffcc00;
+                text-align: center;
+            }
         }
         .line {
             height: 1px;

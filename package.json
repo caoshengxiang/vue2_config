@@ -60,6 +60,7 @@
   "dependencies": {
     "axios": "^0.16.2",
     "jquery": "^3.2.1",
+    "js-base64": "^2.1.9",
     "mint-ui": "^2.2.9",
     "vue": "^2.4.2",
     "vue-awesome": "^2.3.1",

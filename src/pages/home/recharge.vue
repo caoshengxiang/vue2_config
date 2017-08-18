@@ -30,20 +30,37 @@
 </template>
 <script>
     import HeaderM from '../../components/header/header_m.vue'
+    import { Base64 } from 'js-base64'
+    import {mapState, mapActions} from 'vuex'
     export default {
         name: 'recharge',
         props: {},
         data() {
             return {}
         },
-        computed: {},
-        methods: {},
+        computed: {
+            ...mapState([
+                'totalCurrency',
+            ]),
+        },
+        methods: {
+            ...mapActions([
+                'ac_consume_total',
+            ])
+        },
         components: {
             HeaderM
         },
         beforeCreate() {
         },
         created() {
+            if (!sessionStorage.u) {
+                this.$router.push({name: 'signIn', params: {p: 2}})
+            }
+            this.ac_consume_total({
+                userId: this.user.userId,
+                authToken: this.user.authToken
+            })
         },
         beforeMount() {
         },

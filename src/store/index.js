@@ -15,7 +15,11 @@ Vue.use(Vuex)
 export default new Vuex.Store({
     state: {
         lang: '', // 语言
-        toastShow: false, // 弹框显示
+        userInfo: {}, // 登陆用户
+        loginStatus: false,
+        totalBeans: 0, // 总魂豆
+        totalCurrency: 0, // 总魂币
+        isWithdrawSuc: false, // 提现成功返回
     },
     getters,
     actions,

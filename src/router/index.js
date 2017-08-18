@@ -23,7 +23,7 @@ export default new Router({
             path: '',
             component: signIn,
         }, {
-            path: '/signin',
+            path: '/signin/:p',
             name: 'signIn',
             component: signIn
         }, {

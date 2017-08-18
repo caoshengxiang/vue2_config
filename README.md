@@ -99,3 +99,9 @@
 > 全局注册Icon组件,使用组件用`<icon name="beer"> </icon >`
 [具体参照文档](https://www.npmjs.com/package/vue-awesome)
 [图标名](http://fontawesome.dashgame.com)
+
+## base64加密解密
+1. npm install --save js-md5
+2. import {Base64} from 'js-base64'
+3. Base64.encode('dankogai');  // ZGFua29nYWk=
+4. Base64.decode('ZGFua29nYWk=');  // dankogai

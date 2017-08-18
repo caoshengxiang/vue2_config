@@ -2,7 +2,7 @@
     <div class="recharge">
         <header-m title="账户充值" to="/signin">
 
-            <router-link to="/" slot="right" style="color: #fff;display: flex;align-items: center;justify-content: flex-end">
+            <router-link to="/recharge_d" slot="right" style="color: #fff;display: flex;align-items: center;justify-content: flex-end">
                 <span>充值历史</span>
             </router-link>
         </header-m>

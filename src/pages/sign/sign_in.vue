@@ -15,11 +15,11 @@
             <mt-button type="danger" size="large" class="btn">立即登陆</mt-button>
         </div>
         <div class="login">
-            <div>三方登陆</div>
+            <div style="color: #726b6b">三方登陆</div>
             <div class="connect-btn">
                 <span id="qqLoginBtn" class="btn"></span>
+                <span id="wx_connect_btn" class="btn weixin-login"><icon name="weixin" style="color: #578034;margin: auto 2px;"></icon><span>微信登录</span></span>
                 <span id="wb_connect_btn"  class="btn">微博登录按钮</span>
-                <span id="wx_connect_btn" class="btn weixin-login"><icon name="weixin" style="color: #578034;margin: auto 2px;"></icon><span>微信登陆</span></span>
             </div>
 
         </div>
@@ -52,7 +52,8 @@
                 QC.Login({ // 按默认样式插入QQ登录按钮
                     btnId: "qqLoginBtn", //插入按钮的节点id
                     scope: "all",
-//                    size: 'B_S'
+                    //按钮尺寸，可用值[A_XL| A_L| A_M| A_S|  B_M| B_S| C_S]，可选，默认B_S
+                    size: 'B_M'
                 });
 
                 //从页面收集OpenAPI必要的参数。get_user_info不需要输入参数，因此paras中没有参数
@@ -80,7 +81,7 @@
                 WB2.anyWhere(function (W) {
                     W.widget.connectButton({
                         id: "wb_connect_btn",
-                        type: '3,2',
+                        type: '3,2', // [1-7,1-5]
                         callback: {
                             login: function (o) { //登录后的回调函数
                                 console.log(o);
@@ -188,7 +189,7 @@
             border-radius: 3px;
             span {
                 background-color: #578034;
-                padding: 2px 5px;
+                padding: 3px 5px;
             }
         }
     }

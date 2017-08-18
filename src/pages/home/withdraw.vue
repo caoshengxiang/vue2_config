@@ -2,7 +2,7 @@
     <div class="recharge">
         <header-m title="账户提现" to="/signin">
 
-            <router-link to="/" slot="right" style="color: #fff;display: flex;align-items: center;justify-content: flex-end">
+            <router-link to="/withdraw_d" slot="right" style="color: #fff;display: flex;align-items: center;justify-content: flex-end">
                 <span>提现历史</span>
             </router-link>
         </header-m>

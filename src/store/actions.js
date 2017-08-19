@@ -36,7 +36,7 @@ export default {
         })
 
     },
-    ac_send_sms({commit}, param) {
+    ac_send_sms({commit}, param) { // 验证码
         $axios.get('/api/user/sendSms', {
             params: {
                 phone: param.phone
@@ -54,7 +54,7 @@ export default {
             },
         })*/
     },
-    ac_consume_total({commit}, param) {
+    ac_consume_total({commit}, param) { // 魂豆币
         $axios.get('/api/consume/total/'+param.userId,{
             headers: {
                 'authToken': param.authToken
@@ -66,13 +66,14 @@ export default {
             commit('mut_totalCurrency', d.data.rewardSoulCurrency)
         })
     },
-    ac_apply_withdraw({commit}, param) {
+    ac_apply_withdraw({commit}, param) { // 提现
         commit('mut_isWithdrawSuc', false)
         $axios({
             method: 'post',
             url: '/api/consume/applyWithdraw',
             headers: {
-                'authToken': param.authToken
+                'authToken': param.authToken,
+                "Content-Type": "application/json"
             },
             data: JSON.stringify(param.data)
         }).then(res=>{
@@ -81,6 +82,36 @@ export default {
             } else {
                 commit('mut_isWithdrawSuc', false)
             }
+        })
+    },
+    ac_list_withdraw({commit}, param) {
+        $axios({
+            method: 'get',
+            url: '/api/consume/list/withdraw',
+            headers: {
+                'authToken': param.authToken,
+                // "Content-Type": "application/json"
+            },
+            params: param.data
+        }).then(res=>{
+            return res.data
+        }).then((d)=>{
+            commit('mut_withdrawDetail', d.data)
+        })
+    },
+    ac_list_reword({commit}, param) {
+        $axios({
+            method: 'get',
+            url: '/api/consume/list/recharge',
+            headers: {
+                'authToken': param.authToken,
+                // "Content-Type": "application/json"
+            },
+            params: param.data
+        }).then(res=>{
+            return res.data
+        }).then((d)=>{
+            commit('mut_rechargeDetail', d.data)
         })
     }
 }

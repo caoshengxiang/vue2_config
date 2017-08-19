@@ -20,5 +20,11 @@ export default {
     },
     mut_isWithdrawSuc(st, data) {
         st.isWithdrawSuc = data
+    },
+    mut_withdrawDetail(st, data) {
+        st.withdrawDetail = data
+    },
+    mut_rechargeDetail(st, data) {
+        st.rechargeDetail = data
     }
 }

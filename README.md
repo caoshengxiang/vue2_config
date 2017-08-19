@@ -1,6 +1,8 @@
 
-# 技术栈 webpack2+vue2+vuex2+vue-router2+sass+vue-i18n
+# 技术栈 webpack2+vue2+vuex2+vue-router2+sass+vue-i18n+vue-awesome
 
+# 接口
+http://47.95.6.138:8080/swagger-ui.html
 
 # i18n国际化
 ## 1.基于组件化,在页面使用

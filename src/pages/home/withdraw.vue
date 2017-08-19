@@ -24,19 +24,19 @@
             <div class="item">
                 <h3>兑换至</h3>
                 <p>
-                    <a class="weixin">微信</a>
-                    <a class="zfb">支付宝</a>
+                    <a class="weixin" :class="{active: wxActive}" @click="wxActiveF">微信</a>
+                    <a class="zfb" :class="{active: zfbActive}" @click="zfbActiveF">支付宝</a>
                 </p>
             </div>
             <div class="item">
                 <h3>兑换账户</h3>
                 <p>
-                    <input type="text" placeholder="请输入兑换账户">
+                    <input type="text" placeholder="请输入兑换账户" v-model="withdraw.account">
                 </p>
             </div>
         </div>
         <div class="row btn">
-            <mt-button type="danger" size="large" class="btn">立即提现</mt-button>
+            <mt-button type="danger" size="large" class="btn" @click="applyWithdraw">立即提现</mt-button>
         </div>
     </div>
 </template>
@@ -50,15 +50,18 @@
         data() {
             return {
                 withdraw: {
-                    soulBean: 0,
+                    soulBean: '',
                     account: '',
                     accountType: '',
-                }
+                },
+                wxActive: false,
+                zfbActive: false,
             }
         },
         computed: {
             ...mapState([
                 'totalBeans',
+                'isWithdrawSuc'
             ]),
             user() {
                 return JSON.parse(Base64.decode(sessionStorage.u))
@@ -76,11 +79,39 @@
                 return this.withdraw.soulBean/100
             }
         },
+        watch: {
+            isWithdrawSuc(me) {
+                if (me) {
+                    alert('提现申请成功')
+
+                }
+            }
+        },
         methods: {
             ...mapActions([
                 'ac_consume_total',
                 'ac_apply_withdraw',
-            ])
+            ]),
+            wxActiveF() {
+                this.initActive()
+                this.wxActive = true
+                this.withdraw.accountType = 'WECHAT'
+            },
+            zfbActiveF() {
+                this.initActive()
+                this.zfbActive = true
+                this.withdraw.accountType = 'ALIPAY'
+            },
+            initActive() {
+                this.wxActive = false
+                this.zfbActive = false
+            },
+            applyWithdraw() {
+                this.ac_apply_withdraw({
+                    authToken: this.user.authToken,
+                    data: Object.assign({}, {userId: this.user.userId}, this.withdraw)
+                })
+            }
         },
         components: {
             HeaderM
@@ -198,6 +229,10 @@
                 border-radius: 5px;
                 margin-right: px2rem(10px);
                 color: #119cff;
+                &.active {
+                    border-color: red;
+                    color: red;
+                }
             }
             h3 {
                 font-size: px2rem(14px);

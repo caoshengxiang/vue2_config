@@ -1,86 +1,77 @@
 <template>
     <div>
-        <header-m title="提现记录" to="/signin">
+        <header-m title="提现记录" to="/withdraw">
 
         </header-m>
         <div class="con">
-            <div class="item">
+            <div class="item" v-for="(item, index) in withdrawDetail" :key="index">
                 <div class="l">
                     <icon name="circle" style="color: #686868"></icon>
                 </div>
                 <div class="r">
-                    <p class="time">2017-07-21 <span class="status">审核中</span></p>
-                    <div class="msg">您有一笔收益兑换到微信账户[<span>用户昵称·微信号</span>] 12.00元的申请</div>
-                </div>
-            </div><div class="item">
-                <div class="l">
-                    <icon name="circle" style="color: #686868"></icon>
-                </div>
-                <div class="r">
-                    <p class="time">2017-07-21 <span class="status">审核中</span></p>
-                    <div class="msg">您有一笔收益兑换到微信账户[<span>用户昵称·微信号</span>] 12.00元的申请</div>
-                </div>
-            </div><div class="item">
-                <div class="l">
-                    <icon name="circle" style="color: #686868"></icon>
-                </div>
-                <div class="r">
-                    <p class="time">2017-07-21 <span class="status">审核中</span></p>
-                    <div class="msg">您有一笔收益兑换到微信账户[<span>用户昵称·微信号</span>] 12.00元的申请</div>
-                </div>
-            </div><div class="item">
-                <div class="l">
-                    <icon name="circle" style="color: #686868"></icon>
-                </div>
-                <div class="r">
-                    <p class="time">2017-07-21 <span class="status">审核中</span></p>
-                    <div class="msg">您有一笔收益兑换到微信账户[<span>用户昵称·微信号</span>] 12.00元的申请</div>
-                </div>
-            </div><div class="item">
-                <div class="l">
-                    <icon name="circle" style="color: #686868"></icon>
-                </div>
-                <div class="r">
-                    <p class="time">2017-07-21 <span class="status">审核中</span></p>
-                    <div class="msg">您有一笔收益兑换到微信账户[<span>用户昵称·微信号</span>] 12.00元的申请</div>
-                </div>
-            </div><div class="item">
-                <div class="l">
-                    <icon name="circle" style="color: #686868"></icon>
-                </div>
-                <div class="r">
-                    <p class="time">2017-07-21 <span class="status">审核中</span></p>
-                    <div class="msg">您有一笔收益兑换到微信账户[<span>用户昵称·微信号</span>] 12.00元的申请</div>
-                </div>
-            </div><div class="item">
-                <div class="l">
-                    <icon name="circle" style="color: #686868"></icon>
-                </div>
-                <div class="r">
-                    <p class="time">2017-07-21 <span class="status">审核中</span></p>
-                    <div class="msg">您有一笔收益兑换到微信账户[<span>用户昵称·微信号</span>] 12.00元的申请</div>
+                    <p class="time">{{item.applyTime}}
+                        <span class="status" v-if="item.applyStatus === 'NONE'">申请中</span>
+                        <span class="status" v-if="item.applyStatus === 'PASS'">同意</span>
+                        <span class="status" v-if="item.applyStatus === 'REJECT'">拒绝</span>
+                        <span class="status" v-if="item.applyStatus === 'DONE'">完成提现</span>
+                    </p>
+                    <div class="msg">您有一笔收益兑换到
+                        <span v-if="item.accountType === 'ALIPAY'">支付宝</span>
+                        <span v-if="item.accountType === 'WECHAT'">微信</span>
+                        账户[<span>{{item.userNickname}}&nbsp;·&nbsp;{{item.account}}
+                    </span>] {{item.money}}元的申请</div>
                 </div>
             </div>
-
+            <div class="item" v-if="withdrawDetail.length <= 0">
+                <div class="l">
+                    <icon name="circle" style="color: #686868"></icon>
+                </div>
+                <div class="r">
+                    <div class="msg">
+                        您还没有兑换过魂币哦~
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </template>
 <script>
     import HeaderM from '../../components/header/header_m.vue'
+    import { Base64 } from 'js-base64'
+    import {mapState, mapActions} from 'vuex'
     export default {
         name: 'detail',
         props: {},
         data() {
             return {}
         },
-        computed: {},
-        methods: {},
+        computed: {
+            ...mapState([
+                'withdrawDetail'
+            ]),
+            user() {
+                return JSON.parse(Base64.decode(sessionStorage.u))
+            },
+        },
+        methods: {
+            ...mapActions([
+                'ac_list_withdraw'
+            ])
+        },
         components: {
             HeaderM,
         },
         beforeCreate() {
         },
         created() {
+            this.ac_list_withdraw({
+                authToken: this.user.authToken,
+                data: {
+                    pageIndex: 1,
+                    pageSize: 10000,
+                    userId: this.user.userId
+                }
+            })
         },
         beforeMount() {
         },

@@ -20,6 +20,7 @@
 </template>
 <script>
     import HeaderM from '../../components/header/header_m.vue'
+    import {mapState, mapActions} from 'vuex'
     export default {
         name: '',
         props: {},

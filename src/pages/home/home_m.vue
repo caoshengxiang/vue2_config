@@ -11,8 +11,10 @@
             <img class="phone" src="../../assets/home/anchor.png" alt="">
 
             <div class="btn">
-                <a href="/"><img src="../../assets/home/iphone-logo.png" alt="">APP Store</a>
-                <a href="/"><img src="../../assets/home/android-logo.png" alt="">Android</a>
+                <!--<a href="/"><img src="../../assets/home/iphone-logo.png" alt="">APP Store</a>
+                <a href="/"><img src="../../assets/home/android-logo.png" alt="">Android</a>-->
+                <a href="/"><img src="../../assets/home/ios-store.png" alt=""></a>
+                <a href="/"><img src="../../assets/home/an-store.png" alt=""></a>
             </div>
         </div>
     </div>
@@ -119,30 +121,13 @@
         }
         .btn {
             position: absolute;
-            bottom: 0;
+            bottom: 10px;
             width: 100%;
             text-align: center;
             a {
-                width: 76%;
-                margin: 0 auto px2rem(20px) auto;
-                padding: px2rem(10px);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                border-radius: 5px;
-                color: #fff;
-                &:nth-child(1) {
-                    background-color: black;
-                }
-                &:nth-child(2) {
-                    background-color: #e31c4e;
-                    margin-bottom: px2rem(30px);
-                }
                 img {
-                    width: px2rem(20px);
-                    margin-right: px2rem(20px);
-                    position: relative;
-                    top: px2rem(-3px);
+                    width: 85%;
+                    margin-bottom: 10px;
                 }
             }
         }

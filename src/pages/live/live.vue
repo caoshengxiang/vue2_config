@@ -53,9 +53,9 @@
                             <p>直播主题,直播主题,直播主题</p>
                         </div>
                     </div>
-                    <div class="row-2">
+                    <!--<div class="row-2">
                         <img width="14px" height="14px" src="" alt=""> 500
-                    </div>
+                    </div>-->
                 </div>
                 <!--<div class="other">
                     <img  class="head-img" src="../../assets/test-head.jpeg" alt="">
@@ -177,7 +177,7 @@
         },
         beforeCreate() {
 //            console.info(window.location)
-            console.log(getQueryObj().userid) // 参数解析
+            console.log(getQueryObj().videoid) // 参数解析
         },
         created() {
 //            this.dialogShow = true
@@ -212,10 +212,12 @@
     @import "../../styles/fun";
     .live {
         width: 100%;
+        max-width: 750px;
         position: absolute;
         top: 0;
         bottom: 0;
         overflow: hidden;
+        margin: 0 auto;
     }
     .living {
     }

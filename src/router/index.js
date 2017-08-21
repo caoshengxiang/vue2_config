@@ -10,6 +10,7 @@ Vue.use(Router)
 const test = resolve => require.ensure([], () => resolve(require('../pages/test.vue')), 'test')
 
 const homePc = resolve => require.ensure([], () => resolve(require('../pages/home/home_pc.vue')), 'home')
+const protocol = resolve => require.ensure([], () => resolve(require('../pages/home/protocol.vue')), 'home')
 const homeM = resolve => require.ensure([], () => resolve(require('../pages/home/home_m.vue')), 'home')
 const homeA = resolve => require.ensure([], () => resolve(require('../pages/home/home_ipad.vue')), 'home')
 
@@ -26,6 +27,10 @@ export default new Router({
             path: '/pc/home',
             name: 'homePC',
             component: homePc,
+        }, {
+            path: '/pc/protocol',
+            name: 'protocol',
+            component: protocol,
         },
         {
             path: '/m/home',

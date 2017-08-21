@@ -18,7 +18,7 @@
             <img class="living" src="../../assets/home/living.png" alt="">
         </div>
         <div class="part-2">
-            下 载 即 代 表 您 同 意&nbsp;&nbsp; <a href="/">铸 魂 用 户 协 议</a>
+            下 载 即 代 表 您 同 意&nbsp;&nbsp; <router-link to="/pc/protocol" target="_blank">铸 魂 用 户 协 议</router-link>
         </div>
     </div>
 </template>

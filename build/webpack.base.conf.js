@@ -80,7 +80,8 @@ module.exports = function (env) {
                             sass: "vue-style-loader!css-loader!postcss-loader!sass-loader",
                             scss: 'vue-style-loader!css-loader!postcss-loader!sass-loader',
                             i18n: '@kazupon/vue-i18n-loader'
-                        }
+                        },
+                        sourceMap: 'inline'
                     }
                 },
                 // css
@@ -88,7 +89,14 @@ module.exports = function (env) {
                     test: /\.css$/,
                     use: ExtractTextPlugin.extract({
                         fallback: "style-loader",
-                        use: ['css-loader','postcss-loader']
+                        // use: ['css-loader','postcss-loader']
+                        use: [
+                            {loader: 'css-loader'},
+                            {
+                                loader: 'postcss-loader',
+                                options: { sourceMap: 'inline' }
+                            }
+                        ]
                     })
                 },
 
@@ -97,7 +105,15 @@ module.exports = function (env) {
                     test: /\.(less)$/,
                     use: ExtractTextPlugin.extract({ // 打包css
                         fallback: 'style-loader',
-                        use: ['css-loader','postcss-loader', 'less-loader']
+                        // use: ['css-loader','postcss-loader', 'less-loader']
+                        use: [
+                            {loader: 'css-loader'},
+                            {
+                                loader: 'postcss-loader',
+                                options: { sourceMap: 'inline' }
+                            },
+                            {loader: 'less-loader'}
+                        ]
                     })
                 },
                 // css/sass 使用postcss-loader自动添加厂商前缀
@@ -105,7 +121,15 @@ module.exports = function (env) {
                     test: /\.(sass|scss)$/,
                     use: ExtractTextPlugin.extract({ // 打包css
                         fallback: 'style-loader',
-                        use: ['css-loader','postcss-loader', 'sass-loader']
+                        // use: ['css-loader','postcss-loader', 'sass-loader']
+                        use: [
+                            {loader: 'css-loader'},
+                            {
+                                loader: 'postcss-loader',
+                                options: { sourceMap: 'inline' }
+                            },
+                            {loader: 'sass-loader'}
+                        ]
                     })
                 },
                 // 图片

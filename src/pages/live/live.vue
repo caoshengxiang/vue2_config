@@ -125,6 +125,7 @@
                     width: 375,
                     controls: false,
                     live: true,
+                    VideoToOutsideInfo: {},
                 }
             }
         },
@@ -176,8 +177,12 @@
             toast,
         },
         beforeCreate() {
-//            console.info(window.location)
             console.log(getQueryObj().videoid) // 参数解析
+            $axios.get('/api/outsideWatch/play', {
+                params: {
+                    videoId: getQueryObj().videoid
+                }
+            }).then(res)
         },
         created() {
 //            this.dialogShow = true

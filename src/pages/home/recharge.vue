@@ -7,7 +7,7 @@
             </router-link>
         </header-m>
         <div class="row own-hb">
-            <p class="num">888</p>
+            <p class="num">{{totalCurrencyNum}}</p>
             <p class="line"></p>
             <p class="text">当前魂币</p>
         </div>
@@ -42,6 +42,12 @@
             ...mapState([
                 'totalCurrency',
             ]),
+            user() {
+                return JSON.parse(Base64.decode(sessionStorage.u))
+            },
+            totalCurrencyNum() {
+                return parseInt(this.totalCurrency?this.totalCurrency:0, 10)
+            },
         },
         methods: {
             ...mapActions([

@@ -7,7 +7,7 @@
             </router-link>
         </header-m>
         <div class="row total">
-            <span class="text">总魂豆数</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="num">{{totalBeans?totalBeans:0}}</span>
+            <span class="text">总魂豆数</span>&nbsp&nbsp<span class="num">{{totalBeansNum}}</span>
         </div>
         <div class="row own-hb">
             <p class="num">

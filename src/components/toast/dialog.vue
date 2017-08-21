@@ -13,7 +13,7 @@
 
         lineStyle {Object} 标题下方的线styled对象 title使用slot分发是无线，默认有线（可选惨，lineH线高, color颜色），不要线调用组件时 :lineStyle="{lineH: '0px'}"
 
-        width {String} 展示框的宽度
+        toastShowStyle {Object} 展示框的样式对象 【主要是width，border-radius】
 
     二.Events
         closeToast 关闭弹框事件 父组件 必须v-on监听，不用$on （详见vue官网，自定义事件）
@@ -39,7 +39,7 @@
 
         <!-- 弹框 -->
         <div class="parent-box">
-            <div class="toast-show" :style="{width: width}">
+            <div class="toast-show" :style="toastShowStyle">
                 <!-- 标题 -->
                 <div class="title">
                     <slot name="title">
@@ -95,9 +95,14 @@
                 },
                 type: Object
             },
-            width: {
-                default: '94%',
-                type: String
+            toastShowStyle: {
+                default: ()=>{
+                    return {
+                        width: '94%',
+                        borderRadius: '0px'
+                    }
+                },
+                type: Object
             }
         },
         data() {
@@ -165,9 +170,10 @@
         }
         .toast-show {
             background: #fff;
-            /*width: 94%;*/
+            width: 94%;
             text-align: center;
-            /*border-radius: 10px;*/
+            border-radius: 10px;
+            overflow: hidden;
             .title {
                 position: relative;
                 .title-h {

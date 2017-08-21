@@ -13,14 +13,6 @@ module.exports = {
             '/api': {
                 target: 'http://47.95.6.138:8080',
                 secure: false
-            },
-            '/i': {
-                target: 'http://image.baidu.com',
-                secure: false
-            },
-            '/search': {
-                target: 'http://image.baidu.com',
-                secure: false
             }
         }
     },

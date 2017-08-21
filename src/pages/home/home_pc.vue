@@ -8,8 +8,8 @@
                     <p>传递正能量，弘扬民族魂</p>
                 </div>
                 <div class="btn">
-                    <img class="b-iphone" src="../../assets/home/Button-iphone.png" alt="">
-                    <img class="b-an" src="../../assets/home/Button-an.png" alt="">
+                    <a href=""><img class="b-iphone" src="../../assets/home/Button-iphone.png" alt=""></a>
+                    <a href="http://47.95.6.138:8080/home/daodezhisheng.apk"><img class="b-an" src="../../assets/home/Button-an.png" alt=""></a>
                 </div>
             </div>
             <div class="r">

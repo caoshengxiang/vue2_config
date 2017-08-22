@@ -17,18 +17,18 @@
         </video>-->
 
 
-            <video-player   id="video-play"
-                            ref="videoPlayer"
-                           :options="playerOptions"
-                           @play="onPlayerPlay($event)"
-                           @playing="onPlayerPlaying($event)"
-                           @ended="onPlayerEnded($event)"
-                           @ready="playerReadied($event)"
+            <video-player id="video-play"
+                          ref="videoPlayer"
+                          :options="playerOptions"
+                          @play="onPlayerPlay($event)"
+                          @playing="onPlayerPlaying($event)"
+                          @ended="onPlayerEnded($event)"
+                          @ready="playerReadied($event)"
             >不支持
             </video-player>
 
 
-            <div class="text" v-show="messageShow">
+            <!--<div class="text" v-show="messageShow">
 
                 <div class="bottom">
                     <div class="msg">
@@ -40,17 +40,17 @@
                     </div>
 
                 </div>
-            </div>
+            </div>-->
         </div>
 
         <div class="item-3">
             <div class="user">
                 <div class="anchor">
                     <div class="row-1">
-                        <img class="head-img" src="../../assets/test-head.jpeg" alt="">
-                        <div >
-                            <h3>用户名称</h3>
-                            <p>直播主题,直播主题,直播主题</p>
+                        <img class="head-img" :src="videoInfo.anchorIcon" alt="">
+                        <div>
+                            <h3>{{videoInfo.anchorNickname}}</h3>
+                            <p>{{videoInfo.title}}</p>
                         </div>
                     </div>
                     <!--<div class="row-2">
@@ -69,11 +69,11 @@
         </div>
 
         <toast
-                :show="dialogShow"
-                title=""
-                :lineStyle="{lineH: '0'}"
-                :toastShowStyle="{width: '85%', borderRadius: '10px'}"
-                @closeToast="closeToast">
+            :show="dialogShow"
+            title=""
+            :lineStyle="{lineH: '0'}"
+            :toastShowStyle="{width: '85%', borderRadius: '10px'}"
+            @closeToast="closeToast">
             <img slot="icon" @click="closeToast" src="../../assets/icon/close.png">
             <div class="con">
                 <h1>直播结束</h1>
@@ -89,11 +89,12 @@
     </div>
 </template>
 <script>
-//    import VideoJs from 'video.js'
+    //    import VideoJs from 'video.js'
     import video from '../../assets/VID_20170805_141933.mp4'
     import toast from '../../components/toast/dialog.vue'
     import poster from '../../assets/test-poster.jpg'
     import {platform, iOSOrAndroid, getQueryObj} from '../../utils/utils'
+
     export default {
         name: 'live',
         props: {},
@@ -103,7 +104,7 @@
                 messageShow: false,
                 vi: video,
                 player: '',
-                playerOptions: {
+                playerOptions: { // 播放器配置参数
 
                     // component options
                     start: 0,
@@ -113,20 +114,26 @@
 //                    muted: true,
                     language: 'zh-CN',
                     playbackRates: [0.7, 1.0, 1.5, 2.0],
-                    sources: [{
-                        type: "video/mp4",
-                        src: video,
-//                        src: '',
-                    }],
+                    sources: [
+                        /*{
+                            type: "video/mp4",
+                            src: video,
+                        },
+                        {
+                            type: "rtmp/flv",
+                            src: ""
+                        }
+                        */
+                    ],
                     autoplay: true,
-                    poster: poster,
+                    poster: '',
 //                    height: screen.height,
                     height: 337,
                     width: 375,
                     controls: false,
                     live: true,
-                    VideoToOutsideInfo: {},
-                }
+                },
+                videoInfo: {},
             }
         },
         computed: {},
@@ -145,7 +152,7 @@
             onPlayerEnded() { // 结束
                 this.dialogShow = true
 //                $('#video-play').hide()
-                this.playerOptions.sources[0].src= ''
+                this.playerOptions.sources[0].src = ''
             },
             playerReadied() { // ready
 //                console.log(screen.availHeight, screen.height)
@@ -160,15 +167,15 @@
                 ifr.src = 'weixin://';
                 ifr.style.display = 'none';
                 document.body.appendChild(ifr);
-                window.setTimeout(function(){
+                window.setTimeout(function () {
                     document.body.removeChild(ifr);
-                },3000)
+                }, 3000)
             },
             downloadApp() {
                 if (platform() === 'Android') {
                     window.location.href = 'https://downpack.baidu.com/baidutieba_AndroidPhone_v8.7.8.2(8.7.8.2)_1019960r.apk?src=webtbGF'
                 } else {
-                    window.location.href ='https://itunes.apple.com/cn/app/id477927812'
+                    window.location.href = 'https://itunes.apple.com/cn/app/id477927812'
                 }
 //                window.location.href =
             },
@@ -178,11 +185,29 @@
         },
         beforeCreate() {
             console.log(getQueryObj().videoid) // 参数解析
-            $axios.get('/api/outsideWatch/play', {
+            $axios.get('/api/outside/watch/play', {
                 params: {
                     videoId: getQueryObj().videoid
                 }
-            }).then(res)
+            }).then(res => {
+                return res.data
+            }).then((d) => {
+                this.videoInfo = d.data
+                this.playerOptions.poster = d.data.videoPic
+                if (!d.data.playUrl) {
+                    this.dialogShow = true
+                    this.playerOptions.sources[0] = {
+                        type: "video/mp4",
+                        src: ''
+                    }
+                    this.playerOptions.poster = d.data.anchorIcon
+                } else {
+                    this.playerOptions.sources[0] = {
+                        type: "rtmp/flv",
+                        src: d.data.playUrl
+                    }
+                }
+            })
         },
         created() {
 //            this.dialogShow = true
@@ -215,6 +240,7 @@
 </script>
 <style lang="scss" rel="stylesheet/scss" scoped>
     @import "../../styles/fun";
+
     .live {
         width: 100%;
         max-width: 750px;
@@ -224,19 +250,23 @@
         overflow: hidden;
         margin: 0 auto;
     }
+
     .living {
     }
+
     .item-1 {
         position: relative;
         height: 17%;
         overflow: hidden;
         display: flex;
     }
+
     .item-2 {
         position: relative;
         height: 70%;
         overflow: hidden;
     }
+
     .item-3 {
         position: relative;
         height: 13%;
@@ -244,9 +274,11 @@
         display: flex;
         align-items: center;
     }
+
     #video-play {
         /*transform: scale(1.4);*/
     }
+
     .text {
         position: absolute;
         top: 0;
@@ -260,7 +292,7 @@
             width: 100%;
             .msg {
                 .list {
-                    background-color: rgba(0,0,0, 0.4);
+                    background-color: rgba(0, 0, 0, 0.4);
                     padding: px2rem(10px) px2rem(10px);
                     margin-bottom: px2rem(10px);
                     border-radius: px2rem(20px);
@@ -278,6 +310,7 @@
 
         }
     }
+
     .user {
         margin-top: px2rem(10px);
         .anchor {
@@ -336,6 +369,7 @@
             margin-right: px2rem(3px);
         }
     }
+
     .download {
 
         width: 100%;
@@ -363,8 +397,6 @@
             }
         }
     }
-
-
 
     .con {
         h1 {

@@ -1,11 +1,13 @@
 <template>
     <div class="recharge">
-        <header-m title="账户提现" to="/signin">
-
+        <!--<header-m title="账户提现" to="/signin">
             <router-link to="/withdraw_d" slot="right" style="color: #fff;display: flex;align-items: center;justify-content: flex-end">
                 <span>提现历史</span>
             </router-link>
-        </header-m>
+        </header-m>-->
+        <router-link to="/withdraw_d" slot="right" class="detail" style="color: #fff;display: flex;align-items: center;justify-content: flex-end;margin-top: 10px;margin-right: 10px">
+            <span>提现历史</span>
+        </router-link>
         <div class="row total">
             <span class="text">总魂豆数</span>&nbsp&nbsp<span class="num">{{totalBeansNum}}</span>
         </div>
@@ -150,7 +152,8 @@
         top: 0;
         bottom: 0;
         background-image: url("../../assets/me_img_history@2x.2.png");
-        background-size: 100% 100%;
+        background-size: 100% 110%;
+        background-position-y: -10px;
     }
     .row {
         padding: px2rem(10px);
@@ -188,7 +191,7 @@
         }
     }
     .row-2 {
-        margin-top: 60px;
+        margin-top: 100px;
         color: #fff;
         p {
             display: flex;

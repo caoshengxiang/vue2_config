@@ -1,8 +1,8 @@
 <template>
     <div>
-        <header-m title="充值记录" to="/recharge">
+        <!--<header-m title="充值记录" to="/recharge">
 
-        </header-m>
+        </header-m>-->
         <div class="con">
             <div class="item" v-for="(item, i) in rechargeDetail" :key="i">
                 <div class="l">
@@ -82,7 +82,7 @@
         padding: px2rem(20px);
         background: #eee;
         position: absolute;
-        top: 50px;
+        top: 0px;
         bottom: 0;
         width: 100%;
         overflow: scroll;

@@ -2,7 +2,7 @@
     <div>
         <header-m title="帐号登陆">
             <router-link to="/" slot="left" style="color: #fff;display: flex;align-items: center;">
-                <icon name="chevron-left" scale="1" style="color: #fff"></icon>&nbsp;<span>返回</span>
+                <!--<icon name="chevron-left" scale="1" style="color: #fff"></icon>&nbsp;<span>返回</span>-->
             </router-link>
         </header-m>
         <div class="container">
@@ -20,19 +20,19 @@
         <div class="login">
             <div style="color: #726b6b">三方登陆</div>
             <div class="connect-btn">
-                <span id="qqLoginBtn" class="btn"></span>
+                <span id="qqLoginBtn" class="btn">qq登录</span>
                 <span id="wx_connect_btn" class="btn weixin-login"><icon name="weixin"
                                                                          style="color: #578034;margin: auto 2px;"></icon><span>微信登录</span></span>
-                <span id="wb_connect_btn" class="btn">微博登录按钮</span>
+                <div id="wb_connect_btn"></div>
             </div>
-
         </div>
     </div>
 </template>
 <script>
     import HeaderM from '../../components/header/header_m.vue'
     import {mapState, mapActions} from 'vuex'
-    import { Base64 } from 'js-base64'
+    import {Base64} from 'js-base64'
+
     export default {
         name: 'signIn',
         props: {},
@@ -66,7 +66,7 @@
 //                    this.$router.go(-1)
                 }
             },
-            loginStatus(me) {
+            loginStatus() {
                 let p = parseInt(this.$route.params.p, 10) // 1 提现, 2 申请
 
                 switch (p) {
@@ -116,56 +116,51 @@
                 }
             },
             qqLogin() {
-                QC.Login({ // 按默认样式插入QQ登录按钮
-                    btnId: "qqLoginBtn", //插入按钮的节点id
-                    scope: "all",
-                    //按钮尺寸，可用值[A_XL| A_L| A_M| A_S|  B_M| B_S| C_S]，可选，默认B_S
-                    size: 'B_M'
-                });
 
-                //从页面收集OpenAPI必要的参数。get_user_info不需要输入参数，因此paras中没有参数
-                let paras = {};
+                QC.Login({
+                        //btnId：插入按钮的节点id，必选
+                        btnId:"qqLoginBtn",
+                        //用户需要确认的scope授权项，可选，默认all
+                        scope:"all",
+                        //按钮尺寸，可用值[A_XL| A_L| A_M| A_S|  B_M| B_S| C_S]，可选，默认B_S
+                        size: "B_M"
+                    }, function (reqData){ //登录成功
+                        //根据返回数据，更换按钮显示状态方法
+                        console.log(reqData); //查看返回数据
+                        QC.Login.getMe(function (openId, accessToken) { //获取用户的openId
+                            console.log('QQOPENID:'+openId);
+                            console.log('accessToken:'+accessToken);
+                        });
+                    }
+                );
+//                https://graph.qq.com/oauth/show?which=Login&display=pc&client_id=1106291055&response_type=token&scope=all&redirect_uri=http%3A%2F%2Fqzonestyle.gtimg.cn%2Fqzone%2Fopenapi%2Fredirect-1.0.1.html
 
-                //用JS SDK调用OpenAPI
-                QC.api("get_user_info", paras)
-                //指定接口访问成功的接收函数，s为成功返回Response对象
-                    .success(function (s) {
-                        //成功回调，通过s.data获取OpenAPI的返回数据
-                        console.log(s.data);
-                    })
-                    //指定接口访问失败的接收函数，f为失败返回Response对象
-                    .error(function (f) {
-                        //失败回调
-                        alert("获取用户信息失败！", f);
-                    })
-                    //指定接口完成请求后的接收函数，c为完成请求返回Response对象
-                    .complete(function (c) {
-                        //完成请求回调
-                        alert("获取用户信息完成！", c);
-                    });
+                /*eslint-disable*/
+//切割字符串转换参数表
+                /*$('#qqLoginBtn').click(() => {
+
+                    window.location.href = 'https://graph.qq.com/oauth2.0/authorize?client_id=1106291055&response_type=token&scope=all&redirect_uri=' + encodeURIComponent(window.location.href)
+                })*/
+                /*eslint-enable*/
             },
             weiboLogin() {
                 WB2.anyWhere(function (W) {
                     W.widget.connectButton({
                         id: "wb_connect_btn",
-                        type: '3,2', // [1-7,1-5]
+                        type: '3,2',
                         callback: {
                             login: function (o) { //登录后的回调函数
-                                console.log(o);
-                                thirdparty(null, null, o.avatar_hd, o.name, 3, o.id);//个人方法
-                                try {
-                                    document.getElementsByClassName('loginout')[0].click();
-                                    //页面需求，当前页面登录完成之后，不进行跳转，所以模拟点击事件，让微博账号在当前域中退出。不影响下次登录。（元素为微博动态添加）
-                                    //微博没有提供退出方法。下面的logout为另一种开发模式调用。
-                                } catch (e) {
-                                    console.log(e);
-                                }
+                                alert("login: " + o.screen_name)
                             },
                             logout: function () { //退出后的回调函数
+                                alert('logout');
                             }
                         }
                     });
                 });
+                /*$('#wb_connect_btn').click(()=>{
+
+                })*/
             },
             weixinLogin() {
                 /*let obj = new WxLogin({
@@ -179,9 +174,10 @@
                 });*/
 
                 $('#wx_connect_btn').click(() => {
-                    window.location.href = 'https://open.weixin.qq.com/connect/qrconnect?appid=wx5361584af99506d9&redirect_uri=' + encodeURIComponent(window.location.href) + '&response_type=code&scope=SCOPE&state=STATE#wechat_redirect'
+                    window.location.href = 'https://open.weixin.qq.com/connect/qrconnect?appid=wx5361584af99506d9&redirect_uri=' + encodeURIComponent(window.location.href) + '&response_type=code&scope=snsapi_login&state=STATE#wechat_redirect'
                 })
             },
+
         },
         components: {
             HeaderM,

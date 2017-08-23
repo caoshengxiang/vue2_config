@@ -6,19 +6,15 @@
       "key":"V1001_TODAY_MUSIC"
     },{
       "type":"click",
-      "name":"歌曲",
+      "name":"今日歌曲",
       "key":"V1001_TODAY_MUSIC2"
-    },{
-      "type":"click",
-      "name":"今日",
-      "key":"V1001_TODAY_MUSIC3"
     },
     {
       "name":"铸魂直播",
       "sub_button":[
         {
           "type":"view",
-          "name":"下载",
+          "name":"下载APP",
           "url":"http://47.95.6.138:8080/home"
         },{
           "type":"view",

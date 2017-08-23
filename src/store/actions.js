@@ -26,7 +26,28 @@ export default {
             } else if (d.data.status === 'FAIL') {
                 commit('mut_loginStatus', true) // todo false
 
-                let dt = {status:"SUCCESS",data:{"authToken":"ba01ac32-b899-483e-80c9-7ee414852f8d","userId":42,"nickname":"18328718417","phoneNum":"18328718417","name":null,"idNum":null,"icon":null,"age":0,"gender":"MALE","birthday":"2017-08-18","signature":null,"soulCurrency":0,"soulBean":0,"commission":null,"createTime":"2017-08-18 15:19","status":"ACTIVE","anchorStatus":"NONE","like":null,"idAuthStatus":"NONE","idPic1":null,"idPic2":null,"idPic3":null}}
+                let dt = {age:0,
+                    anchorStatus:"NONE",
+                    authToken:"61968e86-fd7c-41b9-b22f-ba33cacefcbc",
+                    birthday:"2017-07-24",
+                    commission:null,
+                    createTime:"2017-07-24 22:00",
+                    gender:"MALE",
+                    icon:"http://47.95.6.138:8080/moralvoice-img/user/e75c3948-5253-4e29-beca-9f1b7008d16d.png",
+                    idAuthStatus:"NONE",
+                    idNum:null,
+                    idPic1:null,
+                    idPic2:null,
+                    idPic3:null,
+                    like:null,
+                    name:"水中的彷徨",
+                    nickname:"水中的彷徨",
+                    phoneNum:"17358684442",
+                    signature:"你就是最好的,没有唯一",
+                    soulBean:0,
+                    soulCurrency:999999999,
+                    status:"ACTIVE",
+                    userId:35}
 
                 console.log(dt.data)
                 sessionStorage.u = Base64.encode(JSON.stringify(dt.data))

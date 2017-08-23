@@ -1,11 +1,13 @@
 <template>
     <div class="recharge">
-        <header-m title="账户充值" to="/signin">
-
+        <!--<header-m title="账户充值" to="/signin">
             <router-link to="/recharge_d" slot="right" style="color: #fff;display: flex;align-items: center;justify-content: flex-end">
                 <span>充值历史</span>
             </router-link>
-        </header-m>
+        </header-m>-->
+        <router-link to="/recharge_d" slot="right" style="color: #fff;display: flex;align-items: center;justify-content: flex-end;margin-top: 10px;margin-right: 10px">
+            <span>充值历史</span>
+        </router-link>
         <div class="row own-hb">
             <p class="num">{{totalCurrencyNum}}</p>
             <p class="line"></p>
@@ -16,15 +18,15 @@
             <p><span class="line"></span><span class="text">立即充值</span><span class="line"></span></p>
         </div>
         <div class="row rec">
-            <a class="active"><p class="b">42魂币</p><p class="m">¥6.00</p></a>
-            <a><p class="b">210魂币</p><p class="m">¥30.00</p></a>
-            <a><p class="b">686魂币</p><p class="m">¥98.00</p></a>
-            <a><p class="b">2086魂币</p><p class="m">¥298.00</p></a>
-            <a><p class="b">4116魂币</p><p class="m">¥588.00</p></a>
-            <a><p class="b">11186魂币</p><p class="m">¥1598.00</p></a>
+            <a :class="{active: isActive[0]}" @click="rechargeNum(0)"><p class="b">42魂币</p><p class="m">¥6.00</p></a>
+            <a :class="{active: isActive[1]}" @click="rechargeNum(1)"><p class="b">210魂币</p><p class="m">¥30.00</p></a>
+            <a :class="{active: isActive[2]}" @click="rechargeNum(2)"><p class="b">686魂币</p><p class="m">¥98.00</p></a>
+            <a :class="{active: isActive[3]}" @click="rechargeNum(3)"><p class="b">2086魂币</p><p class="m">¥298.00</p></a>
+            <a :class="{active: isActive[4]}" @click="rechargeNum(4)"><p class="b">4116魂币</p><p class="m">¥588.00</p></a>
+            <a :class="{active: isActive[5]}" @click="rechargeNum(5)"><p class="b">11186魂币</p><p class="m">¥1598.00</p></a>
         </div>
         <div class="row btn">
-            <mt-button type="danger" size="large" class="btn">立即充值</mt-button>
+            <mt-button type="danger" size="large" class="btn" @click.native="rechargeFun">立即充值</mt-button>
         </div>
     </div>
 </template>
@@ -36,7 +38,9 @@
         name: 'recharge',
         props: {},
         data() {
-            return {}
+            return {
+                isActive: [false, false, false, false, false, false],
+            }
         },
         computed: {
             ...mapState([
@@ -52,7 +56,16 @@
         methods: {
             ...mapActions([
                 'ac_consume_total',
-            ])
+            ]),
+            rechargeFun () {
+                this.$router.push({name: 'rechargeSuccess'})
+            },
+            rechargeNum(ind) {
+                let tempArr = [false, false, false, false, false, false]
+
+                tempArr[ind] = true
+                this.isActive = tempArr
+            }
         },
         components: {
             HeaderM
@@ -60,6 +73,7 @@
         beforeCreate() {
         },
         created() {
+
             if (!sessionStorage.u) {
                 this.$router.push({name: 'signIn', params: {p: 2}})
             }
@@ -91,7 +105,8 @@
         top: 0;
         bottom: 0;
         background-image: url("../../assets/me_img_history@2x.2.png");
-        background-size: 100% 100%;
+        background-size: 100% 110%;
+        background-position-y: -10px;
     }
     .row {
         padding: px2rem(10px);
@@ -115,7 +130,7 @@
         }
     }
     .row-2 {
-        margin-top: 60px;
+        margin-top: 100px;
         color: #fff;
         p {
             display: flex;
@@ -149,6 +164,7 @@
             text-align: center;
             width: px2rem(60px);
             margin: px2rem(10) 0;
+            text-decoration: none;
 
             &.active {
                 background: #ed3838;

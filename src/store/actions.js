@@ -26,7 +26,7 @@ export default {
             } else if (d.data.status === 'FAIL') {
                 commit('mut_loginStatus', true) // todo false
 
-                let dt = {age:0,
+                let dt = {data: {age:0,
                     anchorStatus:"NONE",
                     authToken:"61968e86-fd7c-41b9-b22f-ba33cacefcbc",
                     birthday:"2017-07-24",
@@ -47,7 +47,7 @@ export default {
                     soulBean:0,
                     soulCurrency:999999999,
                     status:"ACTIVE",
-                    userId:35}
+                    userId:35}}
 
                 console.log(dt.data)
                 sessionStorage.u = Base64.encode(JSON.stringify(dt.data))
@@ -56,6 +56,22 @@ export default {
 
         })
 
+    },
+    ac_verifyLogin({commit}, param) {
+        $axios({
+            method: 'get',
+            url: '/api/user/verifyLogin',
+            headers: {
+                'authToken': param.authToken,
+                // "Content-Type": "application/json"
+            }
+        }).then(res=>{
+            return res.data
+        }).then((d)=>{
+            sessionStorage.u = Base64.encode(JSON.stringify(d.data.data))
+            localStorage.u = Base64.encode(JSON.stringify(d.data.data))
+            commit('mut_loginStatus', true)
+        })
     },
     ac_send_sms({commit}, param) { // 验证码
         $axios.get('/api/user/sendSms', {
@@ -134,5 +150,6 @@ export default {
         }).then((d)=>{
             commit('mut_rechargeDetail', d.data)
         })
-    }
+    },
+
 }

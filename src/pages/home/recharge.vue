@@ -34,6 +34,8 @@
     import HeaderM from '../../components/header/header_m.vue'
     import { Base64 } from 'js-base64'
     import {mapState, mapActions} from 'vuex'
+    import pingpp from 'pingpp-js'
+    import {getQueryObj} from '../../utils/utils'
     export default {
         name: 'recharge',
         props: {},
@@ -56,6 +58,7 @@
         methods: {
             ...mapActions([
                 'ac_consume_total',
+                'ac_verifyLogin',
             ]),
             rechargeFun () {
                 this.$router.push({name: 'rechargeSuccess'})
@@ -65,6 +68,13 @@
 
                 tempArr[ind] = true
                 this.isActive = tempArr
+            },
+            getAuthToken() {
+                if (getQueryObj().authToken) {
+                    this.ac_verifyLogin({
+                        authToken: getQueryObj().authToken
+                    })
+                }
             }
         },
         components: {
@@ -73,6 +83,7 @@
         beforeCreate() {
         },
         created() {
+            this.getAuthToken()
 
             if (!sessionStorage.u) {
                 this.$router.push({name: 'signIn', params: {p: 2}})

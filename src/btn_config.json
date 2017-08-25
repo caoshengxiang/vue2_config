@@ -2,12 +2,12 @@
   "button":[
     {
       "type":"click",
-      "name":"今日歌曲",
+      "name":"T005",
       "key":"V1001_TODAY_MUSIC"
     },{
-      "type":"click",
-      "name":"今日歌曲",
-      "key":"V1001_TODAY_MUSIC2"
+      "type": "view",
+      "name": "登陆",
+      "url": "http://47.95.6.138:8080/api/thirdpartylogin/index?loginType=2&jumpType=1"
     },
     {
       "name":"铸魂直播",
@@ -19,12 +19,12 @@
         },{
           "type":"view",
           "name":"充值",
-          "url":"http://47.95.6.138:8080/weixin/#/recharge"
+          "url": "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx5361584af99506d9&redirect_uri=http%3A%2F%2Fmobile.daodezhisheng.cn%2Fweixin%2F%23%2Frecharge&response_type=code&scope=snsapi_base&state=1#wechat_redirect"
         },{
           "type":"view",
           "name":"提现",
-          "url":"http://47.95.6.138:8080/weixin/#/withdraw"
+          "url": "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx5361584af99506d9&redirect_uri=http%3A%2F%2Fmobile.daodezhisheng.cn%2Fweixin%2F%23%2Fwithdraw&response_type=code&scope=snsapi_base&state=1#wechat_redirect"
         }
-        ]
+      ]
     }]
 }

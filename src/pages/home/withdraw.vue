@@ -116,13 +116,6 @@
                     data: Object.assign({}, {userId: this.user.userId}, this.withdraw)
                 })
             },
-            getAuthToken() {
-                if (getQueryObj().authToken) {
-                    this.ac_verifyLogin({
-                        authToken: getQueryObj().authToken
-                    })
-                }
-            }
         },
         components: {
             HeaderM
@@ -130,9 +123,27 @@
         beforeCreate() {
         },
         created() {
-            this.getAuthToken()
+            let code = getQueryObj().code
+            let that = this
+
+            if (code) {
+                sessionStorage.code = code
+                $.ajax({
+                    url: '/api/wechatpublicno/getopenid?code=' + code,
+                    type: 'get',
+                    success: function (data) {
+                        sessionStorage.openid = data.data
+                    },
+                    error: function (e) {
+
+                    }
+                })
+            }
+
+
             if (!sessionStorage.u) {
                 this.$router.push({name: 'signIn', params: {p: 1}})
+                sessionStorage.page = 'withdraw'
             }
             this.ac_consume_total({
                 userId: this.user.userId,

@@ -7,4 +7,4 @@ ssh root@47.95.6.138 "mv zhlive-weixin /opt/tomcat/webapps/weixin"
 
 # Chengxun@1806
 
-# dJKuZ3EERh0LqQ8i48MYJytdwx6hxFMCPzCYZ33Z28sDtYs0xJ_V094kKaxOtG_luALshdtNMlK5n6UX_A-ciMTuZnaI9wYhWchuUtwFKn-WjeQiMSqk0b7iuruZgi9BWKUhABAGUE
+# ylLwu9-8PI89BeQgc8ypP1fYvHn149gqsP8dZq5Ukz7UUsxCDWa0d17i2ozKwg2Zmk_jgml2XChengxun@1806cs04CcMsGacnDygU9f5qlYxf8qfRQrKBxrza-YDRwuhGuA9hi7QjvlsTHIbACAJXY

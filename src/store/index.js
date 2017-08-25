@@ -16,7 +16,7 @@ export default new Vuex.Store({
     state: {
         lang: '', // 语言
         userInfo: {}, // 登陆用户
-        loginStatus: false,
+        loginStatus: 'FAIL',
         totalBeans: 0, // 总魂豆
         totalCurrency: 0, // 总魂币
         isWithdrawSuc: false, // 提现成功返回

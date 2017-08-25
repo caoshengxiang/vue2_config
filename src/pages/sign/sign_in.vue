@@ -18,12 +18,14 @@
             <div class="tips"><span v-show="testLogin">手机号或验证码错误</span></div>
         </div>
         <div class="login">
-            <div style="color: #726b6b">三方登陆</div>
+            <div class="text">----第三方登陆----</div>
             <div class="connect-btn">
-                <span id="qqLoginBtn" class="btn">qq登录</span>
-                <span id="wx_connect_btn" class="btn weixin-login"><icon name="weixin"
-                                                                         style="color: #578034;margin: auto 2px;"></icon><span>微信登录</span></span>
-                <div id="wb_connect_btn"></div>
+                <a id="qqLoginBtn" class="btn" href="http://mobile.daodezhisheng.cn:8080/api/thirdpartylogin/index?loginType=QQ"><img
+                    src="../../assets/qq.png" alt=""></a>
+                <a id="wx_connect_btn" class="btn weixin-login" href="http://mobile.daodezhisheng.cn:8080/api/thirdpartylogin/index?loginType=WECHAT"><img
+                    src="../../assets/weixin.png" alt=""></a>
+                <a id="wb_connect_btn" href="http://mobile.daodezhisheng.cn:8080/api/thirdpartylogin/index?loginType=WEIBO"><img
+                    src="../../assets/sina0.png" class="sina" alt=""></a>
             </div>
         </div>
     </div>
@@ -32,6 +34,7 @@
     import HeaderM from '../../components/header/header_m.vue'
     import {mapState, mapActions} from 'vuex'
     import {Base64} from 'js-base64'
+    import {getQueryObj} from '../../utils/utils'
 
     export default {
         name: 'signIn',
@@ -66,24 +69,32 @@
 //                    this.$router.go(-1)
                 }
             },
-            loginStatus() {
-                let p = parseInt(this.$route.params.p, 10) // 1 提现, 2 申请
+            loginStatus(me) {
+                alert(1) // TODO
+                if (me === 'SUCCESS') {
+                    let p = sessionStorage.page // withdraw 提现, recharge 申请
 
-                switch (p) {
-                    case 1:
-                        this.$router.push({name: 'withdraw'})
-                        break
-                    case 2:
-                        this.$router.push({name: 'recharge'})
-                        break
-                    default:
+                    alert(p) // TODO
+                    switch (p) {
+                        case 'withdraw':
+                            this.$router.push({name: 'withdraw'})
+                            break
+                        case 'recharge':
+                            this.$router.push({name: 'recharge'})
+                            break
+                        default:
+                    }
+                } else {
+                    this.testLogin = true
                 }
+
             }
         },
         methods: {
             ...mapActions([
                 'ac_send_sms',
                 'ac_user_login',
+                'ac_verifyLogin'
             ]),
             sendCode() {
                 if (this.loginForm.phone.length !== 11) {
@@ -115,69 +126,20 @@
                     })
                 }
             },
-            qqLogin() {
-
-                QC.Login({
-                        //btnId：插入按钮的节点id，必选
-                        btnId:"qqLoginBtn",
-                        //用户需要确认的scope授权项，可选，默认all
-                        scope:"all",
-                        //按钮尺寸，可用值[A_XL| A_L| A_M| A_S|  B_M| B_S| C_S]，可选，默认B_S
-                        size: "B_M"
-                    }, function (reqData){ //登录成功
-                        //根据返回数据，更换按钮显示状态方法
-                        console.log(reqData); //查看返回数据
-                        QC.Login.getMe(function (openId, accessToken) { //获取用户的openId
-                            console.log('QQOPENID:'+openId);
-                            console.log('accessToken:'+accessToken);
-                        });
-                    }
-                );
-//                https://graph.qq.com/oauth/show?which=Login&display=pc&client_id=1106291055&response_type=token&scope=all&redirect_uri=http%3A%2F%2Fqzonestyle.gtimg.cn%2Fqzone%2Fopenapi%2Fredirect-1.0.1.html
-
-                /*eslint-disable*/
-//切割字符串转换参数表
-                /*$('#qqLoginBtn').click(() => {
-
-                    window.location.href = 'https://graph.qq.com/oauth2.0/authorize?client_id=1106291055&response_type=token&scope=all&redirect_uri=' + encodeURIComponent(window.location.href)
-                })*/
-                /*eslint-enable*/
-            },
-            weiboLogin() {
-                WB2.anyWhere(function (W) {
-                    W.widget.connectButton({
-                        id: "wb_connect_btn",
-                        type: '3,2',
-                        callback: {
-                            login: function (o) { //登录后的回调函数
-                                alert("login: " + o.screen_name)
-                            },
-                            logout: function () { //退出后的回调函数
-                                alert('logout');
-                            }
-                        }
-                    });
-                });
-                /*$('#wb_connect_btn').click(()=>{
-
-                })*/
-            },
-            weixinLogin() {
-                /*let obj = new WxLogin({
-                    id:"wx_connect_btn",
-                    appid: "wx5361584af99506d9",
-                    scope: "snsapi_login",
-                    redirect_uri: "http://192.168.1.127:8800/#/",
-                    state: "",
-                    style: "",
-                    href: ""
-                });*/
-
-                $('#wx_connect_btn').click(() => {
-                    window.location.href = 'https://open.weixin.qq.com/connect/qrconnect?appid=wx5361584af99506d9&redirect_uri=' + encodeURIComponent(window.location.href) + '&response_type=code&scope=snsapi_login&state=STATE#wechat_redirect'
-                })
-            },
-
+            getAuthToken() {
+                alert('get') // TODO
+                alert('get2')
+                if (getQueryObj().authToken) {
+                    alert(11) // TODO
+                    sessionStorage.authToken = getQueryObj().authToken
+                    this.ac_verifyLogin({
+                        authToken: getQueryObj().authToken
+                    }).then(()=>{
+                        alert(12) // TODO
+                    })
+                    alert(13) // TODO
+                }
+            }
         },
         components: {
             HeaderM,
@@ -185,14 +147,14 @@
         beforeCreate() {
         },
         created() {
-
+            this.getAuthToken()
         },
         beforeMount() {
         },
         mounted() {
-            this.qqLogin()
-            this.weiboLogin()
-            this.weixinLogin()
+//            this.qqLogin()
+//            this.weiboLogin()
+//            this.weixinLogin()
         },
         beforeUpdate() {
         },
@@ -239,24 +201,21 @@
     }
 
     .login {
-        padding: px2rem(20px);
-        .connect-btn {
-            display: flex;
-            align-items: center;
-            margin-top: px2rem(10px);
-            .btn {
-                margin-right: px2rem(10px);
-            }
+        text-align: center;
+        .text {
+            margin-bottom: 10px;
         }
-        .weixin-login {
-            border: 1px solid #578034;
-            display: flex;
-            align-items: center;
-            color: #fff;
-            border-radius: 3px;
-            span {
-                background-color: #578034;
-                padding: 3px 5px;
+        .connect-btn {
+            img {
+                width: 50px;
+                height: 50px;
+                margin: 5px;
+                &.sina {
+                    width: 57px;
+                    height: 57px;
+                    position: relative;
+                    top: 3.5px;
+                }
             }
         }
     }

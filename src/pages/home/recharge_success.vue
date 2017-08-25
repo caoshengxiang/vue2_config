@@ -10,8 +10,8 @@
         </router-link>
         <div class="suc">
             <div class="suc-1">
-                <p>账户: 林妹妹</p>
-                <p>成功充值 <span>1313</span>魂币</p>
+                <p>账户: {{user.nickname}}</p>
+                <p>成功充值 <span>{{cur}}</span>魂币</p>
             </div>
             <div class="suc-2">
                 <p>可在 <router-link to="/recharge_d">[我的-充值记录]</router-link>中查看</p>
@@ -24,13 +24,21 @@
 <script>
     import HeaderM from '../../components/header/header_m.vue'
     import {mapState, mapActions} from 'vuex'
+    import {Base64} from 'js-base64'
     export default {
         name: '',
         props: {},
         data() {
             return {}
         },
-        computed: {},
+        computed: {
+            user() {
+                return JSON.parse(Base64.decode(sessionStorage.u))
+            },
+            cur() {
+                return sessionStorage.cur
+            }
+        },
         methods: {},
         components: {
             HeaderM,
@@ -65,7 +73,7 @@
         background-size: 100% 80%;
         text-align: center;
         .suc-1 {
-            margin: 260px auto 0 auto;
+            margin: 200px auto 0 auto; // TODO
             width: px2rem(170px);
             text-align: left;
             p{

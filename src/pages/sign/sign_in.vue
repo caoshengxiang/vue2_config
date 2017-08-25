@@ -70,11 +70,11 @@
                 }
             },
             loginStatus(me) {
-                alert(1) // TODO
+                alert('4') // TODO
                 if (me === 'SUCCESS') {
                     let p = sessionStorage.page // withdraw 提现, recharge 申请
 
-                    alert(p) // TODO
+                    alert(5) //TODO
                     switch (p) {
                         case 'withdraw':
                             this.$router.push({name: 'withdraw'})
@@ -127,17 +127,13 @@
                 }
             },
             getAuthToken() {
-                alert('get') // TODO
-                alert('get2')
+                alert(2) // TODO
                 if (getQueryObj().authToken) {
-                    alert(11) // TODO
+                    alert(3) // TODO
                     sessionStorage.authToken = getQueryObj().authToken
                     this.ac_verifyLogin({
                         authToken: getQueryObj().authToken
-                    }).then(()=>{
-                        alert(12) // TODO
                     })
-                    alert(13) // TODO
                 }
             }
         },
@@ -152,9 +148,6 @@
         beforeMount() {
         },
         mounted() {
-//            this.qqLogin()
-//            this.weiboLogin()
-//            this.weixinLogin()
         },
         beforeUpdate() {
         },

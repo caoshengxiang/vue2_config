@@ -126,21 +126,6 @@
             let code = getQueryObj().code
             let that = this
 
-            if (code) {
-                sessionStorage.code = code
-                $.ajax({
-                    url: '/api/wechatpublicno/getopenid?code=' + code,
-                    type: 'get',
-                    success: function (data) {
-                        sessionStorage.openid = data.data
-                    },
-                    error: function (e) {
-
-                    }
-                })
-            }
-
-
             if (!sessionStorage.u) {
                 this.$router.push({name: 'signIn', params: {p: 1}})
                 sessionStorage.page = 'withdraw'

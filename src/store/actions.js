@@ -34,7 +34,6 @@ export default {
 
     },
     ac_verifyLogin({commit}, param) { // 三方登陆后获取用户信息
-        alert(JSON.stringify(param)) // TODO
         $axios({
             method: 'get',
             url: '/api/user/verifyLogin',
@@ -43,10 +42,9 @@ export default {
                 // "Content-Type": "application/json"
             }
         }).then(res => {
-            alert('aixos') // TODO
             return res.data
         }).then((d) => {
-            console.log('三方登录用户信息',+ d)
+            console.log('三方登录用户信息',+ d.data)
             sessionStorage.u = Base64.encode(JSON.stringify(d.data))
             // localStorage.u = Base64.encode(JSON.stringify(d.data))
             commit('mut_loginStatus', 'SUCCESS')

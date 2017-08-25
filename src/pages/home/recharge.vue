@@ -165,27 +165,35 @@
 
             if (code) {
                 sessionStorage.code = code
-                $.ajax({
+                /*$.ajax({
                     url: '/api/wechatpublicno/getopenid?code=' + code,
                     type: 'get',
+                    async:false,
                     success: function (data) {
                         sessionStorage.openid = data.data
-
                     },
                     error: function (e) {
 
                     }
+                })*/
+                if (code) {
+                    alert(code)
+                }
+                $axios.get('/api/wechatpublicno/getopenid?code=' + code).then((res)=>{
+                    sessionStorage.openid = res.data
+                    alert(9)
+                    /**/
+                    if (!sessionStorage.u) {
+                        that.$router.push({name: 'signIn', params: {p: 2}})
+                        sessionStorage.page = 'recharge'
+                    }
+                    that.ac_consume_total({
+                        userId: that.user.userId,
+                        authToken: that.user.authToken
+                    })
                 })
             }
-            /**/
-            if (!sessionStorage.u) {
-                that.$router.push({name: 'signIn', params: {p: 2}})
-                sessionStorage.page = 'recharge'
-            }
-            that.ac_consume_total({
-                userId: that.user.userId,
-                authToken: that.user.authToken
-            })
+
 
         },
         beforeMount() {

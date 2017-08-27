@@ -127,9 +127,7 @@
                 }
             },
             getAuthToken() {
-                alert(2) // TODO
                 if (getQueryObj().authToken) {
-                    alert(3) // TODO
                     sessionStorage.authToken = getQueryObj().authToken
                     this.ac_verifyLogin({
                         authToken: getQueryObj().authToken

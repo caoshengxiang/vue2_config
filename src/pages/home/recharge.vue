@@ -46,28 +46,28 @@
 </template>
 <script>
     import HeaderM from '../../components/header/header_m.vue'
-    import {Base64} from 'js-base64'
-    import {mapState, mapActions} from 'vuex'
+    import { Base64 } from 'js-base64'
+    import { mapState, mapActions } from 'vuex'
     import pingpp from 'pingpp-js'
-    import {getQueryObj} from '../../utils/utils'
+    import { getQueryObj } from '../../utils/utils'
 
     export default {
         name: 'recharge',
         props: {},
-        data() {
+        data () {
             return {
                 isActive: [true, false, false, false, false, false],
                 payType: ['ALIPAY', 'WECHAT_PAY', 'APPLE_PURCHASED_WITHIN'],
                 product: ['soulCurrency_6', 'soulCurrency_30', 'soulCurrency_98', 'soulCurrency_298', 'soulCurrency_588', 'soulCurrency_1598'],
                 currency: [42, 210, 686, 2086, 4116, 11186],
                 rechargeParam: {
-                    cancelUrl: "http://192.168.1.127:8800/#/recharge",
-                    clientIp: "http://192.168.1.127:8800",
-                    fromType: "WECAHT_PUB",
-//                    openId: "string",
-                    payType: "WECHAT_PAY", //微信   ALIPAY 支付宝
-                    product: "soulCurrency_6",
-                    successUrl: "http://192.168.1.127:8800/#/recharge_s",
+                    cancelUrl: 'http://192.168.1.127:8800/#/recharge',
+                    clientIp: 'http://192.168.1.127:8800',
+                    fromType: 'WECAHT_PUB',
+                    openId: "",
+                    payType: 'WECHAT_PAY', //微信   ALIPAY 支付宝
+                    product: 'soulCurrency_6',
+                    successUrl: 'http://192.168.1.127:8800/#/recharge_s',
                     userId: ''
                 },
                 wxActive: true,
@@ -79,10 +79,10 @@
             ...mapState([
                 'totalCurrency',
             ]),
-            user() {
+            user () {
                 return JSON.parse(Base64.decode(sessionStorage.u))
             },
-            totalCurrencyNum() {
+            totalCurrencyNum () {
                 return parseInt(this.totalCurrency ? this.totalCurrency : 0, 10)
             },
         },
@@ -91,15 +91,16 @@
                 'ac_consume_total',
                 'ac_verifyLogin',
             ]),
-            rechargeFun() {
+            rechargeFun () { // 支付函数
                 let that = this
 
                 this.rechargeParam.userId = this.user.userId
+                this.rechargeParam.openId = sessionStorage.openid
                 $axios({
                     method: 'post',
                     url: '/api/consume/applyRecharge',
                     headers: {
-                        'authToken': sessionStorage.authToken,
+                        'authToken': this.user.authToken || sessionStorage.authToken,
                         // "Content-Type": "application/json"
                     },
                     data: this.rechargeParam
@@ -109,22 +110,22 @@
                     console.log('charge:' + charge)
                     sessionStorage.cur = that.cur
                     pingpp.createPayment(charge, function (result, err) {
-                        console.log(result);
-                        console.log(err.msg);
-                        console.log(err.extra);
-                        if (result === "success") {
+                        console.log(result)
+                        console.log(err.msg)
+                        console.log(err.extra)
+                        if (result === 'success') {
                             // 只有微信公众账号 wx_pub 支付成功的结果会在这里返回，其他的支付结果都会跳转到 extra 中对应的 URL。
-                        } else if (result === "fail") {
+                        } else if (result === 'fail') {
                             // charge 不正确或者微信公众账号支付失败时会在此处返回
-                        } else if (result === "cancel") {
+                        } else if (result === 'cancel') {
                             // 微信公众账号支付取消支付
                         }
-                    });
+                    })
                 })
 
 //                this.$router.push({name: 'rechargeSuccess'}) // 充值成功后跳转路由
             },
-            rechargeNum(ind) {
+            rechargeNum (ind) {
                 let tempArr = [false, false, false, false, false, false]
 
                 tempArr[ind] = true
@@ -132,15 +133,13 @@
                 this.rechargeParam.product = this.product[ind]
                 this.cur = this.currency[ind]
             },
-            rechargeTypeFun(num) { // 支付方式
+            rechargeTypeFun (num) { // 支付方式
                 this.initActive()
-
 
                 switch (num) {
                     case 1: // 微信
                         this.wxActive = true
                         this.rechargeParam.payType = 'WECHAT_PAY'
-                        this.rechargeParam.openid = sessionStorage.openid
                         break
                     case 2: // 支付宝
                         this.zfbActive = true
@@ -149,64 +148,52 @@
                     default:
                 }
             },
-            initActive() {
+            initActive () {
                 this.wxActive = false
                 this.zfbActive = false
             },
+            jump() {
+                if (!sessionStorage.u) {
+                    this.$router.push({name: 'signIn', params: {p: 2}})
+                    sessionStorage.page = 'recharge'
+                }
+            }
         },
         components: {
             HeaderM
         },
-        beforeCreate() {
+        beforeCreate () {
         },
-        created() {
+        created () {
+            this.ac_consume_total({
+                userId: this.user.userId,
+                authToken: this.user.authToken
+            })
+
             let code = getQueryObj().code
-            let that = this
 
             if (code) {
                 sessionStorage.code = code
-                /*$.ajax({
-                    url: '/api/wechatpublicno/getopenid?code=' + code,
-                    type: 'get',
-                    async:false,
-                    success: function (data) {
-                        sessionStorage.openid = data.data
-                    },
-                    error: function (e) {
-
-                    }
-                })*/
-                if (code) {
-                    alert(code)
-                }
-                $axios.get('/api/wechatpublicno/getopenid?code=' + code).then((res)=>{
+                $axios.get('/api/wechatpublicno/getopenid?code=' + code).then((res) => {
                     sessionStorage.openid = res.data
-                    alert(9)
-                    /**/
-                    if (!sessionStorage.u) {
-                        that.$router.push({name: 'signIn', params: {p: 2}})
-                        sessionStorage.page = 'recharge'
-                    }
-                    that.ac_consume_total({
-                        userId: that.user.userId,
-                        authToken: that.user.authToken
-                    })
+                    this.jump()
                 })
+            } else { // 非微信浏览器测试用，浏览器不能无法获取code将不能支付等
+                this.jump()
             }
 
-
         },
-        beforeMount() {
+        beforeMount () {
         },
-        mounted() {
+        mounted () {
         },
-        beforeUpdate() {
+        beforeUpdate () {
         },
-        updated() {
+        updated () {
         },
-        beforeDestroy() {
+        beforeDestroy () {
         },
-        destroyed() {
+        destroyed () {
         }
     }
 </script>

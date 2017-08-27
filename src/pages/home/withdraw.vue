@@ -30,10 +30,19 @@
                     <a class="zfb" :class="{active: zfbActive}" @click="zfbActiveF">支付宝</a>
                 </p>
             </div>
-            <div class="item">
+
+            <div class="item" v-show="wxActive">
+                <h3>兑换账户</h3>
+                <p class="tips">
+                    微信提现将提现至关注公众号的微信账号
+                </p>
+            </div>
+            <div class="item" v-show="zfbActive">
                 <h3>兑换账户</h3>
                 <p>
-                    <input type="text" placeholder="请输入兑换账户" v-model="withdraw.account">
+                    <input id="zfbAccount" type="text"
+                           placeholder="请务必正确输入支付宝账户"
+                           v-model="withdraw.account">
                 </p>
             </div>
         </div>
@@ -56,6 +65,7 @@
                     soulBean: '',
                     account: '',
                     accountType: '',
+                    openId: ''
                 },
                 wxActive: false,
                 zfbActive: false,
@@ -85,7 +95,7 @@
         watch: {
             isWithdrawSuc(me) {
                 if (me) {
-                    alert('提现申请成功')
+                    alert('提现申请成功,请耐心等待')
 
                 }
             }
@@ -105,17 +115,55 @@
                 this.initActive()
                 this.zfbActive = true
                 this.withdraw.accountType = 'ALIPAY'
+                this.$nextTick(()=>{
+                    $('#zfbAccount').focus()
+
+                    $('#zfbAccount').blur(()=> {
+                        if (!this.withdraw.account) {
+                          $('#zfbAccount').css({border: '1px solid red'})
+                        } else {
+                            $('#zfbAccount').css({border: '0'})
+                        }
+                    })
+                })
             },
             initActive() {
                 this.wxActive = false
                 this.zfbActive = false
             },
             applyWithdraw() {
+                this.withdraw.openId = sessionStorage.openid
+                if (this.withdraw.soulBean) { // TODO !
+                    alert('请输入提现魂币数量')
+                    return
+                }
+                if (!this.withdraw.accountType) {
+                    alert('请选择提现方式')
+                    return
+                }
+                if (this.withdraw.accountType === 'WECHAT') {
+                    this.withdrawAction()
+                } else if (this.withdraw.accountType === 'ALIPAY') {
+                    if (this.withdraw.account) {
+                        if (window.confirm('请再次确认支付宝账户信息无误：'+ this.withdraw.account)) {
+                            this.withdrawAction()
+                        }
+                    }
+                }
+
+            },
+            withdrawAction() {
                 this.ac_apply_withdraw({
                     authToken: this.user.authToken,
                     data: Object.assign({}, {userId: this.user.userId}, this.withdraw)
                 })
             },
+            jump() {
+                if (!sessionStorage.u) {
+                    this.$router.push({name: 'signIn', params: {p: 1}})
+                    sessionStorage.page = 'withdraw'
+                }
+            }
         },
         components: {
             HeaderM
@@ -124,16 +172,22 @@
         },
         created() {
             let code = getQueryObj().code
-            let that = this
 
-            if (!sessionStorage.u) {
-                this.$router.push({name: 'signIn', params: {p: 1}})
-                sessionStorage.page = 'withdraw'
-            }
             this.ac_consume_total({
                 userId: this.user.userId,
                 authToken: this.user.authToken
             })
+            if (code) {
+                sessionStorage.code = code
+                $axios.get('/api/wechatpublicno/getopenid?code=' + code).then((res) => {
+                    sessionStorage.openid = res.data
+                    this.jump()
+                })
+            } else { // 非微信浏览器测试用，浏览器不能无法获取code将不能支付等
+                this.jump()
+            }
+
+
         },
         beforeMount() {
         },
@@ -250,7 +304,11 @@
             input {
                 border: 0;
                 height: 30px;
+                width: 80%;
                 font-size: px2rem(14px);
+            }
+            .tips {
+                color: #888;
             }
         }
     }

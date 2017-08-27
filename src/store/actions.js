@@ -28,6 +28,21 @@ export default {
                 // localStorage.u = Base64.encode(JSON.stringify(d.data))
                 commit('mut_loginStatus', 'SUCCESS')
             } else if (d.status === "FAIL") {
+
+              /*  {"status":"SUCCESS",
+                    "data":{
+                    "authToken":"171ac1e2-8a00-4b0c-9727-2ef0cccccc51",
+                        "userId":35,"nickname":"水中的彷徨",
+                        "phoneNum":"17358684442","name":"水中的彷徨",
+                        "idNum":null,
+                        "icon":"http://47.95.6.138:8080/moralvoice-img/user/e75c3948-5253-4e29-beca-9f1b7008d16d.png",
+                        "age":0,"gender":"MALE","birthday":"2017-07-24","signature":"你就是最好的,没有唯一",
+                        "soulCurrency":999999999,"soulBean":0,"commission":null,
+                        "createTime":"2017-07-24 22:00","status":"ACTIVE","anchorStatus":"NONE",
+                        "like":null,"idAuthStatus":"NONE","idPic1":null,
+                        "idPic2":null,"idPic3":null}}
+                */
+
                 commit('mut_loginStatus', d.errMsg)
             }
         })

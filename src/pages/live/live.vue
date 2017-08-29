@@ -197,14 +197,15 @@
                 if (!d.data.playUrl) {
                     this.dialogShow = true
                     this.playerOptions.sources[0] = {
-                        type: "video/mp4",
-                        src: ''
+                        type: "",
+                        src: ""
                     }
                     this.playerOptions.poster = d.data.anchorIcon
                 } else {
                     this.playerOptions.sources[0] = {
                         type: "rtmp/flv",
-                        src: d.data.playUrl
+//                        src: d.data.playUrl
+                        src: video
                     }
                 }
             })

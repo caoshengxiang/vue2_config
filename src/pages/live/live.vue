@@ -10,14 +10,25 @@
 
 
         <div class="item-2" id="playBox">
-            <!--<video width="100%"  id="living" class="living" controls autoplay preload="auto">
-                <source :src="vi" type="video/mp4">
 
-                您的浏览器不支持 video 标签。
-            </video>-->
+            <video id="play"
+                   class="video-js"
+                   controls
+                   preload="auto"
+                   :poster="playerOptions.poster"
+            >
+                <source :src='vi' type='rtmp/flv'>
+                <source :src="video" type="video/mp4"/>
+                <p class="vjs-no-js">
+                    To view this video please enable JavaScript, and consider upgrading to a
+                    web browser that
+                    <a href="http://videojs.com/html5-video-support/" target="_blank">
+                        supports HTML5 video
+                    </a>
+                </p>
+            </video>
 
-
-            <video-player id="video-play"
+            <!--<video-player id="video-play"
                           ref="videoPlayer"
                           :options="playerOptions"
                           @play="onPlayerPlay($event)"
@@ -25,22 +36,7 @@
                           @ended="onPlayerEnded($event)"
                           @ready="playerReadied($event)"
             >不支持
-            </video-player>
-
-
-            <!--<div class="text" v-show="messageShow">
-
-                <div class="bottom">
-                    <div class="msg">
-                        <span class="list"><span class="name">小智</span> <span class="con">送给主播康乃馨x100</span></span><br>
-                        <span class="list"><span class="name">小智</span> <span class="con">送给主播康乃馨x100</span></span><br>
-                        <span class="list"><span class="name">小智</span> <span class="con">送给主播康乃馨x100</span></span><br>
-                        <span class="list"><span class="name">小智</span> <span class="con">主播好漂亮，主播好漂亮</span></span><br>
-                        <span class="list"><span class="name">小智</span> <span class="con">送给主播康乃馨送给主播康乃馨送给主播康乃馨送给主播康乃馨送给主播康乃馨送给主播康乃馨</span></span><br>
-                    </div>
-
-                </div>
-            </div>-->
+            </video-player>-->
         </div>
 
         <div class="item-3">
@@ -89,13 +85,15 @@
     </div>
 </template>
 <script>
-    //    import VideoJs from 'video.js'
+    import VideoJs from 'video.js'
+    import 'video.js/dist/video-js.css';
+
     import video from '../../assets/VID_20170805_141933.mp4'
     import pos from '../../assets/test-poster.jpg'
 
     import toast from '../../components/toast/dialog.vue'
     import {platform, iOSOrAndroid, getQueryObj} from '../../utils/utils'
-    import { videoPlayer } from 'vue-video-player'
+    import {videoPlayer} from 'vue-video-player'
 
     export default {
         name: 'live',
@@ -104,7 +102,7 @@
             return {
                 dialogShow: false,
                 messageShow: false,
-                vi: video,
+                vi: '',
                 player: '',
                 playerOptions: { // 播放器配置参数
 
@@ -117,13 +115,13 @@
                     language: 'zh-CN',
                     playbackRates: [0.7, 1.0, 1.5, 2.0],
                     sources: [
-                        {
+                        /*{
                             type: "video/mp4",
                             src: video,
-                        }
+                        }*/
                     ],
                     autoplay: true,
-                    poster: pos,
+                    poster: '',
 //                    height: screen.height,
                     height: 337,
                     width: 375,
@@ -191,8 +189,8 @@
                 return res.data
             }).then((d) => {
                 this.videoInfo = d.data
-//                this.playerOptions.poster = d.data.anchorIcon
-                /*if (!d.data.playUrl) {
+                this.playerOptions.poster = d.data.anchorIcon
+                if (!d.data.playUrl) {
                     this.dialogShow = true
                     this.playerOptions.sources[0] = {
                         type: "",
@@ -203,13 +201,12 @@
                     this.playerOptions.sources[0] = {
                         type: "rtmp/flv",
                         src: d.data.playUrl
-//                        src: video
                     }
-                }*/
+                    this.vi = d.data.playUrl
+                }
             })
         },
         created() {
-//            this.dialogShow = true
 
 
         },
@@ -219,6 +216,8 @@
         mounted() {
             this.playerOptions.height = $('#playBox').outerHeight() // eslint-disable-line
             this.playerOptions.width = $('#playBox').outerWidth() // eslint-disable-line
+
+            VideoJs('play')
         },
         beforeUpdate() {
         },

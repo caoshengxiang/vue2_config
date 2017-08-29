@@ -60,6 +60,7 @@
   "dependencies": {
     "axios": "^0.16.2",
     "jquery": "^3.2.1",
+    "video.js": "^6.2.5",
     "vue": "^2.4.2",
     "vue-router": "^2.7.0",
     "vue-video-player": "^4.0.3",

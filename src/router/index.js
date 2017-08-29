@@ -10,7 +10,12 @@ Vue.use(Router)
 const test = resolve => require.ensure([], () => resolve(require('../pages/test.vue')), 'test')
 
 const homePc = resolve => require.ensure([], () => resolve(require('../pages/home/home_pc.vue')), 'home')
-const protocol = resolve => require.ensure([], () => resolve(require('../pages/home/protocol.vue')), 'home')
+
+const appIntro = resolve => require.ensure([], () => resolve(require('../pages/home/protocol/app_intro.vue')), 'home')
+const protocolPricacy = resolve => require.ensure([], () => resolve(require('../pages/home/protocol/pricacy_pro.vue')), 'home')
+const protocolUser = resolve => require.ensure([], () => resolve(require('../pages/home/protocol/user_pro.vue')), 'home')
+
+
 const homeM = resolve => require.ensure([], () => resolve(require('../pages/home/home_m.vue')), 'home')
 const homeA = resolve => require.ensure([], () => resolve(require('../pages/home/home_ipad.vue')), 'home')
 
@@ -28,9 +33,17 @@ export default new Router({
             name: 'homePC',
             component: homePc,
         }, {
-            path: '/pc/protocol',
-            name: 'protocol',
-            component: protocol,
+            path: '/pc/user/pro',
+            name: 'userPro',
+            component: protocolUser,
+        }, {
+            path: '/pc/app/intro',
+            name: 'appIntro',
+            component: appIntro,
+        }, {
+            path: '/pc/pri/pro',
+            name: 'protocolPricacy',
+            component: protocolPricacy,
         },
         {
             path: '/m/home',

@@ -11,10 +11,10 @@
 
         <div class="item-2" id="playBox">
             <!--<video width="100%"  id="living" class="living" controls autoplay preload="auto">
-            <source :src="vi" type="video/mp4">
+                <source :src="vi" type="video/mp4">
 
-            您的浏览器不支持 video 标签。
-        </video>-->
+                您的浏览器不支持 video 标签。
+            </video>-->
 
 
             <video-player id="video-play"
@@ -91,9 +91,11 @@
 <script>
     //    import VideoJs from 'video.js'
     import video from '../../assets/VID_20170805_141933.mp4'
+    import pos from '../../assets/test-poster.jpg'
+
     import toast from '../../components/toast/dialog.vue'
-    import poster from '../../assets/test-poster.jpg'
     import {platform, iOSOrAndroid, getQueryObj} from '../../utils/utils'
+    import { videoPlayer } from 'vue-video-player'
 
     export default {
         name: 'live',
@@ -115,18 +117,13 @@
                     language: 'zh-CN',
                     playbackRates: [0.7, 1.0, 1.5, 2.0],
                     sources: [
-                        /*{
+                        {
                             type: "video/mp4",
                             src: video,
-                        },
-                        {
-                            type: "rtmp/flv",
-                            src: ""
                         }
-                        */
                     ],
                     autoplay: true,
-                    poster: '',
+                    poster: pos,
 //                    height: screen.height,
                     height: 337,
                     width: 375,
@@ -182,6 +179,7 @@
         },
         components: {
             toast,
+            videoPlayer
         },
         beforeCreate() {
             console.log(getQueryObj().videoid) // 参数解析
@@ -193,8 +191,8 @@
                 return res.data
             }).then((d) => {
                 this.videoInfo = d.data
-                this.playerOptions.poster = d.data.videoPic
-                if (!d.data.playUrl) {
+//                this.playerOptions.poster = d.data.anchorIcon
+                /*if (!d.data.playUrl) {
                     this.dialogShow = true
                     this.playerOptions.sources[0] = {
                         type: "",
@@ -204,10 +202,10 @@
                 } else {
                     this.playerOptions.sources[0] = {
                         type: "rtmp/flv",
-//                        src: d.data.playUrl
-                        src: video
+                        src: d.data.playUrl
+//                        src: video
                     }
-                }
+                }*/
             })
         },
         created() {

@@ -11,6 +11,11 @@
                     <a href=""><img class="b-iphone" src="../../assets/home/Button-iphone.png" alt=""></a>
                     <a href="http://47.95.6.138:8080/home/daodezhisheng.apk"><img class="b-an" src="../../assets/home/Button-an.png" alt=""></a>
                 </div>
+                <div class="pro">
+                    <router-link to="/pc/app/intro" target="_blank">App介绍</router-link> |
+                    <router-link to="/pc/user/pro" target="_blank">用户协议</router-link> |
+                    <router-link to="/pc/pri/pro" target="_blank">隐私协议</router-link>
+                </div>
             </div>
             <div class="r">
                 <img class="phone" src="../../assets/home/phone.png" alt="">
@@ -18,7 +23,7 @@
             <img class="living" src="../../assets/home/living.png" alt="">
         </div>
         <div class="part-2">
-            下 载 即 代 表 您 同 意&nbsp;&nbsp; <router-link to="/pc/protocol" target="_blank">铸 魂 用 户 协 议</router-link>
+            下 载 即 代 表 您 同 意&nbsp;&nbsp; <router-link to="/pc/user/pro" target="_blank">铸 魂 用 户 协 议</router-link>
         </div>
     </div>
 </template>
@@ -95,6 +100,13 @@
                 width: 130px;
                 margin-right: 20px;
                 cursor: pointer;
+            }
+        }
+        .pro {
+            color: #fff;
+            margin-top: 20px;
+            a {
+                color: #fff;
             }
         }
         .r {

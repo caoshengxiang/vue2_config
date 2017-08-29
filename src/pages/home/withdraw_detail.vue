@@ -18,7 +18,7 @@
                     <div class="msg">您有一笔收益兑换到
                         <span v-if="item.accountType === 'ALIPAY'">支付宝</span>
                         <span v-if="item.accountType === 'WECHAT'">微信</span>
-                        账户[<span>{{item.userNickname}}&nbsp;·&nbsp;{{item.account}}
+                        账户[<span>{{item.userNickname}}<span v-if="item.accountType === 'ALIPAY'">&nbsp;·&nbsp;{{item.account}}</span>
                     </span>] {{item.money}}元的申请</div>
                 </div>
             </div>
@@ -32,6 +32,7 @@
                     </div>
                 </div>
             </div>
+            <!--{{withdrawDetail}}-->
         </div>
     </div>
 </template>
@@ -50,7 +51,11 @@
                 'withdrawDetail'
             ]),
             user() {
-                return JSON.parse(Base64.decode(sessionStorage.u))
+                if (sessionStorage.u) {
+                    return JSON.parse(Base64.decode(sessionStorage.u))
+                } else {
+                    return ''
+                }
             },
         },
         methods: {
@@ -65,7 +70,7 @@
         },
         created() {
             this.ac_list_withdraw({
-                authToken: this.user.authToken,
+                authToken: this.user.authToken || sessionStorage.authToken,
                 data: {
                     pageIndex: 1,
                     pageSize: 10000,

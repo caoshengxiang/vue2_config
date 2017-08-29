@@ -39,7 +39,11 @@
                 'rechargeDetail'
             ]),
             user() {
-                return JSON.parse(Base64.decode(sessionStorage.u))
+                if (sessionStorage.u) {
+                    return JSON.parse(Base64.decode(sessionStorage.u))
+                } else {
+                    return ''
+                }
             },
         },
         methods: {
@@ -54,7 +58,7 @@
         },
         created() {
             this.ac_list_reword({
-                authToken: this.user.authToken,
+                authToken: this.user.authToken || sessionStorage.authToken,
                 data: {
                     pageIndex: 1,
                     pageSize: 10000,

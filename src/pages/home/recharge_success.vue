@@ -19,6 +19,9 @@
 
             <div class="suc-3">我知道啦~</div>
         </div>
+        {{user}}
+        <br>
+        {{cur}}
     </div>
 </template>
 <script>
@@ -33,10 +36,14 @@
         },
         computed: {
             user() {
-                return JSON.parse(Base64.decode(sessionStorage.u))
+                if (sessionStorage.u) {
+                    return JSON.parse(Base64.decode(sessionStorage.u))
+                } else {
+                    return ''
+                }
             },
             cur() {
-                return sessionStorage.cur
+                return localStorage.cur
             }
         },
         methods: {},
@@ -46,6 +53,7 @@
         beforeCreate() {
         },
         created() {
+//            alert(JSON.stringify(this.user))
         },
         beforeMount() {
         },

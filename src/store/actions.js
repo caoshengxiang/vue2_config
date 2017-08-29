@@ -59,7 +59,7 @@ export default {
         }).then(res => {
             return res.data
         }).then((d) => {
-            console.log('三方登录用户信息',+ d.data)
+            console.log('三方登录用户信息',+ JSON.stringify(d))
             sessionStorage.u = Base64.encode(JSON.stringify(d.data))
             // localStorage.u = Base64.encode(JSON.stringify(d.data))
             commit('mut_loginStatus', 'SUCCESS')
@@ -96,6 +96,7 @@ export default {
         })
     },
     ac_apply_withdraw({commit}, param) { // 提现
+        alert(JSON.stringify(param)) // TODO
         commit('mut_isWithdrawSuc', false)
         $axios({
             method: 'post',
@@ -106,6 +107,7 @@ export default {
             },
             data: JSON.stringify(param.data)
         }).then(res => {
+            alert(JSON.stringify(res)) // TODO
             if (res.status === 200) {
                 commit('mut_isWithdrawSuc', true)
             } else {

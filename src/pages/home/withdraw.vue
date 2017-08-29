@@ -13,7 +13,8 @@
         </div>
         <div class="row own-hb">
             <p class="num">
-                <input type="number" :placeholder="0" v-model="withdraw.soulBean">
+                <input type="number" :placeholder="0" v-model="withdraw.soulBean" onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}"
+                       onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'0')}else{this.value=this.value.replace(/\D/g,'')}">
             </p>
             <p class="line"></p>
             <p class="text">({{moneyCpt}}元)</p>
@@ -65,7 +66,6 @@
                     soulBean: '',
                     account: '',
                     accountType: '',
-                    openId: ''
                 },
                 wxActive: false,
                 zfbActive: false,
@@ -77,26 +77,31 @@
                 'isWithdrawSuc'
             ]),
             user() {
-                return JSON.parse(Base64.decode(sessionStorage.u))
+                if (sessionStorage.u) {
+                    return JSON.parse(Base64.decode(sessionStorage.u))
+                } else {
+                    return ''
+                }
             },
             totalBeansNum() {
-                return parseInt(this.totalBeans?this.totalBeans:0, 10)
+                return parseInt(this.user.soulBean?this.user.soulBean:0, 10)
             },
-            moneyCpt() {
-                let TB = parseInt(this.totalBeans?this.totalBeans:0, 10)
+            moneyCpt() { // 计算兑换比例1:70
+                let TB = parseInt(this.user.soulBean?this.user.soulBean:0, 10)
+                let exchange = 70/1 // 设置兑换比例
 
-                // 1:100
+                // 1:70
                 if (parseInt(this.withdraw.soulBean, 10) > TB) {
                     this.withdraw.soulBean = TB
                 }
-                return this.withdraw.soulBean/100
+//                return (this.withdraw.soulBean/70).toFixed(2)
+                return Math.floor(this.withdraw.soulBean*100/exchange)/100
             }
         },
         watch: {
             isWithdrawSuc(me) {
                 if (me) {
                     alert('提现申请成功,请耐心等待')
-
                 }
             }
         },
@@ -115,6 +120,8 @@
                 this.initActive()
                 this.zfbActive = true
                 this.withdraw.accountType = 'ALIPAY'
+                this.withdraw.account = ''
+
                 this.$nextTick(()=>{
                     $('#zfbAccount').focus()
 
@@ -132,8 +139,8 @@
                 this.zfbActive = false
             },
             applyWithdraw() {
-                this.withdraw.openId = sessionStorage.openid
-                if (this.withdraw.soulBean) { // TODO !
+//                this.withdraw.openId = sessionStorage.openid
+                if (!this.withdraw.soulBean || parseInt(this.withdraw.soulBean, 10) <= 0) {
                     alert('请输入提现魂币数量')
                     return
                 }
@@ -142,6 +149,7 @@
                     return
                 }
                 if (this.withdraw.accountType === 'WECHAT') {
+                    this.withdraw.account = sessionStorage.openid || ''
                     this.withdrawAction()
                 } else if (this.withdraw.accountType === 'ALIPAY') {
                     if (this.withdraw.account) {
@@ -150,12 +158,16 @@
                         }
                     }
                 }
-
             },
             withdrawAction() {
+
+                alert(JSON.stringify(Object.assign({}, {userId: this.user.userId}, this.withdraw))) // TODO
+                alert(this.user.authToken || sessionStorage.authToken)
                 this.ac_apply_withdraw({
-                    authToken: this.user.authToken,
+                    authToken: this.user.authToken || sessionStorage.authToken,
                     data: Object.assign({}, {userId: this.user.userId}, this.withdraw)
+                }).then(()=>{
+                    alert('2') // TODO
                 })
             },
             jump() {
@@ -173,14 +185,14 @@
         created() {
             let code = getQueryObj().code
 
-            this.ac_consume_total({
+            /*this.ac_consume_total({
                 userId: this.user.userId,
-                authToken: this.user.authToken
-            })
+                authToken: this.user.authToken || sessionStorage.authToken
+            })*/
             if (code) {
                 sessionStorage.code = code
                 $axios.get('/api/wechatpublicno/getopenid?code=' + code).then((res) => {
-                    sessionStorage.openid = res.data
+                    sessionStorage.openid = res.data.data
                     this.jump()
                 })
             } else { // 非微信浏览器测试用，浏览器不能无法获取code将不能支付等

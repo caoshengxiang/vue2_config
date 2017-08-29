@@ -22,7 +22,7 @@
             <div class="connect-btn">
                 <a id="qqLoginBtn" class="btn" href="http://mobile.daodezhisheng.cn:8080/api/thirdpartylogin/index?loginType=QQ"><img
                     src="../../assets/qq.png" alt=""></a>
-                <a id="wx_connect_btn" class="btn weixin-login" href="http://mobile.daodezhisheng.cn:8080/api/thirdpartylogin/index?loginType=WECHAT"><img
+                <a id="wx_connect_btn" class="btn weixin-login" href="http://mobile.daodezhisheng.cn:8080/api/thirdpartylogin/index?loginType=WECHATPUB"><img
                     src="../../assets/weixin.png" alt=""></a>
                 <a id="wb_connect_btn" href="http://mobile.daodezhisheng.cn:8080/api/thirdpartylogin/index?loginType=WEIBO"><img
                     src="../../assets/sina0.png" class="sina" alt=""></a>
@@ -58,7 +58,11 @@
                 'loginStatus'
             ]),
             user() {
-                return JSON.parse(Base64.decode(sessionStorage.u))
+                if (sessionStorage.u) {
+                    return JSON.parse(Base64.decode(sessionStorage.u))
+                } else {
+                    return ''
+                }
             }
         },
         watch: {
@@ -70,11 +74,9 @@
                 }
             },
             loginStatus(me) {
-                alert('4') // TODO
                 if (me === 'SUCCESS') {
                     let p = sessionStorage.page // withdraw 提现, recharge 申请
 
-                    alert(5) //TODO
                     switch (p) {
                         case 'withdraw':
                             this.$router.push({name: 'withdraw'})
@@ -200,7 +202,7 @@
             img {
                 width: 50px;
                 height: 50px;
-                margin: 5px;
+                margin: 5px 10px;
                 &.sina {
                     width: 57px;
                     height: 57px;

@@ -61,13 +61,13 @@
                 product: ['soulCurrency_6', 'soulCurrency_30', 'soulCurrency_98', 'soulCurrency_298', 'soulCurrency_588', 'soulCurrency_1598'],
                 currency: [42, 210, 686, 2086, 4116, 11186],
                 rechargeParam: {
-                    cancelUrl: 'http://192.168.1.127:8800/#/recharge',
-                    clientIp: 'http://192.168.1.127:8800',
+                    cancelUrl: 'http://mobile.daodezhisheng.cn/weixin/#/recharge',
+                    clientIp: 'http://mobile.daodezhisheng.cn',
                     fromType: 'WECAHT_PUB',
                     openId: "",
                     payType: 'WECHAT_PAY', //微信   ALIPAY 支付宝
                     product: 'soulCurrency_6',
-                    successUrl: 'http://192.168.1.127:8800/#/recharge_s',
+                    successUrl: 'http://mobile.daodezhisheng.cn/weixin/#/recharge_s',
                     userId: ''
                 },
                 wxActive: true,
@@ -80,10 +80,14 @@
                 'totalCurrency',
             ]),
             user () {
-                return JSON.parse(Base64.decode(sessionStorage.u))
+                if (sessionStorage.u) {
+                    return JSON.parse(Base64.decode(sessionStorage.u))
+                } else {
+                    return ''
+                }
             },
             totalCurrencyNum () {
-                return parseInt(this.totalCurrency ? this.totalCurrency : 0, 10)
+                return parseInt(this.user.soulCurrency ? this.user.soulCurrency : 0, 10)
             },
         },
         methods: {
@@ -108,7 +112,7 @@
                     let charge = res.data.data
 
                     console.log('charge:' + charge)
-                    sessionStorage.cur = that.cur
+                    localStorage.cur = that.cur
                     pingpp.createPayment(charge, function (result, err) {
                         console.log(result)
                         console.log(err.msg)
@@ -120,6 +124,10 @@
                         } else if (result === 'cancel') {
                             // 微信公众账号支付取消支付
                         }
+                    })
+
+                    this.ac_verifyLogin({ // TODO 测试一下
+                        authToken: this.user.authToken || sessionStorage.authToken
                     })
                 })
 
@@ -165,17 +173,17 @@
         beforeCreate () {
         },
         created () {
-            this.ac_consume_total({
+            /*this.ac_consume_total({
                 userId: this.user.userId,
-                authToken: this.user.authToken
+                authToken: this.user.authToken || sessionStorage.authToken
             })
-
+*/
             let code = getQueryObj().code
 
             if (code) {
                 sessionStorage.code = code
                 $axios.get('/api/wechatpublicno/getopenid?code=' + code).then((res) => {
-                    sessionStorage.openid = res.data
+                    sessionStorage.openid = res.data.data
                     this.jump()
                 })
             } else { // 非微信浏览器测试用，浏览器不能无法获取code将不能支付等

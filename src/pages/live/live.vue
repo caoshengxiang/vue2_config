@@ -218,13 +218,6 @@
 
         },
         mounted() {
-//            let play = VideoJs('living');
-
-            /*this.player.on('ready', function() {
-                console.log(1)
-            });*/
-
-//            console.log($('#playBox').outerHeight())
             this.playerOptions.height = $('#playBox').outerHeight() // eslint-disable-line
             this.playerOptions.width = $('#playBox').outerWidth() // eslint-disable-line
         },

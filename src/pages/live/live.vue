@@ -4,7 +4,7 @@
             <img src="../../assets/home/logo.png" alt="">
             <div class="download">
                 <a @click="openNativeApp">已下载铸魂直播APP 》</a>
-                <a @click="downloadApp"><img width="20" height="20" src="" alt=""> 下载铸魂直播APP</a>
+                <a @click="downloadApp"><img width="24" height="24" src="../../assets/icon/download2.png" alt=""> 下载铸魂直播APP</a>
             </div>
         </div>
 
@@ -17,8 +17,8 @@
                    preload="auto"
                    :poster="playerOptions.poster"
             >
-                <source :src='vi' type='rtmp/flv'>
-                <source :src="video" type="video/mp4"/>
+                <!--<source :src='vi' type='rtmp/flv'>-->
+                <source src="rtmp://pili-publish.qn.cxria.com/cxlive/59a57fb261ff4b264343c18f" type="rtmp/flv"/>
                 <p class="vjs-no-js">
                     To view this video please enable JavaScript, and consider upgrading to a
                     web browser that
@@ -88,8 +88,8 @@
     import VideoJs from 'video.js'
     import 'video.js/dist/video-js.css';
 
-    import video from '../../assets/VID_20170805_141933.mp4'
-    import pos from '../../assets/test-poster.jpg'
+//    import video from '../../assets/VID_20170805_141933.mp4'
+//    import pos from '../../assets/test-poster.jpg'
 
     import toast from '../../components/toast/dialog.vue'
     import {platform, iOSOrAndroid, getQueryObj} from '../../utils/utils'
@@ -129,6 +129,8 @@
                     live: true,
                 },
                 videoInfo: {},
+//                video:video,
+                rtmp: "rtmp://pili-publish.qn.cxria.com/cxlive/59a57fb261ff4b264343c18f",
             }
         },
         computed: {},
@@ -181,6 +183,22 @@
         },
         beforeCreate() {
             console.log(getQueryObj().videoid) // 参数解析
+
+        },
+        created() {
+
+
+        },
+        beforeMount() {
+
+        },
+        mounted() {
+            this.playerOptions.height = $('#playBox').outerHeight() // eslint-disable-line
+            this.playerOptions.width = $('#playBox').outerWidth() // eslint-disable-line
+
+
+            $('#play').width($('#playBox').outerWidth())
+            $('#play').height($('#playBox').outerHeight())
             $axios.get('/api/outside/watch/play', {
                 params: {
                     videoId: getQueryObj().videoid
@@ -203,21 +221,17 @@
                         src: d.data.playUrl
                     }
                     this.vi = d.data.playUrl
+
+
+                    let player = VideoJs('play', {}, function onPlayerReady() {
+                        videojs.log('Your player is ready!');
+                        player.play()
+                        player.on('ended', function() {
+                            videojs.log('Awww...over so soon?!');
+                        });
+                    })
                 }
             })
-        },
-        created() {
-
-
-        },
-        beforeMount() {
-
-        },
-        mounted() {
-            this.playerOptions.height = $('#playBox').outerHeight() // eslint-disable-line
-            this.playerOptions.width = $('#playBox').outerWidth() // eslint-disable-line
-
-            VideoJs('play')
         },
         beforeUpdate() {
         },

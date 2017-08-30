@@ -98,8 +98,13 @@
             rechargeFun () { // 支付函数
                 let that = this
 
+                alert(1) // TODO
                 this.rechargeParam.userId = this.user.userId
                 this.rechargeParam.openId = sessionStorage.openid
+
+                alert(JSON.stringify(this.rechargeParam)) // TODO
+                alert(2)
+                alert(JSON.stringify(this.user.authToken || sessionStorage.authToken)) // TODO
                 $axios({
                     method: 'post',
                     url: '/api/consume/applyRecharge',
@@ -109,9 +114,12 @@
                     },
                     data: this.rechargeParam
                 }).then((res) => {
+                    alert(3)
+                    alert(JSON.stringify(res))
                     let charge = res.data.data
 
                     console.log('charge:' + charge)
+                    alert(JSON.stringify(charge)) // TODO
                     localStorage.cur = that.cur
                     pingpp.createPayment(charge, function (result, err) {
                         console.log(result)

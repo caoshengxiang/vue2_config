@@ -88,7 +88,7 @@
             },
             moneyCpt() { // 计算兑换比例1:70
                 let TB = parseInt(this.user.soulBean?this.user.soulBean:0, 10)
-                let exchange = 70/1 // 设置兑换比例
+                let exchange = 700/1 // 设置兑换比例
 
                 // 1:70
                 if (parseInt(this.withdraw.soulBean, 10) > TB) {
@@ -160,14 +160,11 @@
                 }
             },
             withdrawAction() {
-
-                alert(JSON.stringify(Object.assign({}, {userId: this.user.userId}, this.withdraw))) // TODO
-                alert(this.user.authToken || sessionStorage.authToken)
                 this.ac_apply_withdraw({
                     authToken: this.user.authToken || sessionStorage.authToken,
                     data: Object.assign({}, {userId: this.user.userId}, this.withdraw)
                 }).then(()=>{
-                    alert('2') // TODO
+
                 })
             },
             jump() {
@@ -204,6 +201,7 @@
         beforeMount() {
         },
         mounted() {
+//            this.jump()
         },
         beforeUpdate() {
         },

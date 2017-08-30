@@ -98,7 +98,6 @@
 //    import 'video.js/dist/video-js.css';
 //    import 'videojs-contrib-hls'
 
-    import video from '../../assets/VID_20170805_141933.mp4'
     //    import pos from '../../assets/test-poster.jpg'
 
     import toast from '../../components/toast/dialog.vue'
@@ -140,7 +139,6 @@
                     live: true,
                 },
                 videoInfo: {},
-//                video:video,
                 videoPlayerShow: false
             }
         },

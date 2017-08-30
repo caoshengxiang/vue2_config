@@ -13,22 +13,28 @@
 
             <div class="item-2" id="playBox">
 
-                <video id="play"
-                       class="video-js"
-                       controls
-                       preload="auto"
-                       :poster="playerOptions.poster"
-                >
-                    <!--<source src='' type='rtmp/flv'>-->
+                <video id="play" class="video-js vjs-default-skin" controls preload="auto" width="375" height=""
+                       data-setup='{}'>
                     <source src="" type="application/x-mpegURL">
-                    <p class="vjs-no-js">
-                        To view this video please enable JavaScript, and consider upgrading to a
-                        web browser that
-                        <a href="http://videojs.com/html5-video-support/" target="_blank">
-                            supports HTML5 video
-                        </a>
-                    </p>
                 </video>
+
+                <!--<video id="play"-->
+                       <!--class="video-js"-->
+                       <!--controls-->
+                       <!--preload="auto"-->
+                       <!--:poster="playerOptions.poster"-->
+                <!--&gt;-->
+                    <!--&lt;!&ndash;<source src='' type='rtmp/flv'>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<source src="" type="application/x-mpegURL">&ndash;&gt;-->
+                    <!--<source src=http://pili-live-hls.qn.cxria.com/cxlive/59a66bab570c35006cde3f92.m3u8" type="application/x-mpegURL">-->
+                    <!--<p class="vjs-no-js">-->
+                        <!--To view this video please enable JavaScript, and consider upgrading to a-->
+                        <!--web browser that-->
+                        <!--<a href="http://videojs.com/html5-video-support/" target="_blank">-->
+                            <!--supports HTML5 video-->
+                        <!--</a>-->
+                    <!--</p>-->
+                <!--</video>-->
 
                 <!--<video-player id="video-play"
                               ref="videoPlayer"
@@ -88,9 +94,9 @@
     </div>
 </template>
 <script>
-    import VideoJs from 'video.js'
-    import 'video.js/dist/video-js.css';
-    import 'videojs-contrib-hls'
+//    import VideoJs from 'video.js'
+//    import 'video.js/dist/video-js.css';
+//    import 'videojs-contrib-hls'
 
     import video from '../../assets/VID_20170805_141933.mp4'
     //    import pos from '../../assets/test-poster.jpg'
@@ -187,12 +193,10 @@
             videoPlayer
         },
         beforeCreate() {
-            console.log(getQueryObj().videoid) // 参数解析
-
+//            console.log(getQueryObj().videoid) // 参数解析
         },
         created() {
-
-
+//            window.location.href = '/static/live.html'
         },
         beforeMount() {
 
@@ -229,15 +233,24 @@
                     }
                     this.vi = d.data.playUrl
 
-
-                    let player = VideoJs('play', {}, function onPlayerReady() {
-                        VideoJs.log('Your player is ready!');
-                        player.src(that.vi)
+                    let player = videojs('play', {html5: {
+                        hls: {
+                            withCredentials: true
+                        }
+                    }}, function () {
                         player.play()
                         player.on('ended', function () {
-                            VideoJs.log('Awww...over so soon?!');
+
                         });
                     })
+
+                    player.src({
+                        src: this.vi,
+                        type: 'application/x-mpegURL',
+                        withCredentials: true
+                    })
+
+                    console.log(player)
                 }
             })
         },

@@ -10,8 +10,8 @@
                     <p>传递正能量，弘扬民族魂</p>
                 </div>
                 <div class="btn">
-                    <img class="b-iphone" src="../../assets/home/Button-iphone.png" alt="">
-                    <img class="b-an" src="../../assets/home/Button-an.png" alt="">
+                    <a :href="iosDownloadUrl"><img class="b-iphone" src="../../assets/home/Button-iphone.png" alt=""></a>
+                    <a :href="androidDownloadUrl"><img class="b-an" src="../../assets/home/Button-an.png" alt=""></a>
                 </div>
             </div>
         </div>
@@ -24,12 +24,15 @@
 <script>
     import {platform} from '../../utils/utils'
     import {Indicator} from 'mint-ui';
+    import {androidOpen,androidDownloadUrl,iosDownloadUrl} from '../../utils/zhBaseConfig'
     export default {
         name: 'home',
         props: {},
         data() {
             return {
-                show: false
+                show: false,
+                androidDownloadUrl: androidDownloadUrl,
+                iosDownloadUrl: iosDownloadUrl,
             }
         },
         computed: {},

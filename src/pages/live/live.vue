@@ -1,99 +1,104 @@
 <template>
-    <div class="live">
-        <div class="item-1">
-            <img src="../../assets/home/logo.png" alt="">
-            <div class="download">
-                <a @click="openNativeApp">已下载铸魂直播APP 》</a>
-                <a @click="downloadApp"><img width="24" height="24" src="../../assets/icon/download2.png" alt=""> 下载铸魂直播APP</a>
+    <div class="box">
+        <div class="live">
+            <div class="item-1">
+                <img src="../../assets/home/logo.png" alt="">
+                <div class="download">
+                    <!--<a class="a-1" @click="openNativeApp">已下载铸魂直播APP 》</a>-->
+                    <a class="a-2 a-2-only" @click="downloadApp"><img width="24" height="24" src="../../assets/icon/download2.png" alt="">
+                        下载铸魂直播APP</a>
+                </div>
             </div>
-        </div>
 
 
-        <div class="item-2" id="playBox">
+            <div class="item-2" id="playBox">
 
-            <video id="play"
-                   class="video-js"
-                   controls
-                   preload="auto"
-                   :poster="playerOptions.poster"
-            >
-                <!--<source :src='vi' type='rtmp/flv'>-->
-                <source src="rtmp://pili-publish.qn.cxria.com/cxlive/59a57fb261ff4b264343c18f" type="rtmp/flv"/>
-                <p class="vjs-no-js">
-                    To view this video please enable JavaScript, and consider upgrading to a
-                    web browser that
-                    <a href="http://videojs.com/html5-video-support/" target="_blank">
-                        supports HTML5 video
-                    </a>
-                </p>
-            </video>
+                <video id="play"
+                       class="video-js"
+                       controls
+                       preload="auto"
+                       :poster="playerOptions.poster"
+                >
+                    <!--<source src='' type='rtmp/flv'>-->
+                    <source src="" type="application/x-mpegURL">
+                    <p class="vjs-no-js">
+                        To view this video please enable JavaScript, and consider upgrading to a
+                        web browser that
+                        <a href="http://videojs.com/html5-video-support/" target="_blank">
+                            supports HTML5 video
+                        </a>
+                    </p>
+                </video>
 
-            <!--<video-player id="video-play"
-                          ref="videoPlayer"
-                          :options="playerOptions"
-                          @play="onPlayerPlay($event)"
-                          @playing="onPlayerPlaying($event)"
-                          @ended="onPlayerEnded($event)"
-                          @ready="playerReadied($event)"
-            >不支持
-            </video-player>-->
-        </div>
+                <!--<video-player id="video-play"
+                              ref="videoPlayer"
+                              :options="playerOptions"
+                              @play="onPlayerPlay($event)"
+                              @playing="onPlayerPlaying($event)"
+                              @ended="onPlayerEnded($event)"
+                              @ready="playerReadied($event)"
+                >不支持
+                </video-player>-->
+            </div>
 
-        <div class="item-3">
-            <div class="user">
-                <div class="anchor">
-                    <div class="row-1">
-                        <img class="head-img" :src="videoInfo.anchorIcon" alt="">
-                        <div>
-                            <h3>{{videoInfo.anchorNickname}}</h3>
-                            <p>{{videoInfo.title}}</p>
+            <div class="item-3">
+                <div class="user">
+                    <div class="anchor">
+                        <div class="row-1">
+                            <img class="head-img" :src="videoInfo.anchorIcon" alt="">
+                            <div>
+                                <h3>{{videoInfo.anchorNickname}}</h3>
+                                <p>{{videoInfo.title}}</p>
+                            </div>
                         </div>
+                        <!--<div class="row-2">
+                            <img width="14px" height="14px" src="" alt=""> 500
+                        </div>-->
                     </div>
-                    <!--<div class="row-2">
-                        <img width="14px" height="14px" src="" alt=""> 500
+                    <!--<div class="other">
+                        <img  class="head-img" src="../../assets/test-head.jpeg" alt="">
+                        <img  class="head-img" src="../../assets/test-head.jpeg" alt="">
+                        <img  class="head-img" src="../../assets/test-head.jpeg" alt="">
+                        <img  class="head-img" src="../../assets/test-head.jpeg" alt="">
+                        <img  class="head-img" src="../../assets/test-head.jpeg" alt="">
+                        <img  class="head-img" src="../../assets/test-head.jpeg" alt="">
                     </div>-->
                 </div>
-                <!--<div class="other">
-                    <img  class="head-img" src="../../assets/test-head.jpeg" alt="">
-                    <img  class="head-img" src="../../assets/test-head.jpeg" alt="">
-                    <img  class="head-img" src="../../assets/test-head.jpeg" alt="">
-                    <img  class="head-img" src="../../assets/test-head.jpeg" alt="">
-                    <img  class="head-img" src="../../assets/test-head.jpeg" alt="">
-                    <img  class="head-img" src="../../assets/test-head.jpeg" alt="">
-                </div>-->
             </div>
-        </div>
 
-        <toast
-            :show="dialogShow"
-            title=""
-            :lineStyle="{lineH: '0'}"
-            :toastShowStyle="{width: '85%', borderRadius: '10px'}"
-            @closeToast="closeToast">
-            <img slot="icon" @click="closeToast" src="../../assets/icon/close.png">
-            <div class="con">
-                <h1>直播结束</h1>
-                <p>如需继续观看更多精彩，请下载app~</p>
-                <div class="toast-download">
-                    <div class="p-1"></div>
-                    <div class="p-2" @click="downloadApp">
-                        立即下载
+            <toast
+                :show="dialogShow"
+                title=""
+                :lineStyle="{lineH: '0'}"
+                :toastShowStyle="{width: '85%', borderRadius: '10px'}"
+                @closeToast="closeToast">
+                <img slot="icon" @click="closeToast" src="../../assets/icon/close.png">
+                <div class="con">
+                    <h1>直播结束</h1>
+                    <p>如需继续观看更多精彩，请下载app~</p>
+                    <div class="toast-download">
+                        <div class="p-1"></div>
+                        <div class="p-2" @click="downloadApp">
+                            立即下载
+                        </div>
                     </div>
                 </div>
-            </div>
-        </toast>
+            </toast>
+        </div>
     </div>
 </template>
 <script>
     import VideoJs from 'video.js'
     import 'video.js/dist/video-js.css';
+    import 'videojs-contrib-hls'
 
-//    import video from '../../assets/VID_20170805_141933.mp4'
-//    import pos from '../../assets/test-poster.jpg'
+    import video from '../../assets/VID_20170805_141933.mp4'
+    //    import pos from '../../assets/test-poster.jpg'
 
     import toast from '../../components/toast/dialog.vue'
     import {platform, iOSOrAndroid, getQueryObj} from '../../utils/utils'
     import {videoPlayer} from 'vue-video-player'
+    import {androidOpen,androidDownloadUrl,iosDownloadUrl} from '../../utils/zhBaseConfig'
 
     export default {
         name: 'live',
@@ -130,7 +135,7 @@
                 },
                 videoInfo: {},
 //                video:video,
-                rtmp: "rtmp://pili-publish.qn.cxria.com/cxlive/59a57fb261ff4b264343c18f",
+                videoPlayerShow: false
             }
         },
         computed: {},
@@ -161,7 +166,7 @@
                 // 否则打开a标签的href链接
                 let ifr = document.createElement('iframe');
 
-                ifr.src = 'weixin://';
+                ifr.src = androidOpen;
                 ifr.style.display = 'none';
                 document.body.appendChild(ifr);
                 window.setTimeout(function () {
@@ -170,9 +175,9 @@
             },
             downloadApp() {
                 if (platform() === 'Android') {
-                    window.location.href = 'https://downpack.baidu.com/baidutieba_AndroidPhone_v8.7.8.2(8.7.8.2)_1019960r.apk?src=webtbGF'
+                    window.location.href = androidDownloadUrl
                 } else {
-                    window.location.href = 'https://itunes.apple.com/cn/app/id477927812'
+                    window.location.href = iosDownloadUrl
                 }
 //                window.location.href =
             },
@@ -193,6 +198,8 @@
 
         },
         mounted() {
+            let that = this
+
             this.playerOptions.height = $('#playBox').outerHeight() // eslint-disable-line
             this.playerOptions.width = $('#playBox').outerWidth() // eslint-disable-line
 
@@ -224,10 +231,11 @@
 
 
                     let player = VideoJs('play', {}, function onPlayerReady() {
-                        videojs.log('Your player is ready!');
+                        VideoJs.log('Your player is ready!');
+                        player.src(that.vi)
                         player.play()
-                        player.on('ended', function() {
-                            videojs.log('Awww...over so soon?!');
+                        player.on('ended', function () {
+                            VideoJs.log('Awww...over so soon?!');
                         });
                     })
                 }
@@ -245,15 +253,19 @@
 </script>
 <style lang="scss" rel="stylesheet/scss" scoped>
     @import "../../styles/fun";
-
+    .box {
+        margin: 0 auto;
+        width: 100%;
+        max-width: 750px;
+    }
     .live {
         width: 100%;
         max-width: 750px;
         position: absolute;
         top: 0;
         bottom: 0;
+        /*left: calc(50% - 750px/2);*/
         overflow: hidden;
-        margin: 0 auto;
     }
 
     .living {
@@ -378,6 +390,9 @@
     .download {
 
         width: 100%;
+        display: flex;
+        align-items: center;
+
         a {
             display: flex;
             align-items: center;
@@ -385,20 +400,23 @@
             margin: px2rem(10px) auto;
             width: 80%;
             padding: px2rem(8px);
-            border-radius: px2rem(20px);
+            border-radius: px2rem(10px);
             height: px2rem(18px);
             font-size: px2rem(16px);
-            &:nth-child(1) {
+            &.a-1 {
                 background-color: #eee;
                 border: 1px solid #ccc;
                 color: #000;
             }
-            &:nth-child(2) {
+            &.a-2 {
                 background-color: #f53c3c;
                 color: #fff;
                 img {
                     margin-right: px2rem(10px);
                 }
+            }
+            &.a-2-only {
+                padding: px2rem(16px) px2rem(8px);
             }
         }
     }

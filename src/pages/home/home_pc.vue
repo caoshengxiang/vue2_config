@@ -8,8 +8,8 @@
                     <p>传递正能量，弘扬民族魂</p>
                 </div>
                 <div class="btn">
-                    <a href=""><img class="b-iphone" src="../../assets/home/Button-iphone.png" alt=""></a>
-                    <a href="http://47.95.6.138:8080/home/daodezhisheng.apk"><img class="b-an" src="../../assets/home/Button-an.png" alt=""></a>
+                    <a :href="iosDownloadUrl"><img class="b-iphone" src="../../assets/home/Button-iphone.png" alt=""></a>
+                    <a :href="androidDownloadUrl"><img class="b-an" src="../../assets/home/Button-an.png" alt=""></a>
                 </div>
                 <div class="pro">
                     <router-link to="/pc/app/intro" target="_blank">App介绍</router-link> |
@@ -29,12 +29,15 @@
 </template>
 <script>
     import {platform} from '../../utils/utils'
+    import {androidOpen,androidDownloadUrl,iosDownloadUrl} from '../../utils/zhBaseConfig'
     export default {
         name: 'home',
         props: {},
         data () {
             return {
-                platform: 'home'
+                platform: 'home',
+                androidDownloadUrl: androidDownloadUrl,
+                iosDownloadUrl: iosDownloadUrl,
             }
         },
         computed: {},

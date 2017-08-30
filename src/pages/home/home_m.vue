@@ -13,8 +13,8 @@
             <div class="btn">
                 <!--<a href="/"><img src="../../assets/home/iphone-logo.png" alt="">APP Store</a>
                 <a href="/"><img src="../../assets/home/android-logo.png" alt="">Android</a>-->
-                <a href="/"><img src="../../assets/home/ios-store.png" alt=""></a>
-                <a href="/"><img src="../../assets/home/an-store.png" alt=""></a>
+                <a :href="iosDownloadUrl"><img src="../../assets/home/ios-store.png" alt=""></a>
+                <a :href="androidDownloadUrl"><img src="../../assets/home/an-store.png" alt=""></a>
             </div>
         </div>
     </div>
@@ -22,13 +22,15 @@
 <script>
     import {platform} from '../../utils/utils'
     import {Indicator} from 'mint-ui';
-
+    import {androidOpen,androidDownloadUrl,iosDownloadUrl} from '../../utils/zhBaseConfig'
     export default {
         name: 'home',
         props: {},
         data() {
             return {
-                show: false
+                show: false,
+                androidDownloadUrl: androidDownloadUrl,
+                iosDownloadUrl: iosDownloadUrl,
             }
         },
         computed: {},

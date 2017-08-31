@@ -43,6 +43,22 @@ export function iOSOrAndroid () {
 /*eslint-enable*/
 
 /*
+* 判断是否是微信浏览器
+*
+* @return Boolean 返回是否是微信浏览器
+* */
+export function isWeiXin() {
+    let ua = window.navigator.userAgent.toLowerCase()
+
+    if (/MicroMessenger/i.test(ua)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+
+/*
 * 解析地址栏参数
 *
 * @method getQueryObj

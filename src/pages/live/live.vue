@@ -101,7 +101,7 @@
     //    import pos from '../../assets/test-poster.jpg'
 
     import toast from '../../components/toast/dialog.vue'
-    import {platform, iOSOrAndroid, getQueryObj} from '../../utils/utils'
+    import {platform, iOSOrAndroid, getQueryObj, isWeiXin} from '../../utils/utils'
     import {videoPlayer} from 'vue-video-player'
     import {androidOpen,androidDownloadUrl,iosDownloadUrl} from '../../utils/zhBaseConfig'
 
@@ -178,6 +178,10 @@
                 }, 3000)
             },
             downloadApp() {
+                if (isWeiXin()) {
+                    alert('请在右上角选择浏览器打开并下载')
+                    return
+                }
                 if (platform() === 'Android') {
                     window.location.href = androidDownloadUrl
                 } else {
@@ -231,24 +235,14 @@
                     }
                     this.vi = d.data.playUrl
 
-                    let player = videojs('play', {html5: {
-                        hls: {
-                            withCredentials: true
-                        }
-                    }}, function () {
-                        player.play()
-                        player.on('ended', function () {
-
-                        });
-                    })
+                    let player = videojs('play')
 
                     player.src({
                         src: this.vi,
-                        type: 'application/x-mpegURL',
-                        withCredentials: true
+                        type: 'application/x-mpegURL'
                     })
-
-                    console.log(player)
+//
+//                    console.log(player)
                 }
             })
         },

@@ -13,16 +13,17 @@
             <div class="btn">
                 <!--<a href="/"><img src="../../assets/home/iphone-logo.png" alt="">APP Store</a>
                 <a href="/"><img src="../../assets/home/android-logo.png" alt="">Android</a>-->
-                <a :href="iosDownloadUrl"><img src="../../assets/home/ios-store.png" alt=""></a>
-                <a :href="androidDownloadUrl"><img src="../../assets/home/an-store.png" alt=""></a>
+                <a @click="download('i')"><img src="../../assets/home/ios-store.png" alt=""></a>
+                <a @click="download('a')"><img src="../../assets/home/an-store.png" alt=""></a>
             </div>
         </div>
     </div>
 </template>
 <script>
-    import {platform} from '../../utils/utils'
+    import {platform, isWeiXin} from '../../utils/utils'
     import {Indicator} from 'mint-ui';
-    import {androidOpen,androidDownloadUrl,iosDownloadUrl} from '../../utils/zhBaseConfig'
+    import {androidOpen, androidDownloadUrl, iosDownloadUrl} from '../../utils/zhBaseConfig'
+
     export default {
         name: 'home',
         props: {},
@@ -43,7 +44,20 @@
                 } else {
                     this.$router.push({name: 'homePC'})
                 }
-            }
+            },
+            download(plat) {
+                if (isWeiXin()) {
+                    alert('请在右上角选择浏览器打开并下载')
+                    return
+                }
+                if (plat === 'i') {
+                    location.href = iosDownloadUrl
+                } else {
+                    location.href = androidDownloadUrl
+                }
+
+
+            },
         },
         components: {},
         beforeCreate() {

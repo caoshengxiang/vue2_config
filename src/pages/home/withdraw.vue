@@ -1,5 +1,5 @@
 <template>
-    <div class="recharge">
+    <div class="withdraw">
         <!--<header-m title="账户提现" to="/signin">
             <router-link to="/withdraw_d" slot="right" style="color: #fff;display: flex;align-items: center;justify-content: flex-end">
                 <span>提现历史</span>
@@ -215,7 +215,7 @@
 </script>
 <style lang="scss" rel="stylesheet/scss" scoped>
     @import "../../styles/fun";
-    .recharge {
+    .withdraw {
         width: 100%;
         height: 100%;
         position: absolute;

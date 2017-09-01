@@ -2,7 +2,7 @@
     <div class="box">
         <div class="live">
             <div class="item-1">
-                <img src="../../assets/home/logo.png" alt="">
+                <img class="logo" src="../../assets/home/logo.png" alt="">
                 <div class="download">
                     <!--<a class="a-1" @click="openNativeApp">已下载铸魂直播APP 》</a>-->
                     <a class="a-2 a-2-only" @click="downloadApp"><img width="24" height="24"
@@ -233,6 +233,7 @@
         height: 17%;
         overflow: hidden;
         display: flex;
+        align-items: center;
     }
 
     .item-2 {
@@ -343,13 +344,14 @@
             margin-right: px2rem(3px);
         }
     }
-
+    .logo {
+        width: px2rem(110px);
+        height: px2rem(110px);
+    }
     .download {
-
         width: 100%;
         display: flex;
         align-items: center;
-
         a {
             display: flex;
             align-items: center;

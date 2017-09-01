@@ -5,7 +5,8 @@
                 <img src="../../assets/home/logo.png" alt="">
                 <div class="download">
                     <!--<a class="a-1" @click="openNativeApp">已下载铸魂直播APP 》</a>-->
-                    <a class="a-2 a-2-only" @click="downloadApp"><img width="24" height="24" src="../../assets/icon/download2.png" alt="">
+                    <a class="a-2 a-2-only" @click="downloadApp"><img width="24" height="24"
+                                                                      src="../../assets/icon/download2.png" alt="">
                         下载铸魂直播APP</a>
                 </div>
             </div>
@@ -13,38 +14,13 @@
 
             <div class="item-2" id="playBox">
 
-                <video id="play" class="video-js vjs-default-skin" controls preload="auto" width="375" height=""
+                <video id="play" class="video-js vjs-default-skin" controls preload="auto"
+                       :poster="videoInfo.anchorIcon"
+                       width="375" height=""
                        data-setup='{}'>
                     <source src="" type="application/x-mpegURL">
                 </video>
 
-                <!--<video id="play"-->
-                       <!--class="video-js"-->
-                       <!--controls-->
-                       <!--preload="auto"-->
-                       <!--:poster="playerOptions.poster"-->
-                <!--&gt;-->
-                    <!--&lt;!&ndash;<source src='' type='rtmp/flv'>&ndash;&gt;-->
-                    <!--&lt;!&ndash;<source src="" type="application/x-mpegURL">&ndash;&gt;-->
-                    <!--<source src=http://pili-live-hls.qn.cxria.com/cxlive/59a66bab570c35006cde3f92.m3u8" type="application/x-mpegURL">-->
-                    <!--<p class="vjs-no-js">-->
-                        <!--To view this video please enable JavaScript, and consider upgrading to a-->
-                        <!--web browser that-->
-                        <!--<a href="http://videojs.com/html5-video-support/" target="_blank">-->
-                            <!--supports HTML5 video-->
-                        <!--</a>-->
-                    <!--</p>-->
-                <!--</video>-->
-
-                <!--<video-player id="video-play"
-                              ref="videoPlayer"
-                              :options="playerOptions"
-                              @play="onPlayerPlay($event)"
-                              @playing="onPlayerPlaying($event)"
-                              @ended="onPlayerEnded($event)"
-                              @ready="playerReadied($event)"
-                >不支持
-                </video-player>-->
             </div>
 
             <div class="item-3">
@@ -94,16 +70,10 @@
     </div>
 </template>
 <script>
-//    import VideoJs from 'video.js'
-//    import 'video.js/dist/video-js.css';
-//    import 'videojs-contrib-hls'
-
-    //    import pos from '../../assets/test-poster.jpg'
-
     import toast from '../../components/toast/dialog.vue'
     import {platform, iOSOrAndroid, getQueryObj, isWeiXin} from '../../utils/utils'
     import {videoPlayer} from 'vue-video-player'
-    import {androidOpen,androidDownloadUrl,iosDownloadUrl} from '../../utils/zhBaseConfig'
+    import {androidOpen, androidDownloadUrl, iosDownloadUrl} from '../../utils/zhBaseConfig'
 
     export default {
         name: 'live',
@@ -112,34 +82,7 @@
             return {
                 dialogShow: false,
                 messageShow: false,
-                vi: '',
-                player: '',
-                playerOptions: { // 播放器配置参数
-
-                    // component options
-                    start: 0,
-                    playsinline: false,
-
-                    // videojs options
-//                    muted: true,
-                    language: 'zh-CN',
-                    playbackRates: [0.7, 1.0, 1.5, 2.0],
-                    sources: [
-                        /*{
-                            type: "video/mp4",
-                            src: video,
-                        }*/
-                    ],
-                    autoplay: true,
-                    poster: '',
-//                    height: screen.height,
-                    height: 337,
-                    width: 375,
-                    controls: false,
-                    live: true,
-                },
                 videoInfo: {},
-                videoPlayerShow: false
             }
         },
         computed: {},
@@ -158,7 +101,7 @@
             onPlayerEnded() { // 结束
                 this.dialogShow = true
 //                $('#video-play').hide()
-                this.playerOptions.sources[0].src = ''
+//                this.playerOptions.sources[0].src = ''
             },
             playerReadied() { // ready
 //                console.log(screen.availHeight, screen.height)
@@ -206,12 +149,12 @@
         mounted() {
             let that = this
 
-            this.playerOptions.height = $('#playBox').outerHeight() // eslint-disable-line
-            this.playerOptions.width = $('#playBox').outerWidth() // eslint-disable-line
-
+//            this.playerOptions.height = $('#playBox').outerHeight() // eslint-disable-line
+//            this.playerOptions.width = $('#playBox').outerWidth() // eslint-disable-line
 
             $('#play').width($('#playBox').outerWidth())
             $('#play').height($('#playBox').outerHeight())
+
             $axios.get('/api/outside/watch/play', {
                 params: {
                     videoId: getQueryObj().videoid
@@ -220,29 +163,36 @@
                 return res.data
             }).then((d) => {
                 this.videoInfo = d.data
-                this.playerOptions.poster = d.data.anchorIcon
+//                this.playerOptions.poster = d.data.anchorIcon
                 if (!d.data.playUrl) {
                     this.dialogShow = true
-                    this.playerOptions.sources[0] = {
+                    /*this.playerOptions.sources[0] = {
                         type: "",
                         src: ""
                     }
-                    this.playerOptions.poster = d.data.anchorIcon
+                    this.playerOptions.poster = d.data.anchorIcon*/
                 } else {
-                    this.playerOptions.sources[0] = {
+                    /*this.playerOptions.sources[0] = {
                         type: "rtmp/flv",
                         src: d.data.playUrl
-                    }
-                    this.vi = d.data.playUrl
+                    }*/
 
                     let player = videojs('play')
 
-                    player.src({
-                        src: this.vi,
-                        type: 'application/x-mpegURL'
-                    })
-//
-//                    console.log(player)
+                    if (/.m3u8/i.test(d.data.playUrl)) {
+                        player.src({
+                            src: d.data.playUrl,
+                            type: 'application/x-mpegURL'
+                        })
+                    } else {
+                        player.src({
+                            src: d.data.playUrl,
+                            type: 'video/mp4'
+                        })
+                    }
+
+
+                    console.log(player)
                 }
             })
         },
@@ -258,11 +208,13 @@
 </script>
 <style lang="scss" rel="stylesheet/scss" scoped>
     @import "../../styles/fun";
+
     .box {
         margin: 0 auto;
         width: 100%;
         max-width: 750px;
     }
+
     .live {
         width: 100%;
         max-width: 750px;

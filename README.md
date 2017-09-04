@@ -1,6 +1,11 @@
 
 # 技术栈 webpack2+vue2+vuex2+vue-router2+sass+vue-i18n
 
+# 项目安装运行
+* npm install
+* npm run dev // 开发环境
+* npm run build // 生产环境
+* npm run release // 部署, 需要配置服务器信息
 
 # i18n国际化
 ## 1.基于组件化,在页面使用

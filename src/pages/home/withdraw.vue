@@ -100,8 +100,12 @@
         },
         watch: {
             isWithdrawSuc(me) {
-                if (me) {
+                if (me === '1') {
                     alert('提现申请成功,请耐心等待')
+                } else if (me === '0') {
+                    alert('提现失败')
+                } else {
+                    alert(me)
                 }
             }
         },
@@ -201,7 +205,7 @@
         beforeMount() {
         },
         mounted() {
-//            this.jump()
+//            alert('001')
         },
         beforeUpdate() {
         },
@@ -217,7 +221,7 @@
     @import "../../styles/fun";
     .withdraw {
         width: 100%;
-        height: 100%;
+        min-height: 667px;
         position: absolute;
         top: 0;
         bottom: 0;

@@ -19,7 +19,7 @@ export default new Vuex.Store({
         loginStatus: 'FAIL',
         totalBeans: 0, // 总魂豆
         totalCurrency: 0, // 总魂币
-        isWithdrawSuc: false, // 提现成功返回
+        isWithdrawSuc: '0', // 提现成功返回
         withdrawDetail: [], // 提现记录
         rechargeDetail: [], // 充值记录
     },

@@ -96,8 +96,8 @@ export default {
         })
     },
     ac_apply_withdraw({commit}, param) { // 提现
-        alert(JSON.stringify(param)) // TODO
-        commit('mut_isWithdrawSuc', false)
+        // alert(JSON.stringify(param)) // TODO
+        commit('mut_isWithdrawSuc', '0')
         $axios({
             method: 'post',
             url: '/api/consume/applyWithdraw',
@@ -107,11 +107,16 @@ export default {
             },
             data: JSON.stringify(param.data)
         }).then(res => {
-            alert(JSON.stringify(res)) // TODO
+            // alert(JSON.stringify(res)) // TODO
             if (res.status === 200) {
-                commit('mut_isWithdrawSuc', true)
+                if (res.data.status === 'FAIL') {
+                    commit('mut_isWithdrawSuc', res.data.data.errMsg)
+                } else {
+                    commit('mut_isWithdrawSuc', '1')
+                }
+
             } else {
-                commit('mut_isWithdrawSuc', false)
+                commit('mut_isWithdrawSuc', '0')
             }
         })
     },

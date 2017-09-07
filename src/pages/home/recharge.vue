@@ -219,7 +219,7 @@
 
     .recharge {
         width: 100%;
-        height: 100%;
+        min-height: 667px;
         position: absolute;
         top: 0;
         bottom: 0;
@@ -252,7 +252,7 @@
     }
 
     .row-2 {
-        margin-top: 40px; // TODO
+        margin-top: 100px; // TODO
         color: #fff;
         p {
             display: flex;

@@ -2,12 +2,12 @@
   "button":[
     {
       "type":"click",
-      "name":"T005",
+      "name":"T006",
       "key":"V1001_TODAY_MUSIC"
     },{
-      "type": "view",
-      "name": "登陆",
-      "url": "http://47.95.6.138:8080/api/thirdpartylogin/index?loginType=2&jumpType=1"
+      "type": "click",
+      "name": "test",
+      "key": "0001"
     },
     {
       "name":"铸魂直播",
@@ -15,7 +15,7 @@
         {
           "type":"view",
           "name":"下载APP",
-          "url":"http://47.95.6.138:8080/home"
+          "url":"http://mobile.daodezhisheng.cn/home"
         },{
           "type":"view",
           "name":"充值",

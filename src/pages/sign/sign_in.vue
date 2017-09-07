@@ -1,6 +1,6 @@
 <template>
     <div>
-        <header-m title="帐号登陆">
+        <header-m title="帐号登录">
             <router-link to="/" slot="left" style="color: #fff;display: flex;align-items: center;">
                 <!--<icon name="chevron-left" scale="1" style="color: #fff"></icon>&nbsp;<span>返回</span>-->
             </router-link>
@@ -14,11 +14,11 @@
             <div class="tips"><span v-show="testPhone">手机号码不正确</span></div>
             <div class="row"><input type="number" v-model="loginForm.code" placeholder="请输入验证码"></div>
             <div class="tips"><span v-show="testCode">验证码不正确</span></div>
-            <mt-button type="danger" size="large" class="btn" @click="formLogin">立即登陆</mt-button>
+            <mt-button type="danger" size="large" class="btn" @click="formLogin">立即登录</mt-button>
             <div class="tips"><span v-show="testLogin">手机号或验证码错误</span></div>
         </div>
         <div class="login">
-            <div class="text">----第三方登陆----</div>
+            <div class="text">----第三方登录----</div>
             <div class="connect-btn">
                 <a id="qqLoginBtn" class="btn" href="http://mobile.daodezhisheng.cn:8080/api/thirdpartylogin/index?loginType=QQ"><img
                     src="../../assets/qq.png" alt=""></a>

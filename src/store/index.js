@@ -22,6 +22,8 @@ export default new Vuex.Store({
         isWithdrawSuc: '0', // 提现成功返回
         withdrawDetail: [], // 提现记录
         rechargeDetail: [], // 充值记录
+        rechargeRatio: 0, // 充值比例
+        withdrawRatio: 0, // 提现比例
     },
     getters,
     actions,

@@ -19,17 +19,17 @@
             <p><span class="line"></span><span class="text">立即充值</span><span class="line"></span></p>
         </div>
         <div class="row rec">
-            <a :class="{active: isActive[0]}" @click="rechargeNum(0)"><p class="b">42魂币</p>
+            <a :class="{active: isActive[0]}" @click="rechargeNum(0)"><p class="b">{{rechargeRatio*6}}魂币</p>
                 <p class="m">¥6.00</p></a>
-            <a :class="{active: isActive[1]}" @click="rechargeNum(1)"><p class="b">210魂币</p>
+            <a :class="{active: isActive[1]}" @click="rechargeNum(1)"><p class="b">{{rechargeRatio*30}}魂币</p>
                 <p class="m">¥30.00</p></a>
-            <a :class="{active: isActive[2]}" @click="rechargeNum(2)"><p class="b">686魂币</p>
+            <a :class="{active: isActive[2]}" @click="rechargeNum(2)"><p class="b">{{rechargeRatio*98}}魂币</p>
                 <p class="m">¥98.00</p></a>
-            <a :class="{active: isActive[3]}" @click="rechargeNum(3)"><p class="b">2086魂币</p>
+            <a :class="{active: isActive[3]}" @click="rechargeNum(3)"><p class="b">{{rechargeRatio*298}}魂币</p>
                 <p class="m">¥298.00</p></a>
-            <a :class="{active: isActive[4]}" @click="rechargeNum(4)"><p class="b">4116魂币</p>
+            <a :class="{active: isActive[4]}" @click="rechargeNum(4)"><p class="b">{{rechargeRatio*588}}魂币</p>
                 <p class="m">¥588.00</p></a>
-            <a :class="{active: isActive[5]}" @click="rechargeNum(5)"><p class="b">11186魂币</p>
+            <a :class="{active: isActive[5]}" @click="rechargeNum(5)"><p class="b">{{rechargeRatio*1598}}魂币</p>
                 <p class="m">¥1598.00</p></a>
         </div>
         <div class="item">
@@ -78,6 +78,7 @@
         computed: {
             ...mapState([
                 'totalCurrency',
+                'rechargeRatio',
             ]),
             user () {
                 if (sessionStorage.u) {
@@ -94,6 +95,7 @@
             ...mapActions([
                 'ac_consume_total',
                 'ac_verifyLogin',
+                'ac_rechargeRatio',
             ]),
             rechargeFun () { // 支付函数
 //                alert(0)
@@ -199,6 +201,9 @@
                 this.jump()
             }
 
+            this.ac_rechargeRatio({
+                authToken: this.user.authToken || sessionStorage.authToken
+            })
         },
         beforeMount () {
         },

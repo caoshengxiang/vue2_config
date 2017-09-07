@@ -26,5 +26,11 @@ export default {
     },
     mut_rechargeDetail(st, data) {
         st.rechargeDetail = data
+    },
+    mut_rechargeRatio(st, data) {
+        st.rechargeRatio = data
+    },
+    mut_withdrawRatio(st, data) {
+        st.withdrawRatio = data
     }
 }

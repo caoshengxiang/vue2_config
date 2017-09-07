@@ -175,5 +175,29 @@ export default {
                 }
             });
         })
+    },
+    ac_rechargeRatio({commit}, param) {
+        $axios.get('/api/consume/rechargeRatio', {
+            headers: {
+                'authToken': param.authToken,
+                // "Content-Type": "application/json"
+            }
+        }).then(res=>{
+            return res.data
+        }).then(d=>{
+            commit('mut_rechargeRatio', d.data)
+        })
+    },
+    ac_withdrawRatio({commit}, param) {
+        $axios.get('/api/consume/withdrawRatio', {
+            headers: {
+                'authToken': param.authToken,
+                // "Content-Type": "application/json"
+            }
+        }).then(res=>{
+            return res.data
+        }).then(d=>{
+            commit('mut_withdrawRatio', d.data)
+        })
     }
 }

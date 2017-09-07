@@ -74,7 +74,8 @@
         computed: {
             ...mapState([
                 'totalBeans',
-                'isWithdrawSuc'
+                'isWithdrawSuc',
+                'withdrawRatio'
             ]),
             user() {
                 if (sessionStorage.u) {
@@ -86,15 +87,13 @@
             totalBeansNum() {
                 return parseInt(this.user.soulBean?this.user.soulBean:0, 10)
             },
-            moneyCpt() { // 计算兑换比例1:70
+            moneyCpt() {
                 let TB = parseInt(this.user.soulBean?this.user.soulBean:0, 10)
-                let exchange = 700/1 // 设置兑换比例
+                let exchange = this.withdrawRatio // 设置兑换比例
 
-                // 1:70
                 if (parseInt(this.withdraw.soulBean, 10) > TB) {
                     this.withdraw.soulBean = TB
                 }
-//                return (this.withdraw.soulBean/70).toFixed(2)
                 return Math.floor(this.withdraw.soulBean*100/exchange)/100
             }
         },
@@ -114,6 +113,7 @@
                 'ac_consume_total',
                 'ac_apply_withdraw',
                 'ac_verifyLogin',
+                'ac_withdrawRatio',
             ]),
             wxActiveF() {
                 this.initActive()
@@ -200,7 +200,9 @@
                 this.jump()
             }
 
-
+            this.ac_withdrawRatio({
+                authToken: this.user.authToken || sessionStorage.authToken
+            })
         },
         beforeMount() {
         },

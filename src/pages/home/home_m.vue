@@ -8,13 +8,15 @@
                 </div>
             </div>
 
-            <img class="phone" src="../../assets/home/anchor.png" alt="">
+            <img class="phone" src="../../assets/home/anchor.png" alt="" style="opacity: 0.8">
 
             <div class="btn">
                 <!--<a href="/"><img src="../../assets/home/iphone-logo.png" alt="">APP Store</a>
                 <a href="/"><img src="../../assets/home/android-logo.png" alt="">Android</a>-->
-                <a @click="download('i')"><img src="../../assets/home/ios-store.png" alt=""></a>
-                <a @click="download('a')"><img src="../../assets/home/an-store.png" alt=""></a>
+                <div class="b">
+                    <a @click="download('i')"><img src="../../assets/home/ios-store.png" alt=""></a>
+                    <a @click="download('a')"><img src="../../assets/home/an-store.png" alt=""></a>
+                </div>
             </div>
         </div>
     </div>
@@ -137,13 +139,39 @@
         }
         .btn {
             position: absolute;
-            bottom: 10px;
+            bottom: 0px;
+            top: 0px;
             width: 100%;
+            padding-bottom: 10px;
+            padding-top: 10px;
             text-align: center;
+            /*background-color: rgba(140, 140, 140, 0.3);*/
+            /* Firefox 3.6+ */
+            /*background: -moz-linear-gradient(left, #ace, #f96, #ace, #f96, #ace);*/
+            /* Safari 4-5, Chrome 1-9 */
+            /*background: -webkit-gradient(linear, left top, right top, from(#ace), color-stop(0.25, #f96), color-stop(0.5, #ace), color-stop(0.75, #f96), to(#ace));*/
+            /* Safari 5.1+, Chrome 10+ */
+            background: linear-gradient(bottom, rgba(0,0,0,1), rgba(255,255,255,0),rgba(255,255,255,0), rgba(255,255,255,0), rgba(255,255,255,0), rgba(255,255,255,0), rgba(255,255,255,0), rgba(255,255,255,0));
+            /* Opera 11.10+ */
+            /*background: -o-linear-gradient(left, #ace, #f96, #ace, #f96, #ace);*/
+
+            .b {
+                position: absolute;
+                bottom: 10px;
+            }
             a {
-                img {
-                    width: 85%;
-                    margin-bottom: 10px;
+                &:nth-child(1) {
+                    img {
+                        margin-bottom: 10px;
+                        width: px2rem(326px);
+                        /*box-shadow: 5px 5px 30px #fff;*/
+                    }
+                }
+                &:nth-child(2) {
+                    img {
+                        margin-bottom: 10px;
+                        width: px2rem(318px);
+                    }
                 }
             }
         }

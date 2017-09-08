@@ -150,7 +150,7 @@ export default {
             commit('mut_rechargeDetail', d.data)
         })
     },
-    ac_recharge({commit}, param) {
+    /*ac_recharge({commit}, param) {
         $axios({
             method: 'post',
             url: '/api/consume/applyRecharge',
@@ -175,7 +175,7 @@ export default {
                 }
             });
         })
-    },
+    },*/
     ac_rechargeRatio({commit}, param) {
         $axios.get('/api/consume/rechargeRatio', {
             headers: {

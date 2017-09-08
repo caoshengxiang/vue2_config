@@ -13,7 +13,7 @@
         </div>
         <div class="row own-hb">
             <p class="num">
-                <input type="number" :placeholder="0" v-model="withdraw.soulBean" onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}"
+                <input style="padding: 3px" type="number" :placeholder="0" v-model="withdraw.soulBean" onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}"
                        onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'0')}else{this.value=this.value.replace(/\D/g,'')}">
             </p>
             <p class="line"></p>

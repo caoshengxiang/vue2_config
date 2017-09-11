@@ -21,7 +21,8 @@ module.exports = function (env) {
     return {
         // context: __dirname + '../src',
         entry: { // 入口
-            index: path.join(__dirname + '/../src/index.js')
+            // index: path.join(__dirname + '/../src/index.js')
+            index: ["babel-polyfill", path.join(__dirname + '/../src/index.js')] // 解决IE不兼容【IE报vuex requires a Promise polyfill in this browser问题解决】
         },
         output: { // 出口
             path: path.join(__dirname, '/../dist'),

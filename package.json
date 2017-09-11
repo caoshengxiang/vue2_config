@@ -59,6 +59,7 @@
   },
   "dependencies": {
     "axios": "^0.16.2",
+    "babel-polyfill": "^6.26.0",
     "jquery": "^3.2.1",
     "video.js": "^6.2.5",
     "videojs-contrib-hls": "^5.10.1",

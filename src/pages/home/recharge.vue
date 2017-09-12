@@ -61,13 +61,13 @@
                 product: ['soulCurrency_6', 'soulCurrency_30', 'soulCurrency_98', 'soulCurrency_298', 'soulCurrency_588', 'soulCurrency_1598'],
                 currency: [42, 210, 686, 2086, 4116, 11186],
                 rechargeParam: {
-                    cancelUrl: 'http://mobile.daodezhisheng.cn/weixin/#/recharge',
-                    clientIp: 'http://mobile.daodezhisheng.cn',
+                    cancelUrl: 'http://ddzs.cxria.com/weixin/#/recharge',
+                    clientIp: 'http://ddzs.cxria.com',
                     fromType: 'WECAHT_PUB',
                     openId: "",
                     payType: 'WECHAT_PAY', //微信   ALIPAY 支付宝
                     product: 'soulCurrency_6',
-                    successUrl: 'http://mobile.daodezhisheng.cn/weixin/#/recharge_s',
+                    successUrl: 'http://ddzs.cxria.com/weixin/#/recharge_s',
                     userId: ''
                 },
                 wxActive: true,

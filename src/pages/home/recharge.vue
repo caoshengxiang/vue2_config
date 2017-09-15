@@ -32,13 +32,13 @@
             <a :class="{active: isActive[5]}" @click="rechargeNum(5)"><p class="b">{{rechargeRatio*1598}}魂币</p>
                 <p class="m">¥1598.00</p></a>
         </div>
-        <!--<div class="item">
+        <div class="item">
             <h3>支付方式: </h3>
             <p>
                 <a class="weixin" :class="{active: wxActive}" @click="rechargeTypeFun(1)">微信</a>
-                <a class="zfb" :class="{active: zfbActive}" @click="rechargeTypeFun(2)">支付宝</a>
+                <!--<a class="zfb" :class="{active: zfbActive}" @click="rechargeTypeFun(2)">支付宝</a>-->
             </p>
-        </div>-->
+        </div>
         <div class="row btn">
             <mt-button type="danger" size="large" class="btn" @click.native="rechargeFun">立即充值</mt-button>
         </div>
@@ -114,7 +114,7 @@
                     },
                     data: this.rechargeParam
                 }).then((res) => {
-                    alert(JSON.stringify(res))
+//                    alert(JSON.stringify(res))
                     let charge = res.data.data
 
 //                    console.log('charge:' + charge)

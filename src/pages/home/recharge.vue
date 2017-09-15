@@ -36,7 +36,7 @@
             <h3>支付方式: </h3>
             <p>
                 <a class="weixin" :class="{active: wxActive}" @click="rechargeTypeFun(1)">微信</a>
-                <a class="zfb" :class="{active: zfbActive}" @click="rechargeTypeFun(2)">支付宝</a>
+                <!--<a class="zfb" :class="{active: zfbActive}" @click="rechargeTypeFun(2)">支付宝</a>-->
             </p>
         </div>
         <div class="row btn">

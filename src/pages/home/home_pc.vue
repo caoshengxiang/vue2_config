@@ -10,7 +10,9 @@
                 <div class="btn">
                     <!--<a :href="iosDownloadUrl"><img class="b-iphone" src="../../assets/home/Button-iphone.png" alt=""></a>
                     <a :href="androidDownloadUrl"><img class="b-an" src="../../assets/home/Button-an.png" alt=""></a>-->
-                    <a :href="androidDownloadUrl" style="border: 2px solid #A78F52; color: #fff;font-weight: bold;border-radius: 30px;padding: 5px 0px;display: flex;align-items: center; justify-content:center;width: 130px;box-sizing: border-box;font-size: 12px"><img src="../../assets/icon/android.png" style="width: 20px; height: 20px;margin-right: 10px;"> Android 下载</a>
+                    <a href="javascript:alert('Ios未上线');void(0)" ><img class="b-iphone" src="../../assets/home/Button-iphone.png" alt=""></a>
+                    <a :href="androidDownloadUrl"><img class="b-an" src="../../assets/home/Button-an.png" alt=""></a>
+                    <!--<a :href="androidDownloadUrl" style="border: 2px solid #A78F52; color: #fff;font-weight: bold;border-radius: 30px;padding: 5px 0px;display: flex;align-items: center; justify-content:center;width: 130px;box-sizing: border-box;font-size: 12px"><img src="../../assets/icon/android.png" style="width: 20px; height: 20px;margin-right: 10px;"> Android 下载</a>-->
                 </div>
                 <div class="pro">
                     <!--<router-link to="/pc/app/intro" target="_blank">App介绍</router-link> |-->

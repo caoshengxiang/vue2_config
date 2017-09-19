@@ -31,7 +31,7 @@
         <div class="part-2">
             <div class="text">
                 <!--下 载 即 代 表 您 同 意&nbsp;&nbsp; <router-link to="/pc/user/pro" target="_blank">铸 魂 用 户 协 议</router-link>-->
-                下 载 即 代 表 您 同 意&nbsp;&nbsp;<a target="_blank" href="./static/protocol/隐私协议.pdf">铸 魂 用 户 协 议</a>
+                下 载 即 代 表 您 同 意&nbsp;&nbsp;<a target="_blank" href="./static/protocol/用户协议.pdf">铸 魂 用 户 协 议</a>
             </div>
 
         </div>

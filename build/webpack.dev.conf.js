@@ -30,7 +30,7 @@ module.exports = function (env) {
             // hot: true,    // 设置热更新(可在package.json scripts 里设置 npm run xxx);
             // open: true, // 打开浏览器 ???? 好像是安装包出现问题自动打开后路径出现undefiled,OpenBrowserPlugin打开
             proxy: config.dev.proxyTable, // 设置代理服务器
-            historyApiFallback: true, // 设置 router 的mode: 'history',
+            // historyApiFallback: true, // 设置 router 的mode: 'history',
         },
 
 
@@ -49,7 +49,7 @@ module.exports = function (env) {
             new HtmlWebpackPlugin({
                 favicon: path.join(__dirname, '../src/favicon.ico'), // icon
                 filename: path.resolve(__dirname + '/../dist/index.html'),   // 目标文件
-                template: path.resolve(__dirname + '/../src/index.html'), //模板文件
+                template: path.resolve(__dirname + '/../src/index-local.html'), //模板文件
                 inject: 'body', // 要把script插入到标签里
                 // hash: true,  //代表js文件后面会跟一个随机字符串,解决缓存问题
                 // chunks: ["index"], // chunks这个参数告诉插件要引用entry里面的哪几个入口

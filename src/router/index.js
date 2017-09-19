@@ -17,7 +17,7 @@ const withdraw = resolve => require.ensure([], () => resolve(require('../pages/h
 const withdrawD = resolve => require.ensure([], () => resolve(require('../pages/home/withdraw_detail.vue')), 'withdraw')
 
 export default new Router({
-    mode: 'history', // 这个模式路由没有#
+    // mode: 'history', // 这个模式路由没有#
     routes: [
         {
             path: '',
@@ -48,8 +48,44 @@ export default new Router({
             component: withdrawD
         },
         {
-            path: '/test',
-            component: test,
+            path: '/',
+            redirect: '/weixin',
         },
+        /*{
+            path: '/weixin',
+            component: test,
+            children: [
+                {
+                    path: '/',
+                    component: recharge,
+                },
+                {
+                    path: 'signin/:p',
+                    name: 'signIn',
+                    component: signIn
+                }, {
+                    path: 'recharge',
+                    name: 'recharge',
+                    component: recharge
+                },{
+                    path: 'recharge_d',
+                    name: 'rechargeDetail',
+                    component: rechargeDetail
+                },{
+                    path: 'recharge_s',
+                    name: 'rechargeSuccess',
+                    component: rechargeSuccess
+                },{
+                    path: 'withdraw',
+                    name: 'withdraw',
+                    component: withdraw
+                },{
+                    path: 'withdraw_d',
+                    name: 'withdrawD',
+                    component: withdrawD
+                },
+            ],
+        }*/
+
     ]
 })

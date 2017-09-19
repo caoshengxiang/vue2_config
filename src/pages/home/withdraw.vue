@@ -172,10 +172,10 @@
                 })
             },
             jump() {
-//                if (!sessionStorage.u) {
-//                    this.$router.push({name: 'signIn', params: {p: 1}})
-//                    sessionStorage.page = 'withdraw'
-//                }
+                if (!sessionStorage.u) {
+                    this.$router.push({name: 'signIn', params: {p: 1}})
+                    sessionStorage.page = 'withdraw'
+                }
             }
         },
         components: {

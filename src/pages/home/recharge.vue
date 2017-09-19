@@ -59,20 +59,20 @@
                 isActive: [true, false, false, false, false, false],
                 payType: ['ALIPAY', 'WECHAT_PAY', 'APPLE_PURCHASED_WITHIN'],
                 product: ['soulCurrency_6', 'soulCurrency_30', 'soulCurrency_98', 'soulCurrency_298', 'soulCurrency_588', 'soulCurrency_1598'],
-                currency: [42, 210, 686, 2086, 4116, 11186],
+                currency: [60, 300, 980, 2980, 5880, 15980],
                 rechargeParam: {
-                    cancelUrl: 'http://ddzs.cxria.com/weixin/#/recharge',
+                    cancelUrl: 'http://ddzs.cxria.com/weixin/recharge',
                     clientIp: 'http://ddzs.cxria.com',
                     fromType: 'WECAHT_PUB',
                     openId: "",
                     payType: 'WECHAT_PAY', //微信   ALIPAY 支付宝
                     product: 'soulCurrency_6',
-                    successUrl: 'http://ddzs.cxria.com/weixin/#/recharge_s',
+                    successUrl: 'http://ddzs.cxria.com/weixin/recharge_s',
                     userId: ''
                 },
                 wxActive: true,
                 zfbActive: false,
-                cur: 42,
+                cur: 60,
             }
         },
         computed: {
@@ -114,18 +114,25 @@
                     },
                     data: this.rechargeParam
                 }).then((res) => {
-                    alert(JSON.stringify(res))
                     let charge = res.data.data
 
-//                    console.log('charge:' + charge)
-//                    alert(JSON.stringify(charge)) // TODO
+//                    alert(JSON.stringify(charge))
+                    console.log('charge:' + JSON.stringify(charge))
+                    console.log(charge)
+                    console.log('charge:' + charge)
+                    alert(JSON.stringify(charge)) // TODO
                     localStorage.cur = that.cur
                     pingpp.createPayment(charge, function (result, err) {
-                        console.log(result)
-                        console.log(err.msg)
-                        console.log(err.extra)
+                        console.log("result: "+result)
+                        console.log("err.msg: "+err.msg)
+                        console.log("err.extra: "+err.extra)
+                        alert("result: "+result)
+                        alert("err.msg: "+err.msg)
+                        alert("err.extra: "+err.extra)
+
                         if (result === 'success') {
                             // 只有微信公众账号 wx_pub 支付成功的结果会在这里返回，其他的支付结果都会跳转到 extra 中对应的 URL。
+                            alert('ok') // TODO
                         } else if (result === 'fail') {
                             // charge 不正确或者微信公众账号支付失败时会在此处返回
                         } else if (result === 'cancel') {
@@ -191,10 +198,10 @@
                 sessionStorage.code = code
                 $axios.get('/api/wechatpublicno/getopenid?code=' + code).then((res) => {
                     sessionStorage.openid = res.data.data
-                    this.jump()
+//                    this.jump()
                 })
             } else { // 非微信浏览器测试用，浏览器不能无法获取code将不能支付等
-                this.jump()
+//                this.jump()
             }
 
             this.ac_rechargeRatio({

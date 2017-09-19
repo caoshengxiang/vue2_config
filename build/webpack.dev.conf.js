@@ -30,6 +30,7 @@ module.exports = function (env) {
             // hot: true,    // 设置热更新(可在package.json scripts 里设置 npm run xxx);
             // open: true, // 打开浏览器 ???? 好像是安装包出现问题自动打开后路径出现undefiled,OpenBrowserPlugin打开
             proxy: config.dev.proxyTable, // 设置代理服务器
+            historyApiFallback: true,
         },
 
 

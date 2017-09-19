@@ -17,11 +17,11 @@ const withdraw = resolve => require.ensure([], () => resolve(require('../pages/h
 const withdrawD = resolve => require.ensure([], () => resolve(require('../pages/home/withdraw_detail.vue')), 'withdraw')
 
 export default new Router({
-    // mode: 'history', // 这个模式路由没有#
+    mode: 'history', // 这个模式路由没有#
     routes: [
         {
             path: '',
-            component: signIn,
+            component: recharge,
         }, {
             path: '/signin/:p',
             name: 'signIn',

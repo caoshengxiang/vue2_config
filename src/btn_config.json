@@ -38,11 +38,11 @@
         },{
           "type":"view",
           "name":"充值",
-          "url": "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx726503da99d829f6&redirect_uri=http%3A%2F%2Fddzs.cxria.com%2Fweixin%2F%23%2Frecharge&response_type=code&scope=snsapi_base&state=1#wechat_redirect"
+          "url": "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx726503da99d829f6&redirect_uri=http%3A%2F%2Fddzs.cxria.com%2Fweixin%2Frecharge&response_type=code&scope=snsapi_base&state=1#wechat_redirect"
         },{
           "type":"view",
           "name":"提现",
-          "url": "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx726503da99d829f6&redirect_uri=http%3A%2F%2Fddzs.cxria.com%2Fweixin%2F%23%2Fwithdraw&response_type=code&scope=snsapi_base&state=1#wechat_redirect"
+          "url": "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx726503da99d829f6&redirect_uri=http%3A%2F%2Fddzs.cxria.com%2Fweixin%2Fwithdraw&response_type=code&scope=snsapi_base&state=1#wechat_redirect"
         }
       ]
     }]

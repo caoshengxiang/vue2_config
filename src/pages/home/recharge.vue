@@ -10,7 +10,7 @@
             <span>充值历史</span>
         </router-link>
         <div class="row own-hb">
-            <p class="num">{{totalCurrencyNum + cur}}</p>
+            <p class="num">{{totalCurrencyNum + rechargeCur}}</p>
             <p class="line"></p>
             <p class="text">当前魂币</p>
         </div>
@@ -67,12 +67,13 @@
                     openId: "",
                     payType: 'WECHAT_PAY', //微信   ALIPAY 支付宝
                     product: 'soulCurrency_6',
-                    successUrl: 'http://ddzs.cxria.com/weixin/#/recharge',
+                    successUrl: 'http://ddzs.cxria.com/weixin/#/recharge_s',
                     userId: ''
                 },
                 wxActive: true,
                 zfbActive: false,
-                cur: 0,
+                cur: 30,
+                rechargeCur: 0,
             }
         },
         computed: {
@@ -131,7 +132,8 @@
 
                         if (result === 'success') {
                             // 只有微信公众账号 wx_pub 支付成功的结果会在这里返回，其他的支付结果都会跳转到 extra 中对应的 URL。
-                            alert('充值成功') // TODO
+                            alert('充值成功'+that.cur+'魂币') // TODO
+                            that.rechargeCur += that.cur;
 //                            that.$router.push({name: 'rechargeSuccess'})
                         } else if (result === 'fail') {
                             // charge 不正确或者微信公众账号支付失败时会在此处返回

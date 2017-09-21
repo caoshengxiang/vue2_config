@@ -24,6 +24,12 @@ export default new Vuex.Store({
         rechargeDetail: [], // 充值记录
         rechargeRatio: 0, // 充值比例
         withdrawRatio: 0, // 提现比例
+        rechargeHistory: [
+           /* {
+                receiveSoulCurrency: 0,
+                receiveSoulCurrency: ''
+            } */
+        ]
     },
     getters,
     actions,

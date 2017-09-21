@@ -10,7 +10,7 @@
             <span>充值历史</span>
         </router-link>
         <div class="row own-hb">
-            <p class="num">{{totalCurrencyNum + rechargeCur}}</p>
+            <p class="num">{{totalCurrencyNum + rechargeHistoryCru}}</p>
             <p class="line"></p>
             <p class="text">当前魂币</p>
         </div>
@@ -33,11 +33,11 @@
                 <p class="m">¥1598.00</p></a>
         </div>
         <div class="item">
-            <h3>支付方式: </h3>
-            <p>
-                <a class="weixin" :class="{active: wxActive}" @click="rechargeTypeFun(1)">微信</a>
-                <!--<a class="zfb" :class="{active: zfbActive}" @click="rechargeTypeFun(2)">支付宝</a>-->
-            </p>
+            <!--<h3>支付方式: </h3>-->
+            <!--<p>-->
+                <!--<a class="weixin" :class="{active: wxActive}" @click="rechargeTypeFun(1)">微信</a>-->
+                <!--&lt;!&ndash;<a class="zfb" :class="{active: zfbActive}" @click="rechargeTypeFun(2)">支付宝</a>&ndash;&gt;-->
+            <!--</p>-->
         </div>
         <div class="row btn">
             <mt-button type="danger" size="large" class="btn" @click.native="rechargeFun">立即充值</mt-button>
@@ -47,9 +47,9 @@
 <script>
     import HeaderM from '../../components/header/header_m.vue'
     import { Base64 } from 'js-base64'
-    import { mapState, mapActions } from 'vuex'
+    import { mapState, mapActions, mapMutations } from 'vuex'
     import pingpp from 'pingpp-js'
-    import { getQueryObj } from '../../utils/utils'
+    import { getQueryObj, getNowFormatDate } from '../../utils/utils'
 
     export default {
         name: 'recharge',
@@ -72,7 +72,7 @@
                 },
                 wxActive: true,
                 zfbActive: false,
-                cur: 30,
+                cur: 60,
                 rechargeCur: 0,
             }
         },
@@ -80,6 +80,7 @@
             ...mapState([
                 'totalCurrency',
                 'rechargeRatio',
+                'rechargeHistory'
             ]),
             user () {
                 if (sessionStorage.u) {
@@ -91,8 +92,19 @@
             totalCurrencyNum () {
                 return parseInt(this.user.soulCurrency ? this.user.soulCurrency : 0, 10)
             },
+            rechargeHistoryCru() {
+                let sum = 0
+
+                this.rechargeHistory.forEach(item=>{
+                    sum += item.receiveSoulCurrency
+                })
+                return sum
+            }
         },
         methods: {
+            ...mapMutations([
+               'mut_rechargeHistory'
+            ]),
             ...mapActions([
                 'ac_consume_total',
                 'ac_verifyLogin',
@@ -117,23 +129,18 @@
                 }).then((res) => {
                     let charge = res.data.data
 
-//                    alert(JSON.stringify(charge))
-//                    console.log('charge:' + JSON.stringify(charge))
-
-//                    alert(JSON.stringify(charge)) // TODO
                     localStorage.cur = that.cur
                     pingpp.createPayment(charge, function (result, err) {
-                        console.log("result: "+result)
-                        console.log("err.msg: "+err.msg)
-                        console.log("err.extra: "+err.extra)
-//                        alert("result: "+result)
-//                        alert("err.msg: "+err.msg)
-//                        alert("err.extra: "+err.extra)
+
 
                         if (result === 'success') {
                             // 只有微信公众账号 wx_pub 支付成功的结果会在这里返回，其他的支付结果都会跳转到 extra 中对应的 URL。
                             alert('充值成功'+that.cur+'魂币') // TODO
                             that.rechargeCur += that.cur;
+                            that.mut_rechargeHistory({
+                                receiveSoulCurrency: that.cur,
+                                rechargeTime: getNowFormatDate()
+                            })
 //                            that.$router.push({name: 'rechargeSuccess'})
                         } else if (result === 'fail') {
                             // charge 不正确或者微信公众账号支付失败时会在此处返回

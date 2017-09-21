@@ -32,5 +32,8 @@ export default {
     },
     mut_withdrawRatio(st, data) {
         st.withdrawRatio = data
+    },
+    mut_rechargeHistory(st, data) {
+        st.rechargeHistory.push(data)
     }
 }

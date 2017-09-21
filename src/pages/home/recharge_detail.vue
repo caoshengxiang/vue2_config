@@ -4,7 +4,8 @@
 
         </header-m>-->
         <div class="con">
-            <div class="item" v-for="(item, i) in rechargeDetail" :key="i">
+            <!--<div class="item" v-for="(item, i) in rechargeDetail" :key="i">-->
+            <div class="item" v-for="(item, i) in rechargeHistory" :key="i">
                 <div class="l">
                     <icon name="circle" style="color: #686868"></icon>
                 </div>
@@ -13,7 +14,8 @@
                     <div class="msg">您充值魂币{{item.receiveSoulCurrency}}已到账成功.</div>
                 </div>
             </div>
-            <div class="item" v-if="rechargeDetail.length <= 0">
+            <!--<div class="item" v-if="rechargeDetail.length <= 0">-->
+            <div class="item" v-if="rechargeHistory.length <= 0">
                 <div class="l">
                     <icon name="circle" style="color: #686868"></icon>
                 </div>
@@ -36,7 +38,8 @@
         },
         computed: {
             ...mapState([
-                'rechargeDetail'
+                'rechargeDetail',
+                'rechargeHistory'
             ]),
             user() {
                 if (sessionStorage.u) {

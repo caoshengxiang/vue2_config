@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>五章 通用组建库 · GitBook</title>
+        <title>icon 组建 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="header.html" />
+    <link rel="next" href="toast.html" />
     
     
-    <link rel="prev" href="../chapter4/cssFun.html" />
+    <link rel="prev" href="header.html" />
     
 
     </head>
@@ -218,7 +218,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.6" data-path="./">
+        <li class="chapter " data-level="1.6" data-path="./">
             
                 <a href="./">
             
@@ -245,7 +245,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.2" data-path="icon.html">
+        <li class="chapter active" data-level="1.6.2" data-path="icon.html">
             
                 <a href="icon.html">
             
@@ -455,7 +455,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >五章 通用组建库</a>
+        <a href=".." >icon 组建</a>
     </h1>
 </div>
 
@@ -470,10 +470,59 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#x4E94;&#x7AE0;-&#x901A;&#x7528;&#x7EC4;&#x5EFA;&#x5E93;">&#x4E94;&#x7AE0; &#x901A;&#x7528;&#x7EC4;&#x5EFA;&#x5E93;</h1>
-<h2 id="&#x9875;&#x5934;&#x7EC4;&#x5EFA;">&#x9875;&#x5934;&#x7EC4;&#x5EFA;</h2>
-<h2 id="icon-&#x7EC4;&#x5EFA;">icon &#x7EC4;&#x5EFA;</h2>
-<h2 id="&#x5F39;&#x6846;">&#x5F39;&#x6846;</h2>
+                                <h1 id="icon-&#x7EC4;&#x5EFA;">icon &#x7EC4;&#x5EFA;</h1>
+<h3 id="&#x6548;&#x679C;&#x5C55;&#x793A;">&#x6548;&#x679C;&#x5C55;&#x793A;</h3>
+<p><img src="assets/icon.png" alt=""></p>
+<h3 id="&#x4F7F;&#x7528;&#x4ECB;&#x7ECD;">&#x4F7F;&#x7528;&#x4ECB;&#x7ECD;</h3>
+<p>&#x6548;&#x679C;&#x4E2D;&#x7EA2;&#x6846;&#x4E2D;&#x7684;&#x56FE;&#x6807;&#xFF0C;&#x662F;vue-awesome&#x56FE;&#x6807;&#xFF0E;</p>
+<p>&#x8BE5;&#x7EC4;&#x5EFA;&#x662F;&#x901A;&#x8FC7;&#x5168;&#x5C40;&#x6CE8;&#x518C;&#xFF0C;&#x5C40;&#x90E8;&#x7EC4;&#x5EFA;&#x65B9;&#x5F0F;&#x540E;&#x671F;&#x8FD0;&#x7528;&#x540E;&#x5B9E;&#x73B0;&#xFF0E;</p>
+<ol>
+<li>&#x5728;vue&#x4E3B;&#x6587;&#x4EF6;&#x4E2D;&#x5F15;&#x5165;
+```
+/**<ul>
+<li>Created by allen on 17-4-26.
+*/
+import Vue from &apos;vue&apos;
+import router from &apos;./router&apos;
+import App from &apos;./app.vue&apos;
+import store from &apos;./store&apos;</li>
+</ul>
+</li>
+</ol>
+<p>import &apos;*/awesome&apos; // &#x5F15;&#x5165;icon&#x7EC4;&#x5EFA;&#x5168;&#x5C40;&#x6CE8;&#x518C;</p>
+<p>new Vue({
+    el: &apos;#app&apos;,
+    store,
+    router,
+    i18n,
+    // components: { App }
+    render: h =&gt; h(App)
+})</p>
+<pre><code>
+2. &#x4F7F;&#x7528;
+</code></pre><p><icon name="chevron-left" scale="1" style="color: #fff"></icon>&#xA0;<span>&#x8FD4;&#x56DE;</span></p>
+<pre><code>
+`name`&#x662F;&#x56FE;&#x6807;&#x540D;&#x79F0;&#xFF0C;&#x8FD9;&#x4E2A;&#x540D;&#x79F0;&#x53EF;&#x5728;[awesome&#x5B98;&#x7F51;&#x67E5;&#x627E;](http://fontawesome.dashgame.com/)
+
+### &#x4EE3;&#x7801;&#x8BB2;&#x89E3;
+</code></pre><p>import Vue from &apos;vue&apos;</p>
+<p>/<em> Pick one way between the 2 following ways </em>/</p>
+<p>// only import the icons you use to reduce bundle size
+import &apos;vue-awesome/icons/flag&apos;</p>
+<p>// or import all icons if you don&apos;t care about bundle size
+import &apos;vue-awesome/icons&apos;</p>
+<p>/<em> Register component with one of 2 methods </em>/</p>
+<p>import Icon from &apos;vue-awesome/components/Icon&apos;</p>
+<p>// globally (in your main .js file)
+Vue.component(&apos;icon&apos;, Icon)</p>
+<p>// or locally (in your component file)
+/<em>
+export default {
+    components: {
+        Icon
+    }
+}</em>/</p>
+<p>```</p>
 
                                 
                                 </section>
@@ -501,12 +550,12 @@
 
             
                 
-                <a href="../chapter4/cssFun.html" class="navigation navigation-prev " aria-label="Previous page: css 函数库">
+                <a href="header.html" class="navigation navigation-prev " aria-label="Previous page: 页头组建">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="header.html" class="navigation navigation-next " aria-label="Next page: 页头组建">
+                <a href="toast.html" class="navigation navigation-next " aria-label="Next page: 弹框">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -517,7 +566,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"五章 通用组建库","level":"1.6","depth":1,"next":{"title":"页头组建","level":"1.6.1","depth":2,"path":"chapter5/header.md","ref":"chapter5/header.md","articles":[]},"previous":{"title":"css 函数库","level":"1.5.2","depth":2,"path":"chapter4/cssFun.md","ref":"chapter4/cssFun.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter5/README.md","mtime":"2017-09-25T07:57:34.632Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-09-25T08:37:20.731Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"icon 组建","level":"1.6.2","depth":2,"next":{"title":"弹框","level":"1.6.3","depth":2,"path":"chapter5/toast.md","ref":"chapter5/toast.md","articles":[]},"previous":{"title":"页头组建","level":"1.6.1","depth":2,"path":"chapter5/header.md","ref":"chapter5/header.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter5/icon.md","mtime":"2017-09-25T07:57:34.636Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-09-25T08:37:20.731Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

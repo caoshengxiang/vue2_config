@@ -1,3 +1,6 @@
+# 关于
+github: https://github.com/caoshengxiang/vue2_config.git
+文档: https://caoshengxiang.github.io/vue2_config/
 
 # 技术栈 webpack2+vue2+vuex2+vue-router2+sass+vue-i18n
 
@@ -84,3 +87,12 @@
     　　yarn：
     yarn config set sass-binary-site http://npm.taobao.org/mirrors/node-sass
     (网上方法都是扯淡,包括用第二步也是不行,第二步安装玩后node-sass编译会报错,删除node_modules下的node-sass,再使用cnpm install安装)
+
+# gh-pages 介绍
+push 代码后
+> git subtree push --prefix=dist origin gh-pages
+
+意思就是把指定的dist文件提交到gh-pages分支上,那这时候，我们看到已经多出了一个gh-pages分支，那么展示地址就是 Github用户名.github.io/创建的仓库名
+
+参考:
+http://www.cnblogs.com/MuYunyun/p/6082359.html

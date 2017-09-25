@@ -8,4 +8,7 @@
 * [三章 项目介绍和运行](chapter3/README.md)
 * [四章 js通用函数库](chapter4/README.md)
 * [五章 通用组建库](chapter5/README.md)
+    * [页头组建](chapter5/header.md)
+    * [icon 组建](chapter5/icon.md)
+    * [弹框](chapter5/toast.md)
 

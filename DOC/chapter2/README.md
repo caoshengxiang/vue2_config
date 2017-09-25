@@ -1,4 +1,4 @@
-# webpack配置
+# 二章 webpack配置
 
 ### ps:
 
@@ -498,9 +498,9 @@ module.exports = function (env) {
             }
 ```
 
-#### 
+####
 
-#### config.js 如下： 
+#### config.js 如下：
 
 ```
 /**

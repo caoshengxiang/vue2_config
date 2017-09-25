@@ -5,3 +5,4 @@ built/
 dist/
 test/
 yarn-error.log
+_book

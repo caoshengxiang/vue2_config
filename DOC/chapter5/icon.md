@@ -40,6 +40,8 @@ new Vue({
 
 `name`是图标名称，这个名称可在[awesome官网查找](http://fontawesome.dashgame.com/)
 
+
+
 ### 代码讲解
 
 ```

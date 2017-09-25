@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>五章 通用组建库 · GitBook</title>
+        <title>页头组建 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="header.html" />
+    <link rel="next" href="icon.html" />
     
     
-    <link rel="prev" href="../chapter4/cssFun.html" />
+    <link rel="prev" href="./" />
     
 
     </head>
@@ -218,7 +218,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.6" data-path="./">
+        <li class="chapter " data-level="1.6" data-path="./">
             
                 <a href="./">
             
@@ -232,7 +232,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.6.1" data-path="header.html">
+        <li class="chapter active" data-level="1.6.1" data-path="header.html">
             
                 <a href="header.html">
             
@@ -455,7 +455,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >五章 通用组建库</a>
+        <a href=".." >页头组建</a>
     </h1>
 </div>
 
@@ -470,11 +470,109 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#x4E94;&#x7AE0;-&#x901A;&#x7528;&#x7EC4;&#x5EFA;&#x5E93;">&#x4E94;&#x7AE0; &#x901A;&#x7528;&#x7EC4;&#x5EFA;&#x5E93;</h1>
-<h2 id="&#x9875;&#x5934;&#x7EC4;&#x5EFA;">&#x9875;&#x5934;&#x7EC4;&#x5EFA;</h2>
-<h2 id="icon-&#x7EC4;&#x5EFA;">icon &#x7EC4;&#x5EFA;</h2>
-<h2 id="&#x5F39;&#x6846;">&#x5F39;&#x6846;</h2>
+                                <h1 id="&#x9875;&#x5934;&#x7EC4;&#x5EFA;">&#x9875;&#x5934;&#x7EC4;&#x5EFA;</h1>
+<h3 id="&#x6548;&#x679C;&#x5C55;&#x793A;">&#x6548;&#x679C;&#x5C55;&#x793A;</h3>
+<p><img src="assets/header.png" alt=""></p>
+<hr>
+<h3 id="&#x4F7F;&#x7528;&#x4ECB;&#x7ECD;">&#x4F7F;&#x7528;&#x4ECB;&#x7ECD;</h3>
+<p>&#x6CE8;&#x610F;&#xFF1A;&#x3000;&#x672C;&#x6587;&#x4F7F;&#x7528;ES6, &#x5173;&#x4E8E;webpack&#xFF12;&#x5728;&#x4E0B;ES6<a href="">&#x70B9;&#x51FB;&#x8FD9;&#x91CC;</a></p>
+<ol>
+<li>&#x5355;&#x6587;&#x4EF6;&#x5F15;&#x5165;
+import headerM from &apos;*/header_m.vue&apos;</li>
+<li>&#x7EC4;&#x5EFA;&#x6CE8;&#x518C;<pre><code>computed: {
+ headerM
+}
+</code></pre></li>
+<li>&#x4F7F;&#x7528;<pre><code>&lt;header-m title=&quot;&#x6807;&#x9898;&quot;&gt;
+ &lt;div&gt;&#x5185;&#x5BB9;&lt;/div&gt;
+ &lt;div slot=&quot;left&quot;&gt;&#x5DE6;&lt;/div&gt;
+ &lt;div slot=&quot;right&quot;&gt;&#x53F3;&lt;/div&gt;
+&lt;/header-m&gt;
+</code></pre></li>
+</ol>
+<p>&#x4E3A;&#x4E86;&#x4FBF;&#x4E8E;&#x6269;&#x5C55;&#xFF0C;&#x7EC4;&#x5EFA;&#x5185;&#x5BB9;&#x901A;&#x8FC7;slot&#x5206;&#x53D1;&#xFF0C;&#x5BF9;slot&#x4E0D;&#x4E86;&#x89E3;&#x7684;&#x540C;&#x5B66;&#x53EF;&#x770B;<a href="https://cn.vuejs.org/v2/guide/components.html#&#x4F7F;&#x7528;&#x63D2;&#x69FD;&#x5206;&#x53D1;&#x5185;&#x5BB9;" target="_blank">&#x6587;&#x6863;</a></p>
+<hr>
+<h3 id="&#x4EE3;&#x7801;&#x8BB2;&#x89E3;">&#x4EE3;&#x7801;&#x8BB2;&#x89E3;</h3>
+<pre><code>&lt;template&gt;
+    &lt;div class=&quot;header-m&quot; :style=&quot;styles&quot;&gt;
+        &lt;div class=&quot;left&quot;&gt;
+            &lt;slot name=&quot;left&quot;&gt;
+                &lt;router-link :to=&quot;to&quot; slot=&quot;left&quot; style=&quot;color: #fff;display: flex;align-items: center;justify-content: flex-start&quot;&gt;
+                    &lt;icon name=&quot;chevron-left&quot; scale=&quot;1&quot; style=&quot;color: #fff&quot;&gt;&lt;/icon&gt;&amp;nbsp;&lt;span&gt;&#x8FD4;&#x56DE;&lt;/span&gt;
+                &lt;/router-link&gt;
+            &lt;/slot&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;title&quot;&gt;
+            &lt;slot&gt;
+                {{title}}
+            &lt;/slot&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;right&quot;&gt;
+            &lt;slot name=&quot;right&quot;&gt;&lt;/slot&gt;
+        &lt;/div&gt;
 
+    &lt;/div&gt;
+&lt;/template&gt;
+&lt;script&gt;
+
+    export default {
+
+        props: {
+            title: {
+                type: String,
+                default: &apos;&apos;
+            },
+            styles: {
+                type: Object,
+                default() {
+                    return {
+                        color: &apos;#fff&apos;,
+                        background: &apos;#000&apos;
+                    }
+                }
+            },
+            to: {
+                type: String,
+                default: &apos;/&apos;
+            }
+        }
+    }
+&lt;/script&gt;
+&lt;style lang=&quot;scss&quot; rel=&quot;stylesheet/scss&quot; scoped&gt;
+    @import &quot;../../styles/fun&quot;;
+    .header-m {
+        padding: px2rem(18px) px2rem(10px);
+        display: flex;
+        align-items: center;
+        box-sizing: border-box;
+        font-size: 14px;
+        height: px2rem(50px);
+        line-height: 1;
+        position: relative;
+        text-align: center;
+        white-space: nowrap;
+        .left {
+            text-align: left;
+            flex: 0.5;
+        }
+        .title {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            font-size: inherit;
+            font-weight: 400;
+            flex: 1;
+        }
+        .right {
+            text-align: right;
+            flex: 0.5;
+        }
+        a {
+            text-decoration: none;
+        }
+    }
+&lt;/style&gt;
+</code></pre>
                                 
                                 </section>
                             
@@ -501,12 +599,12 @@
 
             
                 
-                <a href="../chapter4/cssFun.html" class="navigation navigation-prev " aria-label="Previous page: css 函数库">
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: 五章 通用组建库">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="header.html" class="navigation navigation-next " aria-label="Next page: 页头组建">
+                <a href="icon.html" class="navigation navigation-next " aria-label="Next page: icon 组建">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -517,7 +615,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"五章 通用组建库","level":"1.6","depth":1,"next":{"title":"页头组建","level":"1.6.1","depth":2,"path":"chapter5/header.md","ref":"chapter5/header.md","articles":[]},"previous":{"title":"css 函数库","level":"1.5.2","depth":2,"path":"chapter4/cssFun.md","ref":"chapter4/cssFun.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter5/README.md","mtime":"2017-09-25T07:57:34.632Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-09-25T08:37:20.731Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"页头组建","level":"1.6.1","depth":2,"next":{"title":"icon 组建","level":"1.6.2","depth":2,"path":"chapter5/icon.md","ref":"chapter5/icon.md","articles":[]},"previous":{"title":"五章 通用组建库","level":"1.6","depth":1,"path":"chapter5/README.md","ref":"chapter5/README.md","articles":[{"title":"页头组建","level":"1.6.1","depth":2,"path":"chapter5/header.md","ref":"chapter5/header.md","articles":[]},{"title":"icon 组建","level":"1.6.2","depth":2,"path":"chapter5/icon.md","ref":"chapter5/icon.md","articles":[]},{"title":"弹框","level":"1.6.3","depth":2,"path":"chapter5/toast.md","ref":"chapter5/toast.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter5/header.md","mtime":"2017-09-25T07:57:34.636Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-09-25T08:37:20.731Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

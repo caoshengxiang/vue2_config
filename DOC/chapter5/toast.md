@@ -36,6 +36,28 @@
     四. 组件中存在问题
         1.事件传递时向父组件传递参数。父组件监听事件时，本身处理函数也需要传参数，如：将for循环中的数据作为参数传递，这种情况下组件传递到父组件的参数不能获取
 
+##### 效果事例代码
+```
+<toast
+                :show="dialogShow"
+                title=""
+                :lineStyle="{lineH: '0'}"
+                :toastShowStyle="{width: '85%', borderRadius: '10px'}"
+                @closeToast="closeToast">
+                <img slot="icon" @click="closeToast" src="../../assets/icon/close.png">
+                <div class="con">
+                    <h1>直播结束</h1>
+                    <p>如需继续观看更多精彩，请下载app~</p>
+                    <div class="toast-download">
+                        <div class="p-1"></div>
+                        <div class="p-2" @click="downloadApp">
+                            立即下载
+                        </div>
+                    </div>
+                </div>
+            </toast>
+```
+
 -----------------
 ### 代码讲解
 

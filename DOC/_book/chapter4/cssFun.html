@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>五章 通用组建库 · GitBook</title>
+        <title>css 函数库 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="header.html" />
+    <link rel="next" href="../chapter5/" />
     
     
-    <link rel="prev" href="../chapter4/cssFun.html" />
+    <link rel="prev" href="jsFun.html" />
     
 
     </head>
@@ -173,9 +173,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5" data-path="../chapter4/">
+        <li class="chapter " data-level="1.5" data-path="./">
             
-                <a href="../chapter4/">
+                <a href="./">
             
                     
                     四章 通用
@@ -187,9 +187,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.5.1" data-path="../chapter4/jsFun.html">
+        <li class="chapter " data-level="1.5.1" data-path="jsFun.html">
             
-                <a href="../chapter4/jsFun.html">
+                <a href="jsFun.html">
             
                     
                     js 函数库
@@ -200,9 +200,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.2" data-path="../chapter4/cssFun.html">
+        <li class="chapter active" data-level="1.5.2" data-path="cssFun.html">
             
-                <a href="../chapter4/cssFun.html">
+                <a href="cssFun.html">
             
                     
                     css 函数库
@@ -218,9 +218,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.6" data-path="./">
+        <li class="chapter " data-level="1.6" data-path="../chapter5/">
             
-                <a href="./">
+                <a href="../chapter5/">
             
                     
                     五章 通用组建库
@@ -232,9 +232,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.6.1" data-path="header.html">
+        <li class="chapter " data-level="1.6.1" data-path="../chapter5/header.html">
             
-                <a href="header.html">
+                <a href="../chapter5/header.html">
             
                     
                     页头组建
@@ -245,9 +245,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.2" data-path="icon.html">
+        <li class="chapter " data-level="1.6.2" data-path="../chapter5/icon.html">
             
-                <a href="icon.html">
+                <a href="../chapter5/icon.html">
             
                     
                     icon 组建
@@ -258,9 +258,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.3" data-path="toast.html">
+        <li class="chapter " data-level="1.6.3" data-path="../chapter5/toast.html">
             
-                <a href="toast.html">
+                <a href="../chapter5/toast.html">
             
                     
                     弹框
@@ -455,7 +455,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >五章 通用组建库</a>
+        <a href=".." >css 函数库</a>
     </h1>
 </div>
 
@@ -470,10 +470,24 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#x4E94;&#x7AE0;-&#x901A;&#x7528;&#x7EC4;&#x5EFA;&#x5E93;">&#x4E94;&#x7AE0; &#x901A;&#x7528;&#x7EC4;&#x5EFA;&#x5E93;</h1>
-<h2 id="&#x9875;&#x5934;&#x7EC4;&#x5EFA;">&#x9875;&#x5934;&#x7EC4;&#x5EFA;</h2>
-<h2 id="icon-&#x7EC4;&#x5EFA;">icon &#x7EC4;&#x5EFA;</h2>
-<h2 id="&#x5F39;&#x6846;">&#x5F39;&#x6846;</h2>
+                                <h1 id="css-&#x51FD;&#x6570;&#x5E93;">css &#x51FD;&#x6570;&#x5E93;</h1>
+<h5 id="px2rem">px2rem</h5>
+<pre><code class="lang-css">/** px2rem
+* @param $px &#x50CF;&#x7D20;&#x503C;
+* @param $base-font-size html&#x5B57;&#x4F53;&#x5927;&#x5C0F;
+* @return rem
+*/
+
+@function px2rem($px, $base-font-size: $base-font-size) {
+  @if (unitless($px)) {
+    @warn &quot;Assuming #{$px} to be in pixels, attempting to convert it into pixels for you&quot;;
+    @return px2rem($px + 0px); // That may fail.
+  } @else if (unit($px) == rem) {
+    @return $px;
+  }
+  @return ($px / $base-font-size) * 1rem;
+}
+</code></pre>
 
                                 
                                 </section>
@@ -501,12 +515,12 @@
 
             
                 
-                <a href="../chapter4/cssFun.html" class="navigation navigation-prev " aria-label="Previous page: css 函数库">
+                <a href="jsFun.html" class="navigation navigation-prev " aria-label="Previous page: js 函数库">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="header.html" class="navigation navigation-next " aria-label="Next page: 页头组建">
+                <a href="../chapter5/" class="navigation navigation-next " aria-label="Next page: 五章 通用组建库">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -517,7 +531,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"五章 通用组建库","level":"1.6","depth":1,"next":{"title":"页头组建","level":"1.6.1","depth":2,"path":"chapter5/header.md","ref":"chapter5/header.md","articles":[]},"previous":{"title":"css 函数库","level":"1.5.2","depth":2,"path":"chapter4/cssFun.md","ref":"chapter4/cssFun.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter5/README.md","mtime":"2017-09-25T07:57:34.632Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-09-25T08:37:20.731Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"css 函数库","level":"1.5.2","depth":2,"next":{"title":"五章 通用组建库","level":"1.6","depth":1,"path":"chapter5/README.md","ref":"chapter5/README.md","articles":[{"title":"页头组建","level":"1.6.1","depth":2,"path":"chapter5/header.md","ref":"chapter5/header.md","articles":[]},{"title":"icon 组建","level":"1.6.2","depth":2,"path":"chapter5/icon.md","ref":"chapter5/icon.md","articles":[]},{"title":"弹框","level":"1.6.3","depth":2,"path":"chapter5/toast.md","ref":"chapter5/toast.md","articles":[]}]},"previous":{"title":"js 函数库","level":"1.5.1","depth":2,"path":"chapter4/jsFun.md","ref":"chapter4/jsFun.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter4/cssFun.md","mtime":"2017-09-25T08:34:45.206Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-09-25T08:37:20.731Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

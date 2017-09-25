@@ -24,4 +24,5 @@
     * [svg.js](chapter6/svg.md)
     * [video.js](chapter6/video.md)
     * [github](chapter6/github.md)
+    * [linux](linux.md)
 

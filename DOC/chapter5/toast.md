@@ -12,7 +12,7 @@
     阴影弹框组件
     1.vue2
     2.px2rem sass函数依赖，用于手机端rem（不需要直接删除，改成px）
-    [px2rem在这里有介绍]()
+    [px2rem在这里有介绍](../chapter4/cssFun.html)
 使用：
     一. Attributes
         show {Boolean} 默认false,  显示组件

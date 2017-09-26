@@ -21,9 +21,16 @@
         <div>{{$t('name')}}</div>
 
         <input type="text" :placeholder="placeholder">
+
+        <br>
+        <br>input　v-model问题 方案１
+        <input type="text" :value="inputText" @input="updateMessage">
+        <br> 方案２
+        <input type="text" v-model="cptInputText">
     </div>
 </template>
 <script>
+    import {mapMutations, mapState} from 'vuex'
     import setLang from '../components/set_lang.vue'
 
     export default {
@@ -39,8 +46,26 @@
                 this.placeholder = this.$t('placeholder')
             }
         },
-        computed: {},
+        computed: {
+            ...mapState([
+                'inputText'
+            ]),
+            cptInputText: {
+                get() {
+                    return this.inputText
+                },
+                set(value) {
+                    this.mut_inputText(value)
+                }
+            }
+        },
         methods: {
+            ...mapMutations([
+                'mut_inputText'
+            ]),
+            updateMessage(e) {
+                this.mut_inputText(e.target.value)
+            }
         },
         components: {
             setLang,

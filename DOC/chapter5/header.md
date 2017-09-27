@@ -1,4 +1,4 @@
-# 页头组建
+# 页头组件
 
 ### 效果展示
 
@@ -11,7 +11,7 @@
 注意：　本文使用ES6, 关于webpack２在下ES6[点击这里]()
 1. 单文件引入
 import headerM from '*/header_m.vue'
-2. 组建注册
+2. 组件注册
 ```
 computed: {
     headerM
@@ -26,7 +26,7 @@ computed: {
  </header-m>
 ```
 
-为了便于扩展，组建内容通过slot分发，对slot不了解的同学可看[文档](https://cn.vuejs.org/v2/guide/components.html#使用插槽分发内容)
+为了便于扩展，组件内容通过slot分发，对slot不了解的同学可看[文档](https://cn.vuejs.org/v2/guide/components.html#使用插槽分发内容)
 
 
 

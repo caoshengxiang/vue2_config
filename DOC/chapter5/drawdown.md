@@ -1,4 +1,4 @@
-# 下拉菜单组建
+# 下拉菜单组件
 
 ## drawdown_menu.vue 组件效果展示
 
@@ -28,19 +28,19 @@ menuList | 下拉菜单列表
 
 ## 使用
 
-### 引入组建
+### 引入组件
 ```javascript
    import dropdown from '../../../components/dropdown/dropdown_menu.vue'
 ```
 
-### 组建注册
+### 组件注册
 ```javascript
     components: {
        dropdown,
     }
 ```
 
-### 组建中使用
+### 组件中使用
 ```vue
 <dropdown class="set-title">
       <img slot="dropdownLink" src="../../../assets/placeholder.png" width="20" height="20">

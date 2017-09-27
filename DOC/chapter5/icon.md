@@ -1,4 +1,4 @@
-# icon 组建
+# icon 组件
 
 ### 效果展示
 
@@ -8,7 +8,7 @@
 
 效果中红框中的图标，是vue-awesome图标．
 
-该组建是通过全局注册，局部组建方式后期运用后实现．
+该组件是通过全局注册，局部组件方式后期运用后实现．
 
 1. 在vue主文件中引入
 ```
@@ -20,7 +20,7 @@ import router from './router'
 import App from './app.vue'
 import store from './store'
 
-import '*/awesome' // 引入icon组建全局注册
+import '*/awesome' // 引入icon组件全局注册
 
 
 new Vue({

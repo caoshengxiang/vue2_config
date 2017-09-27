@@ -32,4 +32,13 @@
     * [js对象的链式调用](chapter6/js-lian-shi-diao-yong.md)
     * [js 深入了解](chapter6/js-shen-ru.md)
     * [ubuntu下卸载webstorm](chaper6/ubuntu-uninstall-webstorm.md)
+* [项目总结](chapter7/README.md)
+    * [直播管理后台项目](chapter7/live-admin.md)
+    * [weixin公众号项目](chapter7/weixin-pub.md)
+    * [手机直播项目](chapter7/m-live.md)
+    * [手机商城项目](chaper7/m-shang-cheng.md)
+    * [饮食官网](chapter7/guan-wang-1.md)
+    * [酒店后台管理项目](chapter7/jiu-dian-admin.md)
+    * [毕设express项目](chapter7/bi-she-node.md)
+    * [商品采购－混合APP](hun-he-app.md)
 

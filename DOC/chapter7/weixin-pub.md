@@ -34,13 +34,55 @@
 
 #### 获取openid
 
+1. 配置公共号按钮
+```json
+{
+  "button":[
+    {
+      "type":"click",
+      "name":"T006",
+      "key":"V1001_TODAY_MUSIC"
+    },{
+      "type": "click",
+      "name": "test",
+      "key": "0001"
+    },
+    {
+      "name":"铸魂直播",
+      "sub_button":[
+        {
+          "type":"view",
+          "name":"下载APP",
+          "url":"http://mobile.daodezhisheng.cn/home"
+        },{
+          "type":"view",
+          "name":"充值",
+          "url": "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx5361584af99506d9&redirect_uri=http%3A%2F%2Fmobile.daodezhisheng.cn%2Fweixin%2F%23%2Frecharge&response_type=code&scope=snsapi_base&state=1#wechat_redirect"
+        },{
+          "type":"view",
+          "name":"提现",
+          "url": "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx5361584af99506d9&redirect_uri=http%3A%2F%2Fmobile.daodezhisheng.cn%2Fweixin%2F%23%2Fwithdraw&response_type=code&scope=snsapi_base&state=1#wechat_redirect"
+        }
+      ]
+    }]
+}
+```
+[官方教程](https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&t=resource/res_list&verify=1&id=open1419316505&token=&lang=zh_CN)
+url是配置的借口在redirect_uri回调到我的服务器地址．这时我的回调地址中会返回我一个code，然后解析code,在调用微信借口获取openid，但是这里我获取失败了<font color=red>我记得在文档有个地方用红色字体说明，不能将这些openid这些用户信息存在前端，只能在后台．</font>可能是这个原因我无法请求到．所以只有辛苦一下后端的同事帮我获取．
 
 ### 微信开发工具
+之前就听说这个工具不好用，所都没用．最后做支付的时候，遇到坑，不得不用
+
+<font color=red>注意：</font>微信开发工具是不能支付的．可是他都没有提示，尽给我挖坑！
 
 ### 三方登陆
 
 
 ### 支付
+
+支付这里被坑的不要不要的，支付宝很好调用．微信我也无力吐嘈．
+用了一个三方支付Ping++
+开发用的时候是测试环境，支付宝会跳转到一个模拟支付的页面，看下图：
 
 
 [微信公众平台](https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1445241432)

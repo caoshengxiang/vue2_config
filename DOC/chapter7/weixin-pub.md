@@ -109,7 +109,9 @@ url是配置的借口在redirect_uri回调到我的服务器地址．这时我�
 
 然后是微信支付，测试截图如下：
 
+
 <img src="assets/weixin-recharge.png" width="300" height="500">
+
 
 点击确认之后就没有了反应，也没看到错误信息，这就蒙了．毕竟第一次做支付．也不知道正确的情况会是怎么样，人生总是要走很多弯路，以为这样是就好了．毕竟还有其他事要做．就先放一放．等接到正式环境才发下，微信支付不了．也看不到错哦，微信的开发工具又不能测支付！！！．
 
@@ -137,9 +139,10 @@ url是配置的借口在redirect_uri回调到我的服务器地址．这时我�
 
 [微信开放平台](https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&t=resource/res_list&verify=1&lang=zh_CN)
 
+[微信商户平台](https://pay.weixin.qq.com/index.php/core/home/login?return_url=%2F)
 
 ---
 
 allen
 
-2017.9.27 记
+2017.9.29 记

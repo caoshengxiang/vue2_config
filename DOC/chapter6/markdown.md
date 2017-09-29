@@ -168,6 +168,7 @@ let b = 2
 ```
 
 ***
+
 ---
 
 ### <font color=#800080>脚注</font>
@@ -191,9 +192,28 @@ let b = 2
 还有时序图，流程图，公式不常用，给个链接方便万一需要[传送门](http://www.jianshu.com/p/0b257de21eb5)
 
 
+---
+### <font color=#800080>可以在MarkDown中添加html来丰富文本</font>
 
+上中出现图片大小显示使用img标签就是一个例子
 
+```html
+    <input />
+```
+<input />
 
+```html
+<select>
+    <option value="1"></option>
+    <option value="2"></option>
+    <option value="3"></option>
+</select>
+```
+<select>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+</select>
 
 ---
 

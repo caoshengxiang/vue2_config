@@ -1,6 +1,6 @@
 # 手机直播项目
 
-展示一下：
+展示一下几个设计界面：
 
 ![](assets/live1.png)
 
@@ -111,7 +111,7 @@ export function getQueryObj() {
 
 1. 视频必须用户手动点击播放，不能直接播放
 1. 在部分浏览器播放视频时会直接全屏，这样设计图的效果肯定实现不了了
-1.
+1. 等等
 
 直播是用的三方[七牛](https://www.qiniu.com/?hmsr=biaoti&hmpl=pinzhuan&hmcu=biaoti&hmkw=&hmci=)，[video.js插件](http://videojs.com/)报毒诶这个官网，有毒吧,继续访问吧
 
@@ -123,10 +123,36 @@ Android和Ios使用的是rtmp作为直播流，理所当然我也用这个协议
 
 video.js的解决方案[videojs-contrib-hls](https://github.com/videojs/videojs-contrib-hls)
 
-要注意高版本是对立出去了，需要单独引入这个js文件
+<font color=red>要注意</font>高版本是对立出去了，需要单独引入这个js文件,还有`videojs-contrib-hls.js`要在`video.js`之后引入
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="user-scalable=yes, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name='apple-itunes-app' content='app-id=477927812'>
+    <title>铸魂直播</title>
+    <link href="https://unpkg.com/video.js/dist/video-js.css" rel="stylesheet">
+    <script src="https://unpkg.com/video.js/dist/video.js"></script>
+    <script src="https://unpkg.com/videojs-contrib-hls/dist/videojs-contrib-hls.js"></script>
+</head>
+<body>
+    <div id="app">
+        <app></app>
+    </div>
+</body>
+</html>
+
+```
+[这是一个官方描述](http://docs.videojs.com/tutorial-troubleshooting.html)
+
+[官方的列子](http://jsbin.com/vokipos/8/edit?html,output)
 
 
+---
 
+allen
 
+2017.9.29 记
 
-video.js

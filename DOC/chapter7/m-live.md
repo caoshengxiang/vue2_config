@@ -72,11 +72,61 @@ http://ddzs.cxria.com/home/#/live/1?videoId=1&userId=2
 
 第三步，在页面加载完成前,解析地址栏的参数，发送请求，获取数据;我使用的vue所以在`created`周期解析参数，并请求接口.
 
-以下是我写的一个参数解析：
+以下是我写的一个参数解析方法：
+```js
+/*
+* 解析地址栏参数
+*
+* @method getQueryObj
+*
+* @param
+*
+* @return {Object} 返回query参数对象
+*
+* */
+export function getQueryObj() {
+    let href = window.location.href
+    let query = href.substr(href.indexOf('?')+1)
+    let arr = query.split('&')
+    let queryObj = {}
 
+    for (let i = 0; i < arr.length; i++) {
+        let keyVal = arr[i].split('=')
+
+        queryObj[keyVal[0]] = keyVal[1]
+    }
+    return queryObj
+}
+```
 
 
 
 **我之前用过一个百度分享，很好用[直通车](http://share.baidu.com/)**
 
 ### 手机直播
+
+手机上的直播是比较麻烦的，所以放到最后
+
+注意：手机浏览器对视频是有很多的限制，避免跑流量等
+
+1. 视频必须用户手动点击播放，不能直接播放
+1. 在部分浏览器播放视频时会直接全屏，这样设计图的效果肯定实现不了了
+1.
+
+直播是用的三方[七牛](https://www.qiniu.com/?hmsr=biaoti&hmpl=pinzhuan&hmcu=biaoti&hmkw=&hmci=)，[video.js插件](http://videojs.com/)报毒诶这个官网，有毒吧,继续访问吧
+
+Android和Ios使用的是rtmp作为直播流，理所当然我也用这个协议了，毕竟后端就给了我一个rtmp流，找了很多解决方案，各种尝试也不得行．`rtmp`好像可以通过flash播放，在我的记忆中，苹果是不支持flash，而且手机上还要去装个flash,这就坑了．
+
+后台再到七牛，获`m3u8`的流．web端可以播放了
+
+说一下为什么用rtmp而没有用m3u8,是因为m3u8的延迟更高，这会对直播体验不好．但是手机web端播不了啊．
+
+video.js的解决方案[videojs-contrib-hls](https://github.com/videojs/videojs-contrib-hls)
+
+要注意高版本是对立出去了，需要单独引入这个js文件
+
+
+
+
+
+video.js

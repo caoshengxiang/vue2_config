@@ -82,7 +82,92 @@
 
 我在做三方登陆时也遇到了这个问题，需要引入一段js
 
+```html
+<!--QQ-->
+    <script type="text/javascript" src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" data-appid="1106291055"  charset="utf-8" data-callback="true"></script>
+
+    <!--微薄-->
+    <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=2973172615&debug=true" type="text/javascript" charset="utf-8"></script>
+
+    <!--微信-->
+    <script src="http://res.wx.qq.com/connect/zh_CN/htmledition/js/wxLogin.js"></script>
+```
+我当然想过直接把js复制出来，保存在本地．．可能姿势不对
+
+
 ### rem
 
+移动端单位使用[rem](http://www.w3cplus.com/css3/define-font-size-with-css3-rem)，相对html单位, 还有[em](http://www.runoob.com/w3cnote/px-em-rem-different.html)相对于父元素的font-size
+
+单位都是rem，[ rem 值与 px 之间的换算](https://lms.im/css/1069.html),人工换算好麻烦，当然的找其他方法
+
+我的是这样做的通过一个sass函数来转换
+
+var.scss 定义的是一些基本变量，如：颜色值,文件内容如下：
+```
+$base-font-size: 37.5px; // html字体大小
+```
+
+fun.scss:
+```sass
+@import "./var";
+
+/** px2rem
+* @param $px 像素值
+* @param $base-font-size html字体大小
+* @return rem
+*/
+@function px2rem($px, $base-font-size: $base-font-size) {
+  @if (unitless($px)) {
+    @warn "Assuming #{$px} to be in pixels, attempting to convert it into pixels for you";
+    @return px2rem($px + 0px); // That may fail.
+  } @else if (unit($px) == rem) {
+    @return $px;
+  }
+  @return ($px / $base-font-size) * 1rem;
+}
+
+```
+
+> 目前Flexible会将视觉稿分成100份（主要为了以后能更好的兼容vh和vw），而每一份被称为一个单位a。同时1rem单位被认定为10a。针对我们这份视觉稿可以计算出：著作权归作者所有。
+
+  商业转载请联系作者获得授权,非商业转载请注明出处。
+  原文: http://www.w3cplus.com/mobile/lib-flexible-for-html5-layout.html © w3cplus.com
+
+```
+1a   = 7.5px
+1rem = 75px
+```
+那么我们这个示例的稿子就分成了10a，也就是整个宽度为10rem，<html>对应的font-size为75px：
+
+<font color=red>但是，我设设置的font-size为37.5px才能正确转换</font>,具体什么原因没有找到．猜测和苹果的[像素有关](http://blog.csdn.net/aiolos1111/article/details/51880223)，[iOS像素和Point](http://www.jianshu.com/p/7d0cbaf15786)
+
+使用:
+```
+@import "fun.scss"
+
+width: px2rem(100px) // 转换为对应的rem值
+```
 
 ### mint-ui
+
+mint-ui是个移动端的vue的UI组件库．我回来后接我项目的同事告诉我有些组件有些坑．我使用时倒是没有遇到．下次再去研究这些坑．
+
+收集vue的ui库:
+
+[mint-ui](http://mint-ui.github.io/#!/zh-cn)
+
+[vux](https://vux.li/demos/v2/#/)
+
+[vuikit](https://vuikit.js.org/#/table)
+
+[iView](https://www.iviewui.com/)
+
+[vue-antd](http://okoala.github.io/vue-antd/#!/docs/introduce)
+
+
+---
+
+allen
+
+2017.9.30 记

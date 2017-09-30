@@ -1,8 +1,9 @@
 # 关于
 github: https://github.com/caoshengxiang/vue2_config.git
+
 文档: https://caoshengxiang.github.io/vue2_config/
 
-# 技术栈 webpack2+vue2+vuex2+vue-router2+sass+vue-i18n
+# 技术栈 webpack2+vue2+vuex2+vue-router2+axios+sass+vue-i18n
 
 # 项目安装运行
 * npm install

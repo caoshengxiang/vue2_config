@@ -310,6 +310,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.6.7" data-path="../chapter5/rightClickMenu.html">
+            
+                <a href="../chapter5/rightClickMenu.html">
+            
+                    
+                    右键菜单
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -762,8 +775,133 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="svgjs">svg.js</h1>
+                                <style>
+h2 {
+    color: #800000;
+}
+
+</style>
+
+
+<h1 id="svgjs">svg.js</h1>
 <p><a href="http://svgjs.com/" target="_blank">avg.js&#x6587;&#x6863;</a></p>
+<h2 id="svgget-&#x6839;&#x636E;id&#x83B7;&#x53D6;&#x5143;&#x7D20;">SVG.get() &#x6839;&#x636E;id&#x83B7;&#x53D6;&#x5143;&#x7D20;</h2>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> draw = SVG(<span class="hljs-string">&apos;svg1&apos;</span>).size(<span class="hljs-number">300</span>, <span class="hljs-number">300</span>);
+<span class="hljs-keyword">var</span> circle = draw.circle(<span class="hljs-number">50</span>);
+circle.fill(<span class="hljs-string">&apos;red&apos;</span>).move(<span class="hljs-number">10</span>, <span class="hljs-number">10</span>);
+<span class="hljs-comment">//&#x6DFB;&#x52A0;&#x7C7B;</span>
+circle.addClass(<span class="hljs-string">&apos;circle&apos;</span>);
+<span class="hljs-comment">//&#x8BBE;&#x7F6E;ID</span>
+circle.id(<span class="hljs-string">&apos;circle&apos;</span>);
+<span class="hljs-comment">//SVG.get() &#x83B7;&#x53D6;Element&#x5BF9;&#x8C61;</span>
+<span class="hljs-keyword">var</span> circle2 = SVG.get(<span class="hljs-string">&apos;circle&apos;</span>);
+<span class="hljs-built_in">console</span>.info(circle2);
+circle2.stroke({
+    color: <span class="hljs-string">&apos;blue&apos;</span>,
+    width: <span class="hljs-number">2</span>
+});
+</code></pre>
+<h2 id="svgselect&#xFF08;&#xFF09;elementselect--&#x6839;&#x636E;css&#x9009;&#x62E9;&#x5668;&#x83B7;&#x53D6;">SVG.select&#xFF08;&#xFF09;/element.select()  &#x6839;&#x636E;CSS&#x9009;&#x62E9;&#x5668;&#x83B7;&#x53D6;</h2>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> draw = SVG(<span class="hljs-string">&apos;svg1&apos;</span>).size(<span class="hljs-number">300</span>, <span class="hljs-number">300</span>);
+<span class="hljs-comment">//SVG.select() &#x6839;&#x636E;&#x7C7B;&#x540D;&#x83B7;&#x53D6;&#x5143;&#x7D20;</span>
+<span class="hljs-comment">//element.select()</span>
+<span class="hljs-keyword">var</span> ellipse = draw.ellipse(<span class="hljs-number">100</span>, <span class="hljs-number">50</span>);
+ellipse.fill(<span class="hljs-string">&apos;blue&apos;</span>);
+ellipse.addClass(<span class="hljs-string">&apos;my-class&apos;</span>); <span class="hljs-comment">// &#x6DFB;&#x52A0;class</span>
+<span class="hljs-keyword">var</span> rect = draw.rect(<span class="hljs-number">100</span>, <span class="hljs-number">100</span>);
+rect.move(<span class="hljs-number">100</span>, <span class="hljs-number">100</span>);
+rect.addClass(<span class="hljs-string">&apos;my-class&apos;</span>);
+<span class="hljs-comment">//var elements = SVG.select(&apos;.my-class&apos;); // &#x83B7;&#x53D6;&#x5BF9;&#x8C61;</span>
+<span class="hljs-keyword">var</span> elements = SVG.select(<span class="hljs-string">&apos;rect.my-class&apos;</span>);
+elements.fill(<span class="hljs-string">&apos;#f06&apos;</span>);
+
+<span class="hljs-keyword">var</span> group1 = draw.group();
+<span class="hljs-keyword">var</span> txt1 = draw.text(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">add</span>) </span>{
+    add.tspan(<span class="hljs-string">&apos;&#x7B2C;&#x4E00;&#x884C;&apos;</span>).addClass(<span class="hljs-string">&apos;words&apos;</span>).newLine();
+    add.tspan(<span class="hljs-string">&apos;&#x7B2C;&#x4E8C;&#x884C;&apos;</span>).addClass(<span class="hljs-string">&apos;words&apos;</span>).newLine();
+});
+txt1.move(<span class="hljs-number">50</span>, <span class="hljs-number">50</span>);
+group1.add(txt1);
+<span class="hljs-comment">//&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;</span>
+group1.select(<span class="hljs-string">&apos;.words&apos;</span>).fill(<span class="hljs-string">&apos;green&apos;</span>);
+<span class="hljs-comment">//&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x597D;&#x50CF;&#x5DF2;&#x7ECF;&#x4E0D;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4E86;</span>
+<span class="hljs-comment">//SVG.select(&apos;.words&apos;, group1).fill(&apos;green&apos;);</span>
+</code></pre>
+<h2 id="svg-&#x8282;&#x70B9;&#x5BF9;&#x8C61;&#x83B7;&#x53D6;">SVG &#x8282;&#x70B9;&#x5BF9;&#x8C61;&#x83B7;&#x53D6;</h2>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> draw = SVG(<span class="hljs-string">&apos;svg1&apos;</span>).size(<span class="hljs-number">300</span>, <span class="hljs-number">300</span>);
+<span class="hljs-comment">//Circular references&#x57FA;&#x7840;&#x8282;&#x70B9;&#x83B7;&#x53D6;&#xFF0C;</span>
+<span class="hljs-keyword">var</span> ellipse = draw.ellipse(<span class="hljs-number">100</span>, <span class="hljs-number">80</span>);
+ellipse.fill(<span class="hljs-string">&apos;#06f&apos;</span>);
+<span class="hljs-comment">//element.node &#x83B7;&#x53D6;SVGElement</span>
+<span class="hljs-built_in">console</span>.info(ellipse.node); <span class="hljs-comment">//&lt;ellipse id=&quot;SvgjsEllipse1008&quot; rx=&quot;40&quot; ry=&quot;50&quot; cx=&quot;90&quot; cy=&quot;100&quot; fill=&quot;#0066ff&quot;&gt;&lt;/ellipse&gt;</span>
+<span class="hljs-comment">//element.native() &#x83B7;&#x53D6;element.node</span>
+<span class="hljs-keyword">var</span> node = ellipse.native();
+<span class="hljs-built_in">console</span>.info(node);
+<span class="hljs-comment">//node.instance &#x83B7;&#x53D6;SVG.Element</span>
+<span class="hljs-keyword">var</span> elli2 = node.instance;
+elli2.size(<span class="hljs-number">80</span>, <span class="hljs-number">100</span>).move(<span class="hljs-number">50</span>, <span class="hljs-number">50</span>);
+
+<span class="hljs-built_in">console</span>.log(ellipse.node.nodeName) <span class="hljs-comment">// &#x8282;&#x70B9;&#x540D;&#x79F0;&#x3000;ellipse</span>
+</code></pre>
+<h2 id="svg-&#x6839;&#x8282;&#x70B9;&#x4E0B;&#x7684;&#x5B50;&#x8282;&#x70B9;&#x83B7;&#x53D6;">SVG &#x6839;&#x8282;&#x70B9;&#x4E0B;&#x7684;&#x5B50;&#x8282;&#x70B9;&#x83B7;&#x53D6;</h2>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> draw = SVG(<span class="hljs-string">&apos;svg1&apos;</span>).size(<span class="hljs-number">300</span>, <span class="hljs-number">300</span>);
+<span class="hljs-comment">//SVG&#x6839;&#x8282;&#x70B9;&#x4E0B;&#x7684;&#x5B50;&#x8282;&#x70B9;&#x64CD;&#x4F5C; Child references</span>
+<span class="hljs-comment">//draw.children() &#x83B7;&#x53D6;&#x6240;&#x6709;&#x5B50;&#x8282;&#x70B9;</span>
+<span class="hljs-keyword">var</span> ellipse = draw.ellipse(<span class="hljs-number">200</span>, <span class="hljs-number">150</span>).move(<span class="hljs-number">50</span>, <span class="hljs-number">50</span>).fill(<span class="hljs-string">&apos;#f06&apos;</span>);
+<span class="hljs-keyword">var</span> rect = draw.rect(<span class="hljs-number">50</span>, <span class="hljs-number">50</span>);
+<span class="hljs-keyword">var</span> children = draw.children();
+<span class="hljs-comment">//draw.clear() &#x6E05;&#x7A7A;&#x5B50;&#x8282;&#x70B9;</span>
+draw.clear();
+<span class="hljs-comment">//draw.each() &#x904D;&#x5386;&#x5B50;&#x8282;&#x70B9;</span>
+draw.each(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">i, children</span>) </span>{
+    <span class="hljs-built_in">console</span>.info(i); <span class="hljs-comment">//&#x5F53;&#x524D;&#x7D22;&#x5F15;</span>
+    <span class="hljs-built_in">console</span>.info(children) <span class="hljs-comment">//&#x5F53;&#x524D;children&#x5F15;&#x7528;</span>
+    <span class="hljs-keyword">this</span>.fill(<span class="hljs-string">&apos;green&apos;</span>);
+});
+<span class="hljs-comment">//draw.first()/draw.last() &#x83B7;&#x53D6;&#x7B2C;&#x4E00;&#x4E2A;&#x548C;&#x6700;&#x540E;&#x4E00;&#x4E2A;</span>
+draw.first().stroke({ width: <span class="hljs-number">2</span> });
+draw.last().fill(<span class="hljs-string">&apos;green&apos;</span>);
+<span class="hljs-comment">//draw.get() //&#x83B7;&#x53D6;&#x6307;&#x5B9A;&#x7D22;&#x5F15;&#x7684;&#x8282;&#x70B9;&#x5BF9;&#x8C61;</span>
+<span class="hljs-keyword">var</span> second = draw.get(<span class="hljs-number">1</span>).stroke({ width: <span class="hljs-number">2</span>, color: <span class="hljs-string">&apos;yellow&apos;</span> })
+<span class="hljs-comment">//draw.index() //&#x83B7;&#x53D6;&#x6307;&#x5B9A;&#x5BF9;&#x8C61;&#x7684;&#x7D22;&#x5F15; defs&#x5143;&#x7D20;</span>
+<span class="hljs-keyword">var</span> index = draw.index(second);
+<span class="hljs-built_in">console</span>.info(index); <span class="hljs-comment">//1 ,&#x7279;&#x522B;&#x8BF4;&#x660E;&#xFF0C;&#x7B2C;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x662F;</span>
+<span class="hljs-comment">//draw.has() //&#x5224;&#x65AD;&#x662F;&#x5426;&#x542B;&#x6709;&#x6307;&#x5B9A;&#x5BF9;&#x8C61;&#x7684;&#x5143;&#x7D20;</span>
+<span class="hljs-built_in">console</span>.info(draw.has(second)); <span class="hljs-comment">//true</span>
+</code></pre>
+<h2 id="svg-&#x5B50;&#x8282;&#x70B9;&#x83B7;&#x53D6;&#x6839;&#x8282;&#x70B9;">SVG &#x5B50;&#x8282;&#x70B9;&#x83B7;&#x53D6;&#x6839;&#x8282;&#x70B9;</h2>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> draw = SVG(<span class="hljs-string">&apos;svg1&apos;</span>).size(<span class="hljs-number">300</span>, <span class="hljs-number">300</span>);
+<span class="hljs-comment">//SVG&#x5B50;&#x8282;&#x70B9;&#x83B7;&#x53D6;&#x7236;&#x8282;&#x70B9;&#x5F15;&#x7528; Parent references</span>
+<span class="hljs-comment">//element.doc() &#x83B7;&#x53D6;draw SVG&#x6839;&#x8282;&#x70B9;</span>
+<span class="hljs-keyword">var</span> nested = draw.nested().addClass(<span class="hljs-string">&apos;test&apos;</span>);
+<span class="hljs-keyword">var</span> group = nested.group();
+<span class="hljs-keyword">var</span> rect = draw.rect(<span class="hljs-number">100</span>, <span class="hljs-number">100</span>).fill(<span class="hljs-string">&apos;#f09&apos;</span>);
+group.add(rect);
+<span class="hljs-keyword">var</span> doc = rect.doc().ellipse(<span class="hljs-number">50</span>, <span class="hljs-number">100</span>).move(<span class="hljs-number">50</span>, <span class="hljs-number">50</span>);
+<span class="hljs-comment">//element.parent() &#x83B7;&#x53D6;&#x7236;&#x8282;&#x70B9;&#x6216;&#x7B5B;&#x9009;&#x7236;&#x8282;&#x70B9;</span>
+rect.parent()           <span class="hljs-comment">//-&gt; returns group</span>
+rect.parent(SVG.Doc)    <span class="hljs-comment">//-&gt; returns draw</span>
+rect.parent(SVG.Nested) <span class="hljs-comment">//-&gt; returns nested</span>
+rect.parent(SVG.G)      <span class="hljs-comment">//-&gt; returns group</span>
+rect.parent(<span class="hljs-string">&apos;.test&apos;</span>)    <span class="hljs-comment">//-&gt; returns nested</span>
+<span class="hljs-comment">//element.parents() &#x83B7;&#x53D6;&#x7236;&#x8282;&#x70B9;&#x6570;&#x636E;&#x6216;&#x8005;&#x7B5B;&#x9009;&#x7236;&#x8282;&#x70B9;&#xFF0C;&#x8FD4;&#x56DE;group&#x6570;&#x7EC4;</span>
+<span class="hljs-keyword">var</span> group1 = draw.group().addClass(<span class="hljs-string">&apos;test&apos;</span>)
+    , group2 = group1.group()
+    , rect = group2.rect(<span class="hljs-number">100</span>, <span class="hljs-number">100</span>)
+
+rect.parents()        <span class="hljs-comment">// returns [group1, group2, draw]</span>
+rect.parents(<span class="hljs-string">&apos;.test&apos;</span>) <span class="hljs-comment">// returns [group1]</span>
+rect.parents(SVG.G)   <span class="hljs-comment">// returns [group1, group2]</span>
+</code></pre>
+<h2 id="svg-&#x5C5E;&#x6027;&#x5F15;&#x7528;&#x83B7;&#x53D6;">SVG &#x5C5E;&#x6027;&#x5F15;&#x7528;&#x83B7;&#x53D6;</h2>
+<pre><code class="lang-js"><span class="hljs-comment">//SVG URI references</span>
+<span class="hljs-comment">//&#x5982;&#x679C;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x662F;&#x901A;&#x8FC7;&#x5C5E;&#x6027;&#x94FE;&#x63A5;&#x5230;&#x53E6;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#xFF0C;&#x94FE;&#x63A5;&#x5143;&#x7D20;&#x7684;&#x5B9E;&#x4F8B;&#x53EF;&#x4EE5;&#x62FF;&#x6765;&#x4E0E;reference()&#x65B9;&#x6CD5;&#x3002;</span>
+use.reference(<span class="hljs-string">&apos;href&apos;</span>) <span class="hljs-comment">//-&gt; returns used element instance</span>
+<span class="hljs-comment">// or</span>
+rect.reference(<span class="hljs-string">&apos;fill&apos;</span>) <span class="hljs-comment">//-&gt; returns gradient or pattern instance for example</span>
+<span class="hljs-comment">// or</span>
+circle.reference(<span class="hljs-string">&apos;clip-path&apos;</span>) <span class="hljs-comment">//-&gt; returns clip instance</span>
+</code></pre>
 
                                 
                                 </section>
@@ -807,7 +945,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"svg.js","level":"1.7.8","depth":2,"next":{"title":"video.js","level":"1.7.9","depth":2,"path":"chapter6/video.md","ref":"chapter6/video.md","articles":[]},"previous":{"title":"react","level":"1.7.7","depth":2,"path":"chapter6/react.md","ref":"chapter6/react.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter6/svg.md","mtime":"2017-09-30T03:29:44.572Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-09-30T05:54:38.974Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"svg.js","level":"1.7.8","depth":2,"next":{"title":"video.js","level":"1.7.9","depth":2,"path":"chapter6/video.md","ref":"chapter6/video.md","articles":[]},"previous":{"title":"react","level":"1.7.7","depth":2,"path":"chapter6/react.md","ref":"chapter6/react.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter6/svg.md","mtime":"2017-10-09T09:51:29.012Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-10-10T09:51:21.308Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

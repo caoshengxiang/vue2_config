@@ -310,6 +310,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.6.7" data-path="../chapter5/rightClickMenu.html">
+            
+                <a href="../chapter5/rightClickMenu.html">
+            
+                    
+                    右键菜单
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -763,6 +776,32 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="vuejs">vue.js</h1>
+<h2 id="vue&#x62D6;&#x62FD;-drag-and-drop">vue&#x62D6;&#x62FD; drag and drop</h2>
+<p><a href="https://codepen.io/Lazyboy/pen/RRgRPb" target="_blank">&#x8FD9;&#x91CC;&#x6709;&#x4E2A;&#x4F8B;&#x5B50;</a></p>
+<p>&#x6211;&#x5199;&#x4E86;&#x4E00;&#x6BB5;&#x6D4B;&#x8BD5;&#x4EE3;&#x7801;&#xFF1A;</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">draggable</span>=<span class="hljs-string">&apos;true&apos;</span>  @<span class="hljs-attr">dragstart</span>=<span class="hljs-string">&apos;drag($event)&apos;</span>&gt;</span>qwerwe<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;width: 300px; height: 300px;border: 1px solid red;&quot;</span>   @<span class="hljs-attr">drop</span>=<span class="hljs-string">&apos;drop($event)&apos;</span>
+    @<span class="hljs-attr">dragEnter</span>=<span class="hljs-string">&quot;dragenter(&apos;enter&apos;)&quot;</span>
+    @<span class="hljs-attr">dragleave</span>=<span class="hljs-string">&quot;dragleave(&apos;leave&apos;)&quot;</span>
+    @<span class="hljs-attr">dragend</span>=<span class="hljs-string">&quot;dragEnd(&apos;end&apos;)&quot;</span>
+    @<span class="hljs-attr">dragover</span>=<span class="hljs-string">&apos;allowDrop($event)&apos;</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+<p>&#x53D1;&#x73B0;&#x53EA;&#x6709;<code>dragstart</code>&#xFF0C; <code>dragleave</code>&#xFF0C; <code>dragover</code>&#x53EA;&#x6709;&#x8FD9;&#x4E09;&#x4E2A;&#x65B9;&#x6CD5;&#x8D77;&#x4F5C;&#x7528;&#x3002;
+<code>draggable=&apos;true&apos;</code>html5&#x7684;&#x5143;&#x7D20;&#x53EF;&#x62D6;&#x52A8;</p>
+<h2 id="&#x963B;&#x6B62;&#x9ED8;&#x8BA4;&#x4E8B;&#x4EF6;">&#x963B;&#x6B62;&#x9ED8;&#x8BA4;&#x4E8B;&#x4EF6;</h2>
+<pre><code class="lang-html"><span class="hljs-comment">&lt;!-- &#x963B;&#x6B62;&#x5355;&#x51FB;&#x4E8B;&#x4EF6;&#x5192;&#x6CE1; --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">v-on:click.stop</span>=<span class="hljs-string">&quot;doThis&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- &#x63D0;&#x4EA4;&#x4E8B;&#x4EF6;&#x4E0D;&#x518D;&#x91CD;&#x8F7D;&#x9875;&#x9762; --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">v-on:submit.prevent</span>=<span class="hljs-string">&quot;onSubmit&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- &#x4FEE;&#x9970;&#x7B26;&#x53EF;&#x4EE5;&#x4E32;&#x8054; --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">v-on:click.stop.prevent</span>=<span class="hljs-string">&quot;doThat&quot;</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- &#x53EA;&#x6709;&#x4FEE;&#x9970;&#x7B26; --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">v-on:submit.prevent</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+</code></pre>
 
                                 
                                 </section>
@@ -806,7 +845,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"vue.js","level":"1.7.5","depth":2,"next":{"title":"webpack","level":"1.7.6","depth":2,"path":"chapter6/webpack.md","ref":"chapter6/webpack.md","articles":[]},"previous":{"title":"nginx","level":"1.7.4","depth":2,"path":"chapter6/nginx.md","ref":"chapter6/nginx.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter6/vue.md","mtime":"2017-09-30T03:29:44.584Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-09-30T05:54:38.974Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"vue.js","level":"1.7.5","depth":2,"next":{"title":"webpack","level":"1.7.6","depth":2,"path":"chapter6/webpack.md","ref":"chapter6/webpack.md","articles":[]},"previous":{"title":"nginx","level":"1.7.4","depth":2,"path":"chapter6/nginx.md","ref":"chapter6/nginx.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter6/vue.md","mtime":"2017-10-10T09:10:14.888Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-10-10T09:51:21.308Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

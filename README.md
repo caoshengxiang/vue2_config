@@ -100,3 +100,8 @@ push 代码后
 
 参考:
 http://www.cnblogs.com/MuYunyun/p/6082359.html
+
+# gitbook
+gitbook init
+gitbook build
+gitbook serve

@@ -16,6 +16,7 @@
     * [下拉菜单组件](chapter5/drawdown.md)
     * [颜色选择器组件](chapter5/color.md)
     * [折叠板](chapter5/collapse.md)
+    * [右键菜单](chapter5/rightClickMenu.md)
 * [FE](chapter6/README.md)
     * [ES6](chapter6/es6.md)
     * [axios](chapter6/axios.md)

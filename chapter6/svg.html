@@ -589,6 +589,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.7.20" data-path="jsFiddle.html">
+            
+                <a href="jsFiddle.html">
+            
+                    
+                    代码分享 jsFiddle
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -785,6 +798,63 @@ h2 {
 
 <h1 id="svgjs">svg.js</h1>
 <p><a href="http://svgjs.com/" target="_blank">avg.js&#x6587;&#x6863;</a></p>
+<h2 id="&#x65B9;&#x6CD5;&#xFF0C;&#x5C5E;&#x6027;">&#x65B9;&#x6CD5;&#xFF0C;&#x5C5E;&#x6027;</h2>
+<pre><code class="lang-js">rect.attr({fill: red})
+rect.fill(red)
+rect.stroke({width: <span class="hljs-number">1</span>})
+</code></pre>
+<h2 id="svgjs-api">svg.js api</h2>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;drawing&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> draw = SVG(<span class="hljs-string">&apos;drawing&apos;</span>).size(<span class="hljs-number">300</span>, <span class="hljs-number">300</span>) <span class="hljs-comment">// &#x521B;&#x5EFA;SVG&#x6587;&#x6863;</span>
+</code></pre>
+<h3 id="&#x77E9;&#x5F62;-svgrect">&#x77E9;&#x5F62; SVG.Rect</h3>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> rect = draw.rect(<span class="hljs-number">100</span>, <span class="hljs-number">100</span>)
+rect.radius(<span class="hljs-number">10</span>) <span class="hljs-comment">// &#x5706;&#x89D2;</span>
+rect.radius(<span class="hljs-number">10</span>, <span class="hljs-number">20</span>) <span class="hljs-comment">// &#x5706;&#x89D2;</span>
+
+<span class="hljs-comment">// animate, fill, move</span>
+draw.rect(<span class="hljs-number">100</span>,<span class="hljs-number">100</span>).animate().fill(<span class="hljs-string">&apos;#f03&apos;</span>).move(<span class="hljs-number">100</span>,<span class="hljs-number">100</span>)
+</code></pre>
+<h3 id="&#x5706;-svgcircle">&#x5706; SVG.Circle</h3>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> circle = draw.circle(<span class="hljs-number">100</span>)
+
+circle.radius(<span class="hljs-number">75</span>)&#x3000;<span class="hljs-comment">// &#x534A;&#x5F84;</span>
+</code></pre>
+<h3 id="&#x692D;&#x5706;&#x3000;svgellipse">&#x692D;&#x5706;&#x3000;SVG.Ellipse</h3>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> ellipse = draw.ellipse(<span class="hljs-number">200</span>, <span class="hljs-number">100</span>) <span class="hljs-comment">// width and height</span>
+
+ellipse.radius(<span class="hljs-number">75</span>, <span class="hljs-number">50</span>)
+</code></pre>
+<h3 id="&#x76F4;&#x7EBF;&#x3000;svgline">&#x76F4;&#x7EBF;&#x3000;SVG.Line</h3>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> line = draw.line(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">100</span>, <span class="hljs-number">150</span>).stroke({ width: <span class="hljs-number">1</span> })
+</code></pre>
+<h3 id="&#x6298;&#x7EBF;&#x3000;svgpolyline">&#x6298;&#x7EBF;&#x3000;SVG.Polyline</h3>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> polyline = draw.polyline(<span class="hljs-string">&apos;0,0 100,50 50,100&apos;</span>).fill(<span class="hljs-string">&apos;none&apos;</span>).stroke({ width: <span class="hljs-number">1</span> })
+
+<span class="hljs-comment">// var polyline = draw.polyline([[0,0], [100,50], [50,100]])</span>
+<span class="hljs-comment">// var polyline = draw.polyline([0,0, 100,50, 50,100])</span>
+</code></pre>
+<h3 id="&#x6587;&#x5B57;&#x3000;svgtext">&#x6587;&#x5B57;&#x3000;SVG.Text</h3>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> text = draw.text(<span class="hljs-string">&quot;Lorem ipsum dolor sit amet consectetur.\nCras sodales imperdiet auctor.&quot;</span>)
+</code></pre>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> text = draw.text(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">add</span>) </span>{
+  add.tspan(<span class="hljs-string">&apos;Lorem ipsum dolor sit amet &apos;</span>).newLine()
+  add.tspan(<span class="hljs-string">&apos;consectetur&apos;</span>).fill(<span class="hljs-string">&apos;#f06&apos;</span>)
+  add.tspan(<span class="hljs-string">&apos;.&apos;</span>)
+  add.tspan(<span class="hljs-string">&apos;Cras sodales imperdiet auctor.&apos;</span>).newLine().dx(<span class="hljs-number">20</span>)
+  add.tspan(<span class="hljs-string">&apos;Nunc ultrices lectus at erat&apos;</span>).newLine()
+  add.tspan(<span class="hljs-string">&apos;dictum pharetra elementum ante&apos;</span>).newLine()
+})
+</code></pre>
+<h3 id="&#x56FE;&#x7247;&#x3000;svgimage">&#x56FE;&#x7247;&#x3000;SVG.Image</h3>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> image = draw.image(<span class="hljs-string">&apos;/path/to/image.jpg&apos;</span>, <span class="hljs-number">200</span>, <span class="hljs-number">300</span>)
+</code></pre>
+<pre><code class="lang-js"><span class="hljs-comment">// &#x5982;&#x679C;&#x4F60;&#x4E0D;&#x77E5;&#x9053;&#x56FE;&#x50CF;&#x7684;&#x5927;&#x5C0F;&#xFF0C;&#x663E;&#x7136;&#x4F60;&#x5C06;&#x4E0D;&#x5F97;&#x4E0D;&#x7B49;&#x5F85;&#x56FE;&#x50CF;loaded&#xFF1A;</span>
+<span class="hljs-keyword">var</span> image = draw.image(<span class="hljs-string">&apos;/path/to/image.jpg&apos;</span>).loaded(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">loader</span>) </span>{
+  <span class="hljs-keyword">this</span>.size(loader.width, loader.height)
+})
+</code></pre>
 <h2 id="svgget-&#x6839;&#x636E;id&#x83B7;&#x53D6;&#x5143;&#x7D20;">SVG.get() &#x6839;&#x636E;id&#x83B7;&#x53D6;&#x5143;&#x7D20;</h2>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> draw = SVG(<span class="hljs-string">&apos;svg1&apos;</span>).size(<span class="hljs-number">300</span>, <span class="hljs-number">300</span>);
 <span class="hljs-keyword">var</span> circle = draw.circle(<span class="hljs-number">50</span>);
@@ -945,7 +1015,7 @@ circle.reference(<span class="hljs-string">&apos;clip-path&apos;</span>) <span c
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"svg.js","level":"1.7.8","depth":2,"next":{"title":"video.js","level":"1.7.9","depth":2,"path":"chapter6/video.md","ref":"chapter6/video.md","articles":[]},"previous":{"title":"react","level":"1.7.7","depth":2,"path":"chapter6/react.md","ref":"chapter6/react.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter6/svg.md","mtime":"2017-10-09T09:51:29.012Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-10-10T09:51:21.308Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"svg.js","level":"1.7.8","depth":2,"next":{"title":"video.js","level":"1.7.9","depth":2,"path":"chapter6/video.md","ref":"chapter6/video.md","articles":[]},"previous":{"title":"react","level":"1.7.7","depth":2,"path":"chapter6/react.md","ref":"chapter6/react.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter6/svg.md","mtime":"2017-10-11T09:17:26.779Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-10-11T08:25:42.081Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

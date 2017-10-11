@@ -10,6 +10,96 @@ h2 {
 
 [avg.js文档](http://svgjs.com/)
 
+
+## 方法，属性
+```js
+rect.attr({fill: red})
+rect.fill(red)
+rect.stroke({width: 1})
+
+```
+
+
+## svg.js api
+
+```html
+<div id="drawing"></div>
+```
+
+```js
+var draw = SVG('drawing').size(300, 300) // 创建SVG文档
+```
+
+### 矩形 SVG.Rect
+
+```js
+var rect = draw.rect(100, 100)
+rect.radius(10) // 圆角
+rect.radius(10, 20) // 圆角
+
+// animate, fill, move
+draw.rect(100,100).animate().fill('#f03').move(100,100)
+
+
+```
+
+### 圆 SVG.Circle
+
+```js
+var circle = draw.circle(100)
+
+circle.radius(75)　// 半径
+
+```
+
+### 椭圆　SVG.Ellipse
+```js
+var ellipse = draw.ellipse(200, 100) // width and height
+
+ellipse.radius(75, 50)
+```
+
+### 直线　SVG.Line
+```js
+var line = draw.line(0, 0, 100, 150).stroke({ width: 1 })
+
+```
+### 折线　SVG.Polyline
+```js
+var polyline = draw.polyline('0,0 100,50 50,100').fill('none').stroke({ width: 1 })
+
+// var polyline = draw.polyline([[0,0], [100,50], [50,100]])
+// var polyline = draw.polyline([0,0, 100,50, 50,100])
+```
+
+### 文字　SVG.Text
+```js
+var text = draw.text("Lorem ipsum dolor sit amet consectetur.\nCras sodales imperdiet auctor.")
+```
+
+```js
+var text = draw.text(function(add) {
+  add.tspan('Lorem ipsum dolor sit amet ').newLine()
+  add.tspan('consectetur').fill('#f06')
+  add.tspan('.')
+  add.tspan('Cras sodales imperdiet auctor.').newLine().dx(20)
+  add.tspan('Nunc ultrices lectus at erat').newLine()
+  add.tspan('dictum pharetra elementum ante').newLine()
+})
+```
+
+### 图片　SVG.Image
+```js
+var image = draw.image('/path/to/image.jpg', 200, 300)
+```
+
+```js
+// 如果你不知道图像的大小，显然你将不得不等待图像loaded：
+var image = draw.image('/path/to/image.jpg').loaded(function(loader) {
+  this.size(loader.width, loader.height)
+})
+```
+
 ## SVG.get() 根据id获取元素
 ```js
 var draw = SVG('svg1').size(300, 300);

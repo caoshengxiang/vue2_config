@@ -62,7 +62,7 @@ document.getElementById("test").onmousedown = function(e){
 }
 ```
 
-## js方法汇总
+## 3. js方法汇总
 
 
 方法名|作用|例子
@@ -81,3 +81,12 @@ search()        |返回与正则表达式查找内容匹配的第一个子字符
 replace()       |返回根据正则表达式进行文字替换后的字符串的复制 | stringObj.replace(rgExp, replaceText)
 split()         |将一个字符串分割为子字符串，然后将结果作为字符串数组返回|stringObj.split([separator[, limit]])
 
+
+## 4. js中的各种位置
+
+top、clientTop、scrollTop、offsetTop、scrollHeight、clientHeight、offsetParent
+网上找的图片展示：
+
+![](assets/js_pos.jpg)
+
+[这里有更详细介绍](http://www.softwhy.com/forum.php?mod=viewthread&tid=8298)

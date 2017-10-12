@@ -802,7 +802,20 @@ fcitx -d</p>
 <li><p>&#x70B9;&#x51FB;&#x3000;.sh&#x53EF;&#x6267;&#x884C;
 &#x70B9;&#x5F00;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x5939;&#xFF0D;&#x9996;&#x9009;&#x9879;&#xFF0D;&#x884C;&#x4E3A;&#xFF0D;&#x8FD0;&#x884C;</p>
 </li>
+<li><p>ubuntu &#x4E0B;&#x51FA;&#x73B0;E: Sub-process /usr/bin/dpkg returned an error code</p>
+</li>
 </ol>
+<p><a href="ubuntu%20&#x4E0B;&#x51FA;&#x73B0;E:%20Sub-process%20/usr/bin/dpkg%20returned%20an%20error%20code">&#x53C2;&#x8003;&#xFF11;</a>
+<a href="http://www.iteye.com/problems/60186" target="_blank">&#x53C2;&#x8003;&#xFF12;</a></p>
+<p>&#x4EB2;&#x6D4B;&#x89E3;&#x51B3;&#x4E00;&#x6B21;&#x6267;&#x884C;&#x4E0B;&#x9762;&#x7684;&#x547D;&#x4EE4;&#xFF1A;</p>
+<pre><code class="lang-linux">$ sudo mv /var/lib/dpkg/info /var/lib/dpkg/info_old //&#x73B0;&#x5C06;info&#x6587;&#x4EF6;&#x5939;&#x66F4;&#x540D;
+$ sudo mkdir /var/lib/dpkg/info //&#x518D;&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684;info&#x6587;&#x4EF6;&#x5939;
+$ sudo apt-get update
+$ sudo apt-get -f install
+$ sudo mv /var/lib/dpkg/info/* /var/lib/dpkg/info_old //&#x6267;&#x884C;&#x5B8C;&#x4E0A;&#x4E00;&#x6B65;&#x64CD;&#x4F5C;&#x540E;&#x4F1A;&#x5728;&#x65B0;&#x7684;info&#x6587;&#x4EF6;&#x5939;&#x4E0B;&#x751F;&#x6210;&#x4E00;&#x4E9B;&#x6587;&#x4EF6;&#xFF0C;&#x73B0;&#x5C06;&#x8FD9;&#x4E9B;&#x6587;&#x4EF6;&#x5168;&#x90E8;&#x79FB;&#x5230;info_old&#x6587;&#x4EF6;&#x5939;&#x4E0B;
+$ sudo rm -rf /var/lib/dpkg/info //&#x628A;&#x81EA;&#x5DF1;&#x65B0;&#x5EFA;&#x7684;info&#x6587;&#x4EF6;&#x5939;&#x5220;&#x6389;
+$ sudo mv /var/lib/dpkg/info_old /var/lib/dpkg/info //&#x628A;&#x4EE5;&#x524D;&#x7684;info&#x6587;&#x4EF6;&#x5939;&#x91CD;&#x65B0;&#x6539;&#x56DE;&#x540D;&#x5B57;
+</code></pre>
 <h2 id="linux&#x3000;&#x5E38;&#x7528;&#x547D;&#x4EE4;">linux&#x3000;&#x5E38;&#x7528;&#x547D;&#x4EE4;</h2>
 <h3 id="&#x538B;&#x7F29;">&#x538B;&#x7F29;</h3>
 <blockquote>
@@ -858,6 +871,7 @@ other=r--=4+0+0=4
 <p>  pwd &#x67E5;&#x770B;&#x5F53;&#x524D;&#x76EE;&#x5F55;&#x4F4D;&#x7F6E;
     whereis &#x76EE;&#x6807;&#xFF1B;&#x67E5;&#x770B;&#x76EE;&#x6807;&#x7684;&#x4F4D;&#x7F6E;</p>
 </blockquote>
+<h2 id="">#</h2>
 
                                 
                                 </section>
@@ -901,7 +915,7 @@ other=r--=4+0+0=4
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"linux","level":"1.7.11","depth":2,"next":{"title":"AJAX xhr","level":"1.7.12","depth":2,"path":"chapter6/ajax.md","ref":"chapter6/ajax.md","articles":[]},"previous":{"title":"github","level":"1.7.10","depth":2,"path":"chapter6/github.md","ref":"chapter6/github.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter6/linux.md","mtime":"2017-09-30T03:29:44.540Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-10-11T08:25:42.081Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"linux","level":"1.7.11","depth":2,"next":{"title":"AJAX xhr","level":"1.7.12","depth":2,"path":"chapter6/ajax.md","ref":"chapter6/ajax.md","articles":[]},"previous":{"title":"github","level":"1.7.10","depth":2,"path":"chapter6/github.md","ref":"chapter6/github.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter6/linux.md","mtime":"2017-10-12T09:15:08.488Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-10-12T09:47:32.436Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

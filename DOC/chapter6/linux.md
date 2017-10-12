@@ -12,6 +12,21 @@ fcitx -d
 2. 点击　.sh可执行
 点开一个文件夹－首选项－行为－运行
 
+3. ubuntu 下出现E: Sub-process /usr/bin/dpkg returned an error code
+
+[参考１](ubuntu 下出现E: Sub-process /usr/bin/dpkg returned an error code)
+[参考２](http://www.iteye.com/problems/60186)
+
+亲测解决一次执行下面的命令：
+```linux
+$ sudo mv /var/lib/dpkg/info /var/lib/dpkg/info_old //现将info文件夹更名
+$ sudo mkdir /var/lib/dpkg/info //再新建一个新的info文件夹
+$ sudo apt-get update
+$ sudo apt-get -f install
+$ sudo mv /var/lib/dpkg/info/* /var/lib/dpkg/info_old //执行完上一步操作后会在新的info文件夹下生成一些文件，现将这些文件全部移到info_old文件夹下
+$ sudo rm -rf /var/lib/dpkg/info //把自己新建的info文件夹删掉
+$ sudo mv /var/lib/dpkg/info_old /var/lib/dpkg/info //把以前的info文件夹重新改回名字
+```
 
 ## linux　常用命令
 
@@ -69,3 +84,6 @@ other=r--=4+0+0=4
 ### 查看位置命令
 >   pwd 查看当前目录位置
     whereis 目标；查看目标的位置
+
+
+###

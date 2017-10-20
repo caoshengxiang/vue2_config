@@ -6,12 +6,99 @@ h2 {
 </style>
 
 
-# svg.js
+# svg
+
+
+
+## div转svg  svg转canvas svg/canvas生成图片及图片下载
+
+### HTML
+```html
+<div id="div">
+    <p>Just have a <span style='color:white; text-shadow:0 0 2px blue;'>TRY</span></p><p><b>By Dion</b></p>
+</div>
+```
+### div转成svg
+```js
+function div2svg() {
+       var divContent = document.getElementById("div").innerHTML;
+
+       var svg = "<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'>" +
+           "<foreignObject width='100%' height='100%'>" +
+           "<div xmlns='http://www.w3.org/1999/xhtml' style='font-size:16px;font-family:Helvetica'>" +
+           divContent +
+           "</div>" +
+           "</foreignObject>" +
+           "</svg>";
+
+       document.body.innerHTML = svg;
+}
+div2svg();
+```
+
+### svg生成图片
+```js
+function svg2img() {
+       var divContent = document.getElementById("div").innerHTML;
+
+       var data = "data:image/svg+xml," +
+       "<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'>" +
+       "<foreignObject width='100%' height='100%'>" +
+       "<div xmlns='http://www.w3.org/1999/xhtml' style='font-size:16px;font-family:Helvetica'>" +
+       divContent +
+       "</div>" +
+       "</foreignObject>" +
+       "</svg>";
+       var img = new Image();
+       img.src = data;
+       document.body.appendChild(img);
+}
+svg2img();
+```
+
+### svg转成canvas
+```js
+function svg2canvas() {
+   // 图片
+   var divContent = document.getElementById("div").innerHTML;
+   var data = "data:image/svg+xml," +
+   "<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'>" +
+   "<foreignObject width='100%' height='100%'>" +
+   "<div xmlns='http://www.w3.org/1999/xhtml' style='font-size:16px;font-family:Helvetica'>" +
+   divContent +
+   "</div>" +
+   "</foreignObject>" +
+   "</svg>";
+   var img = new Image();
+   img.src = data;
+
+   // canvas
+   var canvas = document.createElement('canvas');  //准备空画布
+
+   canvas.width = img.width;
+   canvas.height = img.height;
+
+   var context = canvas.getContext('2d');  //取得画布的2d绘图上下文
+   context.drawImage(img, 0, 0);
+
+   document.body.appendChild(canvas);
+}
+svg2canvas();
+```
+
+### 图片下载
+```js
+var a = document.createElement('a');
+a.href = canvas.toDataURL('image/png');  //将画布内的信息导出为png图片数据
+a.download = "img-demo";  //设定下载名称
+a.click(); //点击触发下载
+```
+
+## svg.js
 
 [avg.js文档](http://svgjs.com/)
 
-
-## 方法，属性
+### 方法，属性
 ```js
 rect.attr({fill: red})
 rect.fill(red)
@@ -20,7 +107,7 @@ rect.stroke({width: 1})
 ```
 
 
-## svg.js api
+### svg.js api
 
 ```html
 <div id="drawing"></div>
@@ -30,7 +117,7 @@ rect.stroke({width: 1})
 var draw = SVG('drawing').size(300, 300) // 创建SVG文档
 ```
 
-### 矩形 SVG.Rect
+#### 矩形 SVG.Rect
 
 ```js
 var rect = draw.rect(100, 100)
@@ -43,7 +130,7 @@ draw.rect(100,100).animate().fill('#f03').move(100,100)
 
 ```
 
-### 圆 SVG.Circle
+#### 圆 SVG.Circle
 
 ```js
 var circle = draw.circle(100)
@@ -52,19 +139,19 @@ circle.radius(75)　// 半径
 
 ```
 
-### 椭圆　SVG.Ellipse
+#### 椭圆　SVG.Ellipse
 ```js
 var ellipse = draw.ellipse(200, 100) // width and height
 
 ellipse.radius(75, 50)
 ```
 
-### 直线　SVG.Line
+#### 直线　SVG.Line
 ```js
 var line = draw.line(0, 0, 100, 150).stroke({ width: 1 })
 
 ```
-### 折线　SVG.Polyline
+#### 折线　SVG.Polyline
 ```js
 var polyline = draw.polyline('0,0 100,50 50,100').fill('none').stroke({ width: 1 })
 
@@ -72,7 +159,7 @@ var polyline = draw.polyline('0,0 100,50 50,100').fill('none').stroke({ width: 1
 // var polyline = draw.polyline([0,0, 100,50, 50,100])
 ```
 
-### 文字　SVG.Text
+#### 文字　SVG.Text
 ```js
 var text = draw.text("Lorem ipsum dolor sit amet consectetur.\nCras sodales imperdiet auctor.")
 ```
@@ -88,7 +175,7 @@ var text = draw.text(function(add) {
 })
 ```
 
-### 图片　SVG.Image
+#### 图片　SVG.Image
 ```js
 var image = draw.image('/path/to/image.jpg', 200, 300)
 ```
@@ -100,7 +187,7 @@ var image = draw.image('/path/to/image.jpg').loaded(function(loader) {
 })
 ```
 
-## SVG.get() 根据id获取元素
+### SVG.get() 根据id获取元素
 ```js
 var draw = SVG('svg1').size(300, 300);
 var circle = draw.circle(50);
@@ -118,7 +205,7 @@ circle2.stroke({
 });
 ```
 
-## SVG.select（）/element.select()  根据CSS选择器获取
+### SVG.select（）/element.select()  根据CSS选择器获取
 
 ```js
 var draw = SVG('svg1').size(300, 300);
@@ -147,7 +234,7 @@ group1.select('.words').fill('green');
 //SVG.select('.words', group1).fill('green');
 ```
 
-## SVG 节点对象获取
+### SVG 节点对象获取
 
 ```js
 var draw = SVG('svg1').size(300, 300);
@@ -166,7 +253,7 @@ elli2.size(80, 100).move(50, 50);
 console.log(ellipse.node.nodeName) // 节点名称　ellipse
 ```
 
-## SVG 根节点下的子节点获取
+### SVG 根节点下的子节点获取
 
 ```js
 var draw = SVG('svg1').size(300, 300);
@@ -195,7 +282,7 @@ console.info(index); //1 ,特别说明，第一个元素是
 console.info(draw.has(second)); //true
 ```
 
-## SVG 子节点获取根节点
+### SVG 子节点获取根节点
 
 ```js
 var draw = SVG('svg1').size(300, 300);
@@ -222,7 +309,7 @@ rect.parents('.test') // returns [group1]
 rect.parents(SVG.G)   // returns [group1, group2]
 ```
 
-## SVG 属性引用获取
+### SVG 属性引用获取
 
 ```js
 //SVG URI references

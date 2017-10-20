@@ -25,7 +25,7 @@
     * [vue.js](chapter6/vue.md)
     * [webpack](chapter6/webpack.md)
     * [react](chapter6/react.md)
-    * [svg.js](chapter6/svg.md)
+    * [svg](chapter6/svg.md)
     * [video.js](chapter6/video.md)
     * [github](chapter6/github.md)
     * [linux](chapter6/linux.md)

@@ -38,6 +38,7 @@
     * [gh-pages　分支](chapter6/gh-pages.md)
     * [ESLint](chapter6/eslint.md)
     * [代码分享 jsFiddle](chapter6/jsFiddle.md)
+    * [前端测试](chapter6/test.md)
 * [项目总结](chapter7/README.md)
     * [基于svg的关于剧本场景绘制的项目](chapter7/svg-ju-ben.md)
     * [直播管理后台项目](chapter7/live-admin.md)

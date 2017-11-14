@@ -131,7 +131,6 @@ fun.scss:
 
 > 目前Flexible会将视觉稿分成100份（主要为了以后能更好的兼容vh和vw），而每一份被称为一个单位a。同时1rem单位被认定为10a。针对我们这份视觉稿可以计算出：著作权归作者所有。
 
-  商业转载请联系作者获得授权,非商业转载请注明出处。
   原文: http://www.w3cplus.com/mobile/lib-flexible-for-html5-layout.html © w3cplus.com
 
 ```

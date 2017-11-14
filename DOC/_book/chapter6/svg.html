@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>svg.js · GitBook</title>
+        <title>svg · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -438,7 +438,7 @@
                 <a href="svg.html">
             
                     
-                    svg.js
+                    svg
             
                 </a>
             
@@ -524,7 +524,72 @@
             
         </li>
     
-        <li class="chapter " data-level="1.7.15" data-path="ubuntu-uninstall.html">
+        <li class="chapter " data-level="1.7.15" data-path="js-event.html">
+            
+                <a href="js-event.html">
+            
+                    
+                    js Event事件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.16" data-path="js-bibao.html">
+            
+                <a href="js-bibao.html">
+            
+                    
+                    js 闭包的理解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.17" data-path="css-bfc.html">
+            
+                <a href="css-bfc.html">
+            
+                    
+                    BFC 总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.18" data-path="css-buju.html">
+            
+                <a href="css-buju.html">
+            
+                    
+                    布局方案总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.19" data-path="js-module.html">
+            
+                <a href="js-module.html">
+            
+                    
+                    js 模块化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.20" data-path="ubuntu-uninstall.html">
             
                 <a href="ubuntu-uninstall.html">
             
@@ -537,7 +602,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.7.16" data-path="color-code.html">
+        <li class="chapter " data-level="1.7.21" data-path="color-code.html">
             
                 <a href="color-code.html">
             
@@ -550,7 +615,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.7.17" data-path="markdown.html">
+        <li class="chapter " data-level="1.7.22" data-path="markdown.html">
             
                 <a href="markdown.html">
             
@@ -563,7 +628,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.7.18" data-path="gh-pages.html">
+        <li class="chapter " data-level="1.7.23" data-path="gh-pages.html">
             
                 <a href="gh-pages.html">
             
@@ -576,7 +641,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.7.19" data-path="eslint.html">
+        <li class="chapter " data-level="1.7.24" data-path="eslint.html">
             
                 <a href="eslint.html">
             
@@ -589,12 +654,25 @@
             
         </li>
     
-        <li class="chapter " data-level="1.7.20" data-path="jsFiddle.html">
+        <li class="chapter " data-level="1.7.25" data-path="jsFiddle.html">
             
                 <a href="jsFiddle.html">
             
                     
                     代码分享 jsFiddle
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.26" data-path="test.html">
+            
+                <a href="test.html">
+            
+                    
+                    前端测试
             
                 </a>
             
@@ -773,7 +851,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >svg.js</a>
+        <a href=".." >svg</a>
     </h1>
 </div>
 
@@ -796,19 +874,94 @@ h2 {
 </style>
 
 
-<h1 id="svgjs">svg.js</h1>
+<h1 id="svg">svg</h1>
+<h2 id="div&#x8F6C;svg--svg&#x8F6C;canvas-svgcanvas&#x751F;&#x6210;&#x56FE;&#x7247;&#x53CA;&#x56FE;&#x7247;&#x4E0B;&#x8F7D;">div&#x8F6C;svg  svg&#x8F6C;canvas svg/canvas&#x751F;&#x6210;&#x56FE;&#x7247;&#x53CA;&#x56FE;&#x7247;&#x4E0B;&#x8F7D;</h2>
+<h3 id="html">HTML</h3>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;div&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Just have a <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&apos;color:white; text-shadow:0 0 2px blue;&apos;</span>&gt;</span>TRY<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>By Dion<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+<h3 id="div&#x8F6C;&#x6210;svg">div&#x8F6C;&#x6210;svg</h3>
+<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">div2svg</span>(<span class="hljs-params"></span>) </span>{
+       <span class="hljs-keyword">var</span> divContent = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&quot;div&quot;</span>).innerHTML;
+
+       <span class="hljs-keyword">var</span> svg = <span class="hljs-string">&quot;&lt;svg xmlns=&apos;http://www.w3.org/2000/svg&apos; width=&apos;200&apos; height=&apos;200&apos;&gt;&quot;</span> +
+           <span class="hljs-string">&quot;&lt;foreignObject width=&apos;100%&apos; height=&apos;100%&apos;&gt;&quot;</span> +
+           <span class="hljs-string">&quot;&lt;div xmlns=&apos;http://www.w3.org/1999/xhtml&apos; style=&apos;font-size:16px;font-family:Helvetica&apos;&gt;&quot;</span> +
+           divContent +
+           <span class="hljs-string">&quot;&lt;/div&gt;&quot;</span> +
+           <span class="hljs-string">&quot;&lt;/foreignObject&gt;&quot;</span> +
+           <span class="hljs-string">&quot;&lt;/svg&gt;&quot;</span>;
+
+       <span class="hljs-built_in">document</span>.body.innerHTML = svg;
+}
+div2svg();
+</code></pre>
+<h3 id="svg&#x751F;&#x6210;&#x56FE;&#x7247;">svg&#x751F;&#x6210;&#x56FE;&#x7247;</h3>
+<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">svg2img</span>(<span class="hljs-params"></span>) </span>{
+       <span class="hljs-keyword">var</span> divContent = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&quot;div&quot;</span>).innerHTML;
+
+       <span class="hljs-keyword">var</span> data = <span class="hljs-string">&quot;data:image/svg+xml,&quot;</span> +
+       <span class="hljs-string">&quot;&lt;svg xmlns=&apos;http://www.w3.org/2000/svg&apos; width=&apos;200&apos; height=&apos;200&apos;&gt;&quot;</span> +
+       <span class="hljs-string">&quot;&lt;foreignObject width=&apos;100%&apos; height=&apos;100%&apos;&gt;&quot;</span> +
+       <span class="hljs-string">&quot;&lt;div xmlns=&apos;http://www.w3.org/1999/xhtml&apos; style=&apos;font-size:16px;font-family:Helvetica&apos;&gt;&quot;</span> +
+       divContent +
+       <span class="hljs-string">&quot;&lt;/div&gt;&quot;</span> +
+       <span class="hljs-string">&quot;&lt;/foreignObject&gt;&quot;</span> +
+       <span class="hljs-string">&quot;&lt;/svg&gt;&quot;</span>;
+       <span class="hljs-keyword">var</span> img = <span class="hljs-keyword">new</span> Image();
+       img.src = data;
+       <span class="hljs-built_in">document</span>.body.appendChild(img);
+}
+svg2img();
+</code></pre>
+<h3 id="svg&#x8F6C;&#x6210;canvas">svg&#x8F6C;&#x6210;canvas</h3>
+<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">svg2canvas</span>(<span class="hljs-params"></span>) </span>{
+   <span class="hljs-comment">// &#x56FE;&#x7247;</span>
+   <span class="hljs-keyword">var</span> divContent = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&quot;div&quot;</span>).innerHTML;
+   <span class="hljs-keyword">var</span> data = <span class="hljs-string">&quot;data:image/svg+xml,&quot;</span> +
+   <span class="hljs-string">&quot;&lt;svg xmlns=&apos;http://www.w3.org/2000/svg&apos; width=&apos;200&apos; height=&apos;200&apos;&gt;&quot;</span> +
+   <span class="hljs-string">&quot;&lt;foreignObject width=&apos;100%&apos; height=&apos;100%&apos;&gt;&quot;</span> +
+   <span class="hljs-string">&quot;&lt;div xmlns=&apos;http://www.w3.org/1999/xhtml&apos; style=&apos;font-size:16px;font-family:Helvetica&apos;&gt;&quot;</span> +
+   divContent +
+   <span class="hljs-string">&quot;&lt;/div&gt;&quot;</span> +
+   <span class="hljs-string">&quot;&lt;/foreignObject&gt;&quot;</span> +
+   <span class="hljs-string">&quot;&lt;/svg&gt;&quot;</span>;
+   <span class="hljs-keyword">var</span> img = <span class="hljs-keyword">new</span> Image();
+   img.src = data;
+
+   <span class="hljs-comment">// canvas</span>
+   <span class="hljs-keyword">var</span> canvas = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">&apos;canvas&apos;</span>);  <span class="hljs-comment">//&#x51C6;&#x5907;&#x7A7A;&#x753B;&#x5E03;</span>
+
+   canvas.width = img.width;
+   canvas.height = img.height;
+
+   <span class="hljs-keyword">var</span> context = canvas.getContext(<span class="hljs-string">&apos;2d&apos;</span>);  <span class="hljs-comment">//&#x53D6;&#x5F97;&#x753B;&#x5E03;&#x7684;2d&#x7ED8;&#x56FE;&#x4E0A;&#x4E0B;&#x6587;</span>
+   context.drawImage(img, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>);
+
+   <span class="hljs-built_in">document</span>.body.appendChild(canvas);
+}
+svg2canvas();
+</code></pre>
+<h3 id="&#x56FE;&#x7247;&#x4E0B;&#x8F7D;">&#x56FE;&#x7247;&#x4E0B;&#x8F7D;</h3>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> a = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">&apos;a&apos;</span>);
+a.href = canvas.toDataURL(<span class="hljs-string">&apos;image/png&apos;</span>);  <span class="hljs-comment">//&#x5C06;&#x753B;&#x5E03;&#x5185;&#x7684;&#x4FE1;&#x606F;&#x5BFC;&#x51FA;&#x4E3A;png&#x56FE;&#x7247;&#x6570;&#x636E;</span>
+a.download = <span class="hljs-string">&quot;img-demo&quot;</span>;  <span class="hljs-comment">//&#x8BBE;&#x5B9A;&#x4E0B;&#x8F7D;&#x540D;&#x79F0;</span>
+a.click(); <span class="hljs-comment">//&#x70B9;&#x51FB;&#x89E6;&#x53D1;&#x4E0B;&#x8F7D;</span>
+</code></pre>
+<h2 id="svgjs">svg.js</h2>
 <p><a href="http://svgjs.com/" target="_blank">avg.js&#x6587;&#x6863;</a></p>
-<h2 id="&#x65B9;&#x6CD5;&#xFF0C;&#x5C5E;&#x6027;">&#x65B9;&#x6CD5;&#xFF0C;&#x5C5E;&#x6027;</h2>
+<h3 id="&#x65B9;&#x6CD5;&#xFF0C;&#x5C5E;&#x6027;">&#x65B9;&#x6CD5;&#xFF0C;&#x5C5E;&#x6027;</h3>
 <pre><code class="lang-js">rect.attr({fill: red})
 rect.fill(red)
 rect.stroke({width: <span class="hljs-number">1</span>})
 </code></pre>
-<h2 id="svgjs-api">svg.js api</h2>
+<h3 id="svgjs-api">svg.js api</h3>
 <pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;drawing&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 </code></pre>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> draw = SVG(<span class="hljs-string">&apos;drawing&apos;</span>).size(<span class="hljs-number">300</span>, <span class="hljs-number">300</span>) <span class="hljs-comment">// &#x521B;&#x5EFA;SVG&#x6587;&#x6863;</span>
 </code></pre>
-<h3 id="&#x77E9;&#x5F62;-svgrect">&#x77E9;&#x5F62; SVG.Rect</h3>
+<h4 id="&#x77E9;&#x5F62;-svgrect">&#x77E9;&#x5F62; SVG.Rect</h4>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> rect = draw.rect(<span class="hljs-number">100</span>, <span class="hljs-number">100</span>)
 rect.radius(<span class="hljs-number">10</span>) <span class="hljs-comment">// &#x5706;&#x89D2;</span>
 rect.radius(<span class="hljs-number">10</span>, <span class="hljs-number">20</span>) <span class="hljs-comment">// &#x5706;&#x89D2;</span>
@@ -816,26 +969,26 @@ rect.radius(<span class="hljs-number">10</span>, <span class="hljs-number">20</s
 <span class="hljs-comment">// animate, fill, move</span>
 draw.rect(<span class="hljs-number">100</span>,<span class="hljs-number">100</span>).animate().fill(<span class="hljs-string">&apos;#f03&apos;</span>).move(<span class="hljs-number">100</span>,<span class="hljs-number">100</span>)
 </code></pre>
-<h3 id="&#x5706;-svgcircle">&#x5706; SVG.Circle</h3>
+<h4 id="&#x5706;-svgcircle">&#x5706; SVG.Circle</h4>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> circle = draw.circle(<span class="hljs-number">100</span>)
 
 circle.radius(<span class="hljs-number">75</span>)&#x3000;<span class="hljs-comment">// &#x534A;&#x5F84;</span>
 </code></pre>
-<h3 id="&#x692D;&#x5706;&#x3000;svgellipse">&#x692D;&#x5706;&#x3000;SVG.Ellipse</h3>
+<h4 id="&#x692D;&#x5706;&#x3000;svgellipse">&#x692D;&#x5706;&#x3000;SVG.Ellipse</h4>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> ellipse = draw.ellipse(<span class="hljs-number">200</span>, <span class="hljs-number">100</span>) <span class="hljs-comment">// width and height</span>
 
 ellipse.radius(<span class="hljs-number">75</span>, <span class="hljs-number">50</span>)
 </code></pre>
-<h3 id="&#x76F4;&#x7EBF;&#x3000;svgline">&#x76F4;&#x7EBF;&#x3000;SVG.Line</h3>
+<h4 id="&#x76F4;&#x7EBF;&#x3000;svgline">&#x76F4;&#x7EBF;&#x3000;SVG.Line</h4>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> line = draw.line(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">100</span>, <span class="hljs-number">150</span>).stroke({ width: <span class="hljs-number">1</span> })
 </code></pre>
-<h3 id="&#x6298;&#x7EBF;&#x3000;svgpolyline">&#x6298;&#x7EBF;&#x3000;SVG.Polyline</h3>
+<h4 id="&#x6298;&#x7EBF;&#x3000;svgpolyline">&#x6298;&#x7EBF;&#x3000;SVG.Polyline</h4>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> polyline = draw.polyline(<span class="hljs-string">&apos;0,0 100,50 50,100&apos;</span>).fill(<span class="hljs-string">&apos;none&apos;</span>).stroke({ width: <span class="hljs-number">1</span> })
 
 <span class="hljs-comment">// var polyline = draw.polyline([[0,0], [100,50], [50,100]])</span>
 <span class="hljs-comment">// var polyline = draw.polyline([0,0, 100,50, 50,100])</span>
 </code></pre>
-<h3 id="&#x6587;&#x5B57;&#x3000;svgtext">&#x6587;&#x5B57;&#x3000;SVG.Text</h3>
+<h4 id="&#x6587;&#x5B57;&#x3000;svgtext">&#x6587;&#x5B57;&#x3000;SVG.Text</h4>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> text = draw.text(<span class="hljs-string">&quot;Lorem ipsum dolor sit amet consectetur.\nCras sodales imperdiet auctor.&quot;</span>)
 </code></pre>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> text = draw.text(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">add</span>) </span>{
@@ -847,7 +1000,7 @@ ellipse.radius(<span class="hljs-number">75</span>, <span class="hljs-number">50
   add.tspan(<span class="hljs-string">&apos;dictum pharetra elementum ante&apos;</span>).newLine()
 })
 </code></pre>
-<h3 id="&#x56FE;&#x7247;&#x3000;svgimage">&#x56FE;&#x7247;&#x3000;SVG.Image</h3>
+<h4 id="&#x56FE;&#x7247;&#x3000;svgimage">&#x56FE;&#x7247;&#x3000;SVG.Image</h4>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> image = draw.image(<span class="hljs-string">&apos;/path/to/image.jpg&apos;</span>, <span class="hljs-number">200</span>, <span class="hljs-number">300</span>)
 </code></pre>
 <pre><code class="lang-js"><span class="hljs-comment">// &#x5982;&#x679C;&#x4F60;&#x4E0D;&#x77E5;&#x9053;&#x56FE;&#x50CF;&#x7684;&#x5927;&#x5C0F;&#xFF0C;&#x663E;&#x7136;&#x4F60;&#x5C06;&#x4E0D;&#x5F97;&#x4E0D;&#x7B49;&#x5F85;&#x56FE;&#x50CF;loaded&#xFF1A;</span>
@@ -855,7 +1008,7 @@ ellipse.radius(<span class="hljs-number">75</span>, <span class="hljs-number">50
   <span class="hljs-keyword">this</span>.size(loader.width, loader.height)
 })
 </code></pre>
-<h2 id="svgget-&#x6839;&#x636E;id&#x83B7;&#x53D6;&#x5143;&#x7D20;">SVG.get() &#x6839;&#x636E;id&#x83B7;&#x53D6;&#x5143;&#x7D20;</h2>
+<h3 id="svgget-&#x6839;&#x636E;id&#x83B7;&#x53D6;&#x5143;&#x7D20;">SVG.get() &#x6839;&#x636E;id&#x83B7;&#x53D6;&#x5143;&#x7D20;</h3>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> draw = SVG(<span class="hljs-string">&apos;svg1&apos;</span>).size(<span class="hljs-number">300</span>, <span class="hljs-number">300</span>);
 <span class="hljs-keyword">var</span> circle = draw.circle(<span class="hljs-number">50</span>);
 circle.fill(<span class="hljs-string">&apos;red&apos;</span>).move(<span class="hljs-number">10</span>, <span class="hljs-number">10</span>);
@@ -871,7 +1024,7 @@ circle2.stroke({
     width: <span class="hljs-number">2</span>
 });
 </code></pre>
-<h2 id="svgselect&#xFF08;&#xFF09;elementselect--&#x6839;&#x636E;css&#x9009;&#x62E9;&#x5668;&#x83B7;&#x53D6;">SVG.select&#xFF08;&#xFF09;/element.select()  &#x6839;&#x636E;CSS&#x9009;&#x62E9;&#x5668;&#x83B7;&#x53D6;</h2>
+<h3 id="svgselect&#xFF08;&#xFF09;elementselect--&#x6839;&#x636E;css&#x9009;&#x62E9;&#x5668;&#x83B7;&#x53D6;">SVG.select&#xFF08;&#xFF09;/element.select()  &#x6839;&#x636E;CSS&#x9009;&#x62E9;&#x5668;&#x83B7;&#x53D6;</h3>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> draw = SVG(<span class="hljs-string">&apos;svg1&apos;</span>).size(<span class="hljs-number">300</span>, <span class="hljs-number">300</span>);
 <span class="hljs-comment">//SVG.select() &#x6839;&#x636E;&#x7C7B;&#x540D;&#x83B7;&#x53D6;&#x5143;&#x7D20;</span>
 <span class="hljs-comment">//element.select()</span>
@@ -897,7 +1050,7 @@ group1.select(<span class="hljs-string">&apos;.words&apos;</span>).fill(<span cl
 <span class="hljs-comment">//&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x597D;&#x50CF;&#x5DF2;&#x7ECF;&#x4E0D;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4E86;</span>
 <span class="hljs-comment">//SVG.select(&apos;.words&apos;, group1).fill(&apos;green&apos;);</span>
 </code></pre>
-<h2 id="svg-&#x8282;&#x70B9;&#x5BF9;&#x8C61;&#x83B7;&#x53D6;">SVG &#x8282;&#x70B9;&#x5BF9;&#x8C61;&#x83B7;&#x53D6;</h2>
+<h3 id="svg-&#x8282;&#x70B9;&#x5BF9;&#x8C61;&#x83B7;&#x53D6;">SVG &#x8282;&#x70B9;&#x5BF9;&#x8C61;&#x83B7;&#x53D6;</h3>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> draw = SVG(<span class="hljs-string">&apos;svg1&apos;</span>).size(<span class="hljs-number">300</span>, <span class="hljs-number">300</span>);
 <span class="hljs-comment">//Circular references&#x57FA;&#x7840;&#x8282;&#x70B9;&#x83B7;&#x53D6;&#xFF0C;</span>
 <span class="hljs-keyword">var</span> ellipse = draw.ellipse(<span class="hljs-number">100</span>, <span class="hljs-number">80</span>);
@@ -913,7 +1066,7 @@ elli2.size(<span class="hljs-number">80</span>, <span class="hljs-number">100</s
 
 <span class="hljs-built_in">console</span>.log(ellipse.node.nodeName) <span class="hljs-comment">// &#x8282;&#x70B9;&#x540D;&#x79F0;&#x3000;ellipse</span>
 </code></pre>
-<h2 id="svg-&#x6839;&#x8282;&#x70B9;&#x4E0B;&#x7684;&#x5B50;&#x8282;&#x70B9;&#x83B7;&#x53D6;">SVG &#x6839;&#x8282;&#x70B9;&#x4E0B;&#x7684;&#x5B50;&#x8282;&#x70B9;&#x83B7;&#x53D6;</h2>
+<h3 id="svg-&#x6839;&#x8282;&#x70B9;&#x4E0B;&#x7684;&#x5B50;&#x8282;&#x70B9;&#x83B7;&#x53D6;">SVG &#x6839;&#x8282;&#x70B9;&#x4E0B;&#x7684;&#x5B50;&#x8282;&#x70B9;&#x83B7;&#x53D6;</h3>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> draw = SVG(<span class="hljs-string">&apos;svg1&apos;</span>).size(<span class="hljs-number">300</span>, <span class="hljs-number">300</span>);
 <span class="hljs-comment">//SVG&#x6839;&#x8282;&#x70B9;&#x4E0B;&#x7684;&#x5B50;&#x8282;&#x70B9;&#x64CD;&#x4F5C; Child references</span>
 <span class="hljs-comment">//draw.children() &#x83B7;&#x53D6;&#x6240;&#x6709;&#x5B50;&#x8282;&#x70B9;</span>
@@ -939,7 +1092,7 @@ draw.last().fill(<span class="hljs-string">&apos;green&apos;</span>);
 <span class="hljs-comment">//draw.has() //&#x5224;&#x65AD;&#x662F;&#x5426;&#x542B;&#x6709;&#x6307;&#x5B9A;&#x5BF9;&#x8C61;&#x7684;&#x5143;&#x7D20;</span>
 <span class="hljs-built_in">console</span>.info(draw.has(second)); <span class="hljs-comment">//true</span>
 </code></pre>
-<h2 id="svg-&#x5B50;&#x8282;&#x70B9;&#x83B7;&#x53D6;&#x6839;&#x8282;&#x70B9;">SVG &#x5B50;&#x8282;&#x70B9;&#x83B7;&#x53D6;&#x6839;&#x8282;&#x70B9;</h2>
+<h3 id="svg-&#x5B50;&#x8282;&#x70B9;&#x83B7;&#x53D6;&#x6839;&#x8282;&#x70B9;">SVG &#x5B50;&#x8282;&#x70B9;&#x83B7;&#x53D6;&#x6839;&#x8282;&#x70B9;</h3>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> draw = SVG(<span class="hljs-string">&apos;svg1&apos;</span>).size(<span class="hljs-number">300</span>, <span class="hljs-number">300</span>);
 <span class="hljs-comment">//SVG&#x5B50;&#x8282;&#x70B9;&#x83B7;&#x53D6;&#x7236;&#x8282;&#x70B9;&#x5F15;&#x7528; Parent references</span>
 <span class="hljs-comment">//element.doc() &#x83B7;&#x53D6;draw SVG&#x6839;&#x8282;&#x70B9;</span>
@@ -963,7 +1116,7 @@ rect.parents()        <span class="hljs-comment">// returns [group1, group2, dra
 rect.parents(<span class="hljs-string">&apos;.test&apos;</span>) <span class="hljs-comment">// returns [group1]</span>
 rect.parents(SVG.G)   <span class="hljs-comment">// returns [group1, group2]</span>
 </code></pre>
-<h2 id="svg-&#x5C5E;&#x6027;&#x5F15;&#x7528;&#x83B7;&#x53D6;">SVG &#x5C5E;&#x6027;&#x5F15;&#x7528;&#x83B7;&#x53D6;</h2>
+<h3 id="svg-&#x5C5E;&#x6027;&#x5F15;&#x7528;&#x83B7;&#x53D6;">SVG &#x5C5E;&#x6027;&#x5F15;&#x7528;&#x83B7;&#x53D6;</h3>
 <pre><code class="lang-js"><span class="hljs-comment">//SVG URI references</span>
 <span class="hljs-comment">//&#x5982;&#x679C;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x662F;&#x901A;&#x8FC7;&#x5C5E;&#x6027;&#x94FE;&#x63A5;&#x5230;&#x53E6;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#xFF0C;&#x94FE;&#x63A5;&#x5143;&#x7D20;&#x7684;&#x5B9E;&#x4F8B;&#x53EF;&#x4EE5;&#x62FF;&#x6765;&#x4E0E;reference()&#x65B9;&#x6CD5;&#x3002;</span>
 use.reference(<span class="hljs-string">&apos;href&apos;</span>) <span class="hljs-comment">//-&gt; returns used element instance</span>
@@ -1015,7 +1168,7 @@ circle.reference(<span class="hljs-string">&apos;clip-path&apos;</span>) <span c
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"svg.js","level":"1.7.8","depth":2,"next":{"title":"video.js","level":"1.7.9","depth":2,"path":"chapter6/video.md","ref":"chapter6/video.md","articles":[]},"previous":{"title":"react","level":"1.7.7","depth":2,"path":"chapter6/react.md","ref":"chapter6/react.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter6/svg.md","mtime":"2017-10-11T09:17:26.780Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-10-12T09:47:32.436Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"svg","level":"1.7.8","depth":2,"next":{"title":"video.js","level":"1.7.9","depth":2,"path":"chapter6/video.md","ref":"chapter6/video.md","articles":[]},"previous":{"title":"react","level":"1.7.7","depth":2,"path":"chapter6/react.md","ref":"chapter6/react.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter6/svg.md","mtime":"2017-10-17T07:10:30.081Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-11-14T06:07:15.870Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1023,10 +1176,6 @@ circle.reference(<span class="hljs-string">&apos;clip-path&apos;</span>) <span c
         
     <script src="../gitbook/gitbook.js"></script>
     <script src="../gitbook/theme.js"></script>
-    
-        
-        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
-        
     
         
         <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>

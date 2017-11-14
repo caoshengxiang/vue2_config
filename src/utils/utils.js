@@ -65,3 +65,28 @@ export function getQueryObj() {
     }
     return queryObj
 }
+
+/*
+* 时间戳转 yy-MM-dd hh:mm:ss
+*
+* @method
+*
+* @param {Timestamp} 时间戳
+*
+* @return {Obj} yy-MM-dd hh:mm:ss
+* */
+export function formatDateTime (Timestamp) {
+    let date = new Date(Timestamp)
+    let y = date.getFullYear()
+    let m = date.getMonth() + 1
+    m = m < 10 ? ('0' + m) : m
+    let d = date.getDate()
+    d = d < 10 ? ('0' + d) : d
+    let h = date.getHours()
+    h = h < 10 ? ('0' + h) : h
+    let minute = date.getMinutes()
+    let second = date.getSeconds()
+    minute = minute < 10 ? ('0' + minute) : minute
+    second = second < 10 ? ('0' + second) : second
+    return y + '-' + m + '-' + d + ' ' + h + ':' + minute + ':' + second
+}

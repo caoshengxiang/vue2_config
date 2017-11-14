@@ -1,0 +1,2 @@
+# js promise理解
+

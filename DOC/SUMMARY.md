@@ -37,6 +37,8 @@
     * [js promise理解](chapter6/js-promise.md)
     * [js 继承理解](chapter6/js-jicheng.md)
     * [js this理解](chapter6/js-this.md)
+    * [js 原型链理解](chapter6/js-prototype.md)
+    * [js 文件上传FormData对象](chapter6/js-formdata.md)
     * [https和常见的http状态码的理解](chapter6/http-code.md)
     * [url请求过程-get,post](chapter6/url-process.md)
     * [前端算法](chapter6/js-suanfa.md)

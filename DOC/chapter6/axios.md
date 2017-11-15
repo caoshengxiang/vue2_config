@@ -19,5 +19,9 @@ axios 是一个基于Promise 用于浏览器和 nodejs 的 HTTP 客户端
  注意： [axios的作者明确表态不支持jsonp](https://github.com/axios/axios/issues/342)
 
  ## 跨越
+ 
+ ### cors
 [cors推荐](http://www.ruanyifeng.com/blog/2016/04/cors.html)
 CORS是一个W3C标准，全称是"跨域资源共享"（Cross-origin resource sharing）。
+
+### postmessage

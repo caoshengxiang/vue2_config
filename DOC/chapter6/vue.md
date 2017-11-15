@@ -121,3 +121,20 @@ window.addEventListener('hashchange', () => {
 <!-- 只有修饰符 -->
 <form v-on:submit.prevent></form>
 ```
+
+## 虚拟DOM
+这就是所谓的 Virtual DOM 算法：
+
+用 JavaScript 对象结构表示 DOM 树的结构；然后用这个树构建一个真正的 DOM 树，插到文
+
+档当中当状态变更时，重新构造一棵新的对象树。然后用新的树和旧的树进行比较两个数的差异。
+
+然后把差异更新到久的树上，整个视图就更新了。Virtual DOM 本质就是在 JS 和 DOM 之间做
+
+了一个缓存。既然已经知道 DOM 慢，就在 JS 和 DOM 之间加个缓存。JS 先操作 Virtual DOM
+
+对比排序/变更，最后再把整个变更写入真实 DOM。
+
+https://www.cnblogs.com/wubaiqing/p/6726429.html
+
+[vue2中diff算法]http://www.jianshu.com/p/22f82cc60285

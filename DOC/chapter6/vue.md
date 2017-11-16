@@ -138,3 +138,6 @@ window.addEventListener('hashchange', () => {
 https://www.cnblogs.com/wubaiqing/p/6726429.html
 
 [vue2中diff算法]http://www.jianshu.com/p/22f82cc60285
+
+
+react.js书法本质是重绘视图，相当于设置innerHTML，利用diff，更新最小DOM

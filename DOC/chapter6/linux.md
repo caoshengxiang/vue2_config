@@ -86,4 +86,20 @@ other=r--=4+0+0=4
     whereis 目标；查看目标的位置
 
 
-###
+### ssh
+
+ssh username@host
+
+### scp
+
+### vim
+
+vim filename
+[vim](https://www.cnblogs.com/softwaretesting/archive/2011/07/12/2104435.html)
+
+### wget
+
+### apt-get
+
+### netstat -anp|grep 80
+查看端口占用

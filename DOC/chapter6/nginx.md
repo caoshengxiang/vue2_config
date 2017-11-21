@@ -65,3 +65,7 @@ sudo make install
 
 2. 端口被占用
 > killall -9 nginx（先停掉nginx） 2 nginx或service nginx restart（重新启动）
+
+
+## 实现会对测试
+

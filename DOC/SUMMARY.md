@@ -62,6 +62,7 @@
     * [ssh-keygen](chapter6/ssh-keygen.md)
     * [git](chapter6/git.md)
 * [项目总结](chapter7/README.md)
+    * [公司内部内勤系统](chapter7/nei-qin.md)
     * [基于svg的关于剧本场景绘制的项目](chapter7/svg-ju-ben.md)
     * [直播管理后台项目](chapter7/live-admin.md)
     * [weixin公众号项目](chapter7/weixin-pub.md)

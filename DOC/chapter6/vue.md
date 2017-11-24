@@ -104,7 +104,7 @@ window.addEventListener('hashchange', () => {
     @dragover='allowDrop($event)'>
 </div>
 ```
-发现只有`dragstart`， `dragleave`， `dragover`只有这三个方法起作用。
+发现只有`dragstart`， `dragleave`， `dragover`方法起作用。
 `draggable='true'`html5的元素可拖动
 
 ## 阻止默认事件

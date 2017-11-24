@@ -15,7 +15,16 @@
 > 个人理解unit和e2e就是所谓的白盒测试和黑盒测试，
 
 ### 测试覆盖率
+>单元测试非常重要，同时最好具有较高的测试覆盖率。再次强调测试覆盖率是一种发现未被测试覆盖的代码的手段，它不是一个考核质量的目标。
+测试覆盖率报告包含下面四个：
+* Statements: 语句覆盖率，执行到每个语句；
+* Branches: 分支覆盖率，执行到每个 if 代码块；
+* Functions: 函数覆盖率，调用到程式中的每一个函数；
+* Lines: 行覆盖率, 执行到程序中的每一行。
 
+[Code coverage](https://en.wikipedia.org/wiki/Code_coverage)
+
+[代码测试覆盖率分析](https://www.v2ex.com/t/385149)
 
 ### 测试环境
 
@@ -91,3 +100,13 @@
 >当我使用vue-cli init我的项目时，我遇到了同样的问题。在我更新到Java 9之后，这个问题解决了。
 
 [jdk的安装](http://blog.csdn.net/oh_mourinho/article/details/52691398)
+
+* 运行 测试命令 npm run unit 报错Error: [vuex] vuex requires a Promise polyfill in this browser.
+
+解决方案：
+>因为测试时启动的浏览器不是我们常用的chrome，而是PhantomJs。为了能让其像chrome一样正常运转，需要在kara.confi.js中设置其在启动我们程序的入口文件前，先启动polyfill.js
+
+修改Karma.conf.js:
+```
+ files: ['../../node_modules/babel-polyfill/dist/polyfill.js', './index.js'],
+```

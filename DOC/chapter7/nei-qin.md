@@ -49,4 +49,4 @@ vuex中使用axios,axios就是基于promise. ie下不支持promise
 
 参照此[GitHub Issue](https://github.com/glenjamin/webpack-hot-middleware/issues/53#issuecomment-253969556)
 
-> 这可能不是一个错误，代码自身有问题，需要逐一排查。这里发现的问题是使用了elementUI 的布局，去除后正常
+> 这可能不是一个错误，代码自身有问题，需要逐一排查。这里发现的问题是使用了elementUI 的布局， el-aside组件问题。去除后正常

@@ -1,5 +1,8 @@
 # js 模块化
 
+* CommonJS 加载模块是同步的，所以只有加载完成才能执行后面的操作。服务器端模块的规范[Node.js,webpack]
+* AMD异步加载模块[require,seajs]
+
 ## commonJS
 
 ```js

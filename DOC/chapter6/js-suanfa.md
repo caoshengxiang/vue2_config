@@ -1,15 +1,26 @@
 # 前端算法
 
+## 数组去重
 
-# 前端设计模式
+1. 一行代码去重
 
-## 观察者（发布者订阅者）
+```
+Array.from(new Set([1, 1, 1, 2, 3, 2, 4])); // [1, 2, 3, 4]
+```
 
-## 单体模式
-一个对象只有一个实例
+```
+// 附：ES5实现数组去重
 
-## 组合模式
-
-对象组合成树形结构以表示“部分-整体”的层次结构
-
-## 工厂模式
+var array = [1, '1', 1, 2, 3, 2, 4];
+var tmpObj = {};
+var result = [];
+array.forEach(function(a) {
+  var key = (typeof a) + a;
+  if (!tmpObj[key]) {
+    tmpObj[key] = true;
+    result.push(a);
+  }
+});
+console.log(result);
+// => [1, "1", 2, 3, 4]
+```

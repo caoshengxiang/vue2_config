@@ -103,3 +103,7 @@ vim filename
 
 ### netstat -anp|grep 80
 查看端口占用
+
+### pkill 、 killall 、 kill
+
+[killall 、kill 、pkill 命令详解](https://www.cnblogs.com/rsky/p/4886043.html)

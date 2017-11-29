@@ -63,7 +63,7 @@
             ...mapMutations([
                 'mut_inputText'
             ]),
-            updateMessage(e) {
+            updateMessage (e) {
                 this.mut_inputText(e.target.value)
             }
         },

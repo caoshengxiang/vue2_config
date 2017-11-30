@@ -65,6 +65,7 @@
     * [git](chapter6/git.md)
     * [npm笔记](chapter6/npm.md)
 * [项目总结](chapter7/README.md)
+    * [地铁管理系统](chapter7/bs.md)
     * [公司内部内勤系统](chapter7/nei-qin.md)
     * [基于svg的关于剧本场景绘制的项目](chapter7/svg-ju-ben.md)
     * [直播管理后台项目](chapter7/live-admin.md)

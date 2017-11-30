@@ -141,3 +141,12 @@ https://www.cnblogs.com/wubaiqing/p/6726429.html
 
 
 react.js书法本质是重绘视图，相当于设置innerHTML，利用diff，更新最小DOM
+
+
+## 解析vue不支持IE8
+
+vue在ie8下运行的报错：
+
+![](./assets/ie8.png)
+
+可以看到不支持ES5的defineProperty，前面有讲这个是vue在数据劫持使用的方法。

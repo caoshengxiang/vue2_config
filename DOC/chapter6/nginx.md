@@ -1,5 +1,8 @@
 # nginx
 
+可以防止外网对内网服务器的恶性攻击、
+缓存以减少服务器的压力和访问安全控制之外，还可以进行负载均衡，（把请求转发给给服务器，决定哪台目标主机来处理当前请求）
+将用户请求分配给多个服务器
 ## window下
 
 window下安装非常简单，直接到官网下载，解压就可以了
@@ -69,3 +72,35 @@ sudo make install
 
 ## 实现会对测试
 
+
+
+>在nginx中配置proxy_pass代理转发时，如果在proxy_pass后面的url加/，表示绝对根路径；如果没有/，表示相对路径，把匹配的路径部分也给代理走
+
+```conf
+#第一种：
+location /proxy/ {
+    proxy_pass http://127.0.0.1/;
+}
+#代理到URL：http://127.0.0.1/test.html
+
+
+#第二种（相对于第一种，最后少一个 / ）
+location /proxy/ {
+    proxy_pass http://127.0.0.1;
+}
+#代理到URL：http://127.0.0.1/proxy/test.html
+
+
+#第三种：
+location /proxy/ {
+    proxy_pass http://127.0.0.1/aaa/;
+}
+#代理到URL：http://127.0.0.1/aaa/test.html
+
+
+#第四种（相对于第三种，最后少一个 / ）
+location /proxy/ {
+    proxy_pass http://127.0.0.1/aaa;
+}
+#代理到URL：http://127.0.0.1/aaatest.html
+```

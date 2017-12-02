@@ -33,3 +33,4 @@ Cross-origin Resource Sharing跨资源共享，使用自定义的HTTP头部让�
 8. web sockets
 
 9. nginx代理
+[总结在这里](./nginx.html)

@@ -10,6 +10,13 @@ import i18n from './i18n'
 
 import './components/awesome'
 
+// 全局组件
+import './components/collapse'
+
+// 全局组件2
+import dialog from './components/toast'
+Vue.use(dialog)
+
 new Vue({
     el: '#app',
     store,

@@ -27,6 +27,22 @@
         <input type="text" :value="inputText" @input="updateMessage">
         <br> 方案２
         <input type="text" v-model="cptInputText">
+
+        <collapse title="镖旗"></collapse>
+
+        <button @click="isShow = !isShow">显示弹窗</button>
+        <com-dialog :show="isShow"
+                    title="标题"
+                    :lineStyle="{height: 0}"
+                    :icon="true"
+                    @close="isShow = false"
+                    @saveHandle="saveHandle"
+                    @cancelHandle="cancelHandle"
+                    :toastShowStyle="{borderRadius: '10px', width: '500px'}">
+            <div>
+                这里是弹窗内容
+            </div>
+        </com-dialog>
     </div>
 </template>
 <script>
@@ -38,7 +54,8 @@
         props: {},
         data () {
             return {
-                placeholder: this.$t('placeholder')
+                placeholder: this.$t('placeholder'),
+                isShow: false
             }
         },
         watch: {
@@ -65,6 +82,14 @@
             ]),
             updateMessage (e) {
                 this.mut_inputText(e.target.value)
+            },
+            saveHandle () {
+                console.log('确定')
+                this.isShow = false
+            },
+            cancelHandle () {
+                console.log('取消')
+                this.isShow = false
             }
         },
         components: {

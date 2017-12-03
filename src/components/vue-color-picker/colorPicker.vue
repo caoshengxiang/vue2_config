@@ -10,18 +10,21 @@ change
 <template lang="html">
   <div class="m-colorPicker" ref="colorPicker" v-on:click="event => { event.stopPropagation() }">
     <!-- 颜色显示小方块 -->
-    <div class="color-s" v-on:click="openStatus = !openStatus">
-        <div class="name">{{name}}</div>
-        <!--<div class="colorBtn"
-          v-bind:style="`background-color: ${showColor}`"
-          v-on:click="openStatus = !disabled"
-          v-bind:class="{ disabled: disabled }"
-        ></div>-->
-        <div class="colorBtn"
-          v-bind:style="`background-color: ${showColor}`"
-          v-bind:class="{ disabled: disabled }"
-        ></div>
-    </div>
+    <slot>
+        <div class="color-s" v-on:click="openStatus = !openStatus">
+            <div class="name">{{name}}</div>
+            <!--<div class="colorBtn"
+              v-bind:style="`background-color: ${showColor}`"
+              v-on:click="openStatus = !disabled"
+              v-bind:class="{ disabled: disabled }"
+            ></div>-->
+            <div class="colorBtn"
+              v-bind:style="`background-color: ${showColor}`"
+              v-bind:class="{ disabled: disabled }"
+            ></div>
+        </div>
+    </slot>
+
 
     <!-- 用以激活HTML5颜色面板 -->
     <input type="color"
@@ -102,6 +105,10 @@ export default {
       name: {
         type: String,
           default: ''
+      },
+      isOpenStatus: { // 面板打开状态,颜色显示小方块分发时使用
+        type: Boolean,
+          default: false
       }
   },
   data () {
@@ -130,6 +137,11 @@ export default {
       html5Color: this.value
     }
   },
+    watch: {
+        isOpenStatus (d) {
+            this.openStatus = d
+        },
+    },
   computed: {
     // 显示面板颜色
     showPanelColor () {

@@ -106,7 +106,7 @@
 </template>
 <script>
     export default {
-        name: '',
+        name: 'ComDialog',
         props: {
             show: { // 弹窗显示隐藏
                 default: false,

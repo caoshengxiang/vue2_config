@@ -1,3 +1,12 @@
+<!--
+1. props
+value 当前颜色 必传
+
+2. event
+input
+change
+-->
+
 <template lang="html">
   <div class="m-colorPicker" ref="colorPicker" v-on:click="event => { event.stopPropagation() }">
     <!-- 颜色显示小方块 -->
@@ -74,7 +83,7 @@
 export default {
   name: 'colorPicker',
   props: {
-    // 当前颜色值
+    // 当前颜色值,必须传
     value: {
       type: String,
       required: true

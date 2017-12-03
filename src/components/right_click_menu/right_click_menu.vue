@@ -3,15 +3,21 @@
 
 右键区域自适应父元素宽高,区域内容直接放在组件<right-click-menu>内
 
-props:
+1. props:
 
 menuList 菜单列表数组
 
-Event:
+2. slot
+默认 content部分
+
+3. Event:
 
 子菜单点击返回两个数据：
  子菜单内容，@content
  菜单索引 @index
+
+ 说明：
+ 右键区域由父容器宽高决定，
 
 例子：
 <div style="width: 600px;height: 400px;border: 1px solid red">
@@ -33,13 +39,15 @@ methods: {
 
 <template>
     <div class="r-c-m" id="rcm" @contextmenu="preventDefault" @mousedown="rightClickMenuHandle">
-        <ul class="menu-content" v-show="menuDisplay" :style="{left: menuX + 'px', top: menuY + 'px'}">
-            <li v-for="(item, index) in menuList"
-                :key="index"
-                @mousedown.stop="clickItemMenu(item, index)"
-            >{{item}}</li>
-        </ul>
-        <slot></slot>
+        <slot>
+            <ul class="menu-content" v-show="menuDisplay" :style="{left: menuX + 'px', top: menuY + 'px'}">
+                <li v-for="(item, index) in menuList"
+                    :key="index"
+                    @mousedown.stop="clickItemMenu(item, index)"
+                >{{item}}
+                </li>
+            </ul>
+        </slot>
     </div>
 </template>
 <script>
@@ -54,7 +62,6 @@ methods: {
         },
         data () {
             return {
-//                menuList: ['1111','2222','3333','44444'],
                 menuDisplay: false,
                 menuX: 0,
                 menuY: 0,
@@ -62,10 +69,10 @@ methods: {
         },
         computed: {},
         methods: {
-            preventDefault(e) {
+            preventDefault (e) {
                 e.preventDefault()
             },
-            rightClickMenuHandle(e) {
+            rightClickMenuHandle (e) {
                 if (e.button === 2) { // 执行右键代码
                     this.menuX = e.clientX - document.getElementById('rcm').offsetLeft
                     this.menuY = e.clientY - document.getElementById('rcm').offsetTop
@@ -77,9 +84,9 @@ methods: {
                 }
 
             },
-            clickItemMenu(item, index) {
+            clickItemMenu (item, index) {
                 this.$emit('content', item)
-                this.$emit('index', index)
+                this.$emit('index', index+1)
                 this.menuDisplay = false
             }
         },
@@ -96,11 +103,12 @@ methods: {
 </script>
 <style lang="scss" rel="stylesheet/scss" scoped>
 
-    .r-c-m{
+    .r-c-m {
         width: 100%;
         height: 100%;
         position: relative;
     }
+
     .menu-content {
         position: absolute;
         border: 1px solid #888;
@@ -113,7 +121,7 @@ methods: {
             padding: 3px 5px;
             cursor: pointer;
             background-color: #fff;
-            &:last-child{
+            &:last-child {
                 border: 0;
             }
         }

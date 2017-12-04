@@ -18,6 +18,9 @@ const icon = resolve => require.ensure([], () => resolve(require('../pages/ui/ic
 const rightMenu = resolve => require.ensure([], () => resolve(require('../pages/ui/rightKeyMumu/menu.vue')), 'rightMenu')
 const dialog = resolve => require.ensure([], () => resolve(require('../pages/ui/dialog/dialog.vue')), 'dialog')
 const color = resolve => require.ensure([], () => resolve(require('../pages/ui/color/color.vue')), 'color')
+const carousel = resolve => require.ensure([], () => resolve(require('../pages/ui/carousel/carousel.vue')), 'carousel')
+const table = resolve => require.ensure([], () => resolve(require('../pages/ui/table/table.vue')), 'table')
+const container = resolve => require.ensure([], () => resolve(require('../pages/ui/container/container.vue')), 'container')
 
 export default new Router({
     // mode: 'history', // 这个模式路由没有#
@@ -63,6 +66,18 @@ export default new Router({
                     path: 'color',
                     name: 'color',
                     component: color,
+                }, {
+                    path: 'carousel',
+                    name: 'carousel',
+                    component: carousel,
+                }, {
+                    path: 'table',
+                    name: 'table',
+                    component: table,
+                }, {
+                    path: 'container',
+                    name: 'container',
+                    component: container,
                 }
             ],
         }

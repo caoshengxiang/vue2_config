@@ -3,7 +3,7 @@
 [查看在线列子](https://caoshengxiang.github.io/comui/#/ui/color)
 
 
-## 效果展示
+## 项目中效果截图
 
 ### 效果一
 

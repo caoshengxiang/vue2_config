@@ -3,7 +3,7 @@
 [查看在线列子](https://caoshengxiang.github.io/comui/#/ui/right_menu)
 
 
-## 效果展示
+## 项目中效果截图
 
 ![](assets/rightClickMenu.png)
 

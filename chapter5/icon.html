@@ -1193,14 +1193,14 @@
                                 
                                 <h1 id="icon-&#x7EC4;&#x4EF6;">icon &#x7EC4;&#x4EF6;</h1>
 <p><a href="https://caoshengxiang.github.io/comui/#/ui/icon" target="_blank">&#x67E5;&#x770B;&#x5728;&#x7EBF;&#x5217;&#x5B50;</a></p>
-<h3 id="&#x6548;&#x679C;&#x5C55;&#x793A;">&#x6548;&#x679C;&#x5C55;&#x793A;</h3>
+<h3 id="&#x9879;&#x76EE;&#x4E2D;&#x6548;&#x679C;&#x622A;&#x56FE;">&#x9879;&#x76EE;&#x4E2D;&#x6548;&#x679C;&#x622A;&#x56FE;</h3>
 <p><img src="assets/icon.png" alt=""></p>
 <h3 id="&#x4F7F;&#x7528;&#x4ECB;&#x7ECD;">&#x4F7F;&#x7528;&#x4ECB;&#x7ECD;</h3>
 <p>&#x6548;&#x679C;&#x4E2D;&#x7EA2;&#x6846;&#x4E2D;&#x7684;&#x56FE;&#x6807;&#xFF0C;&#x662F;vue-awesome&#x56FE;&#x6807;&#xFF0E;</p>
 <p>&#x8BE5;&#x7EC4;&#x4EF6;&#x662F;&#x901A;&#x8FC7;&#x5168;&#x5C40;&#x6CE8;&#x518C;&#xFF0C;&#x5C40;&#x90E8;&#x7EC4;&#x4EF6;&#x65B9;&#x5F0F;&#x540E;&#x671F;&#x8FD0;&#x7528;&#x540E;&#x5B9E;&#x73B0;&#xFF0E;</p>
 <ol>
 <li>&#x5728;vue&#x4E3B;&#x6587;&#x4EF6;&#x4E2D;&#x5F15;&#x5165;
-```
+```js
 /**<ul>
 <li>Created by allen on 17-4-26.
 */
@@ -1222,31 +1222,38 @@ import store from &apos;./store&apos;</li>
 })</p>
 <pre><code>
 2. &#x4F7F;&#x7528;
-</code></pre><p><icon name="chevron-left" scale="1" style="color: #fff"></icon>&#xA0;<span>&#x8FD4;&#x56DE;</span></p>
-<pre><code>
-`name`&#x662F;&#x56FE;&#x6807;&#x540D;&#x79F0;&#xFF0C;&#x8FD9;&#x4E2A;&#x540D;&#x79F0;&#x53EF;&#x5728;[awesome&#x5B98;&#x7F51;&#x67E5;&#x627E;](http://fontawesome.dashgame.com/)
+```html
+&lt;icon 
+    name=&quot;chevron-left&quot; 
+    scale=&quot;1&quot; 
+    style=&quot;color: #fff&quot;&gt;&lt;/icon&gt;
+</code></pre><p><code>name</code>&#x662F;&#x56FE;&#x6807;&#x540D;&#x79F0;&#xFF0C;&#x8FD9;&#x4E2A;&#x540D;&#x79F0;&#x53EF;&#x5728;<a href="http://fontawesome.dashgame.com/" target="_blank">awesome&#x5B98;&#x7F51;&#x67E5;&#x627E;</a></p>
+<h3 id="&#x5168;&#x5C40;&#x6CE8;&#x518C;">&#x5168;&#x5C40;&#x6CE8;&#x518C;</h3>
+<pre><code class="lang-js"><span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;vue&apos;</span>
 
+<span class="hljs-comment">/* Pick one way between the 2 following ways */</span>
 
+<span class="hljs-comment">// only import the icons you use to reduce bundle size</span>
+<span class="hljs-keyword">import</span> <span class="hljs-string">&apos;vue-awesome/icons/flag&apos;</span>
 
-### &#x4EE3;&#x7801;&#x8BB2;&#x89E3;
-</code></pre><p>import Vue from &apos;vue&apos;</p>
-<p>/<em> Pick one way between the 2 following ways </em>/</p>
-<p>// only import the icons you use to reduce bundle size
-import &apos;vue-awesome/icons/flag&apos;</p>
-<p>// or import all icons if you don&apos;t care about bundle size
-import &apos;vue-awesome/icons&apos;</p>
-<p>/<em> Register component with one of 2 methods </em>/</p>
-<p>import Icon from &apos;vue-awesome/components/Icon&apos;</p>
-<p>// globally (in your main .js file)
-Vue.component(&apos;icon&apos;, Icon)</p>
-<p>// or locally (in your component file)
-/<em>
+<span class="hljs-comment">// or import all icons if you don&apos;t care about bundle size</span>
+<span class="hljs-keyword">import</span> <span class="hljs-string">&apos;vue-awesome/icons&apos;</span>
+
+<span class="hljs-comment">/* Register component with one of 2 methods */</span>
+
+<span class="hljs-keyword">import</span> Icon <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;vue-awesome/components/Icon&apos;</span>
+
+<span class="hljs-comment">// globally (in your main .js file)</span>
+Vue.component(<span class="hljs-string">&apos;icon&apos;</span>, Icon)
+
+<span class="hljs-comment">// or locally (in your component file)</span>
+<span class="hljs-comment">/*
 export default {
     components: {
         Icon
     }
-}</em>/</p>
-<p>```</p>
+}*/</span>
+</code></pre>
 
                                 
                                 </section>
@@ -1290,7 +1297,7 @@ export default {
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"icon 组件","level":"1.6.2","depth":2,"next":{"title":"弹框","level":"1.6.3","depth":2,"path":"chapter5/toast.md","ref":"chapter5/toast.md","articles":[]},"previous":{"title":"页头组件","level":"1.6.1","depth":2,"path":"chapter5/header.md","ref":"chapter5/header.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter5/icon.md","mtime":"2017-12-04T15:50:18.549Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-12-04T16:20:31.616Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"icon 组件","level":"1.6.2","depth":2,"next":{"title":"弹框","level":"1.6.3","depth":2,"path":"chapter5/toast.md","ref":"chapter5/toast.md","articles":[]},"previous":{"title":"页头组件","level":"1.6.1","depth":2,"path":"chapter5/header.md","ref":"chapter5/header.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter5/icon.md","mtime":"2017-12-05T01:28:22.791Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-12-05T01:32:10.998Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

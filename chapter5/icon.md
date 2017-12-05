@@ -2,7 +2,7 @@
 
 [查看在线列子](https://caoshengxiang.github.io/comui/#/ui/icon)
 
-### 效果展示
+### 项目中效果截图
 
 ![](./assets/icon.png)
 
@@ -13,7 +13,7 @@
 该组件是通过全局注册，局部组件方式后期运用后实现．
 
 1. 在vue主文件中引入
-```
+```js
 /**
  * Created by allen on 17-4-26.
  */
@@ -36,17 +36,20 @@ new Vue({
 ```
 
 2. 使用
-```
-<icon name="chevron-left" scale="1" style="color: #fff"></icon>&nbsp;<span>返回</span>
+```html
+<icon 
+    name="chevron-left" 
+    scale="1" 
+    style="color: #fff"></icon>
 ```
 
 `name`是图标名称，这个名称可在[awesome官网查找](http://fontawesome.dashgame.com/)
 
 
 
-### 代码讲解
+### 全局注册
 
-```
+```js
 import Vue from 'vue'
 
 /* Pick one way between the 2 following ways */

@@ -2,7 +2,7 @@
 
 [查看在线列子](https://caoshengxiang.github.io/comui/#/ui/dialog)
 
-### 效果展示
+### 项目中效果截图
 ##### 效果１
 ![](./assets/toast.png)
 ##### 效果２
@@ -17,23 +17,26 @@
     [px2rem在这里有介绍](../chapter4/cssFun.html)
 使用：
     一. Attributes
-        show {Boolean} 默认false,  显示组件
-
-        title {String} 标题，（为空时slot分发）
-
-        icon {}
-
-        lineStyle {Object} 标题下方的线styled对象 title使用slot分发是无线，默认有线（可选惨，lineH线高, color颜色），不要线调用组件时 :lineStyle="{lineH: '0px'}"
-
-        width {String} 展示框的宽度
+    
+|名称|说明|
+|---|---|
+|show |{Boolean} 默认false,  显示组件|
+|title |{String} 标题，（为空时slot分发）|
+|icon |{}|
+|lineStyle |{Object} 标题下方的线styled对象 title使用slot分发是无线，默认有线（可选惨，lineH线高, color颜色），不要线调用组件时 :lineStyle="{lineH: '0px'}"
+|width |{String} 展示框的宽度
 
     二.Events
-        closeToast 关闭弹框事件 父组件 必须v-on监听，不用$on （详见vue官网，自定义事件）
+|名称|说明|
+|---|---|
+|closeToast |关闭弹框事件 父组件 必须v-on监听，不用$on （详见vue官网，自定义事件）|
 
     三.slot
-        1. title
-        2. icon  说明：再无title分发时有效
-        3. container和未命名slot。
+|名称|说明|
+|---|---|
+|title|标题|
+|icon  |说明：再无title分发时有效|
+|container和未命名slot|内容|
 
     四. 组件中存在问题
         1.事件传递时向父组件传递参数。父组件监听事件时，本身处理函数也需要传参数，如：将for循环中的数据作为参数传递，这种情况下组件传递到父组件的参数不能获取

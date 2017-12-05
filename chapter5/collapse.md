@@ -3,7 +3,7 @@
 [查看在线列子](https://caoshengxiang.github.io/comui/#/ui/collapse)
 
 
-## 效果展示
+## 项目中效果截图
 
 ###　效果一
 
@@ -16,6 +16,20 @@
 ![](assets/collapse2.png)
 
 ## 使用说明
+
+
+1. props
+
+名称|说明
+---|---
+title |标题
+
+2. slot
+
+名称|说明
+---|---
+title |标题栏
+默认 |容器
 
 具体实现在`collapse.vue`文件
 

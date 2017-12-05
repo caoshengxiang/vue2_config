@@ -1,9 +1,9 @@
 # 下拉菜单组件
 
-[查看在线列子](https://caoshengxiang.github.io/comui/#/ui/right_menu)
+[查看在线列子](https://caoshengxiang.github.io/comui/#/ui/dropdown_menu)
 
 
-## drawdown_menu.vue 组件效果展示
+## 项目中效果截图
 
 **效果一**
 

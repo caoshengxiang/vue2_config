@@ -1,11 +1,12 @@
 # 页头组件
 
-### 效果展示
+
+[查看在线列子](https://caoshengxiang.github.io/comui/#/ui/header)
+
+### 项目中效果截图
 
 ![](./assets/header.png)
 
-
-[查看在线列子](https://caoshengxiang.github.io/comui/#/ui/header)
 
 ------------------------
 ### 使用介绍

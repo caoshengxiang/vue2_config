@@ -1,5 +1,6 @@
 # 表格
 
+表格是响应式，兼容移动端，可点击列子，F12-手机模式查看效果
 [查看在线列子](https://caoshengxiang.github.io/comui/#/ui/table)
 
 1. 使用

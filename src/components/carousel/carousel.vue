@@ -8,7 +8,9 @@
   btnDisplay　左右按钮显示
   listDisplay 列表显示
   interval 轮播周期　ms
-
+  btnSide 左右按钮位置 outside,inside, 默认inside
+  listSide 序列位置 outside,inside, 默认inside
+  listPosition 序列位置 top,right,bottom,left 默认bottom
   // todo 左右按钮显示及样式，序列的显示及样式
 
   2. slot
@@ -25,9 +27,15 @@
 -->
 <template>
   <div class="carousel">
-    <div class="carousel-btn" v-if="true">
-      <a class="l" @click="switchLeft"><</a>
-      <a class="r" @click="switchRight">></a>
+    <div class="carousel-btn" v-if="btnDisplay">
+      <a :class="{
+      'l-inside': btnSide === 'inside',
+      'l-outside': btnSide === 'outside'
+    }" @click="switchLeft"><</a>
+      <a :class="{
+      'r-inside': btnSide === 'inside',
+      'r-outside': btnSide === 'outside'
+    }" @click="switchRight">></a>
     </div>
 
     <div class="carousel-box">
@@ -38,8 +46,20 @@
       </transition>
     </div>
 
-    <div class='carousel-list' v-if="listDisplay">
-      <ul class="ul" style="display: flex;justify-content: center">  <!--这儿放圆点，并且绑定click，-->
+    <div v-if="listDisplay"
+         class='carousel-list'
+         :class="{
+          'list-pos-top': listPosition === 'top',
+          'list-pos-right': listPosition === 'right',
+          'list-pos-bottom': listPosition === 'bottom',
+          'list-pos-left': listPosition === 'left',
+          'carousel-list-inside': listSide === 'inside',
+          'carousel-list-outside': listSide === 'outside',
+         }"
+    >
+      <ul class="ul"
+
+      >  <!--这儿放圆点，并且绑定click，-->
         　　　　
         <li v-for='num in images.length' :style="{color:(num - 1) == imgIndex?'red':'green'}"
             @click='listBtn(num - 1)' class='li'>●
@@ -69,15 +89,15 @@
       },
       switch: { // 分发时图片切换序号,
         type: Number,
-        default: 0
+        default: 0,
       },
       interval: { // 轮播周期 /ms
         type: Number,
-        default: 1500
+        default: 1500,
       },
       btnSide: { // 左右按钮位置，inside,outside
         type: String,
-        default: 'inside'
+        default: 'inside',
       },
       listPosition: { // 序列位置，left,right,top,bottom;
         type: String,
@@ -85,8 +105,8 @@
       },
       listSide: { // inside,outside
         type: String,
-        default: 'inside'
-      }
+        default: 'inside',
+      },
     },
     data () {
       return {
@@ -143,7 +163,7 @@
       },
       imgClick (index) {
         this.$emit('imgClick', index)
-      }
+      },
     },
     created () {
       setTimeout(() => {
@@ -157,7 +177,6 @@
     position: relative;
     height: 100%;
     width: 100%;
-    overflow: hidden;
   }
 
   /*左右按钮*/
@@ -169,20 +188,30 @@
       position: absolute;
       z-index: 100;
       top: 40%;
-      color: #fff;
       cursor: pointer;
     }
-    .l {
+    .l-inside {
       left: 30px;
     }
-    .r {
+    .r-inside {
       right: 30px;
+    }
+    .l-outside {
+      left: -50px;
+      color: #000000;
+    }
+    .r-outside {
+      right: -50px;
+      color: #000000;
     }
   }
 
   .carousel-box {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
     overflow: hidden;
-    /*position: relative;*/
+    position: relative;
   }
 
   .carousel-img {
@@ -190,17 +219,90 @@
     position: absolute; //设置绝对定位
   }
 
+  /*列表位置样式*/
   .carousel-list {
     z-index: 101;
     font-size: 30px;
     position: absolute;
-    bottom: 20px;
     width: 100%;
+    ul {
+
+    }
     li {
       cursor: pointer;
       margin: 0 10px;
     }
   }
+
+  .list-pos-top { // top
+    .ul {
+      display: flex;
+      justify-content: center;
+    }
+    &.carousel-list-inside {
+      top: 20px;
+    }
+
+    &.carousel-list-outside {
+      margin: 10px;
+      top: -50px;
+    }
+  }
+
+  .list-pos-right { // right
+
+    &.carousel-list-inside {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      top: 0;
+      height: 100%;
+    }
+
+    &.carousel-list-outside {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      top: 0;
+      height: 100%;
+      right: -50px;
+    }
+  }
+
+  .list-pos-bottom {
+    .ul {
+      display: flex;
+      justify-content: center;
+    }
+    &.carousel-list-inside {
+      bottom: 20px;
+    }
+
+    &.carousel-list-outside {
+      margin: 10px;
+    }
+  }
+
+  .list-pos-left {
+    &.carousel-list-inside {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      top: 0;
+      height: 100%;
+    }
+
+    &.carousel-list-outside {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      top: 0;
+      height: 100%;
+      left: -50px;
+    }
+  }
+
+  /*列表位置样式 end*/
 
   /*右往左*/
   .tra1-enter {

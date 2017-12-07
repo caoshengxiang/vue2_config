@@ -1,0 +1,43 @@
+@import "./var";
+
+// 文字一行显示
+.com-a-line-dash {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden
+}
+
+// 文字单行显示
+.com-a-line {
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+
+// 红星号
+.com-red-dot {
+  &:before {
+    content: '*';
+    display: inline-block;
+    color: red;
+    padding-right: 3px;
+  }
+}
+
+// 虚线
+.com-dashed-line {
+  width: 100%;
+  //height: 0px;
+  border-bottom: 1px dashed #ccc;
+}
+
+
+
+/* main 公用样式 */
+.h1 {
+  margin: 30px;
+}
+.h3 {
+  margin: 10px;
+}

@@ -64,6 +64,7 @@
     * [ssh-keygen](chapter6/ssh-keygen.md)
     * [git](chapter6/git.md)
     * [npm笔记](chapter6/npm.md)
+    * [重排重绘](chapter6/chong-pai-hui.md)
 * [项目总结](chapter7/README.md)
     * [地铁管理系统](chapter7/bs.md)
     * [公司内部内勤系统](chapter7/nei-qin.md)

@@ -45,3 +45,5 @@ vue在ie8下运行的报错：
 2. [Echart](http://echarts.baidu.com/feature.html)
 
 >ECharts 基于 Canvas 的纯 Javascript 实现的图表库，提供直观，生动，可交互，可个性化定制的数据可视化图表。创新的拖拽重计算、数据视图、值域漫游等特性大大增强了用户体验，赋予了用户对数据进行挖掘、整合的能力。
+
+## window server部署

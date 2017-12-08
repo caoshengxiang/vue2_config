@@ -19,10 +19,13 @@
 加密算法：md5，sha1，base64（google的库crypto-js）
 
 2. 有效期token＋加密后的密文密码
+// TODO
 
 3. 验证码
+// TODO
 
 3. HTTPS
+// TODO
 
 >https加密是用的随机密钥的desc加密的.每次通信密钥是不一样的.截取密文是没有意义的.
 
@@ -32,7 +35,10 @@
 
 ## 威胁
 ### 通讯劫持
+// TODO
 
 ### 数据库泄露
+// TODO
 
 ### 内部查询
+// TODO

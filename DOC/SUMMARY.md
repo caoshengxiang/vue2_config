@@ -20,6 +20,7 @@
     * [轮播组件](chapter5/carousel.md)
     * [表格](chapter5/table.md)
     * [布局](chapter5/container.md)
+    * [视频播放器](chapter5/video.md)
 * [FE](chapter6/README.md)
     * [ES6](chapter6/es6.md)
     * [axios](chapter6/axios.md)

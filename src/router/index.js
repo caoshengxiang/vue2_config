@@ -21,6 +21,7 @@ const color = resolve => require.ensure([], () => resolve(require('../pages/ui/c
 const carousel = resolve => require.ensure([], () => resolve(require('../pages/ui/carousel/carousel.vue')), 'carousel')
 const table = resolve => require.ensure([], () => resolve(require('../pages/ui/table/table.vue')), 'table')
 const container = resolve => require.ensure([], () => resolve(require('../pages/ui/container/container.vue')), 'container')
+const video = resolve => require.ensure([], () => resolve(require('../pages/ui/video/videoPlay')), 'video')
 
 export default new Router({
     // mode: 'history', // 这个模式路由没有#
@@ -78,6 +79,10 @@ export default new Router({
                     path: 'container',
                     name: 'container',
                     component: container,
+                }, {
+                    path: 'video',
+                    name: 'video',
+                    component: video,
                 }
             ],
         }

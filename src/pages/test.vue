@@ -68,10 +68,10 @@
                 'inputText'
             ]),
             cptInputText: {
-                get() {
+                get () {
                     return this.inputText
                 },
-                set(value) {
+                set (value) {
                     this.mut_inputText(value)
                 }
             }

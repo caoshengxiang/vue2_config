@@ -1,5 +1,15 @@
 # video播放
 
+[点击这里看看封装h5播放器](https://caoshengxiang.github.io/comui/#/ui/video)
+
+[点击这里看看封装h5播放器](https://caoshengxiang.github.io/comui/#/ui/video)
+
+[点击这里看看封装h5播放器](https://caoshengxiang.github.io/comui/#/ui/video)
+
+![](./assets/video-s/png)
+
+>还有很多细节没有处理，// todo 后面继续优化
+
 ## H5 video
 
 ```html

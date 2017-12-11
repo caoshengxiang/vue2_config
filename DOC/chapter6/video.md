@@ -270,28 +270,34 @@ myplayer.ontimeupdate = function(){} // 当前播放位置改变则执行函数
     width: 100%;
   }
 ```
-## 视频加密Blob
-
-本想给个输入框,输入视频地址播放,发现发现很多直播,视频都是blog:http加密过得
-[先看下别人的理解](https://www.xttblog.com/?p=1587)
 
 // TODO
 
+## RTMP
+
+RTMP是Adobe开发的协议，无法在iPhone中兼容，故目前兼容最好的就是HLS协议了
 
 ## h5播放m3u8
->HLS，Http Live Streaming 是由Apple公司定义的用于实时流传输的协议，HLS基于HTTP协议实现，传输内容主要包括两部分，一是M3U8描述文件，二是TS媒体文件。我们可以理解其就是一种视频格式，这里对于其原理不做过多分析，如需了解，请查阅HLS相关资料。.m3u8格式视频需要两个条件：
+>m3u8 是一种基于  [HTTP Live Streaming](https://en.wikipedia.org/wiki/HTTP_Live_Streaming) 文件视频格式;HLS， 是由Apple公司定义的用于实时流传输的协议，HLS基于HTTP协议实现，传输内容主要包括两部分，一是M3U8描述文件，二是TS媒体文件。原理上是将视频流分片成一系列HTTP下载文件。.m3u8格式视频需要两个条件：
 
 1. 支持H5的video标签；
 2. 在条件1的基础上同时需要支持.m3u8类型的视频播放。
 
-由于HLS这种协议是由Apple公司定义的，所以苹果手机能够很好的支持.m3u8视频的播放；android手机浏览器只要支持H5的video标签就基本上支持.m3u8这种类型的视频播放；而PC端浏览器即使支持H5的video标签，也不支持.m3u8视频的播放。浏览器的兼容性:
+android手机浏览器只要支持H5的video标签就基本上支持.m3u8这种类型的视频播放；而PC端浏览器即使支持H5的video标签，也不支持.m3u8视频的播放。浏览器的兼容性:
 
 ![](./assets/m3u8.png)
 
 >m3u8 是一种基于  [HTTP Live Streaming](https://en.wikipedia.org/wiki/HTTP_Live_Streaming) 文件视频格式
 
->我看pc解决m3u8还是通过flash解决
+>我看pc解决m3u8还可通过flash解决
 ,// TODO 之后有空在写这部分
+
+## 视频加密Blob
+
+本想给个输入框,输入视频地址播放,发现发现很多直播,视频都是blog:http加密过得
+[先看下别人的理解](https://www.xttblog.com/?p=1587)
+
+之前一直不知道为什么f12看到很多直播平台,视频网站的视频地址都是blog:http开头的,接触hls.js大概会明白些.都使用hls.js绑定后的地址就是这样
 
 ## video.js
 [video.js官网](http://videojs.com/)

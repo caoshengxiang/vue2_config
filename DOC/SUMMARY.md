@@ -30,7 +30,7 @@
     * [webpack](chapter6/webpack.md)
     * [react](chapter6/react.md)
     * [svg](chapter6/svg.md)
-    * [video播放](chapter6/video.md)
+    * [html video播放](chapter6/video.md)
     * [github](chapter6/github.md)
     * [linux](chapter6/linux.md)
     * [AJAX xhr](chapter6/ajax.md)

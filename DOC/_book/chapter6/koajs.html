@@ -1,0 +1,1371 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>koa.js · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="nginx.html" />
+    
+    
+    <link rel="prev" href="axios.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../chapter1/">
+            
+                <a href="../chapter1/">
+            
+                    
+                    一章 介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../chapter2/">
+            
+                <a href="../chapter2/">
+            
+                    
+                    二章 webpack配置
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../chapter2/content1.html">
+            
+                <a href="../chapter2/content1.html">
+            
+                    
+                    2.1节
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../chapter2/content2.html">
+            
+                <a href="../chapter2/content2.html">
+            
+                    
+                    2.2节
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../chapter3/">
+            
+                <a href="../chapter3/">
+            
+                    
+                    三章 项目介绍和运行
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../chapter4/">
+            
+                <a href="../chapter4/">
+            
+                    
+                    四章 通用
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../chapter4/jsFun.html">
+            
+                <a href="../chapter4/jsFun.html">
+            
+                    
+                    js 函数库
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../chapter4/cssFun.html">
+            
+                <a href="../chapter4/cssFun.html">
+            
+                    
+                    css 函数库
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../chapter5/">
+            
+                <a href="../chapter5/">
+            
+                    
+                    五章 通用组件库
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../chapter5/header.html">
+            
+                <a href="../chapter5/header.html">
+            
+                    
+                    页头组件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../chapter5/icon.html">
+            
+                <a href="../chapter5/icon.html">
+            
+                    
+                    icon 组件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../chapter5/toast.html">
+            
+                <a href="../chapter5/toast.html">
+            
+                    
+                    弹框
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../chapter5/drawdown.html">
+            
+                <a href="../chapter5/drawdown.html">
+            
+                    
+                    下拉菜单组件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../chapter5/color.html">
+            
+                <a href="../chapter5/color.html">
+            
+                    
+                    颜色选择器组件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="../chapter5/collapse.html">
+            
+                <a href="../chapter5/collapse.html">
+            
+                    
+                    折叠板
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="../chapter5/rightClickMenu.html">
+            
+                <a href="../chapter5/rightClickMenu.html">
+            
+                    
+                    右键菜单
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.8" data-path="../chapter5/carousel.html">
+            
+                <a href="../chapter5/carousel.html">
+            
+                    
+                    轮播组件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.9" data-path="../chapter5/table.html">
+            
+                <a href="../chapter5/table.html">
+            
+                    
+                    表格
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.10" data-path="../chapter5/container.html">
+            
+                <a href="../chapter5/container.html">
+            
+                    
+                    布局
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.11" data-path="../chapter5/video.html">
+            
+                <a href="../chapter5/video.html">
+            
+                    
+                    视频播放器
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    FE
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="es6.html">
+            
+                <a href="es6.html">
+            
+                    
+                    ES6
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="axios.html">
+            
+                <a href="axios.html">
+            
+                    
+                    axios
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.7.3" data-path="koajs.html">
+            
+                <a href="koajs.html">
+            
+                    
+                    koa.js
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="nginx.html">
+            
+                <a href="nginx.html">
+            
+                    
+                    nginx
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="vue.html">
+            
+                <a href="vue.html">
+            
+                    
+                    vue.js
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="webpack.html">
+            
+                <a href="webpack.html">
+            
+                    
+                    webpack
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" data-path="react.html">
+            
+                <a href="react.html">
+            
+                    
+                    react
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.8" data-path="svg.html">
+            
+                <a href="svg.html">
+            
+                    
+                    svg
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.9" data-path="video.html">
+            
+                <a href="video.html">
+            
+                    
+                    html video播放
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.10" data-path="github.html">
+            
+                <a href="github.html">
+            
+                    
+                    github
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.11" data-path="linux.html">
+            
+                <a href="linux.html">
+            
+                    
+                    linux
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.12" data-path="ajax.html">
+            
+                <a href="ajax.html">
+            
+                    
+                    AJAX xhr
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.13" data-path="js-lian-shi-diao-yong.html">
+            
+                <a href="js-lian-shi-diao-yong.html">
+            
+                    
+                    js对象的链式调用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.14" data-path="js-shen-ru.html">
+            
+                <a href="js-shen-ru.html">
+            
+                    
+                    js 深入了解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.15" data-path="js-event.html">
+            
+                <a href="js-event.html">
+            
+                    
+                    js Event事件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.16" data-path="js-bibao.html">
+            
+                <a href="js-bibao.html">
+            
+                    
+                    js 闭包的理解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.17" data-path="js-promise.html">
+            
+                <a href="js-promise.html">
+            
+                    
+                    js promise理解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.18" data-path="js-jicheng.html">
+            
+                <a href="js-jicheng.html">
+            
+                    
+                    js 继承理解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.19" data-path="js-this.html">
+            
+                <a href="js-this.html">
+            
+                    
+                    js this理解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.20" data-path="js-prototype.html">
+            
+                <a href="js-prototype.html">
+            
+                    
+                    js 原型链理解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.21" data-path="js-formdata.html">
+            
+                <a href="js-formdata.html">
+            
+                    
+                    js 文件上传FormData对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.22" data-path="js-console.html">
+            
+                <a href="js-console.html">
+            
+                    
+                    js 丰富你的console
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.23" data-path="http-code.html">
+            
+                <a href="http-code.html">
+            
+                    
+                    https和常见的http状态码的理解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.24" data-path="url-process.html">
+            
+                <a href="url-process.html">
+            
+                    
+                    url请求过程-get,post
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.25" data-path="js-suanfa.html">
+            
+                <a href="js-suanfa.html">
+            
+                    
+                    前端算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.26" data-path="js-sheji.html">
+            
+                <a href="js-sheji.html">
+            
+                    
+                    前端设计模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.27" data-path="kuayu.html">
+            
+                <a href="kuayu.html">
+            
+                    
+                    跨域理解，同源
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.28" data-path="youhua.html">
+            
+                <a href="youhua.html">
+            
+                    
+                    优化总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.29" data-path="neicun.html">
+            
+                <a href="neicun.html">
+            
+                    
+                    栈内存和堆内存理解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.30" data-path="chuchun.html">
+            
+                <a href="chuchun.html">
+            
+                    
+                    cookie、localStorage和sessionStorage
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.31" data-path="huancun.html">
+            
+                <a href="huancun.html">
+            
+                    
+                    缓存
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.32" data-path="lu-you.html">
+            
+                <a href="lu-you.html">
+            
+                    
+                    路由理解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.33" data-path="web-an-quan.html">
+            
+                <a href="web-an-quan.html">
+            
+                    
+                    web安全问题的理解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.34" data-path="css-bfc.html">
+            
+                <a href="css-bfc.html">
+            
+                    
+                    BFC 总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.35" data-path="css-buju.html">
+            
+                <a href="css-buju.html">
+            
+                    
+                    布局方案总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.36" data-path="css-form.html">
+            
+                <a href="css-form.html">
+            
+                    
+                    css-浏览器表单自动填充
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.37" data-path="js-module.html">
+            
+                <a href="js-module.html">
+            
+                    
+                    js 模块化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.38" data-path="ubuntu-uninstall.html">
+            
+                <a href="ubuntu-uninstall.html">
+            
+                    
+                    ubuntu下卸载webstorm
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.39" data-path="color-code.html">
+            
+                <a href="color-code.html">
+            
+                    
+                    颜色代码理解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.40" data-path="markdown.html">
+            
+                <a href="markdown.html">
+            
+                    
+                    MarkDown一个神奇的东西
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.41" data-path="gh-pages.html">
+            
+                <a href="gh-pages.html">
+            
+                    
+                    gh-pages　分支
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.42" data-path="eslint.html">
+            
+                <a href="eslint.html">
+            
+                    
+                    ESLint
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.43" data-path="jsFiddle.html">
+            
+                <a href="jsFiddle.html">
+            
+                    
+                    代码分享 jsFiddle
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.44" data-path="test.html">
+            
+                <a href="test.html">
+            
+                    
+                    前端测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.45" data-path="ssh-keygen.html">
+            
+                <a href="ssh-keygen.html">
+            
+                    
+                    ssh-keygen
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.46" data-path="git.html">
+            
+                <a href="git.html">
+            
+                    
+                    git
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.47" data-path="npm.html">
+            
+                <a href="npm.html">
+            
+                    
+                    npm笔记
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.48" data-path="chong-pai-hui.html">
+            
+                <a href="chong-pai-hui.html">
+            
+                    
+                    重排重绘
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../chapter7/">
+            
+                <a href="../chapter7/">
+            
+                    
+                    项目总结
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../chapter7/bs.html">
+            
+                <a href="../chapter7/bs.html">
+            
+                    
+                    地铁管理系统
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../chapter7/nei-qin.html">
+            
+                <a href="../chapter7/nei-qin.html">
+            
+                    
+                    公司内部内勤系统
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../chapter7/svg-ju-ben.html">
+            
+                <a href="../chapter7/svg-ju-ben.html">
+            
+                    
+                    基于svg的关于剧本场景绘制的项目
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.4" data-path="../chapter7/live-admin.html">
+            
+                <a href="../chapter7/live-admin.html">
+            
+                    
+                    直播管理后台项目
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.5" data-path="../chapter7/weixin-pub.html">
+            
+                <a href="../chapter7/weixin-pub.html">
+            
+                    
+                    weixin公众号项目
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.6" data-path="../chapter7/m-live.html">
+            
+                <a href="../chapter7/m-live.html">
+            
+                    
+                    手机直播项目
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.7" data-path="../chapter7/m-shang-cheng.html">
+            
+                <a href="../chapter7/m-shang-cheng.html">
+            
+                    
+                    手机商城项目
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.8" data-path="../chapter7/guan-wang-1.html">
+            
+                <a href="../chapter7/guan-wang-1.html">
+            
+                    
+                    饮食官网
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.9" data-path="../chapter7/jiu-dian-admin.html">
+            
+                <a href="../chapter7/jiu-dian-admin.html">
+            
+                    
+                    酒店后台管理项目
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.10" data-path="../chapter7/bi-she-node.html">
+            
+                <a href="../chapter7/bi-she-node.html">
+            
+                    
+                    毕设express项目
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.11" data-path="../chapter7/hun-he-app.html">
+            
+                <a href="../chapter7/hun-he-app.html">
+            
+                    
+                    商品采购－混合APP
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >koa.js</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <link rel="stylesheet" href="../static/styles.css">
+
+<h1 id="koajs">koa.js</h1>
+<h2 id="&#x68C0;&#x6D4B;node&#x7248;&#x672C;">&#x68C0;&#x6D4B;node&#x7248;&#x672C;</h2>
+<blockquote>
+<p>$ node -v
+  v8.0.0</p>
+</blockquote>
+<p>Koa &#x5FC5;&#x987B;&#x4F7F;&#x7528; 7.6 &#x4EE5;&#x4E0A;&#x7684;&#x7248;&#x672C;&#x3002;&#x5982;&#x679C;&#x4F60;&#x7684;&#x7248;&#x672C;&#x4F4E;&#x4E8E;&#x8FD9;&#x4E2A;&#x8981;&#x6C42;&#xFF0C;&#x5C31;&#x8981;&#x5148;&#x5347;&#x7EA7; Node&#x3002;</p>
+<h2 id="mongodb&#x3000;&#x5B89;&#x88C5;">mongoDB&#x3000;&#x5B89;&#x88C5;</h2>
+<ol>
+<li>ubuntu &#x5B89;&#x88C5;</li>
+</ol>
+<p><a href="http://blog.csdn.net/flyfish111222/article/details/51886787" target="_blank">&#x535A;&#x5BA2;&#x6559;&#x7A0B;</a></p>
+<ol>
+<li>window&#x3000;&#x5B89;&#x88C5;</li>
+</ol>
+<p><a href="http://www.yiibai.com/mongodb/mongodb_quick_guide.html" target="_blank">&#x535A;&#x5BA2;&#x6559;&#x7A0B;</a></p>
+<h3 id="&#x547D;&#x4EE4;">&#x547D;&#x4EE4;</h3>
+<p><code>mongo -version</code> &#x547D;&#x4EE4;&#x67E5;&#x770B;MongoDB&#x7248;&#x672C;</p>
+<p><code>service mongodb start</code> &#x542F;&#x52A8;&#x548C;&#x5173;&#x95ED;mongodb&#x547D;&#x4EE4;</p>
+<p><code>service mongodb stop</code></p>
+<pre><code class="lang-linux">mongo // &#x8FDB;&#x5165;&#x6570;&#x636E;&#x5E93;&#x64CD;&#x4F5C;&#x547D;&#x4EE4;&#x884C;
+show dbs:&#x663E;&#x793A;&#x6570;&#x636E;&#x5E93;&#x5217;&#x8868;
+show collections&#xFF1A;&#x663E;&#x793A;&#x5F53;&#x524D;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x7684;&#x96C6;&#x5408;&#xFF08;&#x7C7B;&#x4F3C;&#x5173;&#x7CFB;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x7684;&#x8868;&#xFF09;
+show users&#xFF1A;&#x663E;&#x793A;&#x7528;&#x6237;
+db &#x8981;&#x68C0;&#x67E5;&#x5F53;&#x524D;&#x9009;&#x62E9;&#x7684;&#x6570;&#x636E;&#x5E93;&#x4F7F;&#x7528;&#x547D;&#x4EE4; db
+
+use &lt;db name&gt;&#xFF1A;&#x5207;&#x6362;&#x5F53;&#x524D;&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x8FD9;&#x548C;MS-SQL&#x91CC;&#x9762;&#x7684;&#x610F;&#x601D;&#x4E00;&#x6837;
+db.help()&#xFF1A;&#x663E;&#x793A;&#x6570;&#x636E;&#x5E93;&#x64CD;&#x4F5C;&#x547D;&#x4EE4;&#xFF0C;&#x91CC;&#x9762;&#x6709;&#x5F88;&#x591A;&#x7684;&#x547D;&#x4EE4;
+db.foo.help()&#xFF1A;&#x663E;&#x793A;&#x96C6;&#x5408;&#x64CD;&#x4F5C;&#x547D;&#x4EE4;&#xFF0C;&#x540C;&#x6837;&#x6709;&#x5F88;&#x591A;&#x7684;&#x547D;&#x4EE4;&#xFF0C;foo&#x6307;&#x7684;&#x662F;&#x5F53;&#x524D;&#x6570;&#x636E;&#x5E93;&#x4E0B;&#xFF0C;&#x4E00;&#x4E2A;&#x53EB;foo&#x7684;&#x96C6;&#x5408;&#xFF0C;&#x5E76;&#x975E;&#x771F;&#x6B63;&#x610F;&#x4E49;&#x4E0A;&#x7684;&#x547D;&#x4EE4;
+db.foo.find()&#xFF1A;&#x5BF9;&#x4E8E;&#x5F53;&#x524D;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x7684;foo&#x96C6;&#x5408;&#x8FDB;&#x884C;&#x6570;&#x636E;&#x67E5;&#x627E;&#xFF08;&#x7531;&#x4E8E;&#x6CA1;&#x6709;&#x6761;&#x4EF6;&#xFF0C;&#x4F1A;&#x5217;&#x51FA;&#x6240;&#x6709;&#x6570;&#x636E;&#xFF09;
+db.foo.find( { a : 1 } )&#xFF1A;&#x5BF9;&#x4E8E;&#x5F53;&#x524D;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x7684;foo&#x96C6;&#x5408;&#x8FDB;&#x884C;&#x67E5;&#x627E;&#xFF0C;&#x6761;&#x4EF6;&#x662F;&#x6570;&#x636E;&#x4E2D;&#x6709;&#x4E00;&#x4E2A;&#x5C5E;&#x6027;&#x53EB;a&#xFF0C;&#x4E14;a&#x7684;&#x503C;&#x4E3A;1
+
+db.dropDatabase() &#x547D;&#x4EE4;&#x7528;&#x4E8E;&#x5220;&#x9664;&#x73B0;&#x6709;&#x7684;&#x6570;&#x636E;&#x5E93;&#x3002;
+</code></pre>
+<p>&#x66F4;&#x591A;&#x547D;&#x4EE4;<a href="http://www.cnblogs.com/garinzhang/p/mongoDB_basic_usage.html" target="_blank">&#x770B;&#x8FD9;&#x91CC;</a></p>
+<h2 id="&#x94FE;&#x63A5;&#x6570;&#x636E;&#x5E93;-mongose">&#x94FE;&#x63A5;&#x6570;&#x636E;&#x5E93; mongose</h2>
+<p><a href="https://github.com/Tianfer/blog" target="_blank">&#x4E2A;&#x4EBA;&#x535A;&#x5BA2;github</a></p>
+<h2 id="&#x542F;&#x52A8;&#x65F6;&#x51FA;&#x9519;&#x8BEF;">&#x542F;&#x52A8;&#x65F6;&#x51FA;&#x9519;&#x8BEF;</h2>
+<blockquote>
+<p>throw er; // Unhandled &apos;error&apos; event
+&#x4E00;&#x822C;&#x662F;&#x7AEF;&#x53E3;&#x88AB;&#x5360;&#x7528;</p>
+</blockquote>
+<h2 id="&#x63A5;&#x53E3;&#x7BA1;&#x7406;">&#x63A5;&#x53E3;&#x7BA1;&#x7406;</h2>
+<ol>
+<li>swagger-ui</li>
+<li>&#x6DD8;&#x5B9D;RAP</li>
+</ol>
+<h2 id="&#x6587;&#x6863;">&#x6587;&#x6863;</h2>
+<p><a href="http://koa.rednode.cn/" target="_blank">koa&#x4E2D;&#x6587;&#x5B98;&#x7F51;</a></p>
+<p><a href="https://github.com/koajs/koa" target="_blank">koa2</a></p>
+<p><a href="https://github.com/alexmingoia/koa-router" target="_blank">koa-router</a></p>
+<p><a href="http://www.jianshu.com/p/6b816c609669" target="_blank">&#x63A8;&#x8350;&#x4E0A;&#x624B;&#x6559;&#x7A0B;</a></p>
+<p><a href="http://www.cnblogs.com/skylar/p/express-koa-restfull-api.html" target="_blank">Node.js&#x5B9E;&#x73B0;RESTful</a></p>
+<p><a href="http://www.jianshu.com/p/dcdd116600fe" target="_blank">koa2+mongodb&#x642D;&#x5EFA;&#x7B80;&#x6613;nodejs&#x540E;&#x53F0;&#x63A5;&#x53E3;&#x670D;&#x52A1;</a></p>
+<p><a href="http://rapapi.org/org/index.do" target="_blank">RAP</a></p>
+<p><a href="https://docs.mongodb.com/manual/installation/" target="_blank">&#x5B89;&#x88C5;MongoDB&#x6570;&#x636E;&#x5E93;</a></p>
+<p><a href="http://blog.csdn.net/flyfish111222/article/details/51886787" target="_blank">ubuntu&#x4E0B;&#x5B89;&#x88C5;mongoDB</a></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="axios.html" class="navigation navigation-prev " aria-label="Previous page: axios">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="nginx.html" class="navigation navigation-next " aria-label="Next page: nginx">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"koa.js","level":"1.7.3","depth":2,"next":{"title":"nginx","level":"1.7.4","depth":2,"path":"chapter6/nginx.md","ref":"chapter6/nginx.md","articles":[]},"previous":{"title":"axios","level":"1.7.2","depth":2,"path":"chapter6/axios.md","ref":"chapter6/axios.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter6/koajs.md","mtime":"2017-10-13T06:22:34.058Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-12-11T03:01:28.346Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

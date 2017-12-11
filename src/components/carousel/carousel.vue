@@ -136,7 +136,7 @@
         }, this.interval)
       },
       listBtn (index) {
-        this.switchImg(this.imgIndex)
+        this.switchImg(index)
         this.$emit('listClick', this.imgIndex)
       },
       switchLeft () {

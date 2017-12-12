@@ -33,6 +33,17 @@
 [这是一个问答](https://www.zhihu.com/question/28468459)
 压缩（compression）、混淆（obfuscation） 和加密（encryption）。
 
+## xss
+
+[XSS攻击及防御](http://blog.csdn.net/ghsau/article/details/17027893)
+
+之前很多项目都是使用了这个库对用户输入的内容进行过滤，以避免遭受XSS攻击的模块
+[js-xss](https://github.com/leizongmin/js-xss/blob/master/README.zh.md)
+
+## CSRF
+
+[浅谈CSRF攻击方式](https://www.cnblogs.com/hyddd/archive/2009/04/09/1432744.html)
+
 ## 威胁
 ### 通讯劫持
 // TODO

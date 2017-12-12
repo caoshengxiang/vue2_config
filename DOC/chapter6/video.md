@@ -316,6 +316,34 @@ video.js给出了m3u8的解决方案[文档](http://docs.videojs.com/tutorial-tr
 >再安利一个非常纯粹的方案，就是 hls.js 它需要你手进行 video 的绑定。
 // todo 很值得深入了解
 
+这是一个使用video播放m3u8的简单例子：
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <!--<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>-->
+  <script src="hls.min.js"></script>
+</head>
+<body>
+<video id="video" controls></video>
+<script>
+  if (Hls.isSupported()) {
+    var video = document.getElementById('video')
+    var hls = new Hls()
+    hls.loadSource('https://video-dev.github.io/streams/x36xhzz/x36xhzz.m3u8')
+    hls.attachMedia(video)
+    hls.on(Hls.Events.MANIFEST_PARSED, function () {
+      video.play()
+    })
+  }
+</script>
+</body>
+</html>
+
+```
+
 ## 75 Team 也开源 的一个播放器：[Chimeejs/chimee](https://github.com/Chimeejs/chimee)
 
 

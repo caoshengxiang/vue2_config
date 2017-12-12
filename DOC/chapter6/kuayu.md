@@ -28,7 +28,7 @@ Cross-origin Resource Sharing跨资源共享，使用自定义的HTTP头部让�
 
 
 7. JSONP
-很简单，就是利用<script>标签没有跨域限制的“漏洞”（历史遗迹啊）来达到与第三方通讯的目的
+很简单，就是利用\<script>标签没有跨域限制的“漏洞”（历史遗迹啊）来达到与第三方通讯的目的
 
 8. web sockets
 

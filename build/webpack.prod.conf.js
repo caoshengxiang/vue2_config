@@ -2,7 +2,7 @@
  * Created by allen on 17-4-27.
  */
 
-var webpackMerge = require('webpack-merge');　// 合并配置文件
+var webpackMerge = require('webpack-merge'); // 合并配置文件
 var webpack = require('webpack');
 var path = require('path');
 var baseConfig = require('./webpack.base.conf.js');

@@ -5,9 +5,37 @@
 1. 使用
 
 ```html
-<div style="width: 800px; height: 400px">
-      <carousel :images="images" :interval="2000" @imgClick="imgHandle"></carousel>
+<div style="margin-left: 200px;margin-bottom: 50px;">
+      <h3>默认</h3>
+      <div style="width: 800px; height: 400px">
+        <carousel :images="images" @imgClick="imgI"></carousel>
+      </div>
     </div>
+    <div style="margin-left: 200px;margin-bottom: 50px;">
+      <h3>左右按钮在两侧,不显示列表</h3>
+      <div style="width: 800px; height: 400px">
+        <carousel :images="images" :interval="2000" btnSide="outside" :listDisplay="false" @imgClick="imgI"></carousel>
+      </div>
+    </div>
+    <div style="margin-left: 200px;margin-bottom: 50px;">
+      <h3>列表在下方,轮播周期１S,无左右按钮</h3>
+      <div style="width: 800px; height: 400px">
+        <carousel :images="images" listSide="outside" :interval="1000" :btnDisplay="false" @imgClick="imgI"></carousel>
+      </div>
+    </div>
+    <div style="margin-left: 200px;margin-bottom: 50px;">
+      <h3>默认</h3>
+      <div style="width: 800px; height: 400px">
+        <carousel :images="images" :interval="2000" @imgClick="imgI"></carousel>
+      </div>
+    </div>
+    <div style="margin-left: 200px;margin-bottom: 50px;">
+      <h3>列表在左侧</h3>
+      <div style="width: 800px; height: 400px">
+        <carousel :images="images" :interval="2000" listPosition="left" :btnDisplay="false" @imgClick="imgI"></carousel>
+      </div>
+    </div>
+
 ```
 
 ```js

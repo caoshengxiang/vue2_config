@@ -14,9 +14,6 @@
 
 1. 在vue主文件中引入
 ```js
-/**
- * Created by allen on 17-4-26.
- */
 import Vue from 'vue'
 import router from './router'
 import App from './app.vue'

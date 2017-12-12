@@ -69,6 +69,9 @@ methods: {
 |btnDisplay|左右按钮显示|
 |listDisplay|列表显示|
 |interval|轮播周期　ms|
+|btnSide |左右按钮位置 outside,inside, 默认inside|
+|listSide |序列位置 outside,inside, 默认inside|
+|listPosition |序列位置 top,right,bottom,left 默认bottom|
 
 
 3. slot

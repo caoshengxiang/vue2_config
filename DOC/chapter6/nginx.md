@@ -104,3 +104,11 @@ location /proxy/ {
 }
 #代理到URL：http://127.0.0.1/aaatest.html
 ```
+
+## 均匀负载
+
+// todo
+
+## 灰度，A/B
+
+// todo

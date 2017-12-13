@@ -56,6 +56,7 @@ BFC(Block formatting context)"。它是一个独立的渲染区域，只有Block
     .par {
         border: 5px solid #fcc;
         width: 300px;
+        // 父元素生成bfc
     }
 
     .child {

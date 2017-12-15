@@ -45,6 +45,7 @@
     * [js 原型链理解](chapter6/js-prototype.md)
     * [js 文件上传FormData对象](chapter6/js-formdata.md)
     * [js 丰富你的console](chapter6/js-console.md)
+    * [js 编码](chapter6/js-encode.md)
     * [https和常见的http状态码的理解](chapter6/http-code.md)
     * [url请求过程-get,post](chapter6/url-process.md)
     * [前端算法](chapter6/js-suanfa.md)

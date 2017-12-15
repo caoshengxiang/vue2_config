@@ -21,6 +21,10 @@ relative,absolute,fixed等
 ## float
 left,right,both等
 
+## 清除浮动
+
+bfc,clear
+
 ## flex布局方案
 比起盒子模型，flex布局很容易实现垂直居中，流式布局
 1. flex-direction

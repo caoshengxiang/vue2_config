@@ -15,6 +15,7 @@
 1. 项目中遇到的问题，解决方法
 1. 线上代码出现bug,该怎样修复
 1. 拿到一个项目你是如何规划的
+1. 项目中是如何做自适应的
 1. 你有遇到过项目中无法解决的问题吗
 1. 后台接口数据很发杂，该怎么样优雅
 1. 懒加载，预加载理解，实现
@@ -74,7 +75,7 @@ h5跨域| [more](https://caoshengxiang.github.io/vue2_config/chapter6/kuayu.html
 BFC| [more](https://caoshengxiang.github.io/vue2_config/chapter6/css-bfc.html)
 hack|
 css三角形|
-伪类|
+伪类,伪元素|　[MDN 伪类](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Pseudo-classes)　[MDN 伪元素](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Pseudo-elements)
 position|
 float|
 清除浮动| [bfc](https://caoshengxiang.github.io/vue2_config/chapter6/css-bfc.html) [布局](https://caoshengxiang.github.io/vue2_config/chapter6/css-buju.html)
@@ -95,6 +96,7 @@ call/apply| [more](https://caoshengxiang.github.io/vue2_config/chapter6/js-shen-
 jsonp原理| [more](https://caoshengxiang.github.io/vue2_config/chapter6/kuayu.html)
 promise原理|[more](https://caoshengxiang.github.io/vue2_config/chapter6/js-promise.html)
 fetch| [MDN 使用 Fetch](https://developer.mozilla.org/zh-CN/docs/Web/API/Fetch_API/Using_Fetch)
+|
 |
 多页面的通讯|
 浏览器的渲染过程| [more](https://caoshengxiang.github.io/vue2_config/chapter6/chong-pai-hui.html)
@@ -122,6 +124,11 @@ ajax原理| [more](https://caoshengxiang.github.io/vue2_config/chapter6/ajax.htm
 布局|垂直水平居中，多栏布局 [more](https://caoshengxiang.github.io/vue2_config/chapter6/css-buju.html)
 适配| 响应式，rem,百分比，flex [more](https://caoshengxiang.github.io/vue2_config/chapter6/css-buju.html)
 前端测试| 单元测试，端到端测试，覆盖率 [more](https://caoshengxiang.github.io/vue2_config/chapter6/test.html)
+文档流的概念| 定位的理解以及z-index计算规则&浏览器差异性
+渐进增强与优雅降级|
+defer和async| [别人总结](http://blog.csdn.net/u011700203/article/details/47656857)
+"use strict"|
+JavaScript 运行机制| [阮一峰的](http://www.ruanyifeng.com/blog/2014/10/event-loop.html)
 |
 |
 webpack| [more](https://caoshengxiang.github.io/vue2_config/chapter2/)
@@ -135,3 +142,7 @@ git|
 |
 |
 |
+
+## 最后
+
+[最后看看大神的的总结](https://github.com/h5bp/Front-end-Developer-Interview-Questions)

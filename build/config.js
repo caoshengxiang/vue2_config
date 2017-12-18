@@ -4,7 +4,7 @@
 var path = require('path');
 module.exports = {
     dev: {
-        host: '192.168.1.127',  // 主机或IP
+        host: '192.168.1.48',  // 主机或IP
         // host: 'localhost',  // 主机或IP
         port: 8800, // 设置端口号
         assetsPublicPath: '',

@@ -20,12 +20,18 @@
         <div class="login">
             <div class="text">----第三方登录----</div>
             <div class="connect-btn">
-                <a id="qqLoginBtn" class="btn" href="http://mobile.daodezhisheng.cn:8080/api/thirdpartylogin/index?loginType=QQ"><img
+                <a id="qqLoginBtn" class="btn" href="/api/thirdpartylogin/index?loginType=QQ"><img
+                    src="../../assets/qq.png" alt=""></a>
+                <a id="wx_connect_btn" class="btn weixin-login" href="/api/thirdpartylogin/index?loginType=WECHATPUB"><img
+                    src="../../assets/weixin.png" alt=""></a>
+                <a id="wb_connect_btn" href="/api/thirdpartylogin/index?loginType=WEIBO"><img
+                    src="../../assets/sina0.png" class="sina" alt=""></a>
+                <!--<a id="qqLoginBtn" class="btn" href="http://mobile.daodezhisheng.cn:8080/api/thirdpartylogin/index?loginType=QQ"><img
                     src="../../assets/qq.png" alt=""></a>
                 <a id="wx_connect_btn" class="btn weixin-login" href="http://mobile.daodezhisheng.cn:8080/api/thirdpartylogin/index?loginType=WECHATPUB"><img
                     src="../../assets/weixin.png" alt=""></a>
                 <a id="wb_connect_btn" href="http://mobile.daodezhisheng.cn:8080/api/thirdpartylogin/index?loginType=WEIBO"><img
-                    src="../../assets/sina0.png" class="sina" alt=""></a>
+                    src="../../assets/sina0.png" class="sina" alt=""></a>-->
             </div>
         </div>
     </div>

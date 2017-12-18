@@ -30,7 +30,7 @@
 1. position
 1. BFC
 1. 盒子模型
-1. 性能优化（压缩合并，减少http连接，懒加载，预加载，cdn，雪碧图，减少重排，考虑服务器渲染,减少dom操作）
+1. 性能优化（压缩合并，减少http连接，懒加载，预加载，cdn，雪碧图，减少重排，考虑服务器渲染,减少dom操作,gzip）
 1. 重排重绘，减少重排的方法
 1. 作用域作用链
 1. 你对vue的理解
@@ -103,7 +103,7 @@ fetch| [MDN 使用 Fetch](https://developer.mozilla.org/zh-CN/docs/Web/API/Fetch
 浏览器输入地址整个过程|
 重排重绘| 合并css,使用class,使用display,避免dom操作 [更多](https://caoshengxiang.github.io/vue2_config/chapter6/chong-pai-hui.html)
 夸域|
-性能优化|　压缩合并，减少http连接，懒加载，预加载，cdn，雪碧图，减少重排，考虑服务器渲染,减少dom操作 [more](https://caoshengxiang.github.io/vue2_config/chapter6/youhua.html)
+性能优化|　压缩合并，减少http连接，懒加载，预加载，cdn，雪碧图，减少重排，考虑服务器渲染,减少dom操作,gzip [more](https://caoshengxiang.github.io/vue2_config/chapter6/youhua.html)
 SEO| // todo
 内存泄露| [more](https://caoshengxiang.github.io/vue2_config/chapter6/js-bibao.html)
 浏览器垃圾回收机制| [more](https://caoshengxiang.github.io/vue2_config/chapter6/js-bibao.html)

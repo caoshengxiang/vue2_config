@@ -169,15 +169,88 @@ upstream server1 {
 资料：
 1. [nginx upstream的五种分配方式](http://blog.csdn.net/u010081710/article/details/52691406)
 
+## proxy 缓存
+
+[web内容缓存 nginx高性能缓存详解](http://blog.csdn.net/longxibendi/article/details/43484645)
+
+[nginx的web缓存服务环境部署记录](https://www.cnblogs.com/kevingrace/p/6198287.html)
+
+
+```conf
+#要想开启nginx的缓存功能，需要添加此处的两行内容！
+#设置Web缓存区名称为cache_one,内存缓存空间大小为500M,缓存的数据超过1天没有被访问就自动清除;访问的缓存数据,硬盘缓存空间大小为30G
+proxy_cache_path /usr/local/nginx/proxy_cache_path levels=1:2 keys_zone=cache_one:500m inactive=1d max_size=30g;
+
+#创建缓存的时候可能生成一些临时文件存放的位置
+proxy_temp_path /usr/local/nginx/proxy_temp_path;
+
+#对扩展名开启Web缓存,其他文件不缓存
+location ~* ^.+\.(ico|gif|jpg|jpeg|png)$ {
+    #使用Web缓存区cache_one，已在nginx.conf的缓存配置中命名的。
+    proxy_cache cache_one ;
+    #对不同HTTP状态码缓存设置不同的缓存时间
+    proxy_cache_valid 200 304 12h ;
+    proxy_cache_valid 301 302 1m ;
+    proxy_cache_valid any 1m ;
+    #设置Web缓存的Key值,Nginx根据Key值md5哈希存储缓存,这里根据"域名,URI,
+    #参数"组合成Key
+    proxy_cache_key $host$uri$is_args$args;
+
+    access_log   off;
+    expires      30d;
+}
+#文件缓存
+location ~* ^.+\.(css|js|txt|xml|swf|wav)$ {
+    access_log   off;
+    expires      24h;
+}
+#字体缓存
+location ~* ^.+\.(eot|ttf|otf|woff|svg)$ {
+    access_log   off;
+    expires max;
+}
+#html缓存
+location ~* ^.+\.(html|htm)$ {
+        expires      1h;
+}
+```
+
+>注意:proxy_temp_path和proxy_cache_path指定的路径必须在同一磁盘分区，决不能跨区分,因为它们之间是硬链接的关系，避免不通文件系统之间的磁盘IO消耗。配置好这两个参数后使用　`~/sbin/nginx -s reload`便会自己添加这两个目录
+
 ## gzip
 
 [文档](http://nginx.org/en/docs/http/ngx_http_gzip_module.html)
 
 使用gizp压缩并不是没有代价的。在降低带宽的同时也增加了CPU的使用
 
+>1. 浏览器发送Http request 给Web服务器,  request 中有Accept-Encoding: gzip, deflate。 (告诉服务器， 浏览器支持gzip压缩)
+ 2. Web服务器接到request后， 生成原始的Response, 其中有原始的Content-Type和Content-Length。
+ 3. Web服务器通过Gzip，来对Response进行编码， 编码后header中有Content-Type和Content-Length(压缩后的大小)， 并且增加了Content-Encoding:gzip.  然后把Response发送给浏览器。
+ 4. 浏览器接到Response后，根据Content-Encoding:gzip来对Response 进行解码。 获取到原始response后， 然后显示出网页。
+
+http压缩对纯文本可以压缩至原内容的40%左右, 从而节省了40%左右的数据传输。
+
 [HTTP协议-压缩（gzip,deflate）](http://san-yun.iteye.com/blog/2065700)
 
 >JPEG这类文件用gzip压缩的不够好。
+
+### 我设置gzip,和不同压缩等级进行一个比较
+
+1. 未使用gzip
+
+![](./assets/no_gzip.png)
+
+2. gzip 等级为2
+
+![](./assets/gzip_2.png)
+
+3. gzip　等级设为8
+
+![](./assets/gzip_8.png)
+
+总结：
+
+都比较14的javascript文件,上面可以看到两个数据Size,Time的变化;gzip后大小会变小很多，但总时间增加了．增大压缩等级，压缩效果更好，但时间同样增加了很多．gzip要增加cpu压力，所以压缩等级要适当，１或2最合适
 
 ## nginx.conf
 
@@ -266,13 +339,13 @@ http {
     #gzip_buffers 4 16k;
     #设置压缩响应所需的最小HTTP请求版本。
     #gzip_http_version 1.0;
-    #压缩级别，1-9
+    #gzip 压缩级别，1-10，数字越大压缩的越好，也越占用CPU时间，后面会有详细说明
     #gzip_comp_level 2;
     #压缩的文件类型
-    #gzip_types text/plain application/x-javascript text/css application/xml text/javascript application/x-httpd-php image/jpeg image/gif image/png;
+    #gzip_types text/plain application/javascript application/x-javascript text/css application/xml text/javascript application/x-httpd-php image/jpeg image/gif image/png application/font-woff font/ttf font/otf image/svg+xml;
     #如果指令gzip， gzip_static或gunzip 处于活动状态， 则启用或禁用插入“Vary：Accept-Encoding”响应标头字段 。
-    #gzip_vary off;
-    #禁用“User-Agent”标头字段与任何指定的正则表达式匹配的请求响应的gzip。
+    #gzip_vary on;
+    #禁用“User-Agent”标头字段与任何指定的正则表达式匹配的请求响应的gzip。禁用IE 6 gzip
     #gzip_disable "MSIE [1-6]\.";
     #根据请求和响应，启用或禁用对代理请求的响应的gzip。请求代理的事实由“Via”请求头字段的存在决定。
     #gzip_proxied

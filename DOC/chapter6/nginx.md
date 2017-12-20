@@ -12,6 +12,10 @@
 
 window下安装非常简单，直接到官网下载，解压就可以了
 
+这里有个服务器是window server2016，遇到了一个填坑啊，大大的冤枉．我配置好之后所有的接口404,怎么也找不到那里配置出来错误，后来发现一个奇怪的现象我把./nginx.exe -s stop, 有个fail好像说logs/nginx.pid　找不到了，具体忘了，我的理解就是nginx.exe已经关闭了．但是，偶然发现浏览器里面还能访问到页面？？打开任务管理器发现一大堆nginx进程．明白了．．
+
+>我stop并没有关掉进程，每次start又开启了一个进程，修改配置后reload是行不通的，必须在任务管理其中结束后重启nginx　
+
 ## ubuntu下安装
 
 ### 1. 安装nginx的依赖包
@@ -175,6 +179,7 @@ upstream server1 {
 
 [nginx的web缓存服务环境部署记录](https://www.cnblogs.com/kevingrace/p/6198287.html)
 
+这篇讲的比较全[Web缓存的作用与类型](http://blog.csdn.net/bamboolsu/article/details/49886839)
 
 ```conf
 #要想开启nginx的缓存功能，需要添加此处的两行内容！
@@ -217,16 +222,24 @@ location ~* ^.+\.(html|htm)$ {
 
 >注意:proxy_temp_path和proxy_cache_path指定的路径必须在同一磁盘分区，决不能跨区分,因为它们之间是硬链接的关系，避免不通文件系统之间的磁盘IO消耗。配置好这两个参数后使用　`~/sbin/nginx -s reload`便会自己添加这两个目录
 
+下图：
+
+![](./assets/cache_gzip.png)
+
+矩形框是缓存相关，直线gzip相关的
+
 ## gzip
 
 [文档](http://nginx.org/en/docs/http/ngx_http_gzip_module.html)
 
 使用gizp压缩并不是没有代价的。在降低带宽的同时也增加了CPU的使用
 
->1. 浏览器发送Http request 给Web服务器,  request 中有Accept-Encoding: gzip, deflate。 (告诉服务器， 浏览器支持gzip压缩)
- 2. Web服务器接到request后， 生成原始的Response, 其中有原始的Content-Type和Content-Length。
- 3. Web服务器通过Gzip，来对Response进行编码， 编码后header中有Content-Type和Content-Length(压缩后的大小)， 并且增加了Content-Encoding:gzip.  然后把Response发送给浏览器。
- 4. 浏览器接到Response后，根据Content-Encoding:gzip来对Response 进行解码。 获取到原始response后， 然后显示出网页。
+### gzip过程：
+
+1. 浏览器发送Http request 给Web服务器,  request 中有Accept-Encoding: gzip, deflate。 (告诉服务器， 浏览器支持gzip压缩)
+2. Web服务器接到request后， 生成原始的Response, 其中有原始的Content-Type和Content-Length。
+3. Web服务器通过Gzip，来对Response进行编码， 编码后header中有Content-Type和Content-Length(压缩后的大小)， 并且增加了Content-Encoding:gzip.  然后把Response发送给浏览器。
+4. 浏览器接到Response后，根据Content-Encoding:gzip来对Response 进行解码。 获取到原始response后， 然后显示出网页。
 
 http压缩对纯文本可以压缩至原内容的40%左右, 从而节省了40%左右的数据传输。
 
@@ -251,6 +264,14 @@ http压缩对纯文本可以压缩至原内容的40%左右, 从而节省了40%�
 总结：
 
 都比较14的javascript文件,上面可以看到两个数据Size,Time的变化;gzip后大小会变小很多，但总时间增加了．增大压缩等级，压缩效果更好，但时间同样增加了很多．gzip要增加cpu压力，所以压缩等级要适当，１或2最合适
+
+# https
+出现错误：
+`nginx: [emerg] the "ssl" parameter requires ngx_http_ssl_module in /usr/local/nginx/conf/nginx.conf:37`
+[解决](https://www.cnblogs.com/piscesLoveCc/p/6120875.html)
+
+[nginx使用ssl模块配置HTTPS支持](https://www.cnblogs.com/yanghuahui/archive/2012/06/25/2561568.html)
+
 
 ## nginx.conf
 
@@ -466,6 +487,195 @@ http {
     #        index  index.html index.htm;
     #    }
     #}
+
+}
+
+```
+
+
+备份：
+
+```
+#user  nobody;
+worker_processes  1;
+
+error_log  /var/ftp/logs/nginx/error.log;
+#error_log  logs/error.log  notice;
+#error_log  logs/error.log  info;
+
+pid        /run/nginx.pid;
+
+
+events {
+    worker_connections  1024;
+}
+
+
+http {
+    include       mime.types;
+    default_type  application/octet-stream;
+
+    #log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+    #                  '$status $body_bytes_sent "$http_referer" '
+    #                  '"$http_user_agent" "$http_x_forwarded_for"';
+
+    #access_log  logs/access.log  main;
+
+    sendfile        on;
+    #tcp_nopush     on;
+
+    #keepalive_timeout  0;
+    keepalive_timeout  65;
+
+    gzip  on;
+    #不压缩临界值，大于1K的才压缩，一般不用改
+    gzip_min_length 1k;
+    #设置number和size用于压缩的响应缓冲区。默认情况下，缓冲区大小等于一个内存页面。这是4K或8K，取决于平台。
+    gzip_buffers 4 16k;
+    #设置压缩响应所需的最小HTTP请求版本。
+    gzip_http_version 1.0;
+    #压缩级别，1-10
+    gzip_comp_level 2;
+    #压缩的文件类型
+    gzip_types text/plain application/javascript application/x-javascript text/css application/xml text/javascript application/x-httpd-php image/jpeg image/gif image/png application/font-woff;
+    #如果指令gzip， gzip_static或gunzip 处于活动状态， 则启用或禁用插入“Vary：Accept-Encoding”响应标头字段 。
+    gzip_vary on;
+    #禁用“User-Agent”标头字段与任何指定的正则表达式匹配的请求响应的gzip。
+    gzip_disable "MSIE [1-6]\.";
+
+    #要想开启nginx的缓存功能，需要添加此处的两行内容！
+#设置Web缓存区名称为cache_one,内存缓存空间大小为500M,缓存的数据超过1天没有被访问就自动清除;访问的缓存数据,硬盘缓存空间大小为5G
+    proxy_cache_path /usr/local/nginx/proxy_cache_path levels=1:2 keys_zone=cache_one:500m inactive=1d max_size=5g;
+
+#创建缓存的时候可能生成一些临时文件存放的位置
+    proxy_temp_path /usr/local/nginx/proxy_temp_path;
+
+    proxy_connect_timeout 5;
+    proxy_read_timeout 60;
+    proxy_send_timeout 5;
+    proxy_buffer_size 16k;
+    proxy_buffers 4 64k;
+    proxy_busy_buffers_size 128k;
+    proxy_temp_file_write_size 128k;
+
+   #设定实际的服务器列表
+    upstream zp_server1{
+        server localhost:8080;
+        #keepalive 2000;
+    }
+    server {
+        listen       80;
+        server_name  192.168.1.12;
+
+        #charset koi8-r;
+
+        #access_log  logs/host.access.log  main;
+
+        location / {
+            root   html;
+            index  index.html index.htm;
+        }
+
+	location /oa/ {
+	    proxy_pass http://zp_server1;
+	    #proxy_set_header Host $host:$server_port;
+	}
+
+	location /resources/ {
+	    proxy_pass http://zp_server1;
+	}
+
+	#图片缓存
+	location ~* ^.+\.(ico|gif|jpg|jpeg|png)$ {
+            access_log   on;
+            expires      30d;
+	}
+	#文件缓存
+	location ~* ^.+\.(css|js|txt|xml|swf|wav)$ {
+	    access_log   on;
+	    expires      24h;
+	    proxy_redirect off;
+              proxy_set_header Host $host;
+              proxy_cache cache_one;
+              proxy_cache_valid 200 302 1h;
+              proxy_cache_valid 301 1d;
+              proxy_cache_valid any 1m;
+	     add_header X-Cache $upstream_cache_status;
+            proxy_cache_key    $uri$is_args$args;
+	}
+	#html缓存
+	location ~* ^.+\.(html|htm)$ {
+		access_log on;
+        	expires 1h;
+	}
+        #error_page  404              /404.html;
+
+        # redirect server error pages to the static page /50x.html
+        #
+        error_page   500 502 503 504  /50x.html;
+        location = /50x.html {
+            root   html;
+        }
+
+        # proxy the PHP scripts to Apache listening on 127.0.0.1:80
+        #
+        #location ~ \.php$ {
+        #    proxy_pass   http://127.0.0.1;
+        #}
+
+        # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
+        #
+        #location ~ \.php$ {
+        #    root           html;
+        #    fastcgi_pass   127.0.0.1:9000;
+        #    fastcgi_index  index.php;
+        #    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;
+        #    include        fastcgi_params;
+        #}
+
+        # deny access to .htaccess files, if Apache's document root
+        # concurs with nginx's one
+        #
+        #location ~ /\.ht {
+        #    deny  all;
+        #}
+    }
+
+
+    # another virtual host using mix of IP-, name-, and port-based configuration
+    #
+    #server {
+    #    listen       8000;
+    #    listen       somename:8080;
+    #    server_name  somename  alias  another.alias;
+
+    #    location / {
+    #        root   html;
+    #        index  index.html index.htm;
+    #    }
+    #}
+
+
+    # HTTPS server
+
+    server {
+        listen       443 ssl;
+        server_name  localhost;
+
+        ssl_certificate      /usr/local/nginx/conf/server.crt;
+        ssl_certificate_key  /usr/local/nginx/conf/server.key;
+
+        ssl_session_cache    shared:SSL:1m;
+        ssl_session_timeout  5m;
+
+        ssl_ciphers  HIGH:!aNULL:!MD5;
+        ssl_prefer_server_ciphers  on;
+
+        location / {
+            root   html;
+            index  index.html index.htm;
+        }
+    }
 
 }
 

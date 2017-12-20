@@ -1279,6 +1279,10 @@
 &#x5C06;&#x7528;&#x6237;&#x8BF7;&#x6C42;&#x5206;&#x914D;&#x7ED9;&#x591A;&#x4E2A;&#x670D;&#x52A1;&#x5668;</p>
 <h2 id="window&#x4E0B;">window&#x4E0B;</h2>
 <p>window&#x4E0B;&#x5B89;&#x88C5;&#x975E;&#x5E38;&#x7B80;&#x5355;&#xFF0C;&#x76F4;&#x63A5;&#x5230;&#x5B98;&#x7F51;&#x4E0B;&#x8F7D;&#xFF0C;&#x89E3;&#x538B;&#x5C31;&#x53EF;&#x4EE5;&#x4E86;</p>
+<p>&#x8FD9;&#x91CC;&#x6709;&#x4E2A;&#x670D;&#x52A1;&#x5668;&#x662F;window server2016&#xFF0C;&#x9047;&#x5230;&#x4E86;&#x4E00;&#x4E2A;&#x586B;&#x5751;&#x554A;&#xFF0C;&#x5927;&#x5927;&#x7684;&#x51A4;&#x6789;&#xFF0E;&#x6211;&#x914D;&#x7F6E;&#x597D;&#x4E4B;&#x540E;&#x6240;&#x6709;&#x7684;&#x63A5;&#x53E3;404,&#x600E;&#x4E48;&#x4E5F;&#x627E;&#x4E0D;&#x5230;&#x90A3;&#x91CC;&#x914D;&#x7F6E;&#x51FA;&#x6765;&#x9519;&#x8BEF;&#xFF0C;&#x540E;&#x6765;&#x53D1;&#x73B0;&#x4E00;&#x4E2A;&#x5947;&#x602A;&#x7684;&#x73B0;&#x8C61;&#x6211;&#x628A;./nginx.exe -s stop, &#x6709;&#x4E2A;fail&#x597D;&#x50CF;&#x8BF4;logs/nginx.pid&#x3000;&#x627E;&#x4E0D;&#x5230;&#x4E86;&#xFF0C;&#x5177;&#x4F53;&#x5FD8;&#x4E86;&#xFF0C;&#x6211;&#x7684;&#x7406;&#x89E3;&#x5C31;&#x662F;nginx.exe&#x5DF2;&#x7ECF;&#x5173;&#x95ED;&#x4E86;&#xFF0E;&#x4F46;&#x662F;&#xFF0C;&#x5076;&#x7136;&#x53D1;&#x73B0;&#x6D4F;&#x89C8;&#x5668;&#x91CC;&#x9762;&#x8FD8;&#x80FD;&#x8BBF;&#x95EE;&#x5230;&#x9875;&#x9762;&#xFF1F;&#xFF1F;&#x6253;&#x5F00;&#x4EFB;&#x52A1;&#x7BA1;&#x7406;&#x5668;&#x53D1;&#x73B0;&#x4E00;&#x5927;&#x5806;nginx&#x8FDB;&#x7A0B;&#xFF0E;&#x660E;&#x767D;&#x4E86;&#xFF0E;&#xFF0E;</p>
+<blockquote>
+<p>&#x6211;stop&#x5E76;&#x6CA1;&#x6709;&#x5173;&#x6389;&#x8FDB;&#x7A0B;&#xFF0C;&#x6BCF;&#x6B21;start&#x53C8;&#x5F00;&#x542F;&#x4E86;&#x4E00;&#x4E2A;&#x8FDB;&#x7A0B;&#xFF0C;&#x4FEE;&#x6539;&#x914D;&#x7F6E;&#x540E;reload&#x662F;&#x884C;&#x4E0D;&#x901A;&#x7684;&#xFF0C;&#x5FC5;&#x987B;&#x5728;&#x4EFB;&#x52A1;&#x7BA1;&#x7406;&#x5176;&#x4E2D;&#x7ED3;&#x675F;&#x540E;&#x91CD;&#x542F;nginx&#x3000;</p>
+</blockquote>
 <h2 id="ubuntu&#x4E0B;&#x5B89;&#x88C5;">ubuntu&#x4E0B;&#x5B89;&#x88C5;</h2>
 <h3 id="1-&#x5B89;&#x88C5;nginx&#x7684;&#x4F9D;&#x8D56;&#x5305;">1. &#x5B89;&#x88C5;nginx&#x7684;&#x4F9D;&#x8D56;&#x5305;</h3>
 <pre><code># &#x67E5;&#x770B;zlib&#x662F;&#x5426;&#x5B89;&#x88C5;
@@ -1416,6 +1420,7 @@ location /api/ {
 <h2 id="proxy-&#x7F13;&#x5B58;">proxy &#x7F13;&#x5B58;</h2>
 <p><a href="http://blog.csdn.net/longxibendi/article/details/43484645" target="_blank">web&#x5185;&#x5BB9;&#x7F13;&#x5B58; nginx&#x9AD8;&#x6027;&#x80FD;&#x7F13;&#x5B58;&#x8BE6;&#x89E3;</a></p>
 <p><a href="https://www.cnblogs.com/kevingrace/p/6198287.html" target="_blank">nginx&#x7684;web&#x7F13;&#x5B58;&#x670D;&#x52A1;&#x73AF;&#x5883;&#x90E8;&#x7F72;&#x8BB0;&#x5F55;</a></p>
+<p>&#x8FD9;&#x7BC7;&#x8BB2;&#x7684;&#x6BD4;&#x8F83;&#x5168;<a href="http://blog.csdn.net/bamboolsu/article/details/49886839" target="_blank">Web&#x7F13;&#x5B58;&#x7684;&#x4F5C;&#x7528;&#x4E0E;&#x7C7B;&#x578B;</a></p>
 <pre><code class="lang-conf">#&#x8981;&#x60F3;&#x5F00;&#x542F;nginx&#x7684;&#x7F13;&#x5B58;&#x529F;&#x80FD;&#xFF0C;&#x9700;&#x8981;&#x6DFB;&#x52A0;&#x6B64;&#x5904;&#x7684;&#x4E24;&#x884C;&#x5185;&#x5BB9;&#xFF01;
 #&#x8BBE;&#x7F6E;Web&#x7F13;&#x5B58;&#x533A;&#x540D;&#x79F0;&#x4E3A;cache_one,&#x5185;&#x5B58;&#x7F13;&#x5B58;&#x7A7A;&#x95F4;&#x5927;&#x5C0F;&#x4E3A;500M,&#x7F13;&#x5B58;&#x7684;&#x6570;&#x636E;&#x8D85;&#x8FC7;1&#x5929;&#x6CA1;&#x6709;&#x88AB;&#x8BBF;&#x95EE;&#x5C31;&#x81EA;&#x52A8;&#x6E05;&#x9664;;&#x8BBF;&#x95EE;&#x7684;&#x7F13;&#x5B58;&#x6570;&#x636E;,&#x786C;&#x76D8;&#x7F13;&#x5B58;&#x7A7A;&#x95F4;&#x5927;&#x5C0F;&#x4E3A;30G
 proxy_cache_path /usr/local/nginx/proxy_cache_path levels=1:2 keys_zone=cache_one:500m inactive=1d max_size=30g;
@@ -1456,19 +1461,19 @@ location ~* ^.+\.(html|htm)$ {
 <blockquote>
 <p>&#x6CE8;&#x610F;:proxy_temp_path&#x548C;proxy_cache_path&#x6307;&#x5B9A;&#x7684;&#x8DEF;&#x5F84;&#x5FC5;&#x987B;&#x5728;&#x540C;&#x4E00;&#x78C1;&#x76D8;&#x5206;&#x533A;&#xFF0C;&#x51B3;&#x4E0D;&#x80FD;&#x8DE8;&#x533A;&#x5206;,&#x56E0;&#x4E3A;&#x5B83;&#x4EEC;&#x4E4B;&#x95F4;&#x662F;&#x786C;&#x94FE;&#x63A5;&#x7684;&#x5173;&#x7CFB;&#xFF0C;&#x907F;&#x514D;&#x4E0D;&#x901A;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x4E4B;&#x95F4;&#x7684;&#x78C1;&#x76D8;IO&#x6D88;&#x8017;&#x3002;&#x914D;&#x7F6E;&#x597D;&#x8FD9;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#x540E;&#x4F7F;&#x7528;&#x3000;<code>~/sbin/nginx -s reload</code>&#x4FBF;&#x4F1A;&#x81EA;&#x5DF1;&#x6DFB;&#x52A0;&#x8FD9;&#x4E24;&#x4E2A;&#x76EE;&#x5F55;</p>
 </blockquote>
+<p>&#x4E0B;&#x56FE;&#xFF1A;</p>
+<p><img src="assets/cache_gzip.png" alt=""></p>
+<p>&#x77E9;&#x5F62;&#x6846;&#x662F;&#x7F13;&#x5B58;&#x76F8;&#x5173;&#xFF0C;&#x76F4;&#x7EBF;gzip&#x76F8;&#x5173;&#x7684;</p>
 <h2 id="gzip">gzip</h2>
 <p><a href="http://nginx.org/en/docs/http/ngx_http_gzip_module.html" target="_blank">&#x6587;&#x6863;</a></p>
 <p>&#x4F7F;&#x7528;gizp&#x538B;&#x7F29;&#x5E76;&#x4E0D;&#x662F;&#x6CA1;&#x6709;&#x4EE3;&#x4EF7;&#x7684;&#x3002;&#x5728;&#x964D;&#x4F4E;&#x5E26;&#x5BBD;&#x7684;&#x540C;&#x65F6;&#x4E5F;&#x589E;&#x52A0;&#x4E86;CPU&#x7684;&#x4F7F;&#x7528;</p>
-<blockquote>
+<h3 id="gzip&#x8FC7;&#x7A0B;&#xFF1A;">gzip&#x8FC7;&#x7A0B;&#xFF1A;</h3>
 <ol>
-<li>&#x6D4F;&#x89C8;&#x5668;&#x53D1;&#x9001;Http request &#x7ED9;Web&#x670D;&#x52A1;&#x5668;,  request &#x4E2D;&#x6709;Accept-Encoding: gzip, deflate&#x3002; (&#x544A;&#x8BC9;&#x670D;&#x52A1;&#x5668;&#xFF0C; &#x6D4F;&#x89C8;&#x5668;&#x652F;&#x6301;gzip&#x538B;&#x7F29;)<ol>
+<li>&#x6D4F;&#x89C8;&#x5668;&#x53D1;&#x9001;Http request &#x7ED9;Web&#x670D;&#x52A1;&#x5668;,  request &#x4E2D;&#x6709;Accept-Encoding: gzip, deflate&#x3002; (&#x544A;&#x8BC9;&#x670D;&#x52A1;&#x5668;&#xFF0C; &#x6D4F;&#x89C8;&#x5668;&#x652F;&#x6301;gzip&#x538B;&#x7F29;)</li>
 <li>Web&#x670D;&#x52A1;&#x5668;&#x63A5;&#x5230;request&#x540E;&#xFF0C; &#x751F;&#x6210;&#x539F;&#x59CB;&#x7684;Response, &#x5176;&#x4E2D;&#x6709;&#x539F;&#x59CB;&#x7684;Content-Type&#x548C;Content-Length&#x3002;</li>
 <li>Web&#x670D;&#x52A1;&#x5668;&#x901A;&#x8FC7;Gzip&#xFF0C;&#x6765;&#x5BF9;Response&#x8FDB;&#x884C;&#x7F16;&#x7801;&#xFF0C; &#x7F16;&#x7801;&#x540E;header&#x4E2D;&#x6709;Content-Type&#x548C;Content-Length(&#x538B;&#x7F29;&#x540E;&#x7684;&#x5927;&#x5C0F;)&#xFF0C; &#x5E76;&#x4E14;&#x589E;&#x52A0;&#x4E86;Content-Encoding:gzip.  &#x7136;&#x540E;&#x628A;Response&#x53D1;&#x9001;&#x7ED9;&#x6D4F;&#x89C8;&#x5668;&#x3002;</li>
 <li>&#x6D4F;&#x89C8;&#x5668;&#x63A5;&#x5230;Response&#x540E;&#xFF0C;&#x6839;&#x636E;Content-Encoding:gzip&#x6765;&#x5BF9;Response &#x8FDB;&#x884C;&#x89E3;&#x7801;&#x3002; &#x83B7;&#x53D6;&#x5230;&#x539F;&#x59CB;response&#x540E;&#xFF0C; &#x7136;&#x540E;&#x663E;&#x793A;&#x51FA;&#x7F51;&#x9875;&#x3002;</li>
 </ol>
-</li>
-</ol>
-</blockquote>
 <p>http&#x538B;&#x7F29;&#x5BF9;&#x7EAF;&#x6587;&#x672C;&#x53EF;&#x4EE5;&#x538B;&#x7F29;&#x81F3;&#x539F;&#x5185;&#x5BB9;&#x7684;40%&#x5DE6;&#x53F3;, &#x4ECE;&#x800C;&#x8282;&#x7701;&#x4E86;40%&#x5DE6;&#x53F3;&#x7684;&#x6570;&#x636E;&#x4F20;&#x8F93;&#x3002;</p>
 <p><a href="http://san-yun.iteye.com/blog/2065700" target="_blank">HTTP&#x534F;&#x8BAE;-&#x538B;&#x7F29;&#xFF08;gzip,deflate&#xFF09;</a></p>
 <blockquote>
@@ -1489,6 +1494,11 @@ location ~* ^.+\.(html|htm)$ {
 <p><img src="assets/gzip_8.png" alt=""></p>
 <p>&#x603B;&#x7ED3;&#xFF1A;</p>
 <p>&#x90FD;&#x6BD4;&#x8F83;14&#x7684;javascript&#x6587;&#x4EF6;,&#x4E0A;&#x9762;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x4E24;&#x4E2A;&#x6570;&#x636E;Size,Time&#x7684;&#x53D8;&#x5316;;gzip&#x540E;&#x5927;&#x5C0F;&#x4F1A;&#x53D8;&#x5C0F;&#x5F88;&#x591A;&#xFF0C;&#x4F46;&#x603B;&#x65F6;&#x95F4;&#x589E;&#x52A0;&#x4E86;&#xFF0E;&#x589E;&#x5927;&#x538B;&#x7F29;&#x7B49;&#x7EA7;&#xFF0C;&#x538B;&#x7F29;&#x6548;&#x679C;&#x66F4;&#x597D;&#xFF0C;&#x4F46;&#x65F6;&#x95F4;&#x540C;&#x6837;&#x589E;&#x52A0;&#x4E86;&#x5F88;&#x591A;&#xFF0E;gzip&#x8981;&#x589E;&#x52A0;cpu&#x538B;&#x529B;&#xFF0C;&#x6240;&#x4EE5;&#x538B;&#x7F29;&#x7B49;&#x7EA7;&#x8981;&#x9002;&#x5F53;&#xFF0C;&#xFF11;&#x6216;2&#x6700;&#x5408;&#x9002;</p>
+<h1 id="https">https</h1>
+<p>&#x51FA;&#x73B0;&#x9519;&#x8BEF;&#xFF1A;
+<code>nginx: [emerg] the &quot;ssl&quot; parameter requires ngx_http_ssl_module in /usr/local/nginx/conf/nginx.conf:37</code>
+<a href="https://www.cnblogs.com/piscesLoveCc/p/6120875.html" target="_blank">&#x89E3;&#x51B3;</a></p>
+<p><a href="https://www.cnblogs.com/yanghuahui/archive/2012/06/25/2561568.html" target="_blank">nginx&#x4F7F;&#x7528;ssl&#x6A21;&#x5757;&#x914D;&#x7F6E;HTTPS&#x652F;&#x6301;</a></p>
 <h2 id="nginxconf">nginx.conf</h2>
 <ol>
 <li><p>http{} &#x5757;</p>
@@ -1703,7 +1713,190 @@ http {
 
 }
 </code></pre>
+<p>&#x5907;&#x4EFD;&#xFF1A;</p>
+<pre><code>#user  nobody;
+worker_processes  1;
 
+error_log  /var/ftp/logs/nginx/error.log;
+#error_log  logs/error.log  notice;
+#error_log  logs/error.log  info;
+
+pid        /run/nginx.pid;
+
+
+events {
+    worker_connections  1024;
+}
+
+
+http {
+    include       mime.types;
+    default_type  application/octet-stream;
+
+    #log_format  main  &apos;$remote_addr - $remote_user [$time_local] &quot;$request&quot; &apos;
+    #                  &apos;$status $body_bytes_sent &quot;$http_referer&quot; &apos;
+    #                  &apos;&quot;$http_user_agent&quot; &quot;$http_x_forwarded_for&quot;&apos;;
+
+    #access_log  logs/access.log  main;
+
+    sendfile        on;
+    #tcp_nopush     on;
+
+    #keepalive_timeout  0;
+    keepalive_timeout  65;
+
+    gzip  on;
+    #&#x4E0D;&#x538B;&#x7F29;&#x4E34;&#x754C;&#x503C;&#xFF0C;&#x5927;&#x4E8E;1K&#x7684;&#x624D;&#x538B;&#x7F29;&#xFF0C;&#x4E00;&#x822C;&#x4E0D;&#x7528;&#x6539;
+    gzip_min_length 1k;
+    #&#x8BBE;&#x7F6E;number&#x548C;size&#x7528;&#x4E8E;&#x538B;&#x7F29;&#x7684;&#x54CD;&#x5E94;&#x7F13;&#x51B2;&#x533A;&#x3002;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x7F13;&#x51B2;&#x533A;&#x5927;&#x5C0F;&#x7B49;&#x4E8E;&#x4E00;&#x4E2A;&#x5185;&#x5B58;&#x9875;&#x9762;&#x3002;&#x8FD9;&#x662F;4K&#x6216;8K&#xFF0C;&#x53D6;&#x51B3;&#x4E8E;&#x5E73;&#x53F0;&#x3002;
+    gzip_buffers 4 16k;
+    #&#x8BBE;&#x7F6E;&#x538B;&#x7F29;&#x54CD;&#x5E94;&#x6240;&#x9700;&#x7684;&#x6700;&#x5C0F;HTTP&#x8BF7;&#x6C42;&#x7248;&#x672C;&#x3002;
+    gzip_http_version 1.0;
+    #&#x538B;&#x7F29;&#x7EA7;&#x522B;&#xFF0C;1-10
+    gzip_comp_level 2;
+    #&#x538B;&#x7F29;&#x7684;&#x6587;&#x4EF6;&#x7C7B;&#x578B;
+    gzip_types text/plain application/javascript application/x-javascript text/css application/xml text/javascript application/x-httpd-php image/jpeg image/gif image/png application/font-woff;
+    #&#x5982;&#x679C;&#x6307;&#x4EE4;gzip&#xFF0C; gzip_static&#x6216;gunzip &#x5904;&#x4E8E;&#x6D3B;&#x52A8;&#x72B6;&#x6001;&#xFF0C; &#x5219;&#x542F;&#x7528;&#x6216;&#x7981;&#x7528;&#x63D2;&#x5165;&#x201C;Vary&#xFF1A;Accept-Encoding&#x201D;&#x54CD;&#x5E94;&#x6807;&#x5934;&#x5B57;&#x6BB5; &#x3002;
+    gzip_vary on;
+    #&#x7981;&#x7528;&#x201C;User-Agent&#x201D;&#x6807;&#x5934;&#x5B57;&#x6BB5;&#x4E0E;&#x4EFB;&#x4F55;&#x6307;&#x5B9A;&#x7684;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x5339;&#x914D;&#x7684;&#x8BF7;&#x6C42;&#x54CD;&#x5E94;&#x7684;gzip&#x3002;
+    gzip_disable &quot;MSIE [1-6]\.&quot;;
+
+    #&#x8981;&#x60F3;&#x5F00;&#x542F;nginx&#x7684;&#x7F13;&#x5B58;&#x529F;&#x80FD;&#xFF0C;&#x9700;&#x8981;&#x6DFB;&#x52A0;&#x6B64;&#x5904;&#x7684;&#x4E24;&#x884C;&#x5185;&#x5BB9;&#xFF01;
+#&#x8BBE;&#x7F6E;Web&#x7F13;&#x5B58;&#x533A;&#x540D;&#x79F0;&#x4E3A;cache_one,&#x5185;&#x5B58;&#x7F13;&#x5B58;&#x7A7A;&#x95F4;&#x5927;&#x5C0F;&#x4E3A;500M,&#x7F13;&#x5B58;&#x7684;&#x6570;&#x636E;&#x8D85;&#x8FC7;1&#x5929;&#x6CA1;&#x6709;&#x88AB;&#x8BBF;&#x95EE;&#x5C31;&#x81EA;&#x52A8;&#x6E05;&#x9664;;&#x8BBF;&#x95EE;&#x7684;&#x7F13;&#x5B58;&#x6570;&#x636E;,&#x786C;&#x76D8;&#x7F13;&#x5B58;&#x7A7A;&#x95F4;&#x5927;&#x5C0F;&#x4E3A;5G
+    proxy_cache_path /usr/local/nginx/proxy_cache_path levels=1:2 keys_zone=cache_one:500m inactive=1d max_size=5g;
+
+#&#x521B;&#x5EFA;&#x7F13;&#x5B58;&#x7684;&#x65F6;&#x5019;&#x53EF;&#x80FD;&#x751F;&#x6210;&#x4E00;&#x4E9B;&#x4E34;&#x65F6;&#x6587;&#x4EF6;&#x5B58;&#x653E;&#x7684;&#x4F4D;&#x7F6E;
+    proxy_temp_path /usr/local/nginx/proxy_temp_path;
+
+    proxy_connect_timeout 5;
+    proxy_read_timeout 60;
+    proxy_send_timeout 5;
+    proxy_buffer_size 16k;
+    proxy_buffers 4 64k;
+    proxy_busy_buffers_size 128k;
+    proxy_temp_file_write_size 128k;
+
+   #&#x8BBE;&#x5B9A;&#x5B9E;&#x9645;&#x7684;&#x670D;&#x52A1;&#x5668;&#x5217;&#x8868;
+    upstream zp_server1{
+        server localhost:8080;
+        #keepalive 2000;
+    }
+    server {
+        listen       80;
+        server_name  192.168.1.12;
+
+        #charset koi8-r;
+
+        #access_log  logs/host.access.log  main;
+
+        location / {
+            root   html;
+            index  index.html index.htm;
+        }
+
+    location /oa/ {
+        proxy_pass http://zp_server1;
+        #proxy_set_header Host $host:$server_port;
+    }
+
+    location /resources/ {
+        proxy_pass http://zp_server1;
+    }
+
+    #&#x56FE;&#x7247;&#x7F13;&#x5B58;
+    location ~* ^.+\.(ico|gif|jpg|jpeg|png)$ {
+            access_log   on;
+            expires      30d;
+    }
+    #&#x6587;&#x4EF6;&#x7F13;&#x5B58;
+    location ~* ^.+\.(css|js|txt|xml|swf|wav)$ {
+        access_log   on;
+        expires      24h;
+        proxy_redirect off;
+              proxy_set_header Host $host;
+              proxy_cache cache_one;
+              proxy_cache_valid 200 302 1h;
+              proxy_cache_valid 301 1d;
+              proxy_cache_valid any 1m;
+         add_header X-Cache $upstream_cache_status;
+            proxy_cache_key    $uri$is_args$args;
+    }
+    #html&#x7F13;&#x5B58;
+    location ~* ^.+\.(html|htm)$ {
+        access_log on;
+            expires 1h;
+    }
+        #error_page  404              /404.html;
+
+        # redirect server error pages to the static page /50x.html
+        #
+        error_page   500 502 503 504  /50x.html;
+        location = /50x.html {
+            root   html;
+        }
+
+        # proxy the PHP scripts to Apache listening on 127.0.0.1:80
+        #
+        #location ~ \.php$ {
+        #    proxy_pass   http://127.0.0.1;
+        #}
+
+        # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
+        #
+        #location ~ \.php$ {
+        #    root           html;
+        #    fastcgi_pass   127.0.0.1:9000;
+        #    fastcgi_index  index.php;
+        #    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;
+        #    include        fastcgi_params;
+        #}
+
+        # deny access to .htaccess files, if Apache&apos;s document root
+        # concurs with nginx&apos;s one
+        #
+        #location ~ /\.ht {
+        #    deny  all;
+        #}
+    }
+
+
+    # another virtual host using mix of IP-, name-, and port-based configuration
+    #
+    #server {
+    #    listen       8000;
+    #    listen       somename:8080;
+    #    server_name  somename  alias  another.alias;
+
+    #    location / {
+    #        root   html;
+    #        index  index.html index.htm;
+    #    }
+    #}
+
+
+    # HTTPS server
+
+    server {
+        listen       443 ssl;
+        server_name  localhost;
+
+        ssl_certificate      /usr/local/nginx/conf/server.crt;
+        ssl_certificate_key  /usr/local/nginx/conf/server.key;
+
+        ssl_session_cache    shared:SSL:1m;
+        ssl_session_timeout  5m;
+
+        ssl_ciphers  HIGH:!aNULL:!MD5;
+        ssl_prefer_server_ciphers  on;
+
+        location / {
+            root   html;
+            index  index.html index.htm;
+        }
+    }
+
+}
+</code></pre>
                                 
                                 </section>
                             
@@ -1746,7 +1939,7 @@ http {
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"nginx","level":"1.7.4","depth":2,"next":{"title":"vue.js","level":"1.7.5","depth":2,"path":"chapter6/vue.md","ref":"chapter6/vue.md","articles":[]},"previous":{"title":"koa.js","level":"1.7.3","depth":2,"path":"chapter6/koajs.md","ref":"chapter6/koajs.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter6/nginx.md","mtime":"2017-12-19T07:41:26.835Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-12-19T07:55:28.053Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"nginx","level":"1.7.4","depth":2,"next":{"title":"vue.js","level":"1.7.5","depth":2,"path":"chapter6/vue.md","ref":"chapter6/vue.md","articles":[]},"previous":{"title":"koa.js","level":"1.7.3","depth":2,"path":"chapter6/koajs.md","ref":"chapter6/koajs.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter6/nginx.md","mtime":"2017-12-20T09:18:36.479Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-12-20T09:55:28.586Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

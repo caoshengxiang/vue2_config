@@ -52,3 +52,5 @@ vue在ie8下运行的报错：
 这一块感觉比较多,单独总结[在这里](../chapter6/video.html)
 
 ## window server部署
+
+[这里](../chapter6/nginx.html)

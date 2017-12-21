@@ -2,6 +2,8 @@
 
 # koa.js
 
+[我的github上的一个用于学习项目](https://github.com/caoshengxiang/koa2-test)
+
 ## 检测node版本
 > $ node -v
   v8.0.0
@@ -29,15 +31,15 @@ Koa 必须使用 7.6 以上的版本。如果你的版本低于这个要求，�
 ```linux
 mongo // 进入数据库操作命令行
 show dbs:显示数据库列表
-show collections：显示当前数据库中的集合（类似关系数据库中的表）
+show collections 或　show tables：显示当前数据库中的集合（类似关系数据库中的表）
 show users：显示用户
 db 要检查当前选择的数据库使用命令 db
 
 use <db name>：切换当前数据库，这和MS-SQL里面的意思一样
 db.help()：显示数据库操作命令，里面有很多的命令
-db.foo.help()：显示集合操作命令，同样有很多的命令，foo指的是当前数据库下，一个叫foo的集合，并非真正意义上的命令
-db.foo.find()：对于当前数据库中的foo集合进行数据查找（由于没有条件，会列出所有数据）
-db.foo.find( { a : 1 } )：对于当前数据库中的foo集合进行查找，条件是数据中有一个属性叫a，且a的值为1
+db.colletionsName.help()：显示集合操作命令，同样有很多的命令，colletionsName指的是当前数据库下，一个叫colletionsName的集合，并非真正意义上的命令
+db.colletionsName.find()：对于当前数据库中的colletionsName集合进行数据查找（由于没有条件，会列出所有数据）
+db.colletionsName.find( { a : 1 } )：对于当前数据库中的colletionsName集合进行查找，条件是数据中有一个属性叫a，且a的值为1
 
 db.dropDatabase() 命令用于删除现有的数据库。
 ```

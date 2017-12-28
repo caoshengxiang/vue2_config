@@ -80,7 +80,9 @@ function svg2canvas() {
 
    var context = canvas.getContext('2d');  //取得画布的2d绘图上下文
    context.drawImage(img, 0, 0);
-
+ // 这里可能会遇到一个小问题,drawImage并没有把图片绘制上去,[ps:这里我找了很久的原因]
+ // 因为img.src = data 时地址并没有加载到src导致绘制失败
+ // 解决使用img.onload = function(){context.drawImage(img, 0, 0);}, 等img加载完成之后再绘制
    document.body.appendChild(canvas);
 }
 svg2canvas();

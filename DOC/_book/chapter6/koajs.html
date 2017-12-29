@@ -1272,6 +1272,7 @@
                                 <link rel="stylesheet" href="../static/styles.css">
 
 <h1 id="koajs">koa.js</h1>
+<p><a href="https://github.com/caoshengxiang/koa2-test" target="_blank">&#x6211;&#x7684;github&#x4E0A;&#x7684;&#x4E00;&#x4E2A;&#x7528;&#x4E8E;&#x5B66;&#x4E60;&#x9879;&#x76EE;</a></p>
 <h2 id="&#x68C0;&#x6D4B;node&#x7248;&#x672C;">&#x68C0;&#x6D4B;node&#x7248;&#x672C;</h2>
 <blockquote>
 <p>$ node -v
@@ -1293,15 +1294,15 @@
 <p><code>service mongodb stop</code></p>
 <pre><code class="lang-linux">mongo // &#x8FDB;&#x5165;&#x6570;&#x636E;&#x5E93;&#x64CD;&#x4F5C;&#x547D;&#x4EE4;&#x884C;
 show dbs:&#x663E;&#x793A;&#x6570;&#x636E;&#x5E93;&#x5217;&#x8868;
-show collections&#xFF1A;&#x663E;&#x793A;&#x5F53;&#x524D;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x7684;&#x96C6;&#x5408;&#xFF08;&#x7C7B;&#x4F3C;&#x5173;&#x7CFB;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x7684;&#x8868;&#xFF09;
+show collections &#x6216;&#x3000;show tables&#xFF1A;&#x663E;&#x793A;&#x5F53;&#x524D;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x7684;&#x96C6;&#x5408;&#xFF08;&#x7C7B;&#x4F3C;&#x5173;&#x7CFB;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x7684;&#x8868;&#xFF09;
 show users&#xFF1A;&#x663E;&#x793A;&#x7528;&#x6237;
 db &#x8981;&#x68C0;&#x67E5;&#x5F53;&#x524D;&#x9009;&#x62E9;&#x7684;&#x6570;&#x636E;&#x5E93;&#x4F7F;&#x7528;&#x547D;&#x4EE4; db
 
 use &lt;db name&gt;&#xFF1A;&#x5207;&#x6362;&#x5F53;&#x524D;&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x8FD9;&#x548C;MS-SQL&#x91CC;&#x9762;&#x7684;&#x610F;&#x601D;&#x4E00;&#x6837;
 db.help()&#xFF1A;&#x663E;&#x793A;&#x6570;&#x636E;&#x5E93;&#x64CD;&#x4F5C;&#x547D;&#x4EE4;&#xFF0C;&#x91CC;&#x9762;&#x6709;&#x5F88;&#x591A;&#x7684;&#x547D;&#x4EE4;
-db.foo.help()&#xFF1A;&#x663E;&#x793A;&#x96C6;&#x5408;&#x64CD;&#x4F5C;&#x547D;&#x4EE4;&#xFF0C;&#x540C;&#x6837;&#x6709;&#x5F88;&#x591A;&#x7684;&#x547D;&#x4EE4;&#xFF0C;foo&#x6307;&#x7684;&#x662F;&#x5F53;&#x524D;&#x6570;&#x636E;&#x5E93;&#x4E0B;&#xFF0C;&#x4E00;&#x4E2A;&#x53EB;foo&#x7684;&#x96C6;&#x5408;&#xFF0C;&#x5E76;&#x975E;&#x771F;&#x6B63;&#x610F;&#x4E49;&#x4E0A;&#x7684;&#x547D;&#x4EE4;
-db.foo.find()&#xFF1A;&#x5BF9;&#x4E8E;&#x5F53;&#x524D;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x7684;foo&#x96C6;&#x5408;&#x8FDB;&#x884C;&#x6570;&#x636E;&#x67E5;&#x627E;&#xFF08;&#x7531;&#x4E8E;&#x6CA1;&#x6709;&#x6761;&#x4EF6;&#xFF0C;&#x4F1A;&#x5217;&#x51FA;&#x6240;&#x6709;&#x6570;&#x636E;&#xFF09;
-db.foo.find( { a : 1 } )&#xFF1A;&#x5BF9;&#x4E8E;&#x5F53;&#x524D;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x7684;foo&#x96C6;&#x5408;&#x8FDB;&#x884C;&#x67E5;&#x627E;&#xFF0C;&#x6761;&#x4EF6;&#x662F;&#x6570;&#x636E;&#x4E2D;&#x6709;&#x4E00;&#x4E2A;&#x5C5E;&#x6027;&#x53EB;a&#xFF0C;&#x4E14;a&#x7684;&#x503C;&#x4E3A;1
+db.colletionsName.help()&#xFF1A;&#x663E;&#x793A;&#x96C6;&#x5408;&#x64CD;&#x4F5C;&#x547D;&#x4EE4;&#xFF0C;&#x540C;&#x6837;&#x6709;&#x5F88;&#x591A;&#x7684;&#x547D;&#x4EE4;&#xFF0C;colletionsName&#x6307;&#x7684;&#x662F;&#x5F53;&#x524D;&#x6570;&#x636E;&#x5E93;&#x4E0B;&#xFF0C;&#x4E00;&#x4E2A;&#x53EB;colletionsName&#x7684;&#x96C6;&#x5408;&#xFF0C;&#x5E76;&#x975E;&#x771F;&#x6B63;&#x610F;&#x4E49;&#x4E0A;&#x7684;&#x547D;&#x4EE4;
+db.colletionsName.find()&#xFF1A;&#x5BF9;&#x4E8E;&#x5F53;&#x524D;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x7684;colletionsName&#x96C6;&#x5408;&#x8FDB;&#x884C;&#x6570;&#x636E;&#x67E5;&#x627E;&#xFF08;&#x7531;&#x4E8E;&#x6CA1;&#x6709;&#x6761;&#x4EF6;&#xFF0C;&#x4F1A;&#x5217;&#x51FA;&#x6240;&#x6709;&#x6570;&#x636E;&#xFF09;
+db.colletionsName.find( { a : 1 } )&#xFF1A;&#x5BF9;&#x4E8E;&#x5F53;&#x524D;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x7684;colletionsName&#x96C6;&#x5408;&#x8FDB;&#x884C;&#x67E5;&#x627E;&#xFF0C;&#x6761;&#x4EF6;&#x662F;&#x6570;&#x636E;&#x4E2D;&#x6709;&#x4E00;&#x4E2A;&#x5C5E;&#x6027;&#x53EB;a&#xFF0C;&#x4E14;a&#x7684;&#x503C;&#x4E3A;1
 
 db.dropDatabase() &#x547D;&#x4EE4;&#x7528;&#x4E8E;&#x5220;&#x9664;&#x73B0;&#x6709;&#x7684;&#x6570;&#x636E;&#x5E93;&#x3002;
 </code></pre>
@@ -1371,7 +1372,7 @@ db.dropDatabase() &#x547D;&#x4EE4;&#x7528;&#x4E8E;&#x5220;&#x9664;&#x73B0;&#x670
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"koa.js","level":"1.7.3","depth":2,"next":{"title":"nginx","level":"1.7.4","depth":2,"path":"chapter6/nginx.md","ref":"chapter6/nginx.md","articles":[]},"previous":{"title":"axios","level":"1.7.2","depth":2,"path":"chapter6/axios.md","ref":"chapter6/axios.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter6/koajs.md","mtime":"2017-12-19T03:07:36.105Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-12-20T09:55:28.586Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"koa.js","level":"1.7.3","depth":2,"next":{"title":"nginx","level":"1.7.4","depth":2,"path":"chapter6/nginx.md","ref":"chapter6/nginx.md","articles":[]},"previous":{"title":"axios","level":"1.7.2","depth":2,"path":"chapter6/axios.md","ref":"chapter6/axios.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter6/koajs.md","mtime":"2017-12-21T05:50:06.962Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-12-29T02:14:13.307Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

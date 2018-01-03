@@ -103,3 +103,22 @@ let re = /^[+-]?\d+(\.\d+)?$|^$|^(\d+|\-){7,}$/
 if (re.test(mum))
 ```
 
+### event对象
+
+#### 坐标
+
+1. event.clientX、event.clientY
+
+鼠标相对于浏览器窗口可视区域的X，Y坐标（窗口坐标）
+
+2. event.pageX、event.pageY
+
+类似于event.clientX、event.clientY，但它们使用的是文档坐标而非窗口坐标
+
+3. event.offsetX、event.offsetY
+
+鼠标相对于事件源元素（srcElement）的X,Y坐标
+
+4. event.screenX、event.screenY
+
+鼠标相对于用户显示器屏幕左上角的X,Y坐标

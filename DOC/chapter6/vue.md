@@ -37,6 +37,21 @@ bus.$on('id-selected', function (id) {
   // ...
 })
 ```
+
+### 这里有个关于$emit问题
+
+子组件同$emit传递数据上来,`this.$emit('data', 'value')`
+
+父组件通过@监听,`@data="getData"`
+
+在getData方法中能获取到`value`
+
+这里有个需求,需要在`getData`方法传递其他数据,再增加一个回调函数解决如下:
+
+```js
+@data="value => getData(value, otherData)"
+```
+
 * vuex
 
 state,getter,mutation,action,module

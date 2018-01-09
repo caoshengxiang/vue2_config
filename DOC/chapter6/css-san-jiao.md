@@ -27,3 +27,12 @@
 
   border-left: 50px solid transparent; // 50px,右点到底边中点的距离
 ```
+
+
+## 带阴影
+
+<iframe width="100%" height="300" src="//jsfiddle.net/caoshengxiang/26m4Lhdo/5/embedded/result,html,css/" allowpaymentrequest allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+
+其他方法:
+
+<iframe width="100%" height="300" src="//jsfiddle.net/caoshengxiang/rqee3hL7/2/embedded/result,html,css/" allowpaymentrequest allowfullscreen="allowfullscreen" frameborder="0"></iframe>

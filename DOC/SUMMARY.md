@@ -61,6 +61,7 @@
     * [布局方案总结](chapter6/css-buju.md)
     * [css-浏览器表单自动填充](chapter6/css-form.md)
     * [css-一行显示,换行,多行显示](chapter6/css-line.md)
+    * [css-css实现三角绘制](chapter6/css-san-jiao.md)
     * [js 模块化](chapter6/js-module.md)
     * [ubuntu下卸载webstorm](chapter6/ubuntu-uninstall.md)
     * [颜色代码理解](chapter6/color-code.md)

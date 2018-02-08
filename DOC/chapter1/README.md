@@ -15,5 +15,6 @@
 6. axios
 ```
 
+项目地址: [https://github.com/caoshengxiang/vue2_config](https://github.com/caoshengxiang/vue2_config)
 
 

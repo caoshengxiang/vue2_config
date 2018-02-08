@@ -1,4 +1,4 @@
-.icon { background: url(sprites.png) no-repeat; display: inline-block}
+.icon-old { background: url(sprites.png) no-repeat; display: inline-block}
 .exitFull2-white-32 { width: 32px; height: 32px; background-position: -244px 0; }
 .exitFull-white-32 { width: 32px; height: 32px; background-position: -277px 0; }
 .forward-white-32 { width: 32px; height: 32px; background-position: -310px 0; }
@@ -12,3 +12,15 @@
 .reload-white-32 { width: 48px; height: 32px; background-position: -195px 0; }
 .rewind-white-32 { width: 32px; height: 32px; background-position: -294px -33px; }
 .volume-white-32 { width: 32px; height: 32px; background-position: -327px -33px; }
+
+.icon { background: url(icon_sprites.png) no-repeat; display: inline-block}
+.Line-bg { width: 308px; height: 3px; background-position: 0 -38px; }
+.ic_Play_n { width: 35px; height: 37px; background-position: -123px 0; }
+.ic_Play_s { width: 31px; height: 34px; background-position: 0 0; }
+.ic_down_n { width: 26px; height: 14px; background-position: -69px 0; }
+.ic_down_s { width: 26px; height: 14px; background-position: -96px 0; }
+.ic_next_n { width: 26px; height: 14px; background-position: -159px 0; }
+.ic_next_s { width: 26px; height: 14px; background-position: -159px -15px; }
+.ic_point_n { width: 36px; height: 36px; background-position: -32px 0; }
+.ic_size_n { width: 22px; height: 22px; background-position: -69px -15px; }
+.ic_size_s { width: 22px; height: 24px; background-position: -186px 0; }

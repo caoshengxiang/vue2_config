@@ -146,3 +146,13 @@ node: {
 最后直接在index.html的head中引入,暴露全局对象.行的通.
 
 目前也只能想到这种方法解决.感觉到这种方法不太好.容易有太多全局变量导致冲突.但向遇到只能全局引入的还没想到更好的方法.就比如:三方登录这些需要引入jkd有什么好方法.
+
+## 视频截图
+
+`Uncaught SecurityError: Failed to execute 'toDataURL' on 'HTMLCanvasElement': Tainted canvases may not be exported.`
+
+是由于视频文件所在的域和图片和页面所在域不同，出现跨域传输的问题。
+
+解决方案：
+
+将视频文件放到页面所在域下。

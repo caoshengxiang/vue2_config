@@ -1,0 +1,14 @@
+.icon { background: url(sprites.png) no-repeat; display: inline-block}
+.exitFull2-white-32 { width: 32px; height: 32px; background-position: -244px 0; }
+.exitFull-white-32 { width: 32px; height: 32px; background-position: -277px 0; }
+.forward-white-32 { width: 32px; height: 32px; background-position: -310px 0; }
+.full-white-32 { width: 32px; height: 32px; background-position: -343px 0; }
+.loading2-blue-64 { width: 64px; height: 64px; background-position: 0 0; }
+.loading-blue-64 { width: 64px; height: 64px; background-position: -65px 0; }
+.mute-white-32 { width: 32px; height: 32px; background-position: -195px -33px; }
+.pause-white-32 { width: 32px; height: 32px; background-position: -228px -33px; }
+.play2-blue-64 { width: 64px; height: 64px; background-position: -130px 0; }
+.play-white-32 { width: 32px; height: 32px; background-position: -261px -33px; }
+.reload-white-32 { width: 48px; height: 32px; background-position: -195px 0; }
+.rewind-white-32 { width: 32px; height: 32px; background-position: -294px -33px; }
+.volume-white-32 { width: 32px; height: 32px; background-position: -327px -33px; }

@@ -5,40 +5,56 @@
 1. props
 Src  视频地址
 poster  封面
-controls todo 支持原生控制栏
+controls todo 原生控制栏
 
 2. slot
 
 3. event
-currentTime 但前播放时间
+mark todo 点击标注（返回播放时间）
 
 4. 问题
+todo 播放加载逻辑需整理， isPlaying为true,isLoading才能为true
 todo 声音条样式
 todo 时间线鼠标划过的,虚线,时间提示
-todo 截图,视频跨域截图问题
-todo 组件外部控制,如播放,修改播放地址,目前想到的就是props传,watch监听非默认值执行.父组件最后改回默认值
-todo 控制栏可配置,或定制
+todo 截图
+
 -->
 
 <template>
   <!--播放器-->
   <div>
     <!--播放器-->
-    <div id="playBox" :class="{'full-screen': isFullScreen && !sysObj.ie, 'ie-full-screen': isFullScreen && sysObj.ie}">
-      <video :id="vId"
-             ref="video"
-             :poster="poster"
-             @canplay="vCanplay"
-             @play="handlePlay"
-             @playing="handlePlaying"
-             @pause="handlepause"
-             @waiting="handleWaiting"
-             @ended="handleEnded"
-      >
-        <source :src="src">
-        您的浏览器版本太低,请及时更新
-      </video>
-
+    <div id="playBox" :class="{'full-screen': isFullScreen}">
+      <div style="display: flex">
+        <div style="width: 50%;box-sizing: border-box">
+          <video :id="vId"
+                 :poster="poster"
+                 @canplay="vCanplay"
+                 @play="handlePlay"
+                 @playing="handlePlaying"
+                 @pause="handlepause"
+                 @waiting="handleWaiting"
+                 @ended="handleEnded"
+          >
+            <source :src="src[0]">
+            您的浏览器版本太低,请及时更新
+          </video>
+        </div>
+        <div style="width: 50%;box-sizing: border-box">
+          <video :id="vId2"
+                 :poster="poster"
+                 @canplay="vCanplay"
+                 @play="handlePlay"
+                 @playing="handlePlaying"
+                 @pause="handlepause"
+                 @waiting="handleWaiting"
+                 @ended="handleEnded"
+          >
+            <source :src="src[1]">
+            您的浏览器版本太低,请及时更新
+          </video>
+        </div>
+      </div>
       <div v-if="barShow" class="control-bar">
         <!--靠左-->
         <div class="l">
@@ -55,31 +71,30 @@ todo 控制栏可配置,或定制
           <span class="in-block">
             <i style="transform: scale(0.9)" @click="forwardTime(forwardTimeSeconds)" class="icon ic_next_n"></i>
           </span>
-          <span style="font-size: 12px;">
+          <span style="font-size: 12px">
               <span>{{currentFormatTime}}</span>/<span>{{durationFormatTime}}</span>
           </span>
         </div>
         <!--靠右-->
         <div class="r">
-          <span>
-          <i style="transform: scale(0.65)" v-if="!isMuted" @click="setMuted(true)"
-             class="icon-old volume-white-32"></i>
-          <i style="transform: scale(0.55)" v-if="isMuted" @click="setMuted(false)"
-             class="icon-old mute-white-32"></i>
-          </span>
-          <span>
-            <input style="position: relative;top: -2px;" type="range" min="0" max="100" v-model="volumeValue"
-                   @change="setVolume"/>
-          </span>
-          <span style="position: relative;bottom: 2px;font-size: 12px;">
-          <a @click="currentTimeFlag">截图</a>
-          </span>
+          <!--<span>-->
+          <!--<i style="transform: scale(0.8)" v-if="!isMuted" @click="setMuted(true)"-->
+          <!--class="icon volume-white-32"></i>-->
+          <!--<i style="transform: scale(0.7)" v-if="isMuted" @click="setMuted(false)"-->
+          <!--class="icon mute-white-32"></i>-->
+          <!--</span>-->
+          <!--<span>-->
+          <!--<input type="range" min="0" max="100" v-model="volumeValue" @change="setVolume"/>-->
+          <!--</span>-->
+          <!--<span style="position: relative;bottom: 2px;font-size: 12px;">-->
+          <!--<a @click="currentTimeFlag">标注</a>-->
+          <!--</span>-->
 
           <span class="speed-b" style="position: relative;bottom: 2px;font-size: 12px;">
                           <a @click="showSpeed = !showSpeed" class="sp-btn">速度</a>
                           <div
-                              class="speed-b-set"
-                              :class="{'speed-b-set-s': showSpeed}"
+                            class="speed-b-set"
+                            :class="{'speed-b-set-s': showSpeed}"
                           >
                               <ul>
                                   <li @click="speed(0.5)">0.5X</li>
@@ -100,13 +115,13 @@ todo 控制栏可配置,或定制
         <!---->
       </div>
       <!--loading and play-->
-      <div class="play-inter" :class="{paused: !isPlaying}" @click="mousePlay">
-        <i v-if="!isPlaying" @click="vPlay" class="icon-old play2-blue-64"></i>
-        <div v-if="isPlaying && isLoading" class="loader loader-1">
-          <div class="loader-outter"></div>
-          <div class="loader-inner"></div>
-        </div>
-      </div>
+      <!--<div class="play-inter" :class="{paused: !isPlaying}" @click="mousePlay">-->
+        <!--<i v-if="!isPlaying" @click="vPlay" class="icon play2-blue-64"></i>-->
+        <!--<div v-if="isPlaying && isLoading" class="loader loader-1">-->
+          <!--<div class="loader-outter"></div>-->
+          <!--<div class="loader-inner"></div>-->
+        <!--</div>-->
+      <!--</div>-->
       <!--时间线-->
       <div class="play-time" v-if="barShow" @click="handleTimeLine($event)" id="play-time">
         <!--<progress style="height: 4px;width: 100%;" :value="currentTime" :max="duration"></progress>-->
@@ -130,7 +145,9 @@ todo 控制栏可配置,或定制
     data () {
       return {
         vId: 'player',
+        vId2: 'player2',
         videoDom: '', // 获取video标签
+        videoDom2: '', // 获取video标签
         barShow: true, // 自定义控制条是否显示
         durationFormatTime: '00:00:00', // 格式化后的总时间hh:mm:ss
         currentFormatTime: '00:00:00', // 格式化后的但前播放时间
@@ -139,77 +156,58 @@ todo 控制栏可配置,或定制
         duration: 0, // 总时间
         currentTime: 0, // 播放当前时间
         currentBuffer: [], // 缓冲区
-        timer: '', // 计时器
+        timer: '',
         isPlaying: false, // 正在播放
         isMuted: false, // 静音
         showSpeed: false, // 展示播放速度bar
         isLoading: false, // 加载中
         forwardTimeSeconds: 5, // 快进快退时间单位,5S
-        sysObj: '',
       }
     },
     props: {
-      src: { // 地址
+      src: {
+        default: [],
+        type: Array,
+      },
+      poster: {
         default: '',
         type: String,
       },
-      poster: { // 视频封面
-        default: '',
-        type: String,
-      },
-      changeSrc: { // 修改地址
+      changeSrc: {
         default: false,
         type: Boolean,
       },
-      jumpTime: { // 修改播放时间
+      jumpTime: {
         default: 0,
-        type: Number,
-      },
+        type: Number
+      }
     },
     watch: {
-      currentTime (d) { // 获取当前播放时间
+      currentTime (d) {
         this.currentFormatTime = this.formatTime(d)
-        this.$emit('currentTime', d)
       },
-      changeSrc (d) { // 外部改变播放地址
+      changeSrc (d) {
         if (d === true) {
           this.vLoad()
           this.vPlay()
         }
       },
-      jumpTime (time) { // 跳转播放时间
+      jumpTime (time) {
         if (time < this.duration && time >= 0) {
           this.videoDom.currentTime = time
+          this.videoDom2.currentTime = time
           this.currentTime = this.videoDom.currentTime
         }
-      },
+      }
     },
     methods: {
-      checkBrower () {
-        let Sys = {}
-        let ua = navigator.userAgent.toLowerCase()
-
-        if (window.ActiveXObject) { // 针对IE
-          Sys.ie = ua.match(/msie ([\d.]+)/)[1]
-        } else if (ua.indexOf('firefox') > -1) {
-          Sys.firefox = ua.match(/firefox\/([\d.]+)/)[1]
-        } else if (ua.indexOf('chrome') > -1) {
-          Sys.chrome = ua.match(/chrome\/([\d.]+)/)[1]
-        } else if (window.opera) {
-          Sys.opera = ua.match(/opera.([\d.]+)/)[1]
-        } else if (window.openDatabase) {
-          Sys.safari = ua.match(/version\/([\d.]+)/)[1]
-        } else if (!!window.ActiveXObject || ('ActiveXObject' in window)) {
-          Sys.ie = true
-        }
-        return Sys
-      },
       videoInit () {
         this.videoDom = document.getElementById(this.vId)
+        this.videoDom2 = document.getElementById(this.vId2)
         this.barShow = true
       },
       vCanplay () {
-        console.log(this.videoDom.canPlayType('video/mp4; codecs="avc1.4D401E, mp4a.40.2"'))
+        // console.log(this.videoDom.canPlayType('video/mp4; codecs="avc1.4D401E, mp4a.40.2"'))
         this.duration = this.videoDom.duration // todo 可能在流视频动态获取总时间,待测
         this.durationFormatTime = this.formatTime(this.duration) // todo 同
       },
@@ -232,57 +230,36 @@ todo 控制栏可配置,或定制
       },
       vPlay () { // 播放
         this.videoDom.play()
+        this.videoDom2.play()
         // this.isPlaying = true
       },
       vPause () { // 暂停
         this.videoDom.pause()
+        this.videoDom2.pause()
         this.isPlaying = false
         this.isLoading = false
       },
       vLoad () {
         this.videoDom.load()
+        this.videoDom2.load()
       },
       vExitFullScreen3 () { // 退出全屏
         this.isFullScreen = false
-        if (this.sysObj.ie) {
-          // let docElm = document.getElementById('playBox')
-          if (document.exitFullscreen) {
-            document.exitFullscreen()
-          } else if (document.msExitFullscreen) {
-            document.msExitFullscreen()
-          } else if (document.mozCancelFullScreen) {
-            document.mozCancelFullScreen()
-          } else if (document.webkitCancelFullScreen) {
-            document.webkitCancelFullScreen()
-          }
-        }
       },
       vFullScreen3 () { // 全屏
         this.isFullScreen = true
-        if (this.sysObj.ie) {
-          let docElm = document.getElementById('playBox')
-
-          if (docElm.requestFullscreen) {
-            docElm.requestFullscreen()
-          } else if (docElm.msRequestFullscreen) {
-            docElm.msRequestFullscreen()
-          } else if (docElm.mozRequestFullScreen) {
-            docElm.mozRequestFullScreen()
-          } else if (docElm.webkitRequestFullScreen) {
-            docElm.webkitRequestFullScreen()
-          }
-          docElm.style.height = '100%'
-        }
       },
       // vLoad () {
       //   this.videoDom.load()
       // },
       speed (n) { // 播放速度
         this.videoDom.playbackRate = n
+        this.videoDom2.playbackRate = n
         this.showSpeed = false
       },
       setVolume () { // 设置声音
         this.videoDom.volume = this.volumeValue / 100
+        this.videoDom2.volume = this.volumeValue / 100
       },
       intervalTime () { // 周期获取当前播放时间
         this.timer = setInterval(() => {
@@ -299,12 +276,17 @@ todo 控制栏可配置,或定制
           }
         }, 100)
       },
+      currentTimeFlag () { // 当前播放时间
+        alert('当前播放时间（s）：' + this.currentTime)
+      },
       setMuted (bl) {
         this.videoDom.muted = bl
+        this.videoDom2.muted = bl
         this.isMuted = bl
       },
       forwardTime (t) { // 快进快退
         this.videoDom.currentTime += t
+        this.videoDom2.currentTime += t
         this.currentTime = this.videoDom.currentTime
       },
       formatTime (min) { // 格式火时间
@@ -328,25 +310,12 @@ todo 控制栏可配置,或定制
         this.currentTime = this.videoDom.currentTime
         this.vPlay() // 播放
       },
-      mousePlay () { // 点击视频播放
+      mousePlay () {
         if (this.isPlaying) {
           this.vPause()
         } else {
           this.vPlay()
         }
-      },
-      currentTimeFlag () { // 当前播放时间
-        // alert('当前播放时间（s）：' + this.currentTime)
-        this.captureImage(0.4)
-      },
-      captureImage (scale) { // 截图, scale视频比例
-        let video = this.$refs['video']
-        let canvas = document.createElement('canvas')
-
-        canvas.width = video.videoWidth * scale
-        canvas.height = video.videoHeight * scale
-        canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height)
-        this.$emit('screenshot', canvas.toDataURL('image/png'))
       },
     },
     mounted () {
@@ -367,7 +336,6 @@ todo 控制栏可配置,或定制
           default:
         }
       }
-      this.sysObj = this.checkBrower()
     },
   }
 </script>
@@ -392,6 +360,7 @@ todo 控制栏可配置,或定制
     cursor: pointer;
   }
 
+  /*todo 这里有个问题,父元素有定位,fixed会相对于该定位*/
   .full-screen {
     position: fixed !important;
     top: 0;
@@ -400,25 +369,6 @@ todo 控制栏可配置,或定制
     right: 0;
     z-index: 99999;
     background-color: #000;
-    video {
-      width: 100% !important;
-      height: 100% !important;
-      border: 1px solid
-    }
-    .control-bar {
-      position: absolute;
-      bottom: 0;
-      padding: 0 10px;
-    }
-    .play-inter {
-      border: 0;
-    }
-  }
-
-  .ie-full-screen {
-    background-color: #000;
-    width: 100%;
-    height: 100%;
     video {
       width: 100% !important;
       height: 100% !important;

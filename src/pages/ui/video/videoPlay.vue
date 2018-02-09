@@ -26,6 +26,7 @@
     data () {
       return {
         videoSrc: 'http://musicdata.baidu.com/data2/video/567290761/ba857497bf5a3ad503c0fedd1aeb58c0/567290761.mp4',
+        // videoSrc: '/data2/video/567290761/ba857497bf5a3ad503c0fedd1aeb58c0/567290761.mp4',
         videoSrc3: 'http://d2zihajmogu5jn.cloudfront.net/bipbop-advanced/bipbop_16x9_variant.m3u8',
         testVideoSrc,
         Image: '',
@@ -43,7 +44,7 @@
 
         ALink.href = imgBase64
         ALink.download = '截图'
-        // IMG.crossOrigin = "anonymous";
+        IMG.crossOrigin = 'anonymous'
         IMG.src= imgBase64
         ALink.appendChild(IMG)
         this.$refs['output'].appendChild(ALink)

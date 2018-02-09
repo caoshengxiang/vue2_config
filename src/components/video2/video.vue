@@ -135,7 +135,8 @@ todo 添加视频end事件的样式
                 currentTime: 0,
                 timer: '',
                 isFullScreen: false,
-                videoSrc: 'http://musicdata.baidu.com/data2/video/567290761/ba857497bf5a3ad503c0fedd1aeb58c0/567290761.mp4',
+                videoSrc: '/data2/video/567290761/ba857497bf5a3ad503c0fedd1aeb58c0/567290761.mp4',
+                // videoSrc: 'http://musicdata.baidu.com/data2/video/567290761/ba857497bf5a3ad503c0fedd1aeb58c0/567290761.mp4',
                 videoSrc3: 'http://d2zihajmogu5jn.cloudfront.net/bipbop-advanced/bipbop_16x9_variant.m3u8',
                 isPlaying: false, // 正在播放
                 isMuted: false, // 静音

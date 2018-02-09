@@ -147,7 +147,7 @@ node: {
 
 目前也只能想到这种方法解决.感觉到这种方法不太好.容易有太多全局变量导致冲突.但向遇到只能全局引入的还没想到更好的方法.就比如:三方登录这些需要引入jkd有什么好方法.
 
-## 视频截图
+## 视频截图中的问题
 
 `Uncaught SecurityError: Failed to execute 'toDataURL' on 'HTMLCanvasElement': Tainted canvases may not be exported.`
 
@@ -155,4 +155,5 @@ node: {
 
 解决方案：
 
-将视频文件放到页面所在域下。
+1. 将视频文件放到页面所在域下。
+2. 利用nginx方向代理跨域

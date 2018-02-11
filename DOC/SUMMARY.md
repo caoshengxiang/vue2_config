@@ -2,9 +2,9 @@
 
 * [Introduction](README.md)
 * [一章 介绍](chapter1/README.md)
-* [二章 webpack配置](chapter2/README.md)
-    * [2.1节](chapter2/content1.md)
-    * [2.2节](chapter2/content2.md)
+* [二章 构建工具](chapter2/README.md)
+    * [wepack配置](chapter2/webpack.md)
+    * [parcel配置](chapter2/parcel.md)
 * [三章 项目介绍和运行](chapter3/README.md)
 * [四章 通用](chapter4/README.md)
     * [js 函数库](chapter4/jsFun.md)

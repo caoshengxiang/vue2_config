@@ -77,6 +77,9 @@ export function getQueryObj () {
 * @return {Obj} yy-MM-dd hh:mm:ss
 * */
 export function formatDateTime (Timestamp) {
+  if (!Timestamp) {
+    return ''
+  }
   let date = new Date(Timestamp)
   let y = date.getFullYear()
 

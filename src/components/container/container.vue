@@ -1,12 +1,11 @@
 <!--
   布局容器
-  使用flex布局
-
+  使用flex布局，注意兼容性
   1.　prop
-  headerStyle
-asideStyle
-footerStyle
-
+    headerStyle
+    asideStyle
+    footerStyle
+    mainStyle
   2. slot
     header
     aside
@@ -14,14 +13,10 @@ footerStyle
     mainTop 高度默认是内容高度
     mainBottom 高度默认是内容高度
     footer
-
   3. event
-
-
-  // todo 考虑默认宽高为0还是固定宽高，更具后期项目看那个更合适
+  // todo 考虑默认宽高为0还是固定宽高，根具后期项目看那个更合适
   使用列子：https://caoshengxiang.github.io/vue2_config/chapter5/container.html
 -->
-
 
 <template>
   <div class="container">
@@ -32,7 +27,7 @@ footerStyle
       <div class="aside" :style="asideStyle">
         <slot name="aside"></slot>
       </div>
-      <div style="" class="main">
+      <div style="" class="main" :style="mainStyle">
         <div class="top">
           <slot name="mainTop"></slot>
         </div>
@@ -75,6 +70,12 @@ footerStyle
           return {
             height: '80px',
           }
+        },
+      },
+      mainStyle: {
+        type: Object,
+        default () {
+          return {}
         },
       },
     },

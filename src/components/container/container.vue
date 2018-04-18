@@ -1,6 +1,6 @@
 <!--
   布局容器
-  使用flex不布局
+  使用flex布局
 
   1.　prop
   headerStyle
@@ -19,6 +19,7 @@ footerStyle
 
 
   // todo 考虑默认宽高为0还是固定宽高，更具后期项目看那个更合适
+  使用列子：https://caoshengxiang.github.io/vue2_config/chapter5/container.html
 -->
 
 

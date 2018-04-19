@@ -28,6 +28,7 @@ github: https://github.com/caoshengxiang/vue2_config.git
 ### 目录说明
 ```
 * sales
+  - bash // 脚本文件目录
   - build //
   - config
   - dist
